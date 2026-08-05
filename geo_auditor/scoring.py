@@ -4,9 +4,10 @@ Every score is computed from visible components. No magic numbers —
 the report shows exactly how each point was earned or lost.
 
 Pillar weights (sum to 1.0):
-  Crawlability  = 25%   (if you're blocked, nothing else matters)
-  Answerability = 45%   (the heart of GEO — does content answer questions?)
-  Structure     = 30%   (can machines parse and understand the content?)
+  Crawlability  = 20%   (if you're blocked, nothing else matters)
+  Answerability = 25%   (does content answer questions?)
+  Structure     = 20%   (can machines parse the content?)
+  Brand Recall  = 35%   (do AI engines actually know and mention you?)
 """
 
 from __future__ import annotations

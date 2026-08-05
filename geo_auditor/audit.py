@@ -20,7 +20,7 @@ async def run_audit(url: str, output_dir=None) -> AuditResult:
     """Run a full GEO audit on the given URL.
 
     1. Crawls the site (robots.txt, sitemap, key pages)
-    2. Runs all three analyzers
+    2. Runs all four analyzers
     3. Computes scores
     4. Builds the action plan
     5. Returns the AuditResult

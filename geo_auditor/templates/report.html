@@ -336,7 +336,7 @@
     {% for ps in score.pillar_scores %}
     <div class="pillar-breakdown">
       <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
-        {{ ps.pillar.value|title }}: {{ ps.score }}/100 (weight: {{ (ps.weight * 100)|round(0)|int }}%)
+        {{ ps.pillar.value|replace("_"," ")|title }}: {{ ps.score }}/100 (weight: {{ (ps.weight * 100)|round(0)|int }}%)
       </h3>
       <ul class="component-list">
         {% for c in ps.components %}

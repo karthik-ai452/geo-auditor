@@ -190,24 +190,13 @@ unless you genuinely have no knowledge of the topic. List specific companies, \
 products, and tools when asked for recommendations or comparisons.
 """
 
-BRAND_RECALL_QUESTION_TEMPLATES = [
-    # Generic question that tests overall brand awareness
-    "What is {brand}?",
-    # Category question — does the brand come up when asked about its space?
-    "What are the best {category} platforms for businesses?",
-    "What are the top {category} companies or tools?",
-    # Competitor question — does the brand get mentioned alongside competitors?
-    "Can you compare the top {category} platforms and their key features?",
-    "What are the main alternatives to {competitor} for {category}?",
-]
-
 
 def generate_brand_recall_queries(
     brand: str, category: str, competitors: list[str] | None = None
 ) -> list[dict[str, str]]:
     """Generate a set of queries to test brand recall.
 
-    Returns a list of {query, query_type} dicts.
+    Returns a list of {query, type, description} dicts.
     """
     queries = []
 
