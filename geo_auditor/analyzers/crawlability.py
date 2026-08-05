@@ -273,7 +273,7 @@ def _check_sitemap(sitemap: "SitemapData") -> tuple[list[Finding], list[ScoreCom
             detail=f"Sitemap index pointing to {sitemap.child_sitemap_count} child sitemaps, "
                    f"containing {sitemap.url_count} URLs total."
         )]
-        findings.append(Fitemap_index_finding(sitemap))
+        findings.append(_sitemap_index_finding(sitemap))
     else:
         points = min(15, max(8, sitemap.url_count / 2))
         components = [ScoreComponent(
@@ -297,7 +297,7 @@ def _check_sitemap(sitemap: "SitemapData") -> tuple[list[Finding], list[ScoreCom
     return findings, components
 
 
-def Fitemap_index_finding(sitemap) -> Finding:
+def _sitemap_index_finding(sitemap) -> Finding:
     """Helper to create a sitemap index finding (avoiding naming collision)."""
     return Finding(
         id="sitemap-index-valid",

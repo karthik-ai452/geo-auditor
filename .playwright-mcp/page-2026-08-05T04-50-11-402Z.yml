@@ -1,0 +1,30 @@
+- generic [ref=e2]:
+  - generic [ref=e3]: 🔍
+  - heading "GEO Auditor" [level=1] [ref=e4]
+  - paragraph [ref=e5]:
+    - text: See how visible your business is in AI search.
+    - text: ChatGPT, Perplexity, Claude, Google AI Overviews — are they citing you?
+  - generic [ref=e7]:
+    - textbox "example.com" [ref=e8]
+    - button "Audit →" [ref=e9] [cursor=pointer]
+  - generic [ref=e10]:
+    - heading "Try a real site:" [level=3] [ref=e11]
+    - generic [ref=e12]:
+      - link "stripe.com" [ref=e13] [cursor=pointer]:
+        - /url: "#"
+      - link "notion.so" [ref=e14] [cursor=pointer]:
+        - /url: "#"
+      - link "linear.app" [ref=e15] [cursor=pointer]:
+        - /url: "#"
+  - generic [ref=e16]:
+    - heading "What does this check?" [level=3] [ref=e17]
+    - list [ref=e18]:
+      - listitem [ref=e19]:
+        - strong [ref=e20]: AI Crawlability
+        - text: — Can ChatGPT/Perplexity/Claude crawlers reach your site?
+      - listitem [ref=e21]:
+        - strong [ref=e22]: Content Answerability
+        - text: — Does your content answer questions AI engines extract and cite?
+      - listitem [ref=e23]:
+        - strong [ref=e24]: Structured Data
+        - text: — Can machines parse your site's schema.org data?

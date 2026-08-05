@@ -10,7 +10,6 @@ geo-auditor = "geo_auditor.cli:app"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-asyncio_mode = "auto"
 
 [build-system]
 requires = ["setuptools>=68"]

@@ -9,6 +9,7 @@ Provides a simple web UI:
 from __future__ import annotations
 
 import asyncio
+import html
 import os
 from pathlib import Path
 
@@ -165,8 +166,8 @@ async def _do_audit(url: str) -> HTMLResponse:
 <body>
 <div class="error">
   <h1>⚠️ Audit Failed</h1>
-  <p>Could not audit <code>{url}</code></p>
-  <p style="margin-top: 16px;"><strong>Error:</strong> {str(e)[:300]}</p>
+  <p>Could not audit <code>{html.escape(url)}</code></p>
+  <p style="margin-top: 16px;"><strong>Error:</strong> {html.escape(str(e)[:300])}</p>
   <p style="margin-top: 24px;"><a href="/">← Try another URL</a></p>
 </div>
 </body></html>"""
