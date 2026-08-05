@@ -11,3 +11,4 @@ reports/*.json
 !reports/official/
 *.log
 .DS_Store
+.playwright-mcp/
