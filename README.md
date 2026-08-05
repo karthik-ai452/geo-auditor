@@ -37,9 +37,9 @@ The CLI saves reports to `reports/` as self-contained HTML files (printable to P
 
 GEO (Generative Engine Optimization) is a new field (~2 years old). Nobody has agreed on what an audit should contain. Here's what I chose to check, what I deliberately cut, and why.
 
-### The Three Pillars
+### The Four Pillars
 
-#### Pillar 1: AI Crawlability (25%) — *Can AI engines even reach you?*
+#### Pillar 1: AI Crawlability (20%) — *Can AI engines even reach you?*
 
 **What it checks:**
 - `robots.txt` parsed per-bot for 8 AI crawlers: GPTBot (OpenAI/ChatGPT), OAI-SearchBot, PerplexityBot, Perplexity-User, ClaudeBot (Anthropic), anthropic-ai, CCBot (Common Crawl — feeds many LLMs), Google-Extended (Google AI Overviews/Gemini)
@@ -47,37 +47,43 @@ GEO (Generative Engine Optimization) is a new field (~2 years old). Nobody has a
 - Per-page `meta robots` / `noindex` directives
 - HTTP reachability and load time
 
-**Why this matters:** If GPTBot or ClaudeBot is blocked in robots.txt, your content is literally invisible to that engine — no matter how good it is. This is the #1 silent killer of AI visibility, and most businesses don't even know they're doing it (often an overzealous "block all bots" security plugin). I weighted this at 25% — not the highest, because if you're not blocked, the content matters more.
+**Why this matters:** If GPTBot or ClaudeBot is blocked in robots.txt, your content is literally invisible to that engine — no matter how good it is. This is the #1 silent killer of AI visibility, and most businesses don't even know they're doing it (often an overzealous "block all bots" security plugin).
 
-**Why I check 8 bots, not 3:** Different AI engines use different crawlers. A site might allow GPTBot but block CCBot (which feeds training data for many models). Checking the full set gives a more honest picture.
-
-#### Pillar 2: Content Answerability (45%) — *Does your content answer questions the way AI engines extract and cite?*
+#### Pillar 2: Content Answerability (25%) — *Does your content answer questions the way AI engines extract and cite?*
 
 **What it checks:**
-- **LLM-as-judge**: An LLM evaluates the content across 5 dimensions (direct answers, statistical richness, citation quality, structure clarity, conversational match) — the same way an AI search engine would assess it
+- **LLM-as-judge**: An LLM evaluates the content across 5 dimensions (direct answers, statistical richness, citation quality, structure clarity, conversational match)
 - **Rule-based signals**: statistic density, definition/answer patterns, citation patterns, FAQ schema presence
 
-**Why this matters and why it's weighted highest:** The GEO research benchmark (Aggarwal et al., 2023 — "GEO: A Benchmark for Generative Engine Optimization," Princeton/IIT) showed that specific content-level strategies lift citation rates by 30-40%:
-- Adding citations and quotations: +30-40%
-- Adding statistics: +30-40%
-- Writing in a fluent, authoritative tone: +10-30%
+**Why this matters:** The GEO research benchmark (Aggarwal et al., 2023) showed that specific content-level strategies lift citation rates by 30-40% (adding statistics, citing sources, writing direct answers).
 
-This is the heart of GEO. Most sites fail here — they write marketing copy, not answerable content.
-
-**Why I use an LLM to judge content:** Using an LLM to assess LLM-readiness is both defensible and practical. An AI search engine uses a model to decide what to cite; we use a model to predict that decision. It's a proxy — not perfect, but far better than rule-based regex alone. The rule-based signals (statistics, definitions, citations, FAQ) serve as both a fallback and corroboration.
-
-**Honest limitation:** The LLM judge is a proxy for real engine behavior. No tool can perfectly predict what ChatGPT or Perplexity will cite. The scores are relative indicators of readiness, not guarantees.
-
-#### Pillar 3: Structured Data & Machine-Readability (30%) — *Can machines parse and understand your content?*
+#### Pillar 3: Structured Data & Machine-Readability (20%) — *Can machines parse and understand your content?*
 
 **What it checks:**
-- `schema.org` JSON-LD validity and type coverage (Organization, WebSite, Article, FAQ, Product, etc.)
+- `schema.org` JSON-LD validity and type coverage
 - Title and meta description presence and length
 - Semantic HTML structure (H1, H2, paragraphs, word count)
-- Open Graph tags
-- Canonical URLs
+- Open Graph tags, canonical URLs
 
-**Why this matters:** AI engines don't just read text — they parse structure. schema.org JSON-LD is the lingua franca that tells a model "this is an Organization, this is an Article, this is an FAQ." Missing or malformed structured data makes it harder for AI engines to extract and cite content accurately. I weighted this at 30% — important, but secondary to the actual content quality.
+#### Pillar 4: AI Brand Recall (35%) — *Do AI engines actually know and mention your business?*
+
+**What it checks:**
+The previous three pillars check *preconditions* — can bots reach you, is your content answerable, is your data parseable. This pillar checks the *outcome*: we send real questions to an AI model and measure whether it actually mentions the target business.
+
+This tests the two pathways AI engines use to surface businesses:
+1. **Training data knowledge** — does the model already know about you? (We ask: "What is [brand]?")
+2. **Category/competitor visibility** — when asked about your industry, do you come up unprompted? (We ask: "What are the best [category] platforms?", "Can you compare the top [category] tools?")
+
+**How it works:**
+1. Infer the brand name and industry category from the homepage (title, JSON-LD, content)
+2. Generate 4-5 relevant queries (direct brand, category, comparison, competitor-anchored)
+3. Send each query to an LLM and capture the full response
+4. Use a second LLM call to check whether the brand is mentioned, how, in what context, and where in the response
+5. Score based on mention rate across query types (direct query: 40%, category: 35%, comparison: 25%)
+
+**Why this matters and why it's weighted highest (35%):** The other pillars measure *inputs* to AI visibility — "can they reach you" and "does your content look good." This pillar measures the *output* — "do they actually mention you." A business can be perfectly crawlable, have great structured data, and publish answerable content, but if no AI model knows it exists, it won't appear in any AI answer. Brand recall is the closest proxy to "will ChatGPT/Perplexity/Claude mention me when a potential customer asks?"
+
+**Honest limitation:** This tests one LLM's knowledge. Different AI engines (ChatGPT, Perplexity, Claude) use different models with different training data, so recall may vary across engines. The score is a directional indicator, not a guarantee of visibility on any specific platform.
 
 ---
 
@@ -104,6 +110,7 @@ This is the heart of GEO. Most sites fail here — they write marketing copy, no
 - ✅ JSON-LD/schema.org extraction — real HTML parsing
 - ✅ Content signal extraction (statistics, definitions, citations) — real regex analysis
 - ✅ LLM content judge — real LLM calls (if `OPENAI_API_KEY` is set)
+- **Brand Recall (Pillar 4)**: real LLM queries and brand mention detection — real AI calls
 - ✅ Scoring — real computation, fully transparent
 - ✅ Report generation — real HTML output from real data
 
@@ -150,7 +157,7 @@ pip install pytest
 python -m pytest tests/ -v
 ```
 
-47 tests covering scoring math, robots.txt parsing, sitemap parsing, HTML extraction, and analyzer logic.
+60 tests covering scoring math, robots.txt parsing, sitemap parsing, HTML extraction, analyzer logic, and brand recall.
 
 ---
 
@@ -160,9 +167,9 @@ Three real audit reports are included in `reports/official/`:
 
 | Site | Score | Grade | What it shows |
 |------|-------|-------|---------------|
-| **stripe.com** | 69.9/100 | Moderate | Strong structure and crawlability, weaker content answerability (marketing copy, not answerable content) |
-| **notion.so** | 56.6/100 | Weak | Perfect crawlability, but poor structured data coverage and content signals |
-| **example.com** | 14.8/100 | Critical | Fails across all pillars — no robots.txt, no sitemap, no structured data, minimal content |
+| **stripe.com** | 81.3/100 | Strong | Strong across all pillars — 100% brand recall (AI knows Stripe well), good structure, crawlable. Weaker content answerability (marketing copy). |
+| **notion.so** | 77.4/100 | Moderate | 100% brand recall and perfect crawlability, but poor structured data and content signals hold it back from Strong. |
+| **example.com** | 24.1/100 | Critical | Fails across all pillars — no robots.txt, no sitemap, no structured data, minimal content, and the AI barely recognizes the brand. |
 
 These were chosen to demonstrate the tool differentiates between sites with different GEO maturity levels.
 
@@ -170,10 +177,10 @@ These were chosen to demonstrate the tool differentiates between sites with diff
 
 ## How the Score Works
 
-The overall score is a weighted average of three pillars:
+The overall score is a weighted average of four pillars:
 
 ```
-Overall = Crawlability × 0.25 + Answerability × 0.45 + Structure × 0.30
+Overall = Crawlability × 0.20 + Answerability × 0.25 + Structure × 0.20 + Brand Recall × 0.35
 ```
 
 **Every sub-score shows the exact math.** In the report, expand any pillar to see each component: what it checked, what it found, and how many points it earned out of the maximum. No magic 73/100 — you can trace every point.
@@ -212,6 +219,7 @@ URL input
     → Crawlability (robots/sitemap/meta robots)
     → Structure (JSON-LD, semantic HTML, meta tags)
     → Answerability (LLM judge + rule-based signals)
+    → Brand Recall (real LLM brand mention testing)
   → Scoring engine: findings → pillar scores → overall (math visible)
   → Report renderer: Jinja2 → self-contained HTML
 ```
@@ -248,7 +256,7 @@ URL input
 
 **Why LLM-as-judge instead of pure rules?** The brief said "be able to defend every check." Using an LLM to assess content quality is defensible because it mirrors what AI search engines actually do. Pure regex rules would miss nuance (e.g., "is this answer actually good?" vs. "does it contain a definition pattern?").
 
-**Why weighted 25/45/30?** Crawlability is binary-conditional (if you're blocked, nothing else matters, but if you're not, it doesn't differentiate much) — so 25%. Content is the core of GEO and the research shows it drives the biggest lifts — so 45%. Structure helps but is secondary — so 30%.
+**Why weighted 20/25/20/35?** Crawlability is binary-conditional (if you're blocked, nothing else matters, but if you're not, it doesn't differentiate much) — so 20%. Content answerability and structure are important inputs — 25% and 20%. Brand recall is weighted highest (35%) because it's the only pillar that measures the actual *outcome* — whether AI engines know and mention you. The other three measure preconditions; this one measures results.
 
 ---
 

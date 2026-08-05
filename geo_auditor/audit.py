@@ -7,7 +7,7 @@ import datetime
 import logging
 from urllib.parse import urlparse
 
-from geo_auditor.analyzers import answerability, crawlability, structure
+from geo_auditor.analyzers import answerability, brand_recall, crawlability, structure
 from geo_auditor.crawler import crawl_site
 from geo_auditor.models import AuditResult, OverallScore, Pillar, PillarScore
 from geo_auditor.report import save_report
@@ -52,11 +52,21 @@ async def run_audit(url: str, output_dir=None) -> AuditResult:
 
     # Pillar 2: Answerability (LLM-as-judge)
     print("   → Content answerability (LLM-as-judge)...")
-    answer_findings, answer_components, llm_data = answerability.analyze(crawl)
-    if llm_data.get("error"):
-        print(f"   ⚠ LLM judge unavailable — using rule-based scoring. ({llm_data['error'][:60]})")
+    answer_findings, answer_components, answer_llm_data = answerability.analyze(crawl)
+    if answer_llm_data.get("error"):
+        print(f"   ⚠ LLM judge unavailable — using rule-based scoring. ({answer_llm_data['error'][:60]})")
 
-    all_findings = crawl_findings + answer_findings + struct_findings
+    # Pillar 4: Brand Recall (LLM-based)
+    print("   → AI brand recall (testing real AI knowledge)...")
+    brand_findings, brand_components, brand_data = brand_recall.analyze(crawl)
+    if brand_data.get("llm_error"):
+        print(f"   ⚠ Brand recall LLM unavailable — scoring 0 for this pillar.")
+    else:
+        mention_count = brand_data.get("mention_count", 0)
+        total_q = brand_data.get("total_queries", 0)
+        print(f"   → Brand recall: {brand_data.get('brand_name', '?')} mentioned in {mention_count}/{total_q} AI queries")
+
+    all_findings = crawl_findings + answer_findings + struct_findings + brand_findings
 
     # --- 3. Score ---
     print("\n📊 Computing scores...")
@@ -64,6 +74,7 @@ async def run_audit(url: str, output_dir=None) -> AuditResult:
         compute_pillar_score(Pillar.CRAWLABILITY, crawl_components),
         compute_pillar_score(Pillar.ANSWERABILITY, answer_components),
         compute_pillar_score(Pillar.STRUCTURE, struct_components),
+        compute_pillar_score(Pillar.BRAND_RECALL, brand_components),
     ]
     overall = compute_overall_score(pillar_scores)
 
@@ -89,7 +100,10 @@ async def run_audit(url: str, output_dir=None) -> AuditResult:
 
     # --- 6. Save report ---
     if output_dir is not None:
-        html_path, json_path = save_report(result, output_dir, llm_data)
+        combined_llm_data = {**(answer_llm_data if "answer_llm_data" in dir() else {})}
+        if brand_data:
+            combined_llm_data["brand_recall"] = brand_data
+        html_path, json_path = save_report(result, output_dir, combined_llm_data)
         print(f"\n💾 Report saved:")
         print(f"   HTML: {html_path}")
         print(f"   JSON: {json_path}")

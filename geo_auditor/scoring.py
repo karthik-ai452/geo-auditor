@@ -21,9 +21,26 @@ from geo_auditor.models import (
 )
 
 PILLAR_WEIGHTS = {
-    Pillar.CRAWLABILITY: 0.25,
-    Pillar.ANSWERABILITY: 0.45,
-    Pillar.STRUCTURE: 0.30,
+    Pillar.CRAWLABILITY: 0.20,
+    Pillar.ANSWERABILITY: 0.25,
+    Pillar.STRUCTURE: 0.20,
+    Pillar.BRAND_RECALL: 0.35,
+}
+
+# Human-readable pillar names for the report
+PILLAR_LABELS = {
+    Pillar.CRAWLABILITY: "AI Crawlability",
+    Pillar.ANSWERABILITY: "Content Answerability",
+    Pillar.STRUCTURE: "Structured Data",
+    Pillar.BRAND_RECALL: "AI Brand Recall",
+}
+
+# Short descriptions for the report
+PILLAR_DESCRIPTIONS = {
+    Pillar.CRAWLABILITY: "Can AI engines reach your site?",
+    Pillar.ANSWERABILITY: "Does your content answer questions AI engines extract and cite?",
+    Pillar.STRUCTURE: "Can machines parse and understand your content?",
+    Pillar.BRAND_RECALL: "Do AI engines actually know and mention your business?",
 }
 
 

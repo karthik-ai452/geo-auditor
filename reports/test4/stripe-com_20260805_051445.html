@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GEO Audit Report — notion.so</title>
+<title>GEO Audit Report — stripe.com</title>
 <style>
   :root {
     --critical: #dc2626;
@@ -77,8 +77,8 @@
   /* Pillar bars */
   .pillars {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
     margin-bottom: 32px;
   }
   .pillar-card {
@@ -300,19 +300,19 @@
   <!-- Header -->
   <div class="report-header">
     <h1>GEO Audit Report</h1>
-    <div class="subtitle">notion.so</div>
-    <div class="meta">Audited 2026-08-05T04:45:03.068735+00:00 · Content scoring: LLM-assisted (drytis/kimi-k2.5)</div>
+    <div class="subtitle">stripe.com</div>
+    <div class="meta">Audited 2026-08-05T05:14:45.148282+00:00 · Content scoring: LLM-assisted (drytis/kimi-k2.5)</div>
   </div>
 
   <!-- Score Summary -->
   <div class="score-section">
-    <div class="score-circle grade-weak">
-      <div class="num">57</div>
+    <div class="score-circle grade-moderate">
+      <div class="num">79</div>
       <div class="label">/ 100</div>
     </div>
     <div class="verdict">
-      <h2>Weak — 56.6 / 100</h2>
-      <p>Your site is likely invisible or poorly represented in most AI search answers.</p>
+      <h2>Moderate — 78.8 / 100</h2>
+      <p>Your site has a foundation but key gaps are holding back AI visibility.</p>
     </div>
   </div>
 
@@ -321,28 +321,37 @@
     
     <div class="pillar-card">
       <h3>Crawlability</h3>
-      <div class="pillar-score">100</div>
-      <div class="pillar-weight">25% weight</div>
+      <div class="pillar-score">85</div>
+      <div class="pillar-weight">20% weight</div>
       <div class="pillar-bar">
-        <div class="pillar-bar-fill" style="width: 100.0%; background: var(--positive);"></div>
+        <div class="pillar-bar-fill" style="width: 85.0%; background: var(--positive);"></div>
       </div>
     </div>
     
     <div class="pillar-card">
       <h3>Answerability</h3>
       <div class="pillar-score">35</div>
-      <div class="pillar-weight">45% weight</div>
+      <div class="pillar-weight">25% weight</div>
       <div class="pillar-bar">
-        <div class="pillar-bar-fill" style="width: 34.9%; background: var(--critical);"></div>
+        <div class="pillar-bar-fill" style="width: 35.3%; background: var(--critical);"></div>
       </div>
     </div>
     
     <div class="pillar-card">
       <h3>Structure</h3>
-      <div class="pillar-score">53</div>
-      <div class="pillar-weight">30% weight</div>
+      <div class="pillar-score">90</div>
+      <div class="pillar-weight">20% weight</div>
       <div class="pillar-bar">
-        <div class="pillar-bar-fill" style="width: 53.0%; background: #eab308;"></div>
+        <div class="pillar-bar-fill" style="width: 90.0%; background: var(--positive);"></div>
+      </div>
+    </div>
+    
+    <div class="pillar-card">
+      <h3>Brand Recall</h3>
+      <div class="pillar-score">100</div>
+      <div class="pillar-weight">35% weight</div>
+      <div class="pillar-bar">
+        <div class="pillar-bar-fill" style="width: 100.0%; background: var(--positive);"></div>
       </div>
     </div>
     
@@ -354,7 +363,7 @@
     
     <div class="pillar-breakdown">
       <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
-        Crawlability: 100.0/100 (weight: 25%)
+        Crawlability: 85.0/100 (weight: 20%)
       </h3>
       <ul class="component-list">
         
@@ -450,11 +459,11 @@
         
         <li class="component-item">
           <div class="component-label">
-            sitemap.xml is a valid index with 169 child sitemaps
-            <div class="component-detail">Sitemap index pointing to 169 child sitemaps, containing 287 URLs total.</div>
+            sitemap.xml missing or unreachable
+            <div class="component-detail">No sitemap.xml found. AI engines and traditional search engines use sitemaps to discover pages. Without one, deep content may go uncrawled.</div>
           </div>
           <div class="component-points">
-            15.0<span class="max">/15</span>
+            0.0<span class="max">/15</span>
           </div>
         </li>
         
@@ -471,7 +480,7 @@
         <li class="component-item">
           <div class="component-label">
             Page reachability: 1/1
-            <div class="component-detail">1/1 pages reachable, avg load 580ms</div>
+            <div class="component-detail">1/1 pages reachable, avg load 23ms</div>
           </div>
           <div class="component-points">
             5.0<span class="max">/5</span>
@@ -483,34 +492,34 @@
     
     <div class="pillar-breakdown">
       <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
-        Answerability: 34.9/100 (weight: 45%)
+        Answerability: 35.3/100 (weight: 25%)
       </h3>
       <ul class="component-list">
         
         <li class="component-item">
           <div class="component-label">
-            Direct Answers: 35/100
-            <div class="component-detail">The content contains some definitional statements about Notion&#39;s features, but these are marketing-oriented rather than informational. Phrases like &#39;Q&amp;A agents Answers questions instantly using knowledge you already have&#39; and &#39;Enterprise Search One search for everything&#39; provide brief feature descriptions, but lack substantive explanations of what these features actually do, how they work, or what problems they solve in concrete terms. The content prioritizes persuasive language over educational content. Example: &#34;&#39;Q&amp;A agents Answers questions instantly using knowledge you already have&#39; — states what it does but not how it works, what knowledge sources it connects to, or what &#39;instantly&#39; means in practice.&#34;</div>
+            Direct Answers: 15/100
+            <div class="component-detail">The content is almost entirely promotional and descriptive rather than informational. It describes what Stripe does but rarely answers specific &#39;what is&#39; or &#39;how to&#39; questions directly. There are no definitional statements, no explanatory paragraphs addressing common questions, and no structured answers to anticipated user queries. The content assumes the reader already knows what Stripe is and focuses on persuasion rather than education. Example: &#34;Financial infrastructure to grow your revenue. Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth.&#34;</div>
           </div>
           <div class="component-points">
-            10.5<span class="max">/30</span>
+            4.5<span class="max">/30</span>
           </div>
         </li>
         
         <li class="component-item">
           <div class="component-label">
-            Statistical Richness: 55/100
-            <div class="component-detail">The page contains 8 statistics, which is moderately high density for a short page. However, most statistics are about market position and user adoption (&#39;Over 100M users worldwide&#39;, &#39;62% of Fortune 100&#39;, &#39;#1 knowledge base 3 years running&#39;) rather than performance metrics or research-backed claims about effectiveness. The statistics are also repeated multiple times, inflating the count. Only one statistic hints at concrete outcomes: &#39;Streamlined workflows to reduce timelines by 3x&#39; — but this lacks context about what workflows or how this was measured. Example: &#34;&#39;Over 100M users worldwide&#39; and &#39;62% of Fortune 100&#39; — impressive adoption metrics, but no source cited and no methodology explained. The &#39;3x&#39; timeline reduction claim appears without supporting evidence.&#34;</div>
+            Statistical Richness: 75/100
+            <div class="component-detail">The page contains abundant specific statistics throughout, particularly in the &#39;backbone of global commerce&#39; section and customer case studies. These include precise figures on payment volume, uptime percentages, subscription counts, and business metrics. However, many statistics lack dates or context for comparison, and some appear repetitive (the $1.9T figure appears twice without additional context). Example: &#34;$1.9T in payments volume processed in 2025; 99.999% historical uptime for Stripe services; 200M+ active subscriptions managed on Stripe Billing; Hertz: 160 countries, 11K+ locations globally; URBN: 5+ consumer brands, 700+ store locations; Instacart: 600K+ shoppers, 1.8K retail partners across nearly 100K stores&#34;</div>
           </div>
           <div class="component-points">
-            13.8<span class="max">/25</span>
+            18.8<span class="max">/25</span>
           </div>
         </li>
         
         <li class="component-item">
           <div class="component-label">
             Citation Quality: 5/100
-            <div class="component-detail">The content almost entirely lacks citations. The only attribution present is &#39;(G2)&#39; next to three &#39;#1&#39; rankings, but this is minimal — no specific report dates, methodology, or links to verify claims. Customer quotes are unattributed beyond company names implied by context. No links to research, case studies, or third-party validation. The &#39;3x&#39; productivity claim has zero supporting evidence. Example: &#34;&#39;#1 knowledge base 3 years running (G2)&#39; — provides award source but no report date, category definition, or link to verify. Contrast with: no citation at all for &#39;Streamlined workflows to reduce timelines by 3x&#39;.&#34;</div>
+            <div class="component-detail">There are virtually no citations to external sources or evidence backing claims. Statistics are presented as self-reported facts without methodology, third-party verification, or links to detailed reports. Customer quotes are attributed to named individuals but lack links to full case studies or independent validation. The &#39;Read the story&#39; links suggest deeper content exists but are not accessible as citations within the text itself. Example: &#34;50% of Fortune 100 companies have used Stripe to grow their businesses—from expanding internationally to reimagining the customer experience. [no source cited]&#34;</div>
           </div>
           <div class="component-points">
             0.8<span class="max">/15</span>
@@ -519,21 +528,21 @@
         
         <li class="component-item">
           <div class="component-label">
-            Structure Clarity: 40/100
-            <div class="component-detail">The page has 11 H2 headings suggesting attempted organization, but the actual content structure is fragmented and repetitive. The extracted text shows clear repetition of entire sections (&#39;Over 100M users worldwide&#39; block appears 3 times identically). Headings are often vague (&#39;Keep work moving 24/7&#39;, &#39;Bring all your work together&#39;) rather than descriptive. The flow jumps between features, testimonials, and statistics without clear thematic grouping. No table of contents or clear hierarchy for scanning. Example: &#34;The statistics block beginning &#39;Over 100M users worldwide&#39; is repeated verbatim three times in the content, indicating either carousel content or poor content management that creates noise rather than structure.&#34;</div>
+            Structure Clarity: 55/100
+            <div class="component-detail">The content has clear visual sections with H2-level headings for different business segments (enterprises, startups, platforms) and uses consistent formatting for case studies. However, the information architecture is fragmented—key statistics are repeated, the flow jumps between topics without clear hierarchy, and there&#39;s no table of contents or clear way to locate specific information. The dense, repetitive opening paragraphs and lack of FAQ or structured data reduce navigability for AI extraction. Example: &#34;Sections include: &#39;Stripe for enterprises&#39;, &#39;Stripe for startups&#39;, &#39;Stripe for platforms&#39;, &#39;Reliable, extensible infrastructure for every stack&#39;, &#39;What&#39;s happening&#39;—but these function as marketing buckets rather than logical information hierarchy&#34;</div>
           </div>
           <div class="component-points">
-            6.0<span class="max">/15</span>
+            8.2<span class="max">/15</span>
           </div>
         </li>
         
         <li class="component-item">
           <div class="component-label">
-            Conversational Match: 25/100
-            <div class="component-detail">The language is highly marketing-optimized rather than conversationally aligned with how users actually ask questions. Phrases like &#39;Think together&#39;, &#39;Keep work moving 24/7&#39;, and &#39;Less tracking. More progress.&#39; are taglines, not answers. The content doesn&#39;t match query patterns like &#39;What is Notion used for?&#39;, &#39;How does Notion AI work?&#39;, or &#39;Notion vs competitors&#39; — instead it assumes visitor intent is already to purchase. Feature descriptions use imperative/command language (&#39;Capture context, find answers&#39;) rather than explanatory language. Example: &#34;&#39;The AI workspace that works for you&#39; — tagline that doesn&#39;t answer any specific question. Compare to missing content like &#39;Notion is a collaboration platform that combines documents, databases, and AI assistance&#39; which would match &#39;What is Notion?&#39; queries.&#34;</div>
+            Conversational Match: 20/100
+            <div class="component-detail">The language is highly polished marketing copy that does not match natural question patterns. Phrases like &#39;financial infrastructure to grow your revenue&#39; and &#39;implement custom revenue models&#39; are brand messaging, not how users actually ask questions. There are no question-based headings, no &#39;how to&#39; phrasing, and no acknowledgment of user pain points in their own vocabulary. The content speaks at users rather than responding to their queries. Example: &#34;Grow your business with a comprehensive set of payments and financial tools⁠—⁠designed to work individually or together. [marketing language vs. conversational answer to &#39;What payment tools does Stripe offer?&#39;]&#34;</div>
           </div>
           <div class="component-points">
-            3.8<span class="max">/15</span>
+            3.0<span class="max">/15</span>
           </div>
         </li>
         
@@ -542,24 +551,24 @@
     
     <div class="pillar-breakdown">
       <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
-        Structure: 53.0/100 (weight: 30%)
+        Structure: 90.0/100 (weight: 20%)
       </h3>
       <ul class="component-list">
         
         <li class="component-item">
           <div class="component-label">
-            No structured data (JSON-LD) on homepage
-            <div class="component-detail">No &lt;script type=&#39;application/ld+json&#39;&gt; blocks found on the homepage. This is the single biggest missed opportunity for AI visibility — schema.org data tells AI engines exactly what your page is about.</div>
+            Structured data: 2 block(s), types: Organization, WebSite
+            <div class="component-detail">Valid JSON-LD found. Schema types: Organization, WebSite.</div>
           </div>
           <div class="component-points">
-            0.0<span class="max">/40</span>
+            30.0<span class="max">/40</span>
           </div>
         </li>
         
         <li class="component-item">
           <div class="component-label">
-            title: &#34;The AI workspace that works for you. | N...&#34;; meta description: present
-            <div class="component-detail">title: &#34;The AI workspace that works for you. | N...&#34;; meta description: present</div>
+            title: &#34;Stripe | Financial Infrastructure to Gro...&#34;; meta description: present
+            <div class="component-detail">title: &#34;Stripe | Financial Infrastructure to Gro...&#34;; meta description: present</div>
           </div>
           <div class="component-points">
             25.0<span class="max">/25</span>
@@ -568,8 +577,8 @@
         
         <li class="component-item">
           <div class="component-label">
-            H1: yes, H2 count: 11, paragraphs: 27, words: 399
-            <div class="component-detail">H1: present, H2 tags: 11, paragraphs: 27, word count: 399</div>
+            H1: yes, H2 count: 5, paragraphs: 62, words: 1685
+            <div class="component-detail">H1: present, H2 tags: 5, paragraphs: 62, word count: 1685</div>
           </div>
           <div class="component-points">
             15.0<span class="max">/15</span>
@@ -588,11 +597,50 @@
         
         <li class="component-item">
           <div class="component-label">
-            canonical: &#34;https://www.notion.com/&#34;
-            <div class="component-detail">canonical: &#34;https://www.notion.com/&#34;</div>
+            canonical: &#34;https://stripe.com/&#34;
+            <div class="component-detail">canonical: &#34;https://stripe.com/&#34;</div>
           </div>
           <div class="component-points">
-            3.0<span class="max">/10</span>
+            10.0<span class="max">/10</span>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="pillar-breakdown">
+      <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+        Brand_recall: 100.0/100 (weight: 35%)
+      </h3>
+      <ul class="component-list">
+        
+        <li class="component-item">
+          <div class="component-label">
+            Direct brand query: AI knows &#39;Stripe&#39; (1/1)
+            <div class="component-detail">Q: &#34;What is Stripe?...&#34; → ✓ mentioned</div>
+          </div>
+          <div class="component-points">
+            40.0<span class="max">/40</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            Category queries: mentioned in 2/2 industry questions
+            <div class="component-detail">Q: &#34;What are the best payment processing platforms for businesse...&#34; → ✓ mentioned | Q: &#34;What are the top payment processing companies or tools?...&#34; → ✓ mentioned</div>
+          </div>
+          <div class="component-points">
+            35.0<span class="max">/35</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            Comparison queries: mentioned in 2/2 comparisons
+            <div class="component-detail">Q: &#34;Can you compare the top payment processing platforms and the...&#34; → ✓ mentioned | Q: &#34;What are the main alternatives to Stripe for payment process...&#34; → ✓ mentioned</div>
+          </div>
+          <div class="component-points">
+            25.0<span class="max">/25</span>
           </div>
         </li>
         
@@ -624,21 +672,42 @@
       </div>
     </div>
     
-    <div class="finding-card severity-positive">
+    <div class="finding-card severity-warning">
       <div class="finding-header">
-        <span class="severity-badge positive">positive</span>
-        <h3>sitemap.xml is a valid index (169 child sitemaps)</h3>
+        <span class="severity-badge warning">warning</span>
+        <h3>sitemap.xml is missing or unreachable</h3>
       </div>
       <div class="page-link">📍 /sitemap.xml</div>
       <div class="finding-body">
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>Sitemap index with 169 child sitemaps, 287 URLs total.</div>
+          <div>No sitemap.xml was found at /sitemap.xml.</div>
         </div>
         
         
+        <div class="field">
+          <div class="field-label">What it should be</div>
+          <div>A valid sitemap.xml listing your key pages.</div>
+        </div>
         
+        
+        <div class="field">
+          <div class="field-label">Fix (copy-pasteable)</div>
+          <div class="fix-block">
+            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
+            Create a sitemap.xml at the site root. If you use a CMS (WordPress, Shopify, Webflow), there&#39;s usually a plugin or built-in feature to generate one. Reference it in robots.txt:
+
+Sitemap: https://yoursite.com/sitemap.xml
+          </div>
+        </div>
+        
+        
+        <div class="impact-effort">
+          <span>📊 Impact: 50/100</span>
+          <span>🔧 Effort: 20/100</span>
+          <span>⚡ Priority: 40</span>
+        </div>
         
       </div>
     </div>
@@ -662,12 +731,50 @@
       </div>
     </div>
     
+    <div class="finding-card severity-warning">
+      <div class="finding-header">
+        <span class="severity-badge warning">warning</span>
+        <h3>No direct definitional answers detected</h3>
+      </div>
+      <div class="page-link">📍 https://stripe.com/</div>
+      <div class="finding-body">
+        
+        <div class="field">
+          <div class="field-label">What we found</div>
+          <div>No definitional statements (&#39;X is a...&#39;, &#39;X means...&#39;) found in the first 2000 characters. AI engines extract definitional answers to fill their responses.</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">What it should be</div>
+          <div>Clear, direct definitions at the top of key pages.</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">Fix (copy-pasteable)</div>
+          <div class="fix-block">
+            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
+            Add a 1-2 sentence direct answer at the top of your page that defines your main topic in plain language.
+          </div>
+        </div>
+        
+        
+        <div class="impact-effort">
+          <span>📊 Impact: 50/100</span>
+          <span>🔧 Effort: 15/100</span>
+          <span>⚡ Priority: 42</span>
+        </div>
+        
+      </div>
+    </div>
+    
     <div class="finding-card severity-info">
       <div class="finding-header">
         <span class="severity-badge info">info</span>
         <h3>No source citations detected</h3>
       </div>
-      <div class="page-link">📍 https://notion.so/</div>
+      <div class="page-link">📍 https://stripe.com/</div>
       <div class="finding-body">
         
         <div class="field">
@@ -705,7 +812,7 @@
         <span class="severity-badge warning">warning</span>
         <h3>No FAQ structured data</h3>
       </div>
-      <div class="page-link">📍 https://notion.so/</div>
+      <div class="page-link">📍 https://stripe.com/</div>
       <div class="finding-body">
         
         <div class="field">
@@ -753,17 +860,17 @@
       </div>
     </div>
     
-    <div class="finding-card severity-warning">
+    <div class="finding-card severity-critical">
       <div class="finding-header">
-        <span class="severity-badge warning">warning</span>
-        <h3>Content scores low on Direct Answers (35/100)</h3>
+        <span class="severity-badge critical">critical</span>
+        <h3>Content scores low on Direct Answers (15/100)</h3>
       </div>
-      <div class="page-link">📍 https://notion.so/</div>
+      <div class="page-link">📍 https://stripe.com/</div>
       <div class="finding-body">
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>LLM assessment: The content contains some definitional statements about Notion&#39;s features, but these are marketing-oriented rather than informational. Phrases like &#39;Q&amp;A agents Answers questions instantly using knowledge you already have&#39; and &#39;Enterprise Search One search for everything&#39; provide brief feature descriptions, but lack substantive explanations of what these features actually do, how they work, or what problems they solve in concrete terms. The content prioritizes persuasive language over educational content. Example from your content: &#34;&#39;Q&amp;A agents Answers questions instantly using knowledge you already have&#39; — states what it does but not how it works, what knowledge sources it connects to, or what &#39;instantly&#39; means in practice.&#34;</div>
+          <div>LLM assessment: The content is almost entirely promotional and descriptive rather than informational. It describes what Stripe does but rarely answers specific &#39;what is&#39; or &#39;how to&#39; questions directly. There are no definitional statements, no explanatory paragraphs addressing common questions, and no structured answers to anticipated user queries. The content assumes the reader already knows what Stripe is and focuses on persuasion rather than education. Example from your content: &#34;Financial infrastructure to grow your revenue. Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth.&#34;</div>
         </div>
         
         
@@ -781,16 +888,35 @@
 
 Example: &#39;Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.&#39;
 
-AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; section with 2-3 sentences of plain-language definition, include 2-3 specific, cited case studies with measurable outcomes (not just quotes), and link to methodology for all statistics — this would transform the page from pure marketing to citeable reference material.
+AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer specific questions in natural language (e.g., &#39;What is Stripe?&#39;, &#39;How much does Stripe charge per transaction?&#39;, &#39;What countries does Stripe support?&#39;), each with concise 2-3 sentence answers and links to detailed documentation.
           </div>
         </div>
         
         
         <div class="impact-effort">
-          <span>📊 Impact: 52/100</span>
+          <span>📊 Impact: 68/100</span>
           <span>🔧 Effort: 20/100</span>
-          <span>⚡ Priority: 42</span>
+          <span>⚡ Priority: 54</span>
         </div>
+        
+      </div>
+    </div>
+    
+    <div class="finding-card severity-positive">
+      <div class="finding-header">
+        <span class="severity-badge positive">positive</span>
+        <h3>Strong Statistical Richness (75/100)</h3>
+      </div>
+      <div class="page-link">📍 https://stripe.com/</div>
+      <div class="finding-body">
+        
+        <div class="field">
+          <div class="field-label">What we found</div>
+          <div>LLM assessment: The page contains abundant specific statistics throughout, particularly in the &#39;backbone of global commerce&#39; section and customer case studies. These include precise figures on payment volume, uptime percentages, subscription counts, and business metrics. However, many statistics lack dates or context for comparison, and some appear repetitive (the $1.9T figure appears twice without additional context).</div>
+        </div>
+        
+        
+        
         
       </div>
     </div>
@@ -800,12 +926,12 @@ AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; se
         <span class="severity-badge critical">critical</span>
         <h3>Content scores low on Citation Quality (5/100)</h3>
       </div>
-      <div class="page-link">📍 https://notion.so/</div>
+      <div class="page-link">📍 https://stripe.com/</div>
       <div class="finding-body">
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>LLM assessment: The content almost entirely lacks citations. The only attribution present is &#39;(G2)&#39; next to three &#39;#1&#39; rankings, but this is minimal — no specific report dates, methodology, or links to verify claims. Customer quotes are unattributed beyond company names implied by context. No links to research, case studies, or third-party validation. The &#39;3x&#39; productivity claim has zero supporting evidence. Example from your content: &#34;&#39;#1 knowledge base 3 years running (G2)&#39; — provides award source but no report date, category definition, or link to verify. Contrast with: no citation at all for &#39;Streamlined workflows to reduce timelines by 3x&#39;.&#34;</div>
+          <div>LLM assessment: There are virtually no citations to external sources or evidence backing claims. Statistics are presented as self-reported facts without methodology, third-party verification, or links to detailed reports. Customer quotes are attributed to named individuals but lack links to full case studies or independent validation. The &#39;Read the story&#39; links suggest deeper content exists but are not accessible as citations within the text itself. Example from your content: &#34;50% of Fortune 100 companies have used Stripe to grow their businesses—from expanding internationally to reimagining the customer experience. [no source cited]&#34;</div>
         </div>
         
         
@@ -821,7 +947,7 @@ AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; se
             <button class="copy-btn" onclick="copyFix(this)">Copy</button>
             Cite your sources. Use phrases like &#39;according to [study]&#39;, &#39;research from [organization] shows&#39;, or link to primary sources. AI engines prefer content that itself cites evidence.
 
-AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; section with 2-3 sentences of plain-language definition, include 2-3 specific, cited case studies with measurable outcomes (not just quotes), and link to methodology for all statistics — this would transform the page from pure marketing to citeable reference material.
+AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer specific questions in natural language (e.g., &#39;What is Stripe?&#39;, &#39;How much does Stripe charge per transaction?&#39;, &#39;What countries does Stripe support?&#39;), each with concise 2-3 sentence answers and links to detailed documentation.
           </div>
         </div>
         
@@ -835,57 +961,17 @@ AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; se
       </div>
     </div>
     
-    <div class="finding-card severity-warning">
-      <div class="finding-header">
-        <span class="severity-badge warning">warning</span>
-        <h3>Content scores low on Structure Clarity (40/100)</h3>
-      </div>
-      <div class="page-link">📍 https://notion.so/</div>
-      <div class="finding-body">
-        
-        <div class="field">
-          <div class="field-label">What we found</div>
-          <div>LLM assessment: The page has 11 H2 headings suggesting attempted organization, but the actual content structure is fragmented and repetitive. The extracted text shows clear repetition of entire sections (&#39;Over 100M users worldwide&#39; block appears 3 times identically). Headings are often vague (&#39;Keep work moving 24/7&#39;, &#39;Bring all your work together&#39;) rather than descriptive. The flow jumps between features, testimonials, and statistics without clear thematic grouping. No table of contents or clear hierarchy for scanning. Example from your content: &#34;The statistics block beginning &#39;Over 100M users worldwide&#39; is repeated verbatim three times in the content, indicating either carousel content or poor content management that creates noise rather than structure.&#34;</div>
-        </div>
-        
-        
-        <div class="field">
-          <div class="field-label">What it should be</div>
-          <div>Structure Clarity should score 70+ for good AI search visibility.</div>
-        </div>
-        
-        
-        <div class="field">
-          <div class="field-label">Fix (copy-pasteable)</div>
-          <div class="fix-block">
-            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
-            Structure your content with clear headings (H2, H3), short paragraphs, and logical sections. Use bullet points for lists. Each section should answer one question or cover one topic.
-
-AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; section with 2-3 sentences of plain-language definition, include 2-3 specific, cited case studies with measurable outcomes (not just quotes), and link to methodology for all statistics — this would transform the page from pure marketing to citeable reference material.
-          </div>
-        </div>
-        
-        
-        <div class="impact-effort">
-          <span>📊 Impact: 48/100</span>
-          <span>🔧 Effort: 25/100</span>
-          <span>⚡ Priority: 36</span>
-        </div>
-        
-      </div>
-    </div>
-    
     <div class="finding-card severity-critical">
       <div class="finding-header">
         <span class="severity-badge critical">critical</span>
-        <h3>Content scores low on Conversational Match (25/100)</h3>
+        <h3>Content scores low on Conversational Match (20/100)</h3>
       </div>
-      <div class="page-link">📍 https://notion.so/</div>
+      <div class="page-link">📍 https://stripe.com/</div>
       <div class="finding-body">
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>LLM assessment: The language is highly marketing-optimized rather than conversationally aligned with how users actually ask questions. Phrases like &#39;Think together&#39;, &#39;Keep work moving 24/7&#39;, and &#39;Less tracking. More progress.&#39; are taglines, not answers. The content doesn&#39;t match query patterns like &#39;What is Notion used for?&#39;, &#39;How does Notion AI work?&#39;, or &#39;Notion vs competitors&#39; — instead it assumes visitor intent is already to purchase. Feature descriptions use imperative/command language (&#39;Capture context, find answers&#39;) rather than explanatory language. Example from your content: &#34;&#39;The AI workspace that works for you&#39; — tagline that doesn&#39;t answer any specific question. Compare to missing content like &#39;Notion is a collaboration platform that combines documents, databases, and AI assistance&#39; which would match &#39;What is Notion?&#39; queries.&#34;</div>
+          <div>LLM assessment: The language is highly polished marketing copy that does not match natural question patterns. Phrases like &#39;financial infrastructure to grow your revenue&#39; and &#39;implement custom revenue models&#39; are brand messaging, not how users actually ask questions. There are no question-based headings, no &#39;how to&#39; phrasing, and no acknowledgment of user pain points in their own vocabulary. The content speaks at users rather than responding to their queries. Example from your content: &#34;Grow your business with a comprehensive set of payments and financial tools⁠—⁠designed to work individually or together. [marketing language vs. conversational answer to &#39;What payment tools does Stripe offer?&#39;]&#34;</div>
         </div>
         
         
@@ -901,15 +987,15 @@ AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; se
             <button class="copy-btn" onclick="copyFix(this)">Copy</button>
             Write in the language your audience actually uses to ask questions. Instead of &#39;Our platform provides enterprise-grade solutions&#39;, write &#39;Our platform helps large teams manage projects.&#39; Use natural, conversational phrasing.
 
-AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; section with 2-3 sentences of plain-language definition, include 2-3 specific, cited case studies with measurable outcomes (not just quotes), and link to methodology for all statistics — this would transform the page from pure marketing to citeable reference material.
+AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer specific questions in natural language (e.g., &#39;What is Stripe?&#39;, &#39;How much does Stripe charge per transaction?&#39;, &#39;What countries does Stripe support?&#39;), each with concise 2-3 sentence answers and links to detailed documentation.
           </div>
         </div>
         
         
         <div class="impact-effort">
-          <span>📊 Impact: 60/100</span>
+          <span>📊 Impact: 64/100</span>
           <span>🔧 Effort: 35/100</span>
-          <span>⚡ Priority: 39</span>
+          <span>⚡ Priority: 42</span>
         </div>
         
       </div>
@@ -920,18 +1006,18 @@ AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; se
         <span class="severity-badge info">info</span>
         <h3>AI&#39;s #1 recommendation for your content</h3>
       </div>
-      <div class="page-link">📍 https://notion.so/</div>
+      <div class="page-link">📍 https://stripe.com/</div>
       <div class="finding-body">
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>Overall assessment: This homepage content would perform poorly in AI search citations because it prioritizes conversion over information. While it contains impressive adoption statistics, the lack of sourced evidence, absence of definitional content, and marketing-heavy language make it unlikely to be selected as a authoritative answer. AI engines would prefer Notion&#39;s help documentation, blog posts, or third-party reviews over this homepage for most informational queries.</div>
+          <div>Overall assessment: This content would perform poorly in AI search citations despite Stripe&#39;s authority. While rich in self-reported statistics, the lack of direct answers to specific questions, absence of external citations, and marketing-first language make it difficult for AI systems to extract and cite clear, verifiable information. The page prioritizes conversion over information retrieval, which limits its utility as a reference source.</div>
         </div>
         
         
         <div class="field">
           <div class="field-label">What it should be</div>
-          <div>Add a clearly labeled &#39;What is Notion?&#39; section with 2-3 sentences of plain-language definition, include 2-3 specific, cited case studies with measurable outcomes (not just quotes), and link to methodology for all statistics — this would transform the page from pure marketing to citeable reference material.</div>
+          <div>Add a comprehensive FAQ section with H2/H3 headings that directly answer specific questions in natural language (e.g., &#39;What is Stripe?&#39;, &#39;How much does Stripe charge per transaction?&#39;, &#39;What countries does Stripe support?&#39;), each with concise 2-3 sentence answers and links to detailed documentation.</div>
         </div>
         
         
@@ -939,7 +1025,7 @@ AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; se
           <div class="field-label">Fix (copy-pasteable)</div>
           <div class="fix-block">
             <button class="copy-btn" onclick="copyFix(this)">Copy</button>
-            Add a clearly labeled &#39;What is Notion?&#39; section with 2-3 sentences of plain-language definition, include 2-3 specific, cited case studies with measurable outcomes (not just quotes), and link to methodology for all statistics — this would transform the page from pure marketing to citeable reference material.
+            Add a comprehensive FAQ section with H2/H3 headings that directly answer specific questions in natural language (e.g., &#39;What is Stripe?&#39;, &#39;How much does Stripe charge per transaction?&#39;, &#39;What countries does Stripe support?&#39;), each with concise 2-3 sentence answers and links to detailed documentation.
           </div>
         </div>
         
@@ -953,98 +1039,40 @@ AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; se
       </div>
     </div>
     
-    <div class="finding-card severity-critical">
+    <div class="finding-card severity-positive">
       <div class="finding-header">
-        <span class="severity-badge critical">critical</span>
-        <h3>No structured data (schema.org JSON-LD) on homepage</h3>
+        <span class="severity-badge positive">positive</span>
+        <h3>Good structured data coverage on homepage</h3>
       </div>
-      <div class="page-link">📍 https://notion.so/</div>
+      <div class="page-link">📍 https://stripe.com/</div>
       <div class="finding-body">
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>No &lt;script type=&#39;application/ld+json&#39;&gt; tags were found in the page HTML.</div>
+          <div>Found valid JSON-LD with types: Organization, WebSite.</div>
         </div>
         
         
-        <div class="field">
-          <div class="field-label">What it should be</div>
-          <div>At minimum, Organization and WebSite schema should be present.</div>
-        </div>
         
-        
-        <div class="field">
-          <div class="field-label">Fix (copy-pasteable)</div>
-          <div class="fix-block">
-            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
-            Add this to your homepage &lt;head&gt; (replace the placeholders):
-
-&lt;script type=&#34;application/ld+json&#34;&gt;
-{
-  &#34;@context&#34;: &#34;https://schema.org&#34;,
-  &#34;@type&#34;: &#34;Organization&#34;,
-  &#34;name&#34;: &#34;Your Business Name&#34;,
-  &#34;url&#34;: &#34;https://yoursite.com&#34;,
-  &#34;logo&#34;: &#34;https://yoursite.com/logo.png&#34;,
-  &#34;description&#34;: &#34;One sentence describing what your business does.&#34;,
-  &#34;sameAs&#34;: [
-    &#34;https://twitter.com/yourhandle&#34;,
-    &#34;https://www.linkedin.com/company/yourcompany&#34;,
-    &#34;https://www.crunchbase.com/organization/yourcompany&#34;
-  ]
-}
-&lt;/script&gt;
-
-Tip: if you use WordPress, plugins like Yoast SEO or RankMath can generate this automatically. If you use Webflow, it&#39;s under Page Settings &gt; Schema Markup.
-          </div>
-        </div>
-        
-        
-        <div class="impact-effort">
-          <span>📊 Impact: 80/100</span>
-          <span>🔧 Effort: 20/100</span>
-          <span>⚡ Priority: 64</span>
-        </div>
         
       </div>
     </div>
     
-    <div class="finding-card severity-warning">
+    <div class="finding-card severity-positive">
       <div class="finding-header">
-        <span class="severity-badge warning">warning</span>
-        <h3>Canonical URL points to a different domain</h3>
+        <span class="severity-badge positive">positive</span>
+        <h3>AI knows &#39;Stripe&#39; — mentioned in 5/5 queries</h3>
       </div>
-      <div class="page-link">📍 https://notion.so/</div>
+      <div class="page-link">📍 https://stripe.com/</div>
       <div class="finding-body">
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>Canonical tag points to &#34;https://www.notion.com/&#34; but the page is served from a different domain. This tells search engines the &#34;real&#34; version lives elsewhere.</div>
+          <div>The AI model mentioned &#39;Stripe&#39; in 5 of 5 test queries. Mentioned in: &#34;What is Stripe?...&#34; → Stripe; &#34;What are the best payment processing platforms for...&#34; → **Stripe** – Developer-friendly, excellent API, supports subscriptions and inter</div>
         </div>
         
         
-        <div class="field">
-          <div class="field-label">What it should be</div>
-          <div>Canonical should point to the page&#39;s own URL (self-referencing).</div>
-        </div>
         
-        
-        <div class="field">
-          <div class="field-label">Fix (copy-pasteable)</div>
-          <div class="fix-block">
-            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
-            Change the canonical to point to this page&#39;s own URL:
-
-&lt;link rel=&#34;canonical&#34; href=&#34;https://notion.so/&#34;&gt;
-          </div>
-        </div>
-        
-        
-        <div class="impact-effort">
-          <span>📊 Impact: 50/100</span>
-          <span>🔧 Effort: 5/100</span>
-          <span>⚡ Priority: 48</span>
-        </div>
         
       </div>
     </div>
@@ -1060,33 +1088,19 @@ Tip: if you use WordPress, plugins like Yoast SEO or RankMath can generate this 
     <div class="action-item">
       <div class="action-num">1</div>
       <div class="action-content">
-        <h4>No structured data (schema.org JSON-LD) on homepage</h4>
+        <h4>Content scores low on Direct Answers (15/100)</h4>
         <div class="action-meta">
-          Impact 80/100 · Effort 20/100 · Priority 64
+          Impact 68/100 · Effort 20/100 · Priority 54
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">No &lt;script type=&#39;application/ld+json&#39;&gt; tags were found in the page HTML.</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The content is almost entirely promotional and descriptive rather than informational. It describes what Stripe does but rarely answers specific &#39;what is&#39; or &#39;how to&#39; questions directly...</div>
         
         
-        <div class="action-fix">Add this to your homepage &lt;head&gt; (replace the placeholders):
+        <div class="action-fix">Add clear, direct answer paragraphs at the top of your content. Format: &#39;[Topic] is [definition/explanation].&#39; — one or two sentences that directly answer the most likely question a person would ask.
 
-&lt;script type=&#34;application/ld+json&#34;&gt;
-{
-  &#34;@context&#34;: &#34;https://schema.org&#34;,
-  &#34;@type&#34;: &#34;Organization&#34;,
-  &#34;name&#34;: &#34;Your Business Name&#34;,
-  &#34;url&#34;: &#34;https://yoursite.com&#34;,
-  &#34;logo&#34;: &#34;https://yoursite.com/logo.png&#34;,
-  &#34;description&#34;: &#34;One sentence describing what your business does.&#34;,
-  &#34;sameAs&#34;: [
-    &#34;https://twitter.com/yourhandle&#34;,
-    &#34;https://www.linkedin.com/company/yourcompany&#34;,
-    &#34;https://www.crunchbase.com/organization/yourcompany&#34;
-  ]
-}
-&lt;/script&gt;
+Example: &#39;Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.&#39;
 
-Tip: if you use WordPress, plugins like Yoast SEO or RankMath can generate this automatically. If you use Webflow, it&#39;s under Page Settings &gt; Schema Markup.</div>
+AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer specific questions in natural language (e.g., &#39;What is Stripe?&#39;, &#39;How much does Stripe charge per transaction?&#39;, &#39;What countries does Stripe support?&#39;), each with concise 2-3 sentence answers and links to detailed documentation.</div>
         
       </div>
     </div>
@@ -1099,36 +1113,18 @@ Tip: if you use WordPress, plugins like Yoast SEO or RankMath can generate this 
           Impact 76/100 · Effort 30/100 · Priority 53
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The content almost entirely lacks citations. The only attribution present is &#39;(G2)&#39; next to three &#39;#1&#39; rankings, but this is minimal — no specific report dates, methodology, or links t...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: There are virtually no citations to external sources or evidence backing claims. Statistics are presented as self-reported facts without methodology, third-party verification, or links...</div>
         
         
         <div class="action-fix">Cite your sources. Use phrases like &#39;according to [study]&#39;, &#39;research from [organization] shows&#39;, or link to primary sources. AI engines prefer content that itself cites evidence.
 
-AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; section with 2-3 sentences of plain-language definition, include 2-3 specific, cited case studies with measurable outcomes (not just quotes), and link to methodology for all statistics — this would transform the page from pure marketing to citeable reference material.</div>
+AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer specific questions in natural language (e.g., &#39;What is Stripe?&#39;, &#39;How much does Stripe charge per transaction?&#39;, &#39;What countries does Stripe support?&#39;), each with concise 2-3 sentence answers and links to detailed documentation.</div>
         
       </div>
     </div>
     
     <div class="action-item">
       <div class="action-num">3</div>
-      <div class="action-content">
-        <h4>Canonical URL points to a different domain</h4>
-        <div class="action-meta">
-          Impact 50/100 · Effort 5/100 · Priority 48
-        </div>
-        
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">Canonical tag points to &#34;https://www.notion.com/&#34; but the page is served from a different domain. This tells search engines the &#34;real&#34; version lives elsewhere.</div>
-        
-        
-        <div class="action-fix">Change the canonical to point to this page&#39;s own URL:
-
-&lt;link rel=&#34;canonical&#34; href=&#34;https://notion.so/&#34;&gt;</div>
-        
-      </div>
-    </div>
-    
-    <div class="action-item">
-      <div class="action-num">4</div>
       <div class="action-content">
         <h4>No FAQ structured data</h4>
         <div class="action-meta">
@@ -1159,21 +1155,35 @@ AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; se
     </div>
     
     <div class="action-item">
-      <div class="action-num">5</div>
+      <div class="action-num">4</div>
       <div class="action-content">
-        <h4>Content scores low on Direct Answers (35/100)</h4>
+        <h4>No direct definitional answers detected</h4>
         <div class="action-meta">
-          Impact 52/100 · Effort 20/100 · Priority 42
+          Impact 50/100 · Effort 15/100 · Priority 42
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The content contains some definitional statements about Notion&#39;s features, but these are marketing-oriented rather than informational. Phrases like &#39;Q&amp;A agents Answers questions instan...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">No definitional statements (&#39;X is a...&#39;, &#39;X means...&#39;) found in the first 2000 characters. AI engines extract definitional answers to fill their responses.</div>
         
         
-        <div class="action-fix">Add clear, direct answer paragraphs at the top of your content. Format: &#39;[Topic] is [definition/explanation].&#39; — one or two sentences that directly answer the most likely question a person would ask.
+        <div class="action-fix">Add a 1-2 sentence direct answer at the top of your page that defines your main topic in plain language.</div>
+        
+      </div>
+    </div>
+    
+    <div class="action-item">
+      <div class="action-num">5</div>
+      <div class="action-content">
+        <h4>Content scores low on Conversational Match (20/100)</h4>
+        <div class="action-meta">
+          Impact 64/100 · Effort 35/100 · Priority 42
+        </div>
+        
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The language is highly polished marketing copy that does not match natural question patterns. Phrases like &#39;financial infrastructure to grow your revenue&#39; and &#39;implement custom revenue...</div>
+        
+        
+        <div class="action-fix">Write in the language your audience actually uses to ask questions. Instead of &#39;Our platform provides enterprise-grade solutions&#39;, write &#39;Our platform helps large teams manage projects.&#39; Use natural, conversational phrasing.
 
-Example: &#39;Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.&#39;
-
-AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; section with 2-3 sentences of plain-language definition, include 2-3 specific, cited case studies with measurable outcomes (not just quotes), and link to methodology for all statistics — this would transform the page from pure marketing to citeable reference material.</div>
+AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer specific questions in natural language (e.g., &#39;What is Stripe?&#39;, &#39;How much does Stripe charge per transaction?&#39;, &#39;What countries does Stripe support?&#39;), each with concise 2-3 sentence answers and links to detailed documentation.</div>
         
       </div>
     </div>
@@ -1181,17 +1191,17 @@ AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; se
     <div class="action-item">
       <div class="action-num">6</div>
       <div class="action-content">
-        <h4>Content scores low on Conversational Match (25/100)</h4>
+        <h4>sitemap.xml is missing or unreachable</h4>
         <div class="action-meta">
-          Impact 60/100 · Effort 35/100 · Priority 39
+          Impact 50/100 · Effort 20/100 · Priority 40
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The language is highly marketing-optimized rather than conversationally aligned with how users actually ask questions. Phrases like &#39;Think together&#39;, &#39;Keep work moving 24/7&#39;, and &#39;Less...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">No sitemap.xml was found at /sitemap.xml.</div>
         
         
-        <div class="action-fix">Write in the language your audience actually uses to ask questions. Instead of &#39;Our platform provides enterprise-grade solutions&#39;, write &#39;Our platform helps large teams manage projects.&#39; Use natural, conversational phrasing.
+        <div class="action-fix">Create a sitemap.xml at the site root. If you use a CMS (WordPress, Shopify, Webflow), there&#39;s usually a plugin or built-in feature to generate one. Reference it in robots.txt:
 
-AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; section with 2-3 sentences of plain-language definition, include 2-3 specific, cited case studies with measurable outcomes (not just quotes), and link to methodology for all statistics — this would transform the page from pure marketing to citeable reference material.</div>
+Sitemap: https://yoursite.com/sitemap.xml</div>
         
       </div>
     </div>
@@ -1199,39 +1209,21 @@ AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; se
     <div class="action-item">
       <div class="action-num">7</div>
       <div class="action-content">
-        <h4>Content scores low on Structure Clarity (40/100)</h4>
+        <h4>AI&#39;s #1 recommendation for your content</h4>
         <div class="action-meta">
-          Impact 48/100 · Effort 25/100 · Priority 36
+          Impact 60/100 · Effort 40/100 · Priority 36
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The page has 11 H2 headings suggesting attempted organization, but the actual content structure is fragmented and repetitive. The extracted text shows clear repetition of entire sectio...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">Overall assessment: This content would perform poorly in AI search citations despite Stripe&#39;s authority. While rich in self-reported statistics, the lack of direct answers to specific questions, absen...</div>
         
         
-        <div class="action-fix">Structure your content with clear headings (H2, H3), short paragraphs, and logical sections. Use bullet points for lists. Each section should answer one question or cover one topic.
-
-AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; section with 2-3 sentences of plain-language definition, include 2-3 specific, cited case studies with measurable outcomes (not just quotes), and link to methodology for all statistics — this would transform the page from pure marketing to citeable reference material.</div>
+        <div class="action-fix">Add a comprehensive FAQ section with H2/H3 headings that directly answer specific questions in natural language (e.g., &#39;What is Stripe?&#39;, &#39;How much does Stripe charge per transaction?&#39;, &#39;What countries does Stripe support?&#39;), each with concise 2-3 sentence answers and links to detailed documentation.</div>
         
       </div>
     </div>
     
     <div class="action-item">
       <div class="action-num">8</div>
-      <div class="action-content">
-        <h4>AI&#39;s #1 recommendation for your content</h4>
-        <div class="action-meta">
-          Impact 60/100 · Effort 40/100 · Priority 36
-        </div>
-        
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">Overall assessment: This homepage content would perform poorly in AI search citations because it prioritizes conversion over information. While it contains impressive adoption statistics, the lack of ...</div>
-        
-        
-        <div class="action-fix">Add a clearly labeled &#39;What is Notion?&#39; section with 2-3 sentences of plain-language definition, include 2-3 specific, cited case studies with measurable outcomes (not just quotes), and link to methodology for all statistics — this would transform the page from pure marketing to citeable reference material.</div>
-        
-      </div>
-    </div>
-    
-    <div class="action-item">
-      <div class="action-num">9</div>
       <div class="action-content">
         <h4>No source citations detected</h4>
         <div class="action-meta">
@@ -1253,11 +1245,12 @@ AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; se
   <div class="methodology">
     <h2>How This Audit Works</h2>
     <p><strong>GEO (Generative Engine Optimization)</strong> is the practice of making your business visible inside AI search answers — ChatGPT, Perplexity, Claude, and Google AI Overviews. Unlike traditional SEO (which optimizes for Google's link-based rankings), GEO optimizes for AI engines that choose and cite sources by different rules.</p>
-    <p>This audit checks three pillars of AI search visibility:</p>
+    <p>This audit checks four pillars of AI search visibility:</p>
     <ul>
-      <li><strong>Crawlability (25%)</strong> — Can AI engines even reach your site? Checks robots.txt for blocked AI bots (GPTBot, ClaudeBot, PerplexityBot, etc.), sitemap presence, and indexability. This is the #1 silent killer — many businesses block AI crawlers without knowing it.</li>
-      <li><strong>Content Answerability (45%)</strong> — Does your content answer questions the way AI engines extract and cite? Uses an LLM to evaluate direct answers, statistical richness, citation quality, structure, and conversational match. The GEO research benchmark showed these content strategies lift citation rates 30-40%.</li>
-      <li><strong>Structured Data (30%)</strong> — Can machines parse and understand your content? Checks schema.org JSON-LD validity and coverage, title/meta tags, semantic HTML, and Open Graph.</li>
+      <li><strong>AI Crawlability (20%)</strong> — Can AI engines even reach your site? Checks robots.txt for blocked AI bots (GPTBot, ClaudeBot, PerplexityBot, etc.), sitemap presence, and indexability. This is the #1 silent killer — many businesses block AI crawlers without knowing it.</li>
+      <li><strong>Content Answerability (25%)</strong> — Does your content answer questions the way AI engines extract and cite? Uses an LLM to evaluate direct answers, statistical richness, citation quality, structure, and conversational match. The GEO research benchmark showed these content strategies lift citation rates 30-40%.</li>
+      <li><strong>Structured Data (20%)</strong> — Can machines parse and understand your content? Checks schema.org JSON-LD validity and coverage, title/meta tags, semantic HTML, and Open Graph.</li>
+      <li><strong>AI Brand Recall (35%)</strong> — Do AI engines actually know and mention your business? We send real questions to an AI model ("What is [brand]?", "What are the best [category] platforms?") and measure whether your business is mentioned. This tests both training data knowledge and category visibility — the closest proxy to "will ChatGPT/Perplexity mention me?"</li>
     </ul>
     <p><strong>About the LLM judge:</strong> The content answerability pillar uses a large language model to assess content the same way an AI search engine would. This is a proxy for real engine behavior — no tool can perfectly predict what ChatGPT or Perplexity will cite. The scores are relative indicators of readiness, not guarantees.</p>
     <p><strong>Limitations:</strong> This audit covers 3-5 pages per site. Backlink analysis and live citation tracking are not included (they require paid APIs). See the README for the full methodology and reasoning.</p>
@@ -1265,7 +1258,7 @@ AI&#39;s specific suggestion: Add a clearly labeled &#39;What is Notion?&#39; se
 
   <!-- Footer -->
   <div class="report-footer">
-    Generated by GEO Auditor · 2026-08-05T04:45:03.068735+00:00
+    Generated by GEO Auditor · 2026-08-05T05:14:45.148282+00:00
   </div>
 
 </div>

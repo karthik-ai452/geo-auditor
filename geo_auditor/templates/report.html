@@ -77,8 +77,8 @@
   /* Pillar bars */
   .pillars {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
     margin-bottom: 32px;
   }
   .pillar-card {
@@ -320,7 +320,7 @@
   <div class="pillars">
     {% for ps in score.pillar_scores %}
     <div class="pillar-card">
-      <h3>{{ ps.pillar.value|title }}</h3>
+      <h3>{{ ps.pillar.value|replace("_"," ")|title }}</h3>
       <div class="pillar-score">{{ "%.0f"|format(ps.score) }}</div>
       <div class="pillar-weight">{{ (ps.weight * 100)|round(0)|int }}% weight</div>
       <div class="pillar-bar">
@@ -428,11 +428,12 @@
   <div class="methodology">
     <h2>How This Audit Works</h2>
     <p><strong>GEO (Generative Engine Optimization)</strong> is the practice of making your business visible inside AI search answers — ChatGPT, Perplexity, Claude, and Google AI Overviews. Unlike traditional SEO (which optimizes for Google's link-based rankings), GEO optimizes for AI engines that choose and cite sources by different rules.</p>
-    <p>This audit checks three pillars of AI search visibility:</p>
+    <p>This audit checks four pillars of AI search visibility:</p>
     <ul>
-      <li><strong>Crawlability (25%)</strong> — Can AI engines even reach your site? Checks robots.txt for blocked AI bots (GPTBot, ClaudeBot, PerplexityBot, etc.), sitemap presence, and indexability. This is the #1 silent killer — many businesses block AI crawlers without knowing it.</li>
-      <li><strong>Content Answerability (45%)</strong> — Does your content answer questions the way AI engines extract and cite? Uses an LLM to evaluate direct answers, statistical richness, citation quality, structure, and conversational match. The GEO research benchmark showed these content strategies lift citation rates 30-40%.</li>
-      <li><strong>Structured Data (30%)</strong> — Can machines parse and understand your content? Checks schema.org JSON-LD validity and coverage, title/meta tags, semantic HTML, and Open Graph.</li>
+      <li><strong>AI Crawlability (20%)</strong> — Can AI engines even reach your site? Checks robots.txt for blocked AI bots (GPTBot, ClaudeBot, PerplexityBot, etc.), sitemap presence, and indexability. This is the #1 silent killer — many businesses block AI crawlers without knowing it.</li>
+      <li><strong>Content Answerability (25%)</strong> — Does your content answer questions the way AI engines extract and cite? Uses an LLM to evaluate direct answers, statistical richness, citation quality, structure, and conversational match. The GEO research benchmark showed these content strategies lift citation rates 30-40%.</li>
+      <li><strong>Structured Data (20%)</strong> — Can machines parse and understand your content? Checks schema.org JSON-LD validity and coverage, title/meta tags, semantic HTML, and Open Graph.</li>
+      <li><strong>AI Brand Recall (35%)</strong> — Do AI engines actually know and mention your business? We send real questions to an AI model ("What is [brand]?", "What are the best [category] platforms?") and measure whether your business is mentioned. This tests both training data knowledge and category visibility — the closest proxy to "will ChatGPT/Perplexity mention me?"</li>
     </ul>
     <p><strong>About the LLM judge:</strong> The content answerability pillar uses a large language model to assess content the same way an AI search engine would. This is a proxy for real engine behavior — no tool can perfectly predict what ChatGPT or Perplexity will cite. The scores are relative indicators of readiness, not guarantees.</p>
     <p><strong>Limitations:</strong> This audit covers 3-5 pages per site. Backlink analysis and live citation tracking are not included (they require paid APIs). See the README for the full methodology and reasoning.</p>

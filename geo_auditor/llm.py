@@ -174,3 +174,190 @@ def judge_content(
 def get_model_name() -> str:
     """Return the model name for reporting purposes."""
     return "drytis/kimi-k2.5"  # matches _resolve_model fallback
+
+
+# ---------------------------------------------------------------------------
+# Brand Recall — test whether an LLM actually knows about the business
+# ---------------------------------------------------------------------------
+
+BRAND_RECALL_SYSTEM_PROMPT = """\
+You are helping evaluate whether a business is visible in AI search engines.
+You will be asked questions about various businesses. Answer each question \
+naturally, as you would in a real conversation with a user.
+
+IMPORTANT: Answer based on your own knowledge. Do not say "I don't know" \
+unless you genuinely have no knowledge of the topic. List specific companies, \
+products, and tools when asked for recommendations or comparisons.
+"""
+
+BRAND_RECALL_QUESTION_TEMPLATES = [
+    # Generic question that tests overall brand awareness
+    "What is {brand}?",
+    # Category question — does the brand come up when asked about its space?
+    "What are the best {category} platforms for businesses?",
+    "What are the top {category} companies or tools?",
+    # Competitor question — does the brand get mentioned alongside competitors?
+    "Can you compare the top {category} platforms and their key features?",
+    "What are the main alternatives to {competitor} for {category}?",
+]
+
+
+def generate_brand_recall_queries(
+    brand: str, category: str, competitors: list[str] | None = None
+) -> list[dict[str, str]]:
+    """Generate a set of queries to test brand recall.
+
+    Returns a list of {query, query_type} dicts.
+    """
+    queries = []
+
+    # 1. Direct brand query — does the LLM know this company?
+    queries.append({
+        "query": f"What is {brand}?",
+        "type": "direct_brand",
+        "description": f"Does the AI know what {brand} is?"
+    })
+
+    # 2. Category queries — does the brand come up unprompted?
+    queries.append({
+        "query": f"What are the best {category} platforms for businesses?",
+        "type": "category_unprompted",
+        "description": f"When asked about {category}, does the AI mention {brand}?"
+    })
+
+    queries.append({
+        "query": f"What are the top {category} companies or tools?",
+        "type": "category_unprompted",
+        "description": f"When asked about top {category} tools, does the AI mention {brand}?"
+    })
+
+    # 3. Comparison queries — does the brand come up in comparisons?
+    queries.append({
+        "query": f"Can you compare the top {category} platforms and their key features?",
+        "type": "comparison",
+        "description": f"In a {category} comparison, does the AI mention {brand}?"
+    })
+
+    # 4. Competitor-anchored queries
+    if competitors:
+        queries.append({
+            "query": f"What are the main alternatives to {competitors[0]} for {category}?",
+            "type": "competitor_anchored",
+            "description": f"Asking for alternatives to {competitors[0]} — does the AI mention {brand}?"
+        })
+
+    return queries
+
+
+def query_brand_recall(
+    query: str,
+) -> str:
+    """Send a single brand recall query to the LLM. Returns the response text.
+
+    Raises RuntimeError if the LLM call fails.
+    """
+    client = _get_client()
+    model = _resolve_model(client)
+
+    try:
+        resp = client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": BRAND_RECALL_SYSTEM_PROMPT},
+                {"role": "user", "content": query},
+            ],
+            temperature=0.5,
+            max_tokens=800,
+        )
+        return resp.choices[0].message.content or ""
+    except Exception as e:
+        logger.error(f"Brand recall query failed: {e}")
+        raise RuntimeError(f"Brand recall query failed: {e}")
+
+
+BRAND_MENTION_CHECK_SYSTEM_PROMPT = """\
+You are an evaluator. You will be given an AI's response to a user's question \
+and the name of a specific business. Your job is to determine whether the \
+business is mentioned in the response.
+
+Return ONLY valid JSON with this structure:
+{
+  "mentioned": true/false,
+  "how_mentioned": "exact quote or description of how the brand appears",
+  "context": "positive / neutral / negative / not_mentioned",
+  "position": "first_quarter / second_quarter / third_quarter / fourth_quarter / not_mentioned"
+}
+"""
+
+
+def check_brand_mention(
+    brand: str, brand_aliases: list[str], ai_response: str
+) -> dict:
+    """Use the LLM to check whether a brand is mentioned in an AI response.
+
+    Returns {mentioned, how_mentioned, context, position}.
+    Falls back to simple text matching if LLM unavailable.
+    """
+    # First, try a fast text match — covers most cases without an LLM call
+    all_names = [brand.lower()] + [a.lower() for a in brand_aliases]
+    response_lower = ai_response.lower()
+    text_mentioned = any(name in response_lower for name in all_names if len(name) > 2)
+
+    # If text match found, get details from LLM for richer reporting
+    if text_mentioned or len(ai_response) > 20:
+        try:
+            client = _get_client()
+            model = _resolve_model(client)
+
+            user_msg = (
+                f"Business to check: {brand}\n"
+                f"Also known as: {', '.join(brand_aliases) if brand_aliases else 'N/A'}\n\n"
+                f"AI response:\n{ai_response[:3000]}\n\n"
+                f"Is {brand} mentioned in this response? "
+                f"Evaluate and return JSON."
+            )
+
+            resp = client.chat.completions.create(
+                model=model,
+                messages=[
+                    {"role": "system", "content": BRAND_MENTION_CHECK_SYSTEM_PROMPT},
+                    {"role": "user", "content": user_msg},
+                ],
+                temperature=0.2,
+                max_tokens=300,
+                response_format={"type": "json_object"},
+            )
+            result = json.loads(resp.choices[0].message.content)
+            return result
+        except Exception as e:
+            logger.warning(f"Brand mention LLM check failed, using text match: {e}")
+
+    # Fallback: text matching only
+    if text_mentioned:
+        # Find position
+        words = ai_response.split()
+        total_words = len(words)
+        for name in all_names:
+            for i, word in enumerate(words):
+                if name in word.lower():
+                    quarter_idx = i / max(total_words, 1)
+                    if quarter_idx < 0.25:
+                        position = "first_quarter"
+                    elif quarter_idx < 0.5:
+                        position = "second_quarter"
+                    elif quarter_idx < 0.75:
+                        position = "third_quarter"
+                    else:
+                        position = "fourth_quarter"
+                    return {
+                        "mentioned": True,
+                        "how_mentioned": f"Found '{name}' in the text",
+                        "context": "neutral",
+                        "position": position,
+                    }
+    return {
+        "mentioned": False,
+        "how_mentioned": "",
+        "context": "not_mentioned",
+        "position": "not_mentioned",
+    }
