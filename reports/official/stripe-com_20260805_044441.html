@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEO Audit Report — stripe.com</title>
+<style>
+  :root {
+    --critical: #dc2626;
+    --warning: #d97706;
+    --info: #2563eb;
+    --positive: #16a34a;
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --accent: #4f46e5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 0;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
+
+  /* Header */
+  .report-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 40px;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
+    border-radius: 16px;
+  }
+  .report-header h1 { font-size: 28px; margin-bottom: 8px; }
+  .report-header .subtitle { font-size: 16px; opacity: 0.9; }
+  .report-header .meta { font-size: 13px; opacity: 0.7; margin-top: 12px; }
+
+  /* Score circle */
+  .score-section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: var(--card-bg);
+    padding: 32px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .score-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+    font-weight: 700;
+  }
+  .score-circle .num { font-size: 48px; line-height: 1; }
+  .score-circle .label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+  .score-circle.grade-strong { background: var(--positive); }
+  .score-circle.grade-moderate { background: #eab308; }
+  .score-circle.grade-weak { background: var(--warning); }
+  .score-circle.grade-critical { background: var(--critical); }
+
+  .verdict { flex: 1; }
+  .verdict h2 { font-size: 22px; margin-bottom: 8px; }
+  .verdict p { color: var(--text-muted); font-size: 15px; }
+
+  /* Pillar bars */
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .pillar-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .pillar-card h3 { font-size: 14px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .pillar-score { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+  .pillar-weight { font-size: 12px; color: var(--text-muted); }
+  .pillar-bar {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    margin-top: 12px;
+    overflow: hidden;
+  }
+  .pillar-bar-fill { height: 100%; border-radius: 4px; transition: width 0.3s; }
+
+  /* Breakdown */
+  .breakdown {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .breakdown h2 { font-size: 20px; margin-bottom: 16px; }
+  .pillar-breakdown { margin-bottom: 24px; }
+  .pillar-breakdown:last-child { margin-bottom: 0; }
+  .pillar-breakdown h3 {
+    font-size: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 12px;
+    cursor: pointer;
+  }
+  .pillar-breakdown h3::after { content: ' ▾'; font-size: 12px; color: var(--text-muted); }
+  .component-list { list-style: none; }
+  .component-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14px;
+  }
+  .component-item:last-child { border-bottom: none; }
+  .component-label { flex: 1; padding-right: 16px; }
+  .component-detail { color: var(--text-muted); font-size: 13px; margin-top: 2px; }
+  .component-points { font-weight: 600; white-space: nowrap; font-family: 'SF Mono', Monaco, monospace; }
+  .component-points .max { color: var(--text-muted); }
+
+  /* Findings */
+  .findings { margin-bottom: 32px; }
+  .findings h2 { font-size: 20px; margin-bottom: 16px; }
+  .finding-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 12px;
+    border-left: 4px solid var(--border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .finding-card.severity-critical { border-left-color: var(--critical); }
+  .finding-card.severity-warning { border-left-color: var(--warning); }
+  .finding-card.severity-info { border-left-color: var(--info); }
+  .finding-card.severity-positive { border-left-color: var(--positive); }
+  .finding-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .severity-badge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    color: white;
+  }
+  .severity-badge.critical { background: var(--critical); }
+  .severity-badge.warning { background: var(--warning); }
+  .severity-badge.info { background: var(--info); }
+  .severity-badge.positive { background: var(--positive); }
+  .finding-card h3 { font-size: 16px; flex: 1; }
+  .finding-card .page-link { font-size: 12px; color: var(--accent); word-break: break-all; }
+  .finding-body { font-size: 14px; }
+  .finding-body .field { margin-bottom: 8px; }
+  .finding-body .field-label {
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+  .fix-block {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 8px;
+    font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+    font-size: 13px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    position: relative;
+  }
+  .fix-block .copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 11px;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-family: inherit;
+  }
+  .fix-block .copy-btn:hover { background: var(--bg); color: var(--text); }
+  .impact-effort {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .impact-effort span { font-weight: 600; }
+
+  /* Action plan */
+  .action-plan {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .action-plan h2 { font-size: 20px; margin-bottom: 8px; }
+  .action-plan .intro { color: var(--text-muted); font-size: 14px; margin-bottom: 20px; }
+  .action-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .action-item:last-child { border-bottom: none; }
+  .action-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .action-content { flex: 1; }
+  .action-content h4 { font-size: 15px; margin-bottom: 4px; }
+  .action-content .action-fix {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 8px;
+    font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+    font-size: 12px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .action-meta { font-size: 12px; color: var(--text-muted); }
+
+  /* Methodology */
+  .methodology {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .methodology h2 { font-size: 20px; color: var(--text); margin-bottom: 16px; }
+  .methodology p { margin-bottom: 12px; }
+  .methodology ul { margin-left: 20px; margin-bottom: 12px; }
+  .methodology li { margin-bottom: 6px; }
+
+  /* Footer */
+  .report-footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; }
+    .container { max-width: 100%; padding: 0; }
+    .fix-block .copy-btn, .action-content .action-fix { page-break-inside: avoid; }
+    .finding-card, .action-item { page-break-inside: avoid; }
+    .report-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .score-circle, .severity-badge, .pillar-bar-fill { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="report-header">
+    <h1>GEO Audit Report</h1>
+    <div class="subtitle">stripe.com</div>
+    <div class="meta">Audited 2026-08-05T04:44:41.988499+00:00 · Content scoring: LLM-assisted (drytis/kimi-k2.5)</div>
+  </div>
+
+  <!-- Score Summary -->
+  <div class="score-section">
+    <div class="score-circle grade-moderate">
+      <div class="num">70</div>
+      <div class="label">/ 100</div>
+    </div>
+    <div class="verdict">
+      <h2>Moderate — 69.9 / 100</h2>
+      <p>Your site has a foundation but key gaps are holding back AI visibility.</p>
+    </div>
+  </div>
+
+  <!-- Pillar Scores -->
+  <div class="pillars">
+    
+    <div class="pillar-card">
+      <h3>Crawlability</h3>
+      <div class="pillar-score">85</div>
+      <div class="pillar-weight">25% weight</div>
+      <div class="pillar-bar">
+        <div class="pillar-bar-fill" style="width: 85.0%; background: var(--positive);"></div>
+      </div>
+    </div>
+    
+    <div class="pillar-card">
+      <h3>Answerability</h3>
+      <div class="pillar-score">48</div>
+      <div class="pillar-weight">45% weight</div>
+      <div class="pillar-bar">
+        <div class="pillar-bar-fill" style="width: 48.1%; background: var(--critical);"></div>
+      </div>
+    </div>
+    
+    <div class="pillar-card">
+      <h3>Structure</h3>
+      <div class="pillar-score">90</div>
+      <div class="pillar-weight">30% weight</div>
+      <div class="pillar-bar">
+        <div class="pillar-bar-fill" style="width: 90.0%; background: var(--positive);"></div>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Score Breakdown -->
+  <div class="breakdown">
+    <h2>Score Breakdown — How This Was Calculated</h2>
+    
+    <div class="pillar-breakdown">
+      <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+        Crawlability: 85.0/100 (weight: 25%)
+      </h3>
+      <ul class="component-list">
+        
+        <li class="component-item">
+          <div class="component-label">
+            GPTBot: allowed
+            <div class="component-detail">GPTBot is allowed in robots.txt.</div>
+          </div>
+          <div class="component-points">
+            7.5<span class="max">/8</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            OAI-SearchBot: allowed
+            <div class="component-detail">OAI-SearchBot is allowed in robots.txt.</div>
+          </div>
+          <div class="component-points">
+            7.5<span class="max">/8</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            PerplexityBot: allowed
+            <div class="component-detail">PerplexityBot is allowed in robots.txt.</div>
+          </div>
+          <div class="component-points">
+            7.5<span class="max">/8</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            Perplexity-User: allowed
+            <div class="component-detail">Perplexity-User is allowed in robots.txt.</div>
+          </div>
+          <div class="component-points">
+            7.5<span class="max">/8</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            ClaudeBot: allowed
+            <div class="component-detail">ClaudeBot is allowed in robots.txt.</div>
+          </div>
+          <div class="component-points">
+            7.5<span class="max">/8</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            anthropic-ai: allowed
+            <div class="component-detail">anthropic-ai is allowed in robots.txt.</div>
+          </div>
+          <div class="component-points">
+            7.5<span class="max">/8</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            CCBot: allowed
+            <div class="component-detail">CCBot is allowed in robots.txt.</div>
+          </div>
+          <div class="component-points">
+            7.5<span class="max">/8</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            Google-Extended: allowed
+            <div class="component-detail">Google-Extended is allowed in robots.txt.</div>
+          </div>
+          <div class="component-points">
+            7.5<span class="max">/8</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            robots.txt exists and is reachable
+            <div class="component-detail">robots.txt returned HTTP 200.</div>
+          </div>
+          <div class="component-points">
+            10.0<span class="max">/10</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            sitemap.xml missing or unreachable
+            <div class="component-detail">No sitemap.xml found. AI engines and traditional search engines use sitemaps to discover pages. Without one, deep content may go uncrawled.</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/15</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            All crawled pages are indexable
+            <div class="component-detail">1 page(s) checked, none have noindex.</div>
+          </div>
+          <div class="component-points">
+            10.0<span class="max">/10</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            Page reachability: 1/1
+            <div class="component-detail">1/1 pages reachable, avg load 24ms</div>
+          </div>
+          <div class="component-points">
+            5.0<span class="max">/5</span>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="pillar-breakdown">
+      <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+        Answerability: 48.1/100 (weight: 45%)
+      </h3>
+      <ul class="component-list">
+        
+        <li class="component-item">
+          <div class="component-label">
+            Direct Answers: 35/100
+            <div class="component-detail">The content is marketing-focused and descriptive rather than definitional or explanatory. It describes what Stripe does but rarely answers specific &#39;how&#39; or &#39;what is&#39; questions directly. The homepage format prioritizes persuasion over education, with repeated taglines like &#39;Financial infrastructure to grow your revenue&#39; rather than clear explanations of concepts. Example: &#34;Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth.&#34;</div>
+          </div>
+          <div class="component-points">
+            10.5<span class="max">/30</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            Statistical Richness: 85/100
+            <div class="component-detail">Exceptionally strong statistical density with 28+ specific data points including revenue figures, uptime percentages, transaction volumes, and customer metrics. These concrete numbers are highly citable for AI engines answering questions about Stripe&#39;s scale, reliability, and market presence. Example: &#34;$1.9T in payments volume processed in 2025; 99.999% historical uptime for Stripe services; 200M+ active subscriptions managed on Stripe Billing; 500M+ API requests per day; 10K+ API requests per second&#34;</div>
+          </div>
+          <div class="component-points">
+            21.2<span class="max">/25</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            Citation Quality: 15/100
+            <div class="component-detail">No external citations or source attribution found. All statistics are presented as self-reported Stripe metrics without third-party verification, methodology notes, or links to original research. Customer quotes are attributed to named individuals but lack links to case studies or verification. Example: &#34;Kurtis Moyer, Lead Product Manager of Payments, Mindbody — attributed quote without link to full case study or external validation&#34;</div>
+          </div>
+          <div class="component-points">
+            2.2<span class="max">/15</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            Structure Clarity: 55/100
+            <div class="component-detail">Moderate structure with clear H2 sections for different use cases (enterprises, startups, platforms) and visual hierarchy. However, the content is fragmented with heavy repetition, carousel-style stat blocks that repeat, and dense marketing copy that obscures information architecture. No FAQ or structured data detected. Example: &#34;Sections include: &#39;Stripe for enterprises&#39;, &#39;Stripe for startups&#39;, &#39;Stripe for platforms&#39;, &#39;Reliable, extensible infrastructure for every stack&#39; — but these blend together without distinct definitional boundaries&#34;</div>
+          </div>
+          <div class="component-points">
+            8.2<span class="max">/15</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            Conversational Match: 40/100
+            <div class="component-detail">Language is corporate and marketing-oriented rather than conversational. Phrases like &#39;implement custom revenue models&#39; and &#39;agentic commerce&#39; don&#39;t match natural query patterns. Missing question-based headers (no &#39;What is Stripe?&#39; or &#39;How does Stripe work?&#39;). Some improvement in customer quotes which use more natural language. Example: &#34;Monetize through agentic commerce; Embed payments in your platform; Orchestrate payments across multiple processors — technical/buzzword-heavy rather than how users actually ask questions&#34;</div>
+          </div>
+          <div class="component-points">
+            6.0<span class="max">/15</span>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="pillar-breakdown">
+      <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+        Structure: 90.0/100 (weight: 30%)
+      </h3>
+      <ul class="component-list">
+        
+        <li class="component-item">
+          <div class="component-label">
+            Structured data: 2 block(s), types: Organization, WebSite
+            <div class="component-detail">Valid JSON-LD found. Schema types: Organization, WebSite.</div>
+          </div>
+          <div class="component-points">
+            30.0<span class="max">/40</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            title: &#34;Stripe | Financial Infrastructure to Gro...&#34;; meta description: present
+            <div class="component-detail">title: &#34;Stripe | Financial Infrastructure to Gro...&#34;; meta description: present</div>
+          </div>
+          <div class="component-points">
+            25.0<span class="max">/25</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            H1: yes, H2 count: 5, paragraphs: 62, words: 1685
+            <div class="component-detail">H1: present, H2 tags: 5, paragraphs: 62, word count: 1685</div>
+          </div>
+          <div class="component-points">
+            15.0<span class="max">/15</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            Open Graph: title=yes, desc=yes
+            <div class="component-detail">og:title: present, og:description: present</div>
+          </div>
+          <div class="component-points">
+            10.0<span class="max">/10</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            canonical: &#34;https://stripe.com/&#34;
+            <div class="component-detail">canonical: &#34;https://stripe.com/&#34;</div>
+          </div>
+          <div class="component-points">
+            10.0<span class="max">/10</span>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div>
+
+  <!-- Findings -->
+  <div class="findings">
+    <h2>Findings — What We Found</h2>
+    
+    <div class="finding-card severity-positive">
+      <div class="finding-header">
+        <span class="severity-badge positive">positive</span>
+        <h3>All checked AI crawlers are allowed in robots.txt</h3>
+      </div>
+      <div class="page-link">📍 /robots.txt</div>
+      <div class="finding-body">
+        
+        <div class="field">
+          <div class="field-label">What we found</div>
+          <div>All 8 checked AI crawlers (GPTBot, OAI-SearchBot, PerplexityBot, Perplexity-User, ClaudeBot, anthropic-ai, CCBot, Google-Extended) can access your site.</div>
+        </div>
+        
+        
+        
+        
+      </div>
+    </div>
+    
+    <div class="finding-card severity-warning">
+      <div class="finding-header">
+        <span class="severity-badge warning">warning</span>
+        <h3>sitemap.xml is missing or unreachable</h3>
+      </div>
+      <div class="page-link">📍 /sitemap.xml</div>
+      <div class="finding-body">
+        
+        <div class="field">
+          <div class="field-label">What we found</div>
+          <div>No sitemap.xml was found at /sitemap.xml.</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">What it should be</div>
+          <div>A valid sitemap.xml listing your key pages.</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">Fix (copy-pasteable)</div>
+          <div class="fix-block">
+            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
+            Create a sitemap.xml at the site root. If you use a CMS (WordPress, Shopify, Webflow), there&#39;s usually a plugin or built-in feature to generate one. Reference it in robots.txt:
+
+Sitemap: https://yoursite.com/sitemap.xml
+          </div>
+        </div>
+        
+        
+        <div class="impact-effort">
+          <span>📊 Impact: 50/100</span>
+          <span>🔧 Effort: 20/100</span>
+          <span>⚡ Priority: 40</span>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="finding-card severity-positive">
+      <div class="finding-header">
+        <span class="severity-badge positive">positive</span>
+        <h3>No noindex directives found on crawled pages</h3>
+      </div>
+      
+      <div class="finding-body">
+        
+        <div class="field">
+          <div class="field-label">What we found</div>
+          <div>All 1 crawled pages are indexable.</div>
+        </div>
+        
+        
+        
+        
+      </div>
+    </div>
+    
+    <div class="finding-card severity-warning">
+      <div class="finding-header">
+        <span class="severity-badge warning">warning</span>
+        <h3>No direct definitional answers detected</h3>
+      </div>
+      <div class="page-link">📍 https://stripe.com/</div>
+      <div class="finding-body">
+        
+        <div class="field">
+          <div class="field-label">What we found</div>
+          <div>No definitional statements (&#39;X is a...&#39;, &#39;X means...&#39;) found in the first 2000 characters. AI engines extract definitional answers to fill their responses.</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">What it should be</div>
+          <div>Clear, direct definitions at the top of key pages.</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">Fix (copy-pasteable)</div>
+          <div class="fix-block">
+            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
+            Add a 1-2 sentence direct answer at the top of your page that defines your main topic in plain language.
+          </div>
+        </div>
+        
+        
+        <div class="impact-effort">
+          <span>📊 Impact: 50/100</span>
+          <span>🔧 Effort: 15/100</span>
+          <span>⚡ Priority: 42</span>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="finding-card severity-info">
+      <div class="finding-header">
+        <span class="severity-badge info">info</span>
+        <h3>No source citations detected</h3>
+      </div>
+      <div class="page-link">📍 https://stripe.com/</div>
+      <div class="finding-body">
+        
+        <div class="field">
+          <div class="field-label">What we found</div>
+          <div>No citation patterns (&#39;according to&#39;, &#39;source:&#39;, &#39;study by&#39;) found. Content with citations is more likely to be cited by AI engines.</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">What it should be</div>
+          <div>Cite sources for claims and data.</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">Fix (copy-pasteable)</div>
+          <div class="fix-block">
+            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
+            When you make a claim or cite a statistic, link to or name the source. E.g., &#39;According to a 2024 Gartner study...&#39;
+          </div>
+        </div>
+        
+        
+        <div class="impact-effort">
+          <span>📊 Impact: 35/100</span>
+          <span>🔧 Effort: 30/100</span>
+          <span>⚡ Priority: 24</span>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="finding-card severity-warning">
+      <div class="finding-header">
+        <span class="severity-badge warning">warning</span>
+        <h3>No FAQ structured data</h3>
+      </div>
+      <div class="page-link">📍 https://stripe.com/</div>
+      <div class="finding-body">
+        
+        <div class="field">
+          <div class="field-label">What we found</div>
+          <div>No FAQPage schema.org markup found. FAQ content in structured format is one of the most cited content types by AI engines.</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">What it should be</div>
+          <div>FAQPage schema markup for common questions.</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">Fix (copy-pasteable)</div>
+          <div class="fix-block">
+            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
+            Add FAQ schema to key pages. Example:
+
+&lt;script type=&#34;application/ld+json&#34;&gt;
+{
+  &#34;@context&#34;: &#34;https://schema.org&#34;,
+  &#34;@type&#34;: &#34;FAQPage&#34;,
+  &#34;mainEntity&#34;: [{
+    &#34;@type&#34;: &#34;Question&#34;,
+    &#34;name&#34;: &#34;What does your business do?&#34;,
+    &#34;acceptedAnswer&#34;: {
+      &#34;@type&#34;: &#34;Answer&#34;,
+      &#34;text&#34;: &#34;Clear, concise answer here.&#34;
+    }
+  }]
+}
+&lt;/script&gt;
+          </div>
+        </div>
+        
+        
+        <div class="impact-effort">
+          <span>📊 Impact: 60/100</span>
+          <span>🔧 Effort: 25/100</span>
+          <span>⚡ Priority: 45</span>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="finding-card severity-warning">
+      <div class="finding-header">
+        <span class="severity-badge warning">warning</span>
+        <h3>Content scores low on Direct Answers (35/100)</h3>
+      </div>
+      <div class="page-link">📍 https://stripe.com/</div>
+      <div class="finding-body">
+        
+        <div class="field">
+          <div class="field-label">What we found</div>
+          <div>LLM assessment: The content is marketing-focused and descriptive rather than definitional or explanatory. It describes what Stripe does but rarely answers specific &#39;how&#39; or &#39;what is&#39; questions directly. The homepage format prioritizes persuasion over education, with repeated taglines like &#39;Financial infrastructure to grow your revenue&#39; rather than clear explanations of concepts. Example from your content: &#34;Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth.&#34;</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">What it should be</div>
+          <div>Direct Answers should score 70+ for good AI search visibility.</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">Fix (copy-pasteable)</div>
+          <div class="fix-block">
+            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
+            Add clear, direct answer paragraphs at the top of your content. Format: &#39;[Topic] is [definition/explanation].&#39; — one or two sentences that directly answer the most likely question a person would ask.
+
+Example: &#39;Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.&#39;
+
+AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; or &#39;How Stripe works&#39; section with definitional, question-based H2 headers, external citations for key statistics, and a structured FAQ schema to capture conversational queries.
+          </div>
+        </div>
+        
+        
+        <div class="impact-effort">
+          <span>📊 Impact: 52/100</span>
+          <span>🔧 Effort: 20/100</span>
+          <span>⚡ Priority: 42</span>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="finding-card severity-positive">
+      <div class="finding-header">
+        <span class="severity-badge positive">positive</span>
+        <h3>Strong Statistical Richness (85/100)</h3>
+      </div>
+      <div class="page-link">📍 https://stripe.com/</div>
+      <div class="finding-body">
+        
+        <div class="field">
+          <div class="field-label">What we found</div>
+          <div>LLM assessment: Exceptionally strong statistical density with 28+ specific data points including revenue figures, uptime percentages, transaction volumes, and customer metrics. These concrete numbers are highly citable for AI engines answering questions about Stripe&#39;s scale, reliability, and market presence.</div>
+        </div>
+        
+        
+        
+        
+      </div>
+    </div>
+    
+    <div class="finding-card severity-critical">
+      <div class="finding-header">
+        <span class="severity-badge critical">critical</span>
+        <h3>Content scores low on Citation Quality (15/100)</h3>
+      </div>
+      <div class="page-link">📍 https://stripe.com/</div>
+      <div class="finding-body">
+        
+        <div class="field">
+          <div class="field-label">What we found</div>
+          <div>LLM assessment: No external citations or source attribution found. All statistics are presented as self-reported Stripe metrics without third-party verification, methodology notes, or links to original research. Customer quotes are attributed to named individuals but lack links to case studies or verification. Example from your content: &#34;Kurtis Moyer, Lead Product Manager of Payments, Mindbody — attributed quote without link to full case study or external validation&#34;</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">What it should be</div>
+          <div>Citation Quality should score 70+ for good AI search visibility.</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">Fix (copy-pasteable)</div>
+          <div class="fix-block">
+            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
+            Cite your sources. Use phrases like &#39;according to [study]&#39;, &#39;research from [organization] shows&#39;, or link to primary sources. AI engines prefer content that itself cites evidence.
+
+AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; or &#39;How Stripe works&#39; section with definitional, question-based H2 headers, external citations for key statistics, and a structured FAQ schema to capture conversational queries.
+          </div>
+        </div>
+        
+        
+        <div class="impact-effort">
+          <span>📊 Impact: 68/100</span>
+          <span>🔧 Effort: 30/100</span>
+          <span>⚡ Priority: 48</span>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="finding-card severity-warning">
+      <div class="finding-header">
+        <span class="severity-badge warning">warning</span>
+        <h3>Content scores low on Conversational Match (40/100)</h3>
+      </div>
+      <div class="page-link">📍 https://stripe.com/</div>
+      <div class="finding-body">
+        
+        <div class="field">
+          <div class="field-label">What we found</div>
+          <div>LLM assessment: Language is corporate and marketing-oriented rather than conversational. Phrases like &#39;implement custom revenue models&#39; and &#39;agentic commerce&#39; don&#39;t match natural query patterns. Missing question-based headers (no &#39;What is Stripe?&#39; or &#39;How does Stripe work?&#39;). Some improvement in customer quotes which use more natural language. Example from your content: &#34;Monetize through agentic commerce; Embed payments in your platform; Orchestrate payments across multiple processors — technical/buzzword-heavy rather than how users actually ask questions&#34;</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">What it should be</div>
+          <div>Conversational Match should score 70+ for good AI search visibility.</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">Fix (copy-pasteable)</div>
+          <div class="fix-block">
+            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
+            Write in the language your audience actually uses to ask questions. Instead of &#39;Our platform provides enterprise-grade solutions&#39;, write &#39;Our platform helps large teams manage projects.&#39; Use natural, conversational phrasing.
+
+AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; or &#39;How Stripe works&#39; section with definitional, question-based H2 headers, external citations for key statistics, and a structured FAQ schema to capture conversational queries.
+          </div>
+        </div>
+        
+        
+        <div class="impact-effort">
+          <span>📊 Impact: 48/100</span>
+          <span>🔧 Effort: 35/100</span>
+          <span>⚡ Priority: 31</span>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="finding-card severity-info">
+      <div class="finding-header">
+        <span class="severity-badge info">info</span>
+        <h3>AI&#39;s #1 recommendation for your content</h3>
+      </div>
+      <div class="page-link">📍 https://stripe.com/</div>
+      <div class="finding-body">
+        
+        <div class="field">
+          <div class="field-label">What we found</div>
+          <div>Overall assessment: This content would perform well for brand and scale-related queries due to exceptional statistical density, but poorly for explanatory or comparative questions due to lack of definitional clarity, external citations, and conversational structure. AI engines would likely cite the statistics heavily while struggling to extract clear explanatory content for &#39;how it works&#39; type queries.</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">What it should be</div>
+          <div>Add a dedicated &#39;What is Stripe?&#39; or &#39;How Stripe works&#39; section with definitional, question-based H2 headers, external citations for key statistics, and a structured FAQ schema to capture conversational queries.</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">Fix (copy-pasteable)</div>
+          <div class="fix-block">
+            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
+            Add a dedicated &#39;What is Stripe?&#39; or &#39;How Stripe works&#39; section with definitional, question-based H2 headers, external citations for key statistics, and a structured FAQ schema to capture conversational queries.
+          </div>
+        </div>
+        
+        
+        <div class="impact-effort">
+          <span>📊 Impact: 60/100</span>
+          <span>🔧 Effort: 40/100</span>
+          <span>⚡ Priority: 36</span>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="finding-card severity-positive">
+      <div class="finding-header">
+        <span class="severity-badge positive">positive</span>
+        <h3>Good structured data coverage on homepage</h3>
+      </div>
+      <div class="page-link">📍 https://stripe.com/</div>
+      <div class="finding-body">
+        
+        <div class="field">
+          <div class="field-label">What we found</div>
+          <div>Found valid JSON-LD with types: Organization, WebSite.</div>
+        </div>
+        
+        
+        
+        
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Action Plan -->
+  
+  <div class="action-plan">
+    <h2>📋 Monday-Morning Action Plan</h2>
+    <p class="intro">Ordered by impact × ease. Start at #1 and work down. Each item has a copy-pasteable fix.</p>
+    
+    <div class="action-item">
+      <div class="action-num">1</div>
+      <div class="action-content">
+        <h4>Content scores low on Citation Quality (15/100)</h4>
+        <div class="action-meta">
+          Impact 68/100 · Effort 30/100 · Priority 48
+        </div>
+        
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: No external citations or source attribution found. All statistics are presented as self-reported Stripe metrics without third-party verification, methodology notes, or links to origina...</div>
+        
+        
+        <div class="action-fix">Cite your sources. Use phrases like &#39;according to [study]&#39;, &#39;research from [organization] shows&#39;, or link to primary sources. AI engines prefer content that itself cites evidence.
+
+AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; or &#39;How Stripe works&#39; section with definitional, question-based H2 headers, external citations for key statistics, and a structured FAQ schema to capture conversational queries.</div>
+        
+      </div>
+    </div>
+    
+    <div class="action-item">
+      <div class="action-num">2</div>
+      <div class="action-content">
+        <h4>No FAQ structured data</h4>
+        <div class="action-meta">
+          Impact 60/100 · Effort 25/100 · Priority 45
+        </div>
+        
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">No FAQPage schema.org markup found. FAQ content in structured format is one of the most cited content types by AI engines.</div>
+        
+        
+        <div class="action-fix">Add FAQ schema to key pages. Example:
+
+&lt;script type=&#34;application/ld+json&#34;&gt;
+{
+  &#34;@context&#34;: &#34;https://schema.org&#34;,
+  &#34;@type&#34;: &#34;FAQPage&#34;,
+  &#34;mainEntity&#34;: [{
+    &#34;@type&#34;: &#34;Question&#34;,
+    &#34;name&#34;: &#34;What does your business do?&#34;,
+    &#34;acceptedAnswer&#34;: {
+      &#34;@type&#34;: &#34;Answer&#34;,
+      &#34;text&#34;: &#34;Clear, concise answer here.&#34;
+    }
+  }]
+}
+&lt;/script&gt;</div>
+        
+      </div>
+    </div>
+    
+    <div class="action-item">
+      <div class="action-num">3</div>
+      <div class="action-content">
+        <h4>No direct definitional answers detected</h4>
+        <div class="action-meta">
+          Impact 50/100 · Effort 15/100 · Priority 42
+        </div>
+        
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">No definitional statements (&#39;X is a...&#39;, &#39;X means...&#39;) found in the first 2000 characters. AI engines extract definitional answers to fill their responses.</div>
+        
+        
+        <div class="action-fix">Add a 1-2 sentence direct answer at the top of your page that defines your main topic in plain language.</div>
+        
+      </div>
+    </div>
+    
+    <div class="action-item">
+      <div class="action-num">4</div>
+      <div class="action-content">
+        <h4>Content scores low on Direct Answers (35/100)</h4>
+        <div class="action-meta">
+          Impact 52/100 · Effort 20/100 · Priority 42
+        </div>
+        
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The content is marketing-focused and descriptive rather than definitional or explanatory. It describes what Stripe does but rarely answers specific &#39;how&#39; or &#39;what is&#39; questions directl...</div>
+        
+        
+        <div class="action-fix">Add clear, direct answer paragraphs at the top of your content. Format: &#39;[Topic] is [definition/explanation].&#39; — one or two sentences that directly answer the most likely question a person would ask.
+
+Example: &#39;Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.&#39;
+
+AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; or &#39;How Stripe works&#39; section with definitional, question-based H2 headers, external citations for key statistics, and a structured FAQ schema to capture conversational queries.</div>
+        
+      </div>
+    </div>
+    
+    <div class="action-item">
+      <div class="action-num">5</div>
+      <div class="action-content">
+        <h4>sitemap.xml is missing or unreachable</h4>
+        <div class="action-meta">
+          Impact 50/100 · Effort 20/100 · Priority 40
+        </div>
+        
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">No sitemap.xml was found at /sitemap.xml.</div>
+        
+        
+        <div class="action-fix">Create a sitemap.xml at the site root. If you use a CMS (WordPress, Shopify, Webflow), there&#39;s usually a plugin or built-in feature to generate one. Reference it in robots.txt:
+
+Sitemap: https://yoursite.com/sitemap.xml</div>
+        
+      </div>
+    </div>
+    
+    <div class="action-item">
+      <div class="action-num">6</div>
+      <div class="action-content">
+        <h4>AI&#39;s #1 recommendation for your content</h4>
+        <div class="action-meta">
+          Impact 60/100 · Effort 40/100 · Priority 36
+        </div>
+        
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">Overall assessment: This content would perform well for brand and scale-related queries due to exceptional statistical density, but poorly for explanatory or comparative questions due to lack of defin...</div>
+        
+        
+        <div class="action-fix">Add a dedicated &#39;What is Stripe?&#39; or &#39;How Stripe works&#39; section with definitional, question-based H2 headers, external citations for key statistics, and a structured FAQ schema to capture conversational queries.</div>
+        
+      </div>
+    </div>
+    
+    <div class="action-item">
+      <div class="action-num">7</div>
+      <div class="action-content">
+        <h4>Content scores low on Conversational Match (40/100)</h4>
+        <div class="action-meta">
+          Impact 48/100 · Effort 35/100 · Priority 31
+        </div>
+        
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: Language is corporate and marketing-oriented rather than conversational. Phrases like &#39;implement custom revenue models&#39; and &#39;agentic commerce&#39; don&#39;t match natural query patterns. Missi...</div>
+        
+        
+        <div class="action-fix">Write in the language your audience actually uses to ask questions. Instead of &#39;Our platform provides enterprise-grade solutions&#39;, write &#39;Our platform helps large teams manage projects.&#39; Use natural, conversational phrasing.
+
+AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; or &#39;How Stripe works&#39; section with definitional, question-based H2 headers, external citations for key statistics, and a structured FAQ schema to capture conversational queries.</div>
+        
+      </div>
+    </div>
+    
+    <div class="action-item">
+      <div class="action-num">8</div>
+      <div class="action-content">
+        <h4>No source citations detected</h4>
+        <div class="action-meta">
+          Impact 35/100 · Effort 30/100 · Priority 24
+        </div>
+        
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">No citation patterns (&#39;according to&#39;, &#39;source:&#39;, &#39;study by&#39;) found. Content with citations is more likely to be cited by AI engines.</div>
+        
+        
+        <div class="action-fix">When you make a claim or cite a statistic, link to or name the source. E.g., &#39;According to a 2024 Gartner study...&#39;</div>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+
+  <!-- Methodology -->
+  <div class="methodology">
+    <h2>How This Audit Works</h2>
+    <p><strong>GEO (Generative Engine Optimization)</strong> is the practice of making your business visible inside AI search answers — ChatGPT, Perplexity, Claude, and Google AI Overviews. Unlike traditional SEO (which optimizes for Google's link-based rankings), GEO optimizes for AI engines that choose and cite sources by different rules.</p>
+    <p>This audit checks three pillars of AI search visibility:</p>
+    <ul>
+      <li><strong>Crawlability (25%)</strong> — Can AI engines even reach your site? Checks robots.txt for blocked AI bots (GPTBot, ClaudeBot, PerplexityBot, etc.), sitemap presence, and indexability. This is the #1 silent killer — many businesses block AI crawlers without knowing it.</li>
+      <li><strong>Content Answerability (45%)</strong> — Does your content answer questions the way AI engines extract and cite? Uses an LLM to evaluate direct answers, statistical richness, citation quality, structure, and conversational match. The GEO research benchmark showed these content strategies lift citation rates 30-40%.</li>
+      <li><strong>Structured Data (30%)</strong> — Can machines parse and understand your content? Checks schema.org JSON-LD validity and coverage, title/meta tags, semantic HTML, and Open Graph.</li>
+    </ul>
+    <p><strong>About the LLM judge:</strong> The content answerability pillar uses a large language model to assess content the same way an AI search engine would. This is a proxy for real engine behavior — no tool can perfectly predict what ChatGPT or Perplexity will cite. The scores are relative indicators of readiness, not guarantees.</p>
+    <p><strong>Limitations:</strong> This audit covers 3-5 pages per site. Backlink analysis and live citation tracking are not included (they require paid APIs). See the README for the full methodology and reasoning.</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="report-footer">
+    Generated by GEO Auditor · 2026-08-05T04:44:41.988499+00:00
+  </div>
+
+</div>
+
+<script>
+function copyFix(btn) {
+  var text = btn.parentElement.textContent.replace('Copy', '').trim();
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = 'Copied!';
+    setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+  });
+}
+</script>
+</body>
+</html>

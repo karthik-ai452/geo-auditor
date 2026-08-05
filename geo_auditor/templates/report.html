@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEO Audit Report — {{ domain }}</title>
+<style>
+  :root {
+    --critical: #dc2626;
+    --warning: #d97706;
+    --info: #2563eb;
+    --positive: #16a34a;
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --accent: #4f46e5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 0;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
+
+  /* Header */
+  .report-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 40px;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
+    border-radius: 16px;
+  }
+  .report-header h1 { font-size: 28px; margin-bottom: 8px; }
+  .report-header .subtitle { font-size: 16px; opacity: 0.9; }
+  .report-header .meta { font-size: 13px; opacity: 0.7; margin-top: 12px; }
+
+  /* Score circle */
+  .score-section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: var(--card-bg);
+    padding: 32px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .score-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+    font-weight: 700;
+  }
+  .score-circle .num { font-size: 48px; line-height: 1; }
+  .score-circle .label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+  .score-circle.grade-strong { background: var(--positive); }
+  .score-circle.grade-moderate { background: #eab308; }
+  .score-circle.grade-weak { background: var(--warning); }
+  .score-circle.grade-critical { background: var(--critical); }
+
+  .verdict { flex: 1; }
+  .verdict h2 { font-size: 22px; margin-bottom: 8px; }
+  .verdict p { color: var(--text-muted); font-size: 15px; }
+
+  /* Pillar bars */
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .pillar-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .pillar-card h3 { font-size: 14px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .pillar-score { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+  .pillar-weight { font-size: 12px; color: var(--text-muted); }
+  .pillar-bar {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    margin-top: 12px;
+    overflow: hidden;
+  }
+  .pillar-bar-fill { height: 100%; border-radius: 4px; transition: width 0.3s; }
+
+  /* Breakdown */
+  .breakdown {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .breakdown h2 { font-size: 20px; margin-bottom: 16px; }
+  .pillar-breakdown { margin-bottom: 24px; }
+  .pillar-breakdown:last-child { margin-bottom: 0; }
+  .pillar-breakdown h3 {
+    font-size: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 12px;
+    cursor: pointer;
+  }
+  .pillar-breakdown h3::after { content: ' ▾'; font-size: 12px; color: var(--text-muted); }
+  .component-list { list-style: none; }
+  .component-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14px;
+  }
+  .component-item:last-child { border-bottom: none; }
+  .component-label { flex: 1; padding-right: 16px; }
+  .component-detail { color: var(--text-muted); font-size: 13px; margin-top: 2px; }
+  .component-points { font-weight: 600; white-space: nowrap; font-family: 'SF Mono', Monaco, monospace; }
+  .component-points .max { color: var(--text-muted); }
+
+  /* Findings */
+  .findings { margin-bottom: 32px; }
+  .findings h2 { font-size: 20px; margin-bottom: 16px; }
+  .finding-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 12px;
+    border-left: 4px solid var(--border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .finding-card.severity-critical { border-left-color: var(--critical); }
+  .finding-card.severity-warning { border-left-color: var(--warning); }
+  .finding-card.severity-info { border-left-color: var(--info); }
+  .finding-card.severity-positive { border-left-color: var(--positive); }
+  .finding-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .severity-badge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    color: white;
+  }
+  .severity-badge.critical { background: var(--critical); }
+  .severity-badge.warning { background: var(--warning); }
+  .severity-badge.info { background: var(--info); }
+  .severity-badge.positive { background: var(--positive); }
+  .finding-card h3 { font-size: 16px; flex: 1; }
+  .finding-card .page-link { font-size: 12px; color: var(--accent); word-break: break-all; }
+  .finding-body { font-size: 14px; }
+  .finding-body .field { margin-bottom: 8px; }
+  .finding-body .field-label {
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+  .fix-block {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 8px;
+    font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+    font-size: 13px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    position: relative;
+  }
+  .fix-block .copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 11px;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-family: inherit;
+  }
+  .fix-block .copy-btn:hover { background: var(--bg); color: var(--text); }
+  .impact-effort {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .impact-effort span { font-weight: 600; }
+
+  /* Action plan */
+  .action-plan {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .action-plan h2 { font-size: 20px; margin-bottom: 8px; }
+  .action-plan .intro { color: var(--text-muted); font-size: 14px; margin-bottom: 20px; }
+  .action-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .action-item:last-child { border-bottom: none; }
+  .action-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .action-content { flex: 1; }
+  .action-content h4 { font-size: 15px; margin-bottom: 4px; }
+  .action-content .action-fix {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 8px;
+    font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+    font-size: 12px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .action-meta { font-size: 12px; color: var(--text-muted); }
+
+  /* Methodology */
+  .methodology {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .methodology h2 { font-size: 20px; color: var(--text); margin-bottom: 16px; }
+  .methodology p { margin-bottom: 12px; }
+  .methodology ul { margin-left: 20px; margin-bottom: 12px; }
+  .methodology li { margin-bottom: 6px; }
+
+  /* Footer */
+  .report-footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; }
+    .container { max-width: 100%; padding: 0; }
+    .fix-block .copy-btn, .action-content .action-fix { page-break-inside: avoid; }
+    .finding-card, .action-item { page-break-inside: avoid; }
+    .report-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .score-circle, .severity-badge, .pillar-bar-fill { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="report-header">
+    <h1>GEO Audit Report</h1>
+    <div class="subtitle">{{ domain }}</div>
+    <div class="meta">Audited {{ audited_at }} · {{ model_note }}</div>
+  </div>
+
+  <!-- Score Summary -->
+  <div class="score-section">
+    <div class="score-circle grade-{{ grade_class }}">
+      <div class="num">{{ "%.0f"|format(score.total) }}</div>
+      <div class="label">/ 100</div>
+    </div>
+    <div class="verdict">
+      <h2>{{ score.grade }} — {{ score.total }} / 100</h2>
+      <p>{{ score.verdict }}</p>
+    </div>
+  </div>
+
+  <!-- Pillar Scores -->
+  <div class="pillars">
+    {% for ps in score.pillar_scores %}
+    <div class="pillar-card">
+      <h3>{{ ps.pillar.value|title }}</h3>
+      <div class="pillar-score">{{ "%.0f"|format(ps.score) }}</div>
+      <div class="pillar-weight">{{ (ps.weight * 100)|round(0)|int }}% weight</div>
+      <div class="pillar-bar">
+        <div class="pillar-bar-fill" style="width: {{ ps.score }}%; background: {% if ps.score >= 70 %}var(--positive){% elif ps.score >= 50 %}#eab308{% else %}var(--critical){% endif %};"></div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Score Breakdown -->
+  <div class="breakdown">
+    <h2>Score Breakdown — How This Was Calculated</h2>
+    {% for ps in score.pillar_scores %}
+    <div class="pillar-breakdown">
+      <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+        {{ ps.pillar.value|title }}: {{ ps.score }}/100 (weight: {{ (ps.weight * 100)|round(0)|int }}%)
+      </h3>
+      <ul class="component-list">
+        {% for c in ps.components %}
+        <li class="component-item">
+          <div class="component-label">
+            {{ c.label }}
+            {% if c.detail %}<div class="component-detail">{{ c.detail }}</div>{% endif %}
+          </div>
+          <div class="component-points">
+            {{ "%.1f"|format(c.points) }}<span class="max">/{{ "%.0f"|format(c.max) }}</span>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Findings -->
+  <div class="findings">
+    <h2>Findings — What We Found</h2>
+    {% for f in findings %}
+    <div class="finding-card severity-{{ f.severity.value }}">
+      <div class="finding-header">
+        <span class="severity-badge {{ f.severity.value }}">{{ f.severity.value }}</span>
+        <h3>{{ f.title }}</h3>
+      </div>
+      {% if f.page %}<div class="page-link">📍 {{ f.page }}</div>{% endif %}
+      <div class="finding-body">
+        {% if f.evidence %}
+        <div class="field">
+          <div class="field-label">What we found</div>
+          <div>{{ f.evidence }}</div>
+        </div>
+        {% endif %}
+        {% if f.should_be %}
+        <div class="field">
+          <div class="field-label">What it should be</div>
+          <div>{{ f.should_be }}</div>
+        </div>
+        {% endif %}
+        {% if f.fix %}
+        <div class="field">
+          <div class="field-label">Fix (copy-pasteable)</div>
+          <div class="fix-block">
+            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
+            {{ f.fix }}
+          </div>
+        </div>
+        {% endif %}
+        {% if f.impact > 0 %}
+        <div class="impact-effort">
+          <span>📊 Impact: {{ f.impact }}/100</span>
+          <span>🔧 Effort: {{ f.effort }}/100</span>
+          <span>⚡ Priority: {{ "%.0f"|format(f.priority) }}</span>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Action Plan -->
+  {% if action_plan %}
+  <div class="action-plan">
+    <h2>📋 Monday-Morning Action Plan</h2>
+    <p class="intro">Ordered by impact × ease. Start at #1 and work down. Each item has a copy-pasteable fix.</p>
+    {% for f in action_plan %}
+    <div class="action-item">
+      <div class="action-num">{{ loop.index }}</div>
+      <div class="action-content">
+        <h4>{{ f.title }}</h4>
+        <div class="action-meta">
+          Impact {{ f.impact }}/100 · Effort {{ f.effort }}/100 · Priority {{ "%.0f"|format(f.priority) }}
+        </div>
+        {% if f.evidence %}
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">{{ f.evidence[:200] }}{% if f.evidence|length > 200 %}...{% endif %}</div>
+        {% endif %}
+        {% if f.fix %}
+        <div class="action-fix">{{ f.fix }}</div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- Methodology -->
+  <div class="methodology">
+    <h2>How This Audit Works</h2>
+    <p><strong>GEO (Generative Engine Optimization)</strong> is the practice of making your business visible inside AI search answers — ChatGPT, Perplexity, Claude, and Google AI Overviews. Unlike traditional SEO (which optimizes for Google's link-based rankings), GEO optimizes for AI engines that choose and cite sources by different rules.</p>
+    <p>This audit checks three pillars of AI search visibility:</p>
+    <ul>
+      <li><strong>Crawlability (25%)</strong> — Can AI engines even reach your site? Checks robots.txt for blocked AI bots (GPTBot, ClaudeBot, PerplexityBot, etc.), sitemap presence, and indexability. This is the #1 silent killer — many businesses block AI crawlers without knowing it.</li>
+      <li><strong>Content Answerability (45%)</strong> — Does your content answer questions the way AI engines extract and cite? Uses an LLM to evaluate direct answers, statistical richness, citation quality, structure, and conversational match. The GEO research benchmark showed these content strategies lift citation rates 30-40%.</li>
+      <li><strong>Structured Data (30%)</strong> — Can machines parse and understand your content? Checks schema.org JSON-LD validity and coverage, title/meta tags, semantic HTML, and Open Graph.</li>
+    </ul>
+    <p><strong>About the LLM judge:</strong> The content answerability pillar uses a large language model to assess content the same way an AI search engine would. This is a proxy for real engine behavior — no tool can perfectly predict what ChatGPT or Perplexity will cite. The scores are relative indicators of readiness, not guarantees.</p>
+    <p><strong>Limitations:</strong> This audit covers 3-5 pages per site. Backlink analysis and live citation tracking are not included (they require paid APIs). See the README for the full methodology and reasoning.</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="report-footer">
+    Generated by GEO Auditor · {{ audited_at }}
+  </div>
+
+</div>
+
+<script>
+function copyFix(btn) {
+  var text = btn.parentElement.textContent.replace('Copy', '').trim();
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = 'Copied!';
+    setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+  });
+}
+</script>
+</body>
+</html>

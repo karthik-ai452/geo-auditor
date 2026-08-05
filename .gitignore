@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+.pytest_cache/
+reports/*.html
+reports/*.json
+!reports/.gitkeep
+!reports/official/
+*.log
+.DS_Store
