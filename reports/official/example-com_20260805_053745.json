@@ -1,9 +1,9 @@
 {
   "url": "https://example.com",
   "domain": "example.com",
-  "audited_at": "2026-08-05T05:21:15.065721+00:00",
+  "audited_at": "2026-08-05T05:37:45.076242+00:00",
   "score": {
-    "total": 24.1,
+    "total": 10.1,
     "grade": "Critical",
     "verdict": "Your site is almost certainly invisible in AI search. Start with the critical fixes.",
     "pillars": [
@@ -95,31 +95,31 @@
             "label": "Direct Answers: 15/100",
             "points": 4.5,
             "max": 30.0,
-            "detail": "The content contains one minimal definitional statement about the domain's purpose, but lacks any substantive answers to potential user questions. It does not explain what 'documentation examples' means, why permission isn't needed, or what 'operations' refers to. The 'Learn more' link is unfulfilled promise with no actual information provided. Example: \"This domain is for use in documentation examples without needing permission\""
+            "detail": "The content contains one minimal definitional statement about the domain's purpose, but fails to answer any substantive questions a user might have. It states what the domain is for but provides no depth, context, or comprehensive explanation that would satisfy an AI search query. Example: \"This domain is for use in documentation examples without needing permission.\""
           },
           {
             "label": "Statistical Richness: 0/100",
             "points": 0.0,
             "max": 25.0,
-            "detail": "Zero statistics, data points, numbers, or quantifiable information present. The extracted signals confirm 0 statistics found. No dates, usage figures, adoption rates, or any numerical evidence that AI search engines prioritize for citation. Example: \"N/A \u2014 no statistics exist in content\""
+            "detail": "Zero statistics, data points, percentages, or quantifiable information present. The extracted signals confirm 0 statistics found. AI search engines heavily favor content with specific numbers and data for citation. Example: \"N/A \u2014 no statistics exist in content\""
           },
           {
             "label": "Citation Quality: 0/100",
             "points": 0.0,
             "max": 15.0,
-            "detail": "No sources cited, no external references, no author attribution, no publication date, and no methodology described. The 'Learn more' text implies additional information exists but provides no actual citation or link destination. Extracted signals confirm citation patterns: False. Example: \"N/A \u2014 no citations exist in content\""
+            "detail": "No sources cited, no external references, no evidence provided for claims. The 'Learn more' link is unexpanded and provides no actual citation. The extracted signals confirm citation patterns are false. Example: \"Learn more (unlinked, uncited)\""
           },
           {
             "label": "Structure Clarity: 10/100",
             "points": 1.5,
             "max": 15.0,
-            "detail": "Severely understructured with 0 H2 headings and only 19 words total. No logical section breaks, no scannable hierarchy, no table of contents potential. Content appears as a single block with title and one sentence. Extracted signals confirm 0 H2 headings and no FAQ schema. Example: \"Example Domain [title] This domain is for use in documentation examples without needing permission. Avoid use in operations. Learn more [unlinked]\""
+            "detail": "Extremely poor structural organization. Zero H2 headings, no sections, no scannable hierarchy. The content is a single sentence fragment with minimal formatting. AI search engines struggle to extract and segment unstructured content. Example: \"Example Domain This domain is for use in documentation examples without needing permission. Avoid use in operations. Learn more\""
           },
           {
             "label": "Conversational Match: 20/100",
             "points": 3.0,
             "max": 15.0,
-            "detail": "The phrase 'without needing permission' partially matches natural question patterns like 'Do I need permission to use example.com?' However, the content fails to explicitly pose or answer questions in conversational form. No question keywords (what, why, how, when) appear. Tone is terse and institutional rather than helpful. Example: \"without needing permission \u2014 partially matches 'Do I need permission to use this domain?'\""
+            "detail": "The language is simple and direct, which slightly aligns with conversational queries, but it fails to match how users actually ask questions. No question-answer format, no natural language patterns addressing 'what is,' 'how to,' or 'why' queries that dominate AI search. Example: \"This domain is for use in documentation examples\""
           }
         ]
       },
@@ -162,25 +162,19 @@
       },
       {
         "pillar": "brand_recall",
-        "score": 40.0,
+        "score": 0.0,
         "weight": 0.35,
         "components": [
           {
-            "label": "Direct brand query: AI knows 'Example Domain' (1/1)",
-            "points": 40.0,
-            "max": 40,
-            "detail": "Q: \"What is Example Domain?...\" \u2192 \u2713 mentioned"
-          },
-          {
             "label": "Category queries: mentioned in 0/2 industry questions",
             "points": 0.0,
-            "max": 35,
+            "max": 55,
             "detail": "Q: \"What are the best document management platforms for business...\" \u2192 \u2717 not mentioned | Q: \"What are the top document management companies or tools?...\" \u2192 \u2717 not mentioned"
           },
           {
             "label": "Comparison queries: mentioned in 0/1 comparisons",
             "points": 0.0,
-            "max": 25,
+            "max": 45,
             "detail": "Q: \"Can you compare the top document management platforms and th...\" \u2192 \u2717 not mentioned"
           }
         ]
@@ -259,9 +253,9 @@
       "pillar": "answerability",
       "severity": "critical",
       "page": "https://example.com/",
-      "evidence": "LLM assessment: The content contains one minimal definitional statement about the domain's purpose, but lacks any substantive answers to potential user questions. It does not explain what 'documentation examples' means, why permission isn't needed, or what 'operations' refers to. The 'Learn more' link is unfulfilled promise with no actual information provided. Example from your content: \"This domain is for use in documentation examples without needing permission\"",
+      "evidence": "LLM assessment: The content contains one minimal definitional statement about the domain's purpose, but fails to answer any substantive questions a user might have. It states what the domain is for but provides no depth, context, or comprehensive explanation that would satisfy an AI search query. Example from your content: \"This domain is for use in documentation examples without needing permission.\"",
       "should_be": "Direct Answers should score 70+ for good AI search visibility.",
-      "fix": "Add clear, direct answer paragraphs at the top of your content. Format: '[Topic] is [definition/explanation].' \u2014 one or two sentences that directly answer the most likely question a person would ask.\n\nExample: 'Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.'\n\nAI's specific suggestion: Expand to 300-500 words with explicit Q&A format addressing: 'What is example.com used for?', 'Do I need permission to use it?', 'What does avoid use in operations mean?', and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.",
+      "fix": "Add clear, direct answer paragraphs at the top of your content. Format: '[Topic] is [definition/explanation].' \u2014 one or two sentences that directly answer the most likely question a person would ask.\n\nExample: 'Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.'\n\nAI's specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.",
       "impact": 68,
       "effort": 20,
       "priority": 54.4
@@ -272,9 +266,9 @@
       "pillar": "answerability",
       "severity": "critical",
       "page": "https://example.com/",
-      "evidence": "LLM assessment: Zero statistics, data points, numbers, or quantifiable information present. The extracted signals confirm 0 statistics found. No dates, usage figures, adoption rates, or any numerical evidence that AI search engines prioritize for citation. Example from your content: \"N/A \u2014 no statistics exist in content\"",
+      "evidence": "LLM assessment: Zero statistics, data points, percentages, or quantifiable information present. The extracted signals confirm 0 statistics found. AI search engines heavily favor content with specific numbers and data for citation. Example from your content: \"N/A \u2014 no statistics exist in content\"",
       "should_be": "Statistical Richness should score 70+ for good AI search visibility.",
-      "fix": "Add specific numbers, percentages, and data points to your content. AI engines disproportionately cite content with statistics.\n\nInstead of 'many businesses use CRM', write '73% of businesses use CRM software (Source: Salesforce, 2024)'.\n\nAI's specific suggestion: Expand to 300-500 words with explicit Q&A format addressing: 'What is example.com used for?', 'Do I need permission to use it?', 'What does avoid use in operations mean?', and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.",
+      "fix": "Add specific numbers, percentages, and data points to your content. AI engines disproportionately cite content with statistics.\n\nInstead of 'many businesses use CRM', write '73% of businesses use CRM software (Source: Salesforce, 2024)'.\n\nAI's specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.",
       "impact": 80,
       "effort": 40,
       "priority": 48.0
@@ -285,9 +279,9 @@
       "pillar": "answerability",
       "severity": "critical",
       "page": "https://example.com/",
-      "evidence": "LLM assessment: No sources cited, no external references, no author attribution, no publication date, and no methodology described. The 'Learn more' text implies additional information exists but provides no actual citation or link destination. Extracted signals confirm citation patterns: False. Example from your content: \"N/A \u2014 no citations exist in content\"",
+      "evidence": "LLM assessment: No sources cited, no external references, no evidence provided for claims. The 'Learn more' link is unexpanded and provides no actual citation. The extracted signals confirm citation patterns are false. Example from your content: \"Learn more (unlinked, uncited)\"",
       "should_be": "Citation Quality should score 70+ for good AI search visibility.",
-      "fix": "Cite your sources. Use phrases like 'according to [study]', 'research from [organization] shows', or link to primary sources. AI engines prefer content that itself cites evidence.\n\nAI's specific suggestion: Expand to 300-500 words with explicit Q&A format addressing: 'What is example.com used for?', 'Do I need permission to use it?', 'What does avoid use in operations mean?', and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.",
+      "fix": "Cite your sources. Use phrases like 'according to [study]', 'research from [organization] shows', or link to primary sources. AI engines prefer content that itself cites evidence.\n\nAI's specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.",
       "impact": 80,
       "effort": 30,
       "priority": 56.0
@@ -298,9 +292,9 @@
       "pillar": "answerability",
       "severity": "critical",
       "page": "https://example.com/",
-      "evidence": "LLM assessment: Severely understructured with 0 H2 headings and only 19 words total. No logical section breaks, no scannable hierarchy, no table of contents potential. Content appears as a single block with title and one sentence. Extracted signals confirm 0 H2 headings and no FAQ schema. Example from your content: \"Example Domain [title] This domain is for use in documentation examples without needing permission. Avoid use in operations. Learn more [unlinked]\"",
+      "evidence": "LLM assessment: Extremely poor structural organization. Zero H2 headings, no sections, no scannable hierarchy. The content is a single sentence fragment with minimal formatting. AI search engines struggle to extract and segment unstructured content. Example from your content: \"Example Domain This domain is for use in documentation examples without needing permission. Avoid use in operations. Learn more\"",
       "should_be": "Structure Clarity should score 70+ for good AI search visibility.",
-      "fix": "Structure your content with clear headings (H2, H3), short paragraphs, and logical sections. Use bullet points for lists. Each section should answer one question or cover one topic.\n\nAI's specific suggestion: Expand to 300-500 words with explicit Q&A format addressing: 'What is example.com used for?', 'Do I need permission to use it?', 'What does avoid use in operations mean?', and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.",
+      "fix": "Structure your content with clear headings (H2, H3), short paragraphs, and logical sections. Use bullet points for lists. Each section should answer one question or cover one topic.\n\nAI's specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.",
       "impact": 72,
       "effort": 25,
       "priority": 54.0
@@ -311,9 +305,9 @@
       "pillar": "answerability",
       "severity": "critical",
       "page": "https://example.com/",
-      "evidence": "LLM assessment: The phrase 'without needing permission' partially matches natural question patterns like 'Do I need permission to use example.com?' However, the content fails to explicitly pose or answer questions in conversational form. No question keywords (what, why, how, when) appear. Tone is terse and institutional rather than helpful. Example from your content: \"without needing permission \u2014 partially matches 'Do I need permission to use this domain?'\"",
+      "evidence": "LLM assessment: The language is simple and direct, which slightly aligns with conversational queries, but it fails to match how users actually ask questions. No question-answer format, no natural language patterns addressing 'what is,' 'how to,' or 'why' queries that dominate AI search. Example from your content: \"This domain is for use in documentation examples\"",
       "should_be": "Conversational Match should score 70+ for good AI search visibility.",
-      "fix": "Write in the language your audience actually uses to ask questions. Instead of 'Our platform provides enterprise-grade solutions', write 'Our platform helps large teams manage projects.' Use natural, conversational phrasing.\n\nAI's specific suggestion: Expand to 300-500 words with explicit Q&A format addressing: 'What is example.com used for?', 'Do I need permission to use it?', 'What does avoid use in operations mean?', and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.",
+      "fix": "Write in the language your audience actually uses to ask questions. Instead of 'Our platform provides enterprise-grade solutions', write 'Our platform helps large teams manage projects.' Use natural, conversational phrasing.\n\nAI's specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.",
       "impact": 64,
       "effort": 35,
       "priority": 41.6
@@ -324,9 +318,9 @@
       "pillar": "answerability",
       "severity": "info",
       "page": "https://example.com/",
-      "evidence": "Overall assessment: This content would perform extremely poorly in AI search engines. With only 19 words, zero statistics, no citations, and no structural organization, it offers almost nothing for AI systems to extract, verify, or cite. It would rarely if ever appear as a source in AI-generated answers due to complete lack of substantiated claims and answerable content.",
-      "should_be": "Expand to 300-500 words with explicit Q&A format addressing: 'What is example.com used for?', 'Do I need permission to use it?', 'What does avoid use in operations mean?', and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.",
-      "fix": "Expand to 300-500 words with explicit Q&A format addressing: 'What is example.com used for?', 'Do I need permission to use it?', 'What does avoid use in operations mean?', and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.",
+      "evidence": "Overall assessment: This content would perform extremely poorly in AI search engines. With only 19 words, zero statistics, no citations, and no structural organization, it offers almost no extractable value for AI-generated answers. It would rarely if ever be selected as a source citation.",
+      "should_be": "Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.",
+      "fix": "Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.",
       "impact": 60,
       "effort": 40,
       "priority": 36.0
@@ -410,17 +404,17 @@
       "priority": 19.0
     },
     {
-      "id": "brand-low-recall",
-      "title": "AI mentions 'Example Domain' in only 1/4 queries",
+      "id": "brand-not-recalled",
+      "title": "AI does not mention 'Example Domain' in any test queries",
       "pillar": "brand_recall",
-      "severity": "warning",
+      "severity": "critical",
       "page": "https://example.com/",
-      "evidence": "Sent 4 questions to an AI model. 'Example Domain' was mentioned in 1 responses. Mentioned in: \"What is Example Domain?...\" \u2192 Example Domain. Not mentioned in: \"What are the best document management platforms fo...\"; \"What are the top document management companies or ...\"",
-      "should_be": "'Example Domain' should appear in most industry-related queries.",
-      "fix": "The AI has some knowledge of Example Domain but doesn't mention it consistently. To improve recall:\n\n1. Ensure your business is described consistently across the web\n2. Get mentioned alongside competitors in industry comparisons and listicles\n3. Build authority through content marketing in the document management space\n4. Get reviews and mentions on G2, Capterra, and industry publications\n5. Create comparison pages on your own site ('Example Domain vs [Competitor]')\n\nThe more the AI encounters Example Domain in training data alongside your competitors, the more it will mention you in relevant queries.",
-      "impact": 70,
-      "effort": 50,
-      "priority": 35.0
+      "evidence": "Sent 3 questions to an AI model about document management and 'Example Domain'. The AI did not mention 'Example Domain' in any response. This means the model likely has no strong knowledge of your business in its training data.",
+      "should_be": "An AI should be able to describe what Example Domain is and mention it when asked about document management.",
+      "fix": "The AI model has no knowledge of Example Domain. To fix this, you need to build presence on the sources AI engines learn from during training:\n\n1. Create/maintain a Wikipedia page (if notable enough)\n2. Ensure a Crunchbase profile with accurate description\n3. Get listed on review platforms (G2, Capterra, TrustRadius)\n4. Publish on high-authority industry blogs and publications\n5. Build backlinks from sites that appear in AI training data\n6. Ensure your homepage clearly states what you do in the first sentence\n\nAI models are trained on web content \u2014 the more high-quality sources that describe Example Domain accurately, the more likely AI engines will mention you in their answers.",
+      "impact": 95,
+      "effort": 60,
+      "priority": 38.0
     },
     {
       "id": "brand-missed-category_unprompted",
@@ -428,7 +422,7 @@
       "pillar": "brand_recall",
       "severity": "warning",
       "page": "https://example.com/",
-      "evidence": "When asked \"What are the best document management platforms for businesses?\", the AI listed competitors but did not mention 'Example Domain'. AI mentioned: Based, Grade Solutions, Microsoft, Hyland, Mid, Market, Favorites, Files, Laserfiche, Cloud",
+      "evidence": "When asked \"What are the best document management platforms for businesses?\", the AI listed competitors but did not mention 'Example Domain'. AI mentioned: Based, Grade Solutions, Microsoft, Mid, Market, Cloud, Native, Box, Dropbox Business, Google Workspace",
       "should_be": "'Example Domain' should be mentioned alongside competitors in this query.",
       "fix": "Build your presence on high-authority sites that AI engines learn from: Wikipedia, Crunchbase, industry publications, and review sites (G2, Capterra). AI models learn from these sources during training.",
       "impact": 60,
@@ -441,7 +435,7 @@
       "pillar": "brand_recall",
       "severity": "warning",
       "page": "https://example.com/",
-      "evidence": "When asked \"What are the top document management companies or tools?\", the AI listed competitors but did not mention 'Example Domain'. AI mentioned: Based, Heavy, Duty Solutions, Microsoft, Hyland, Cloud, Native, Modern Platforms, Box, Dropbox Business",
+      "evidence": "When asked \"What are the top document management companies or tools?\", the AI listed competitors but did not mention 'Example Domain'. AI mentioned: Based, Heavy, Duty, Microsoft, Office, Hyland, Cloud, Native, Modern, Box",
       "should_be": "'Example Domain' should be mentioned alongside competitors in this query.",
       "fix": "Build your presence on high-authority sites that AI engines learn from: Wikipedia, Crunchbase, industry publications, and review sites (G2, Capterra). AI models learn from these sources during training.",
       "impact": 60,
@@ -466,7 +460,7 @@
       "impact": 80,
       "effort": 30,
       "priority": 56.0,
-      "fix": "Cite your sources. Use phrases like 'according to [study]', 'research from [organization] shows', or link to primary sources. AI engines prefer content that itself cites evidence.\n\nAI's specific suggestion: Expand to 300-500 words with explicit Q&A format addressing: 'What is example.com used for?', 'Do I need permission to use it?', 'What does avoid use in operations mean?', and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources."
+      "fix": "Cite your sources. Use phrases like 'according to [study]', 'research from [organization] shows', or link to primary sources. AI engines prefer content that itself cites evidence.\n\nAI's specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links."
     },
     {
       "id": "answerability-direct_answers",
@@ -475,7 +469,7 @@
       "impact": 68,
       "effort": 20,
       "priority": 54.4,
-      "fix": "Add clear, direct answer paragraphs at the top of your content. Format: '[Topic] is [definition/explanation].' \u2014 one or two sentences that directly answer the most likely question a person would ask.\n\nExample: 'Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.'\n\nAI's specific suggestion: Expand to 300-500 words with explicit Q&A format addressing: 'What is example.com used for?', 'Do I need permission to use it?', 'What does avoid use in operations mean?', and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources."
+      "fix": "Add clear, direct answer paragraphs at the top of your content. Format: '[Topic] is [definition/explanation].' \u2014 one or two sentences that directly answer the most likely question a person would ask.\n\nExample: 'Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.'\n\nAI's specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links."
     },
     {
       "id": "answerability-structure_clarity",
@@ -484,7 +478,7 @@
       "impact": 72,
       "effort": 25,
       "priority": 54.0,
-      "fix": "Structure your content with clear headings (H2, H3), short paragraphs, and logical sections. Use bullet points for lists. Each section should answer one question or cover one topic.\n\nAI's specific suggestion: Expand to 300-500 words with explicit Q&A format addressing: 'What is example.com used for?', 'Do I need permission to use it?', 'What does avoid use in operations mean?', and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources."
+      "fix": "Structure your content with clear headings (H2, H3), short paragraphs, and logical sections. Use bullet points for lists. Each section should answer one question or cover one topic.\n\nAI's specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links."
     },
     {
       "id": "answerability-statistical_richness",
@@ -493,7 +487,7 @@
       "impact": 80,
       "effort": 40,
       "priority": 48.0,
-      "fix": "Add specific numbers, percentages, and data points to your content. AI engines disproportionately cite content with statistics.\n\nInstead of 'many businesses use CRM', write '73% of businesses use CRM software (Source: Salesforce, 2024)'.\n\nAI's specific suggestion: Expand to 300-500 words with explicit Q&A format addressing: 'What is example.com used for?', 'Do I need permission to use it?', 'What does avoid use in operations mean?', and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources."
+      "fix": "Add specific numbers, percentages, and data points to your content. AI engines disproportionately cite content with statistics.\n\nInstead of 'many businesses use CRM', write '73% of businesses use CRM software (Source: Salesforce, 2024)'.\n\nAI's specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links."
     },
     {
       "id": "missing-meta-desc",
@@ -520,7 +514,7 @@
       "impact": 64,
       "effort": 35,
       "priority": 41.6,
-      "fix": "Write in the language your audience actually uses to ask questions. Instead of 'Our platform provides enterprise-grade solutions', write 'Our platform helps large teams manage projects.' Use natural, conversational phrasing.\n\nAI's specific suggestion: Expand to 300-500 words with explicit Q&A format addressing: 'What is example.com used for?', 'Do I need permission to use it?', 'What does avoid use in operations mean?', and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources."
+      "fix": "Write in the language your audience actually uses to ask questions. Instead of 'Our platform provides enterprise-grade solutions', write 'Our platform helps large teams manage projects.' Use natural, conversational phrasing.\n\nAI's specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links."
     },
     {
       "id": "sitemap-missing",
@@ -532,13 +526,22 @@
       "fix": "Create a sitemap.xml at the site root. If you use a CMS (WordPress, Shopify, Webflow), there's usually a plugin or built-in feature to generate one. Reference it in robots.txt:\n\nSitemap: https://yoursite.com/sitemap.xml"
     },
     {
+      "id": "brand-not-recalled",
+      "title": "AI does not mention 'Example Domain' in any test queries",
+      "severity": "critical",
+      "impact": 95,
+      "effort": 60,
+      "priority": 38.0,
+      "fix": "The AI model has no knowledge of Example Domain. To fix this, you need to build presence on the sources AI engines learn from during training:\n\n1. Create/maintain a Wikipedia page (if notable enough)\n2. Ensure a Crunchbase profile with accurate description\n3. Get listed on review platforms (G2, Capterra, TrustRadius)\n4. Publish on high-authority industry blogs and publications\n5. Build backlinks from sites that appear in AI training data\n6. Ensure your homepage clearly states what you do in the first sentence\n\nAI models are trained on web content \u2014 the more high-quality sources that describe Example Domain accurately, the more likely AI engines will mention you in their answers."
+    },
+    {
       "id": "answerability-top-suggestion",
       "title": "AI's #1 recommendation for your content",
       "severity": "info",
       "impact": 60,
       "effort": 40,
       "priority": 36.0,
-      "fix": "Expand to 300-500 words with explicit Q&A format addressing: 'What is example.com used for?', 'Do I need permission to use it?', 'What does avoid use in operations mean?', and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources."
+      "fix": "Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links."
     },
     {
       "id": "thin-content",
@@ -548,15 +551,6 @@
       "effort": 40,
       "priority": 36.0,
       "fix": "Add descriptive text content that explains what you do, who you serve, and answers common questions. Aim for at least 300 words of relevant content."
-    },
-    {
-      "id": "brand-low-recall",
-      "title": "AI mentions 'Example Domain' in only 1/4 queries",
-      "severity": "warning",
-      "impact": 70,
-      "effort": 50,
-      "priority": 35.0,
-      "fix": "The AI has some knowledge of Example Domain but doesn't mention it consistently. To improve recall:\n\n1. Ensure your business is described consistently across the web\n2. Get mentioned alongside competitors in industry comparisons and listicles\n3. Build authority through content marketing in the document management space\n4. Get reviews and mentions on G2, Capterra, and industry publications\n5. Create comparison pages on your own site ('Example Domain vs [Competitor]')\n\nThe more the AI encounters Example Domain in training data alongside your competitors, the more it will mention you in relevant queries."
     },
     {
       "id": "robots-status-error",
@@ -625,31 +619,31 @@
   "llm_judge_data": {
     "direct_answers": {
       "score": 15,
-      "reasoning": "The content contains one minimal definitional statement about the domain's purpose, but lacks any substantive answers to potential user questions. It does not explain what 'documentation examples' means, why permission isn't needed, or what 'operations' refers to. The 'Learn more' link is unfulfilled promise with no actual information provided.",
-      "example": "This domain is for use in documentation examples without needing permission"
+      "reasoning": "The content contains one minimal definitional statement about the domain's purpose, but fails to answer any substantive questions a user might have. It states what the domain is for but provides no depth, context, or comprehensive explanation that would satisfy an AI search query.",
+      "example": "This domain is for use in documentation examples without needing permission."
     },
     "statistical_richness": {
       "score": 0,
-      "reasoning": "Zero statistics, data points, numbers, or quantifiable information present. The extracted signals confirm 0 statistics found. No dates, usage figures, adoption rates, or any numerical evidence that AI search engines prioritize for citation.",
+      "reasoning": "Zero statistics, data points, percentages, or quantifiable information present. The extracted signals confirm 0 statistics found. AI search engines heavily favor content with specific numbers and data for citation.",
       "example": "N/A \u2014 no statistics exist in content"
     },
     "citation_quality": {
       "score": 0,
-      "reasoning": "No sources cited, no external references, no author attribution, no publication date, and no methodology described. The 'Learn more' text implies additional information exists but provides no actual citation or link destination. Extracted signals confirm citation patterns: False.",
-      "example": "N/A \u2014 no citations exist in content"
+      "reasoning": "No sources cited, no external references, no evidence provided for claims. The 'Learn more' link is unexpanded and provides no actual citation. The extracted signals confirm citation patterns are false.",
+      "example": "Learn more (unlinked, uncited)"
     },
     "structure_clarity": {
       "score": 10,
-      "reasoning": "Severely understructured with 0 H2 headings and only 19 words total. No logical section breaks, no scannable hierarchy, no table of contents potential. Content appears as a single block with title and one sentence. Extracted signals confirm 0 H2 headings and no FAQ schema.",
-      "example": "Example Domain [title] This domain is for use in documentation examples without needing permission. Avoid use in operations. Learn more [unlinked]"
+      "reasoning": "Extremely poor structural organization. Zero H2 headings, no sections, no scannable hierarchy. The content is a single sentence fragment with minimal formatting. AI search engines struggle to extract and segment unstructured content.",
+      "example": "Example Domain This domain is for use in documentation examples without needing permission. Avoid use in operations. Learn more"
     },
     "conversational_match": {
       "score": 20,
-      "reasoning": "The phrase 'without needing permission' partially matches natural question patterns like 'Do I need permission to use example.com?' However, the content fails to explicitly pose or answer questions in conversational form. No question keywords (what, why, how, when) appear. Tone is terse and institutional rather than helpful.",
-      "example": "without needing permission \u2014 partially matches 'Do I need permission to use this domain?'"
+      "reasoning": "The language is simple and direct, which slightly aligns with conversational queries, but it fails to match how users actually ask questions. No question-answer format, no natural language patterns addressing 'what is,' 'how to,' or 'why' queries that dominate AI search.",
+      "example": "This domain is for use in documentation examples"
     },
-    "overall_assessment": "This content would perform extremely poorly in AI search engines. With only 19 words, zero statistics, no citations, and no structural organization, it offers almost nothing for AI systems to extract, verify, or cite. It would rarely if ever appear as a source in AI-generated answers due to complete lack of substantiated claims and answerable content.",
-    "top_suggestion": "Expand to 300-500 words with explicit Q&A format addressing: 'What is example.com used for?', 'Do I need permission to use it?', 'What does avoid use in operations mean?', and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.",
+    "overall_assessment": "This content would perform extremely poorly in AI search engines. With only 19 words, zero statistics, no citations, and no structural organization, it offers almost no extractable value for AI-generated answers. It would rarely if ever be selected as a source citation.",
+    "top_suggestion": "Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.",
     "brand_recall": {
       "brand_name": "Example Domain",
       "brand_aliases": [
@@ -661,11 +655,6 @@
       "category": "document management",
       "competitors": [],
       "queries": [
-        {
-          "query": "What is Example Domain?",
-          "type": "direct_brand",
-          "description": "Does the AI know what Example Domain is?"
-        },
         {
           "query": "What are the best document management platforms for businesses?",
           "type": "category_unprompted",
@@ -684,24 +673,11 @@
       ],
       "query_results": [
         {
-          "query": "What is Example Domain?",
-          "type": "direct_brand",
-          "description": "Does the AI know what Example Domain is?",
-          "response": "Example Domain is a placeholder domain name used for documentation and examples. It's reserved by the Internet Assigned Numbers Authority (IANA) specifically for use in illustrative examples, technical documentation, and testing scenarios.\n\nThe domain **example.com** (along with example.net and example.org) was set aside so that writers and developers have a safe, non-functional domain to use when showing how URLs, email addresses, or web configurations work\u2014without accidentally sending users to a real website or interfering with actual internet traffic.\n\nIf you visit example.com, you'll see a simple placeholder page explaining its purpose. It's become a familiar sight for anyone reading RFCs, API documentation, or programming tutorials.",
-          "response_length": 747,
-          "mention": {
-            "mentioned": true,
-            "how_mentioned": "Example Domain",
-            "context": "neutral",
-            "position": "first_quarter"
-          }
-        },
-        {
           "query": "What are the best document management platforms for businesses?",
           "type": "category_unprompted",
           "description": "When asked about document management, does the AI mention Example Domain?",
-          "response": "Based on my knowledge, here are some of the best document management platforms for businesses, depending on your needs:\n\n**Enterprise-Grade Solutions**\n- **Microsoft SharePoint** \u2013 deeply integrated with Microsoft 365, strong for large organizations with complex workflows\n- **OpenText** \u2013 robust for highly regulated industries like healthcare and finance\n- **Hyland OnBase** \u2013 excellent for process automation and case management\n\n**Mid-Market & SMB Favorites**\n- **DocuWare** \u2013 strong on workflow automation and cloud accessibility\n- **M-Files** \u2013 unique metadata-driven approach rather than traditional folder structures\n- **Laserfiche** \u2013 good balance of document management and business process automation\n\n**Cloud-Native & Modern**\n- **Box** \u2013 strong collaboration features, good security certifications\n- **Dropbox Business** \u2013 simple, widely adopted, improved enterprise features recently\n- **Google Drive for Work** \u2013 best if you're already in the Google ecosystem\n\n**Specialized/Niche**\n- **NetDocuments** \u2013 purpose-built for legal firms\n- **iManage** \u2013 also legal-focused, strong in professional services\n- **Alfresco** \u2013 open-source option with good customization capabilities\n\n**Key factors to consider:**\n- Integration with your existing tools (CRM, ERP, email)\n- Compliance requirements (GDPR, HIPAA, SOC 2)\n- AI/search capabilities (most now offer intelligent document processing)\n- Pricing model (per user vs. storage-based)\n\nWhat's your company size and primary use case? That would help narrow down the best fit.",
-          "response_length": 1532,
+          "response": "Based on my knowledge, here are some of the best document management platforms for businesses, organized by category:\n\n**Enterprise-Grade Solutions**\n- **Microsoft SharePoint** \u2013 deeply integrated with Microsoft 365, strong for large organizations with complex compliance needs\n- **OpenText** \u2013 robust for highly regulated industries like finance and healthcare\n- **IBM FileNet** \u2013 strong enterprise content management with AI-powered automation\n\n**Mid-Market & Cloud-Native**\n- **Box** \u2013 excellent security and collaboration features, popular with professional services firms\n- **Dropbox Business** \u2013 user-friendly with strong sync capabilities and e-signatures (via HelloSign)\n- **Google Workspace/Drive** \u2013 best for teams already using Google ecosystem, strong real-time collaboration\n\n**Specialized & Emerging**\n- **M-Files** \u2013 unique metadata-driven approach rather than folder hierarchies\n- **DocuWare** \u2013 strong workflow automation and invoice processing\n- **Notion** \u2013 increasingly popular for smaller teams wanting docs, wikis, and project management together\n- **Confluence** \u2013 Atlassian's offering, excellent for technical teams and knowledge bases\n\n**Industry-Specific**\n- **NetDocuments** \u2013 designed specifically for law firms\n- **iManage** \u2013 another legal-focused platform with strong email management\n\nThe best choice really depends on your priorities: Microsoft-centric environments typically favor SharePoint, distributed teams often prefer Box or Dropbox, and companies wanting to reduce information silos might look at M-Files or Notion.\n\nWhat's your team size and primary use case? That would help narrow it down.",
+          "response_length": 1633,
           "mention": {
             "mentioned": false,
             "how_mentioned": "not_mentioned",
@@ -713,8 +689,8 @@
           "query": "What are the top document management companies or tools?",
           "type": "category_unprompted",
           "description": "When asked about top document management tools, does the AI mention Example Domain?",
-          "response": "Based on my knowledge, here are the leading document management companies and tools across different categories:\n\n**Enterprise/Heavy-Duty Solutions**\n- **Microsoft SharePoint** \u2013 deeply integrated with Microsoft 365, very common in corporate environments\n- **OpenText** \u2013 long-standing enterprise player with strong compliance features\n- **IBM FileNet** \u2013 robust for large-scale, regulated industries\n- **Hyland OnBase** \u2013 popular in healthcare, government, and financial services\n\n**Cloud-Native & Modern Platforms**\n- **Box** \u2013 strong collaboration focus, good enterprise security\n- **Dropbox Business** \u2013 evolved well beyond simple file storage\n- **Google Drive for Work / Google Workspace** \u2013 seamless for teams already in that ecosystem\n\n**Specialized & Emerging Players**\n- **M-Files** \u2013 metadata-driven approach rather than folder-based\n- **DocuWare** \u2013 strong in workflow automation and invoice processing\n- **Laserfiche** \u2013 long history, especially strong in government and education\n- **Alfresco** (now Hyland) \u2013 open-source roots, good for customization\n\n**Niche/Workflow-Focused**\n- **Notion** \u2013 increasingly used as lightweight document/knowledge management\n- **Confluence** \u2013 Atlassian's tool, very common in tech/software teams\n- **Airtable** \u2013 hybrid database/document approach\n\nIf you're evaluating for a specific use case\u2014like legal compliance, small business simplicity, or developer-heavy teams\u2014some of these fit much better than others. What's driving your search?",
-          "response_length": 1485,
+          "response": "Based on my knowledge, here are the leading document management companies and tools across different categories:\n\n**Enterprise/Heavy-Duty DMS**\n- **Microsoft SharePoint** \u2013 deeply integrated with Office 365, widely used in corporate environments\n- **OpenText** \u2013 one of the largest enterprise content management vendors\n- **Hyland OnBase** \u2013 strong in healthcare, government, and financial services\n- **IBM FileNet** \u2013 long-standing enterprise player, now part of IBM's broader automation suite\n\n**Cloud-Native & Modern**\n- **Box** \u2013 popular for secure file sharing and collaboration, strong compliance features\n- **Dropbox Business** \u2013 evolved well beyond simple storage with Dropbox Sign and advanced admin tools\n- **Google Workspace/Drive** \u2013 dominant for teams already in the Google ecosystem\n\n**Legal & Compliance-Focused**\n- **iManage** \u2013 essentially the standard for law firms\n- **NetDocuments** \u2013 cloud-native, also very strong in legal and professional services\n\n**Open Source & Self-Hosted**\n- **Alfresco** \u2013 flexible open-source option\n- **Nuxeo** (now Hyland) \u2013 good for developers needing customization\n\n**Emerging/AI-Native**\n- **Notion** \u2013 increasingly used as a lightweight document system with strong linking and search\n- **Coda** \u2013 similar hybrid approach\n\nThe \"best\" choice really depends on your industry, compliance requirements, and whether you need deep workflow automation versus simple storage and retrieval.",
+          "response_length": 1433,
           "mention": {
             "mentioned": false,
             "how_mentioned": "not_mentioned",
@@ -726,8 +702,8 @@
           "query": "Can you compare the top document management platforms and their key features?",
           "type": "comparison",
           "description": "In a document management comparison, does the AI mention Example Domain?",
-          "response": "Here are the leading document management platforms with their standout features:\n\n**Microsoft SharePoint**\n- Deep Microsoft 365 integration (Teams, Outlook, Word)\n- Robust workflow automation with Power Automate\n- Enterprise-grade security and compliance tools\n- Strong intranet and portal capabilities\n\n**Google Workspace (Drive/Docs)**\n- Real-time collaboration with simultaneous editing\n- Simple sharing and permissions\n- AI-powered search and Smart Canvas features\n- Best for teams already in the Google ecosystem\n\n**Dropbox Business**\n- Excellent file sync and large file handling\n- Dropbox Sign for e-signatures\n- Clean, intuitive interface\n- Strong third-party app integrations\n\n**Box**\n- Superior security and compliance (HIPAA, FedRAMP, etc.)\n- Advanced metadata and workflow automation\n- Content intelligence with AI classification\n- Popular in regulated industries like healthcare and finance\n\n**M-Files**\n- Metadata-driven architecture (find files by what they are, not where stored)\n- AI-powered document classification\n- Strong workflow automation\n- On-premise and cloud hybrid options\n\n**DocuWare**\n- Focused on invoice processing and accounts payable\n- Optical character recognition (OCR) built-in\n- Pre-configured workflows for common business processes\n\n**Laserfiche**\n- Longstanding player with strong records management\n- Robotic process automation (RPA) capabilities\n- Popular in government and education sectors\n\n**Key differentiators to consider:**\n- **Collaboration**: Google, Dropbox\n- **Enterprise complexity**: SharePoint, M-Files\n- **Compliance/security**: Box, Laserfiche\n- **Process automation**: DocuWare, M-Files\n\nWhat type of organization or use case are you evaluating for? That would help narrow down the best fit.",
-          "response_length": 1749,
+          "response": "Here's a comparison of the top document management platforms and their standout features:\n\n**Microsoft SharePoint**\n- Deep Microsoft 365 integration (Word, Excel, Teams)\n- Robust workflow automation with Power Automate\n- Enterprise-grade security and compliance\n- Strong intranet and portal capabilities\n- Best for: Organizations already in the Microsoft ecosystem\n\n**Google Drive / Google Workspace**\n- Real-time collaboration on documents, sheets, slides\n- Powerful search with OCR across scanned files\n- Simple sharing with granular permissions\n- Strong mobile experience\n- Best for: Teams prioritizing ease of use and collaboration\n\n**Box**\n- Superior security and compliance certifications (HIPAA, FedRAMP, GDPR)\n- Advanced workflow automation and metadata\n- Strong e-signature integration (Box Sign)\n- Excellent API for custom integrations\n- Best for: Regulated industries, enterprises with strict security needs\n\n**Dropbox Business**\n- Smart Sync for local/remote file management\n- Dropbox Paper for lightweight collaboration\n- Strong versioning and file recovery\n- Good creative workflow tools (video review, annotations)\n- Best for: Creative teams, freelancers, smaller businesses\n\n**M-Files**\n- AI-powered metadata-driven organization (not folder-based)\n- Automatic document classification\n- Strong compliance and records management\n- Integrates with existing repositories without migration\n- Best for: Complex organizational structures, compliance-heavy environments\n\n**DocuWare**\n- Focused on invoice processing and accounts payable automation\n- Strong capture and indexing capabilities\n- Pre-built workflows for common business processes\n- Best for: Mid-market companies automating specific document processes\n\n**OpenText Documentum**\n- Highly scalable for massive content volumes\n- Deep enterprise content management features\n- Strong lifecycle management and archiving\n- Best for: Large enterprises with complex, long-term retention needs\n\nWould you like me to dive deeper into any of ",
+          "response_length": 2060,
           "mention": {
             "mentioned": false,
             "how_mentioned": "not_mentioned",
@@ -736,8 +712,8 @@
           }
         }
       ],
-      "mention_count": 1,
-      "total_queries": 4
+      "mention_count": 0,
+      "total_queries": 3
     }
   }
 }

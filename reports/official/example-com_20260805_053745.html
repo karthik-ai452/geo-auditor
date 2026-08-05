@@ -301,17 +301,17 @@
   <div class="report-header">
     <h1>GEO Audit Report</h1>
     <div class="subtitle">example.com</div>
-    <div class="meta">Audited 2026-08-05T05:21:15.065721+00:00 · Content scoring: LLM-assisted (drytis/kimi-k2.5)</div>
+    <div class="meta">Audited 2026-08-05T05:37:45.076242+00:00 · Content scoring: LLM-assisted (drytis/kimi-k2.5)</div>
   </div>
 
   <!-- Score Summary -->
   <div class="score-section">
     <div class="score-circle grade-critical">
-      <div class="num">24</div>
+      <div class="num">10</div>
       <div class="label">/ 100</div>
     </div>
     <div class="verdict">
-      <h2>Critical — 24.1 / 100</h2>
+      <h2>Critical — 10.1 / 100</h2>
       <p>Your site is almost certainly invisible in AI search. Start with the critical fixes.</p>
     </div>
   </div>
@@ -348,10 +348,10 @@
     
     <div class="pillar-card">
       <h3>Brand Recall</h3>
-      <div class="pillar-score">40</div>
+      <div class="pillar-score">0</div>
       <div class="pillar-weight">35% weight</div>
       <div class="pillar-bar">
-        <div class="pillar-bar-fill" style="width: 40.0%; background: var(--critical);"></div>
+        <div class="pillar-bar-fill" style="width: 0.0%; background: var(--critical);"></div>
       </div>
     </div>
     
@@ -499,7 +499,7 @@
         <li class="component-item">
           <div class="component-label">
             Direct Answers: 15/100
-            <div class="component-detail">The content contains one minimal definitional statement about the domain&#39;s purpose, but lacks any substantive answers to potential user questions. It does not explain what &#39;documentation examples&#39; means, why permission isn&#39;t needed, or what &#39;operations&#39; refers to. The &#39;Learn more&#39; link is unfulfilled promise with no actual information provided. Example: &#34;This domain is for use in documentation examples without needing permission&#34;</div>
+            <div class="component-detail">The content contains one minimal definitional statement about the domain&#39;s purpose, but fails to answer any substantive questions a user might have. It states what the domain is for but provides no depth, context, or comprehensive explanation that would satisfy an AI search query. Example: &#34;This domain is for use in documentation examples without needing permission.&#34;</div>
           </div>
           <div class="component-points">
             4.5<span class="max">/30</span>
@@ -509,7 +509,7 @@
         <li class="component-item">
           <div class="component-label">
             Statistical Richness: 0/100
-            <div class="component-detail">Zero statistics, data points, numbers, or quantifiable information present. The extracted signals confirm 0 statistics found. No dates, usage figures, adoption rates, or any numerical evidence that AI search engines prioritize for citation. Example: &#34;N/A — no statistics exist in content&#34;</div>
+            <div class="component-detail">Zero statistics, data points, percentages, or quantifiable information present. The extracted signals confirm 0 statistics found. AI search engines heavily favor content with specific numbers and data for citation. Example: &#34;N/A — no statistics exist in content&#34;</div>
           </div>
           <div class="component-points">
             0.0<span class="max">/25</span>
@@ -519,7 +519,7 @@
         <li class="component-item">
           <div class="component-label">
             Citation Quality: 0/100
-            <div class="component-detail">No sources cited, no external references, no author attribution, no publication date, and no methodology described. The &#39;Learn more&#39; text implies additional information exists but provides no actual citation or link destination. Extracted signals confirm citation patterns: False. Example: &#34;N/A — no citations exist in content&#34;</div>
+            <div class="component-detail">No sources cited, no external references, no evidence provided for claims. The &#39;Learn more&#39; link is unexpanded and provides no actual citation. The extracted signals confirm citation patterns are false. Example: &#34;Learn more (unlinked, uncited)&#34;</div>
           </div>
           <div class="component-points">
             0.0<span class="max">/15</span>
@@ -529,7 +529,7 @@
         <li class="component-item">
           <div class="component-label">
             Structure Clarity: 10/100
-            <div class="component-detail">Severely understructured with 0 H2 headings and only 19 words total. No logical section breaks, no scannable hierarchy, no table of contents potential. Content appears as a single block with title and one sentence. Extracted signals confirm 0 H2 headings and no FAQ schema. Example: &#34;Example Domain [title] This domain is for use in documentation examples without needing permission. Avoid use in operations. Learn more [unlinked]&#34;</div>
+            <div class="component-detail">Extremely poor structural organization. Zero H2 headings, no sections, no scannable hierarchy. The content is a single sentence fragment with minimal formatting. AI search engines struggle to extract and segment unstructured content. Example: &#34;Example Domain This domain is for use in documentation examples without needing permission. Avoid use in operations. Learn more&#34;</div>
           </div>
           <div class="component-points">
             1.5<span class="max">/15</span>
@@ -539,7 +539,7 @@
         <li class="component-item">
           <div class="component-label">
             Conversational Match: 20/100
-            <div class="component-detail">The phrase &#39;without needing permission&#39; partially matches natural question patterns like &#39;Do I need permission to use example.com?&#39; However, the content fails to explicitly pose or answer questions in conversational form. No question keywords (what, why, how, when) appear. Tone is terse and institutional rather than helpful. Example: &#34;without needing permission — partially matches &#39;Do I need permission to use this domain?&#39;&#34;</div>
+            <div class="component-detail">The language is simple and direct, which slightly aligns with conversational queries, but it fails to match how users actually ask questions. No question-answer format, no natural language patterns addressing &#39;what is,&#39; &#39;how to,&#39; or &#39;why&#39; queries that dominate AI search. Example: &#34;This domain is for use in documentation examples&#34;</div>
           </div>
           <div class="component-points">
             3.0<span class="max">/15</span>
@@ -610,19 +610,9 @@
     
     <div class="pillar-breakdown">
       <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
-        Brand_recall: 40.0/100 (weight: 35%)
+        Brand Recall: 0.0/100 (weight: 35%)
       </h3>
       <ul class="component-list">
-        
-        <li class="component-item">
-          <div class="component-label">
-            Direct brand query: AI knows &#39;Example Domain&#39; (1/1)
-            <div class="component-detail">Q: &#34;What is Example Domain?...&#34; → ✓ mentioned</div>
-          </div>
-          <div class="component-points">
-            40.0<span class="max">/40</span>
-          </div>
-        </li>
         
         <li class="component-item">
           <div class="component-label">
@@ -630,7 +620,7 @@
             <div class="component-detail">Q: &#34;What are the best document management platforms for business...&#34; → ✗ not mentioned | Q: &#34;What are the top document management companies or tools?...&#34; → ✗ not mentioned</div>
           </div>
           <div class="component-points">
-            0.0<span class="max">/35</span>
+            0.0<span class="max">/55</span>
           </div>
         </li>
         
@@ -640,7 +630,7 @@
             <div class="component-detail">Q: &#34;Can you compare the top document management platforms and th...&#34; → ✗ not mentioned</div>
           </div>
           <div class="component-points">
-            0.0<span class="max">/25</span>
+            0.0<span class="max">/45</span>
           </div>
         </li>
         
@@ -851,7 +841,7 @@ Sitemap: https://yoursite.com/sitemap.xml
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>LLM assessment: The content contains one minimal definitional statement about the domain&#39;s purpose, but lacks any substantive answers to potential user questions. It does not explain what &#39;documentation examples&#39; means, why permission isn&#39;t needed, or what &#39;operations&#39; refers to. The &#39;Learn more&#39; link is unfulfilled promise with no actual information provided. Example from your content: &#34;This domain is for use in documentation examples without needing permission&#34;</div>
+          <div>LLM assessment: The content contains one minimal definitional statement about the domain&#39;s purpose, but fails to answer any substantive questions a user might have. It states what the domain is for but provides no depth, context, or comprehensive explanation that would satisfy an AI search query. Example from your content: &#34;This domain is for use in documentation examples without needing permission.&#34;</div>
         </div>
         
         
@@ -869,7 +859,7 @@ Sitemap: https://yoursite.com/sitemap.xml
 
 Example: &#39;Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.&#39;
 
-AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A format addressing: &#39;What is example.com used for?&#39;, &#39;Do I need permission to use it?&#39;, &#39;What does avoid use in operations mean?&#39;, and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.
+AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.
           </div>
         </div>
         
@@ -893,7 +883,7 @@ AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A form
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>LLM assessment: Zero statistics, data points, numbers, or quantifiable information present. The extracted signals confirm 0 statistics found. No dates, usage figures, adoption rates, or any numerical evidence that AI search engines prioritize for citation. Example from your content: &#34;N/A — no statistics exist in content&#34;</div>
+          <div>LLM assessment: Zero statistics, data points, percentages, or quantifiable information present. The extracted signals confirm 0 statistics found. AI search engines heavily favor content with specific numbers and data for citation. Example from your content: &#34;N/A — no statistics exist in content&#34;</div>
         </div>
         
         
@@ -911,7 +901,7 @@ AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A form
 
 Instead of &#39;many businesses use CRM&#39;, write &#39;73% of businesses use CRM software (Source: Salesforce, 2024)&#39;.
 
-AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A format addressing: &#39;What is example.com used for?&#39;, &#39;Do I need permission to use it?&#39;, &#39;What does avoid use in operations mean?&#39;, and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.
+AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.
           </div>
         </div>
         
@@ -935,7 +925,7 @@ AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A form
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>LLM assessment: No sources cited, no external references, no author attribution, no publication date, and no methodology described. The &#39;Learn more&#39; text implies additional information exists but provides no actual citation or link destination. Extracted signals confirm citation patterns: False. Example from your content: &#34;N/A — no citations exist in content&#34;</div>
+          <div>LLM assessment: No sources cited, no external references, no evidence provided for claims. The &#39;Learn more&#39; link is unexpanded and provides no actual citation. The extracted signals confirm citation patterns are false. Example from your content: &#34;Learn more (unlinked, uncited)&#34;</div>
         </div>
         
         
@@ -951,7 +941,7 @@ AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A form
             <button class="copy-btn" onclick="copyFix(this)">Copy</button>
             Cite your sources. Use phrases like &#39;according to [study]&#39;, &#39;research from [organization] shows&#39;, or link to primary sources. AI engines prefer content that itself cites evidence.
 
-AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A format addressing: &#39;What is example.com used for?&#39;, &#39;Do I need permission to use it?&#39;, &#39;What does avoid use in operations mean?&#39;, and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.
+AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.
           </div>
         </div>
         
@@ -975,7 +965,7 @@ AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A form
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>LLM assessment: Severely understructured with 0 H2 headings and only 19 words total. No logical section breaks, no scannable hierarchy, no table of contents potential. Content appears as a single block with title and one sentence. Extracted signals confirm 0 H2 headings and no FAQ schema. Example from your content: &#34;Example Domain [title] This domain is for use in documentation examples without needing permission. Avoid use in operations. Learn more [unlinked]&#34;</div>
+          <div>LLM assessment: Extremely poor structural organization. Zero H2 headings, no sections, no scannable hierarchy. The content is a single sentence fragment with minimal formatting. AI search engines struggle to extract and segment unstructured content. Example from your content: &#34;Example Domain This domain is for use in documentation examples without needing permission. Avoid use in operations. Learn more&#34;</div>
         </div>
         
         
@@ -991,7 +981,7 @@ AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A form
             <button class="copy-btn" onclick="copyFix(this)">Copy</button>
             Structure your content with clear headings (H2, H3), short paragraphs, and logical sections. Use bullet points for lists. Each section should answer one question or cover one topic.
 
-AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A format addressing: &#39;What is example.com used for?&#39;, &#39;Do I need permission to use it?&#39;, &#39;What does avoid use in operations mean?&#39;, and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.
+AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.
           </div>
         </div>
         
@@ -1015,7 +1005,7 @@ AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A form
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>LLM assessment: The phrase &#39;without needing permission&#39; partially matches natural question patterns like &#39;Do I need permission to use example.com?&#39; However, the content fails to explicitly pose or answer questions in conversational form. No question keywords (what, why, how, when) appear. Tone is terse and institutional rather than helpful. Example from your content: &#34;without needing permission — partially matches &#39;Do I need permission to use this domain?&#39;&#34;</div>
+          <div>LLM assessment: The language is simple and direct, which slightly aligns with conversational queries, but it fails to match how users actually ask questions. No question-answer format, no natural language patterns addressing &#39;what is,&#39; &#39;how to,&#39; or &#39;why&#39; queries that dominate AI search. Example from your content: &#34;This domain is for use in documentation examples&#34;</div>
         </div>
         
         
@@ -1031,7 +1021,7 @@ AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A form
             <button class="copy-btn" onclick="copyFix(this)">Copy</button>
             Write in the language your audience actually uses to ask questions. Instead of &#39;Our platform provides enterprise-grade solutions&#39;, write &#39;Our platform helps large teams manage projects.&#39; Use natural, conversational phrasing.
 
-AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A format addressing: &#39;What is example.com used for?&#39;, &#39;Do I need permission to use it?&#39;, &#39;What does avoid use in operations mean?&#39;, and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.
+AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.
           </div>
         </div>
         
@@ -1055,13 +1045,13 @@ AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A form
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>Overall assessment: This content would perform extremely poorly in AI search engines. With only 19 words, zero statistics, no citations, and no structural organization, it offers almost nothing for AI systems to extract, verify, or cite. It would rarely if ever appear as a source in AI-generated answers due to complete lack of substantiated claims and answerable content.</div>
+          <div>Overall assessment: This content would perform extremely poorly in AI search engines. With only 19 words, zero statistics, no citations, and no structural organization, it offers almost no extractable value for AI-generated answers. It would rarely if ever be selected as a source citation.</div>
         </div>
         
         
         <div class="field">
           <div class="field-label">What it should be</div>
-          <div>Expand to 300-500 words with explicit Q&amp;A format addressing: &#39;What is example.com used for?&#39;, &#39;Do I need permission to use it?&#39;, &#39;What does avoid use in operations mean?&#39;, and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.</div>
+          <div>Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.</div>
         </div>
         
         
@@ -1069,7 +1059,7 @@ AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A form
           <div class="field-label">Fix (copy-pasteable)</div>
           <div class="fix-block">
             <button class="copy-btn" onclick="copyFix(this)">Copy</button>
-            Expand to 300-500 words with explicit Q&amp;A format addressing: &#39;What is example.com used for?&#39;, &#39;Do I need permission to use it?&#39;, &#39;What does avoid use in operations mean?&#39;, and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.
+            Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.
           </div>
         </div>
         
@@ -1338,23 +1328,23 @@ Tip: if you use WordPress, plugins like Yoast SEO or RankMath can generate this 
       </div>
     </div>
     
-    <div class="finding-card severity-warning">
+    <div class="finding-card severity-critical">
       <div class="finding-header">
-        <span class="severity-badge warning">warning</span>
-        <h3>AI mentions &#39;Example Domain&#39; in only 1/4 queries</h3>
+        <span class="severity-badge critical">critical</span>
+        <h3>AI does not mention &#39;Example Domain&#39; in any test queries</h3>
       </div>
       <div class="page-link">📍 https://example.com/</div>
       <div class="finding-body">
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>Sent 4 questions to an AI model. &#39;Example Domain&#39; was mentioned in 1 responses. Mentioned in: &#34;What is Example Domain?...&#34; → Example Domain. Not mentioned in: &#34;What are the best document management platforms fo...&#34;; &#34;What are the top document management companies or ...&#34;</div>
+          <div>Sent 3 questions to an AI model about document management and &#39;Example Domain&#39;. The AI did not mention &#39;Example Domain&#39; in any response. This means the model likely has no strong knowledge of your business in its training data.</div>
         </div>
         
         
         <div class="field">
           <div class="field-label">What it should be</div>
-          <div>&#39;Example Domain&#39; should appear in most industry-related queries.</div>
+          <div>An AI should be able to describe what Example Domain is and mention it when asked about document management.</div>
         </div>
         
         
@@ -1362,23 +1352,24 @@ Tip: if you use WordPress, plugins like Yoast SEO or RankMath can generate this 
           <div class="field-label">Fix (copy-pasteable)</div>
           <div class="fix-block">
             <button class="copy-btn" onclick="copyFix(this)">Copy</button>
-            The AI has some knowledge of Example Domain but doesn&#39;t mention it consistently. To improve recall:
+            The AI model has no knowledge of Example Domain. To fix this, you need to build presence on the sources AI engines learn from during training:
 
-1. Ensure your business is described consistently across the web
-2. Get mentioned alongside competitors in industry comparisons and listicles
-3. Build authority through content marketing in the document management space
-4. Get reviews and mentions on G2, Capterra, and industry publications
-5. Create comparison pages on your own site (&#39;Example Domain vs [Competitor]&#39;)
+1. Create/maintain a Wikipedia page (if notable enough)
+2. Ensure a Crunchbase profile with accurate description
+3. Get listed on review platforms (G2, Capterra, TrustRadius)
+4. Publish on high-authority industry blogs and publications
+5. Build backlinks from sites that appear in AI training data
+6. Ensure your homepage clearly states what you do in the first sentence
 
-The more the AI encounters Example Domain in training data alongside your competitors, the more it will mention you in relevant queries.
+AI models are trained on web content — the more high-quality sources that describe Example Domain accurately, the more likely AI engines will mention you in their answers.
           </div>
         </div>
         
         
         <div class="impact-effort">
-          <span>📊 Impact: 70/100</span>
-          <span>🔧 Effort: 50/100</span>
-          <span>⚡ Priority: 35</span>
+          <span>📊 Impact: 95/100</span>
+          <span>🔧 Effort: 60/100</span>
+          <span>⚡ Priority: 38</span>
         </div>
         
       </div>
@@ -1394,7 +1385,7 @@ The more the AI encounters Example Domain in training data alongside your compet
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>When asked &#34;What are the best document management platforms for businesses?&#34;, the AI listed competitors but did not mention &#39;Example Domain&#39;. AI mentioned: Based, Grade Solutions, Microsoft, Hyland, Mid, Market, Favorites, Files, Laserfiche, Cloud</div>
+          <div>When asked &#34;What are the best document management platforms for businesses?&#34;, the AI listed competitors but did not mention &#39;Example Domain&#39;. AI mentioned: Based, Grade Solutions, Microsoft, Mid, Market, Cloud, Native, Box, Dropbox Business, Google Workspace</div>
         </div>
         
         
@@ -1432,7 +1423,7 @@ The more the AI encounters Example Domain in training data alongside your compet
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>When asked &#34;What are the top document management companies or tools?&#34;, the AI listed competitors but did not mention &#39;Example Domain&#39;. AI mentioned: Based, Heavy, Duty Solutions, Microsoft, Hyland, Cloud, Native, Modern Platforms, Box, Dropbox Business</div>
+          <div>When asked &#34;What are the top document management companies or tools?&#34;, the AI listed competitors but did not mention &#39;Example Domain&#39;. AI mentioned: Based, Heavy, Duty, Microsoft, Office, Hyland, Cloud, Native, Modern, Box</div>
         </div>
         
         
@@ -1510,12 +1501,12 @@ Tip: if you use WordPress, plugins like Yoast SEO or RankMath can generate this 
           Impact 80/100 · Effort 30/100 · Priority 56
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: No sources cited, no external references, no author attribution, no publication date, and no methodology described. The &#39;Learn more&#39; text implies additional information exists but prov...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: No sources cited, no external references, no evidence provided for claims. The &#39;Learn more&#39; link is unexpanded and provides no actual citation. The extracted signals confirm citation p...</div>
         
         
         <div class="action-fix">Cite your sources. Use phrases like &#39;according to [study]&#39;, &#39;research from [organization] shows&#39;, or link to primary sources. AI engines prefer content that itself cites evidence.
 
-AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A format addressing: &#39;What is example.com used for?&#39;, &#39;Do I need permission to use it?&#39;, &#39;What does avoid use in operations mean?&#39;, and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.</div>
+AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.</div>
         
       </div>
     </div>
@@ -1528,14 +1519,14 @@ AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A form
           Impact 68/100 · Effort 20/100 · Priority 54
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The content contains one minimal definitional statement about the domain&#39;s purpose, but lacks any substantive answers to potential user questions. It does not explain what &#39;documentati...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The content contains one minimal definitional statement about the domain&#39;s purpose, but fails to answer any substantive questions a user might have. It states what the domain is for bu...</div>
         
         
         <div class="action-fix">Add clear, direct answer paragraphs at the top of your content. Format: &#39;[Topic] is [definition/explanation].&#39; — one or two sentences that directly answer the most likely question a person would ask.
 
 Example: &#39;Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.&#39;
 
-AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A format addressing: &#39;What is example.com used for?&#39;, &#39;Do I need permission to use it?&#39;, &#39;What does avoid use in operations mean?&#39;, and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.</div>
+AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.</div>
         
       </div>
     </div>
@@ -1548,12 +1539,12 @@ AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A form
           Impact 72/100 · Effort 25/100 · Priority 54
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: Severely understructured with 0 H2 headings and only 19 words total. No logical section breaks, no scannable hierarchy, no table of contents potential. Content appears as a single bloc...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: Extremely poor structural organization. Zero H2 headings, no sections, no scannable hierarchy. The content is a single sentence fragment with minimal formatting. AI search engines stru...</div>
         
         
         <div class="action-fix">Structure your content with clear headings (H2, H3), short paragraphs, and logical sections. Use bullet points for lists. Each section should answer one question or cover one topic.
 
-AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A format addressing: &#39;What is example.com used for?&#39;, &#39;Do I need permission to use it?&#39;, &#39;What does avoid use in operations mean?&#39;, and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.</div>
+AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.</div>
         
       </div>
     </div>
@@ -1566,14 +1557,14 @@ AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A form
           Impact 80/100 · Effort 40/100 · Priority 48
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: Zero statistics, data points, numbers, or quantifiable information present. The extracted signals confirm 0 statistics found. No dates, usage figures, adoption rates, or any numerical ...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: Zero statistics, data points, percentages, or quantifiable information present. The extracted signals confirm 0 statistics found. AI search engines heavily favor content with specific ...</div>
         
         
         <div class="action-fix">Add specific numbers, percentages, and data points to your content. AI engines disproportionately cite content with statistics.
 
 Instead of &#39;many businesses use CRM&#39;, write &#39;73% of businesses use CRM software (Source: Salesforce, 2024)&#39;.
 
-AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A format addressing: &#39;What is example.com used for?&#39;, &#39;Do I need permission to use it?&#39;, &#39;What does avoid use in operations mean?&#39;, and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.</div>
+AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.</div>
         
       </div>
     </div>
@@ -1635,12 +1626,12 @@ AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A form
           Impact 64/100 · Effort 35/100 · Priority 42
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The phrase &#39;without needing permission&#39; partially matches natural question patterns like &#39;Do I need permission to use example.com?&#39; However, the content fails to explicitly pose or ans...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The language is simple and direct, which slightly aligns with conversational queries, but it fails to match how users actually ask questions. No question-answer format, no natural lang...</div>
         
         
         <div class="action-fix">Write in the language your audience actually uses to ask questions. Instead of &#39;Our platform provides enterprise-grade solutions&#39;, write &#39;Our platform helps large teams manage projects.&#39; Use natural, conversational phrasing.
 
-AI&#39;s specific suggestion: Expand to 300-500 words with explicit Q&amp;A format addressing: &#39;What is example.com used for?&#39;, &#39;Do I need permission to use it?&#39;, &#39;What does avoid use in operations mean?&#39;, and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.</div>
+AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.</div>
         
       </div>
     </div>
@@ -1666,21 +1657,46 @@ Sitemap: https://yoursite.com/sitemap.xml</div>
     <div class="action-item">
       <div class="action-num">10</div>
       <div class="action-content">
-        <h4>AI&#39;s #1 recommendation for your content</h4>
+        <h4>AI does not mention &#39;Example Domain&#39; in any test queries</h4>
         <div class="action-meta">
-          Impact 60/100 · Effort 40/100 · Priority 36
+          Impact 95/100 · Effort 60/100 · Priority 38
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">Overall assessment: This content would perform extremely poorly in AI search engines. With only 19 words, zero statistics, no citations, and no structural organization, it offers almost nothing for AI...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">Sent 3 questions to an AI model about document management and &#39;Example Domain&#39;. The AI did not mention &#39;Example Domain&#39; in any response. This means the model likely has no strong knowledge of your bus...</div>
         
         
-        <div class="action-fix">Expand to 300-500 words with explicit Q&amp;A format addressing: &#39;What is example.com used for?&#39;, &#39;Do I need permission to use it?&#39;, &#39;What does avoid use in operations mean?&#39;, and include 2-3 verifiable statistics about domain usage or IANA reserved domains with linked sources.</div>
+        <div class="action-fix">The AI model has no knowledge of Example Domain. To fix this, you need to build presence on the sources AI engines learn from during training:
+
+1. Create/maintain a Wikipedia page (if notable enough)
+2. Ensure a Crunchbase profile with accurate description
+3. Get listed on review platforms (G2, Capterra, TrustRadius)
+4. Publish on high-authority industry blogs and publications
+5. Build backlinks from sites that appear in AI training data
+6. Ensure your homepage clearly states what you do in the first sentence
+
+AI models are trained on web content — the more high-quality sources that describe Example Domain accurately, the more likely AI engines will mention you in their answers.</div>
         
       </div>
     </div>
     
     <div class="action-item">
       <div class="action-num">11</div>
+      <div class="action-content">
+        <h4>AI&#39;s #1 recommendation for your content</h4>
+        <div class="action-meta">
+          Impact 60/100 · Effort 40/100 · Priority 36
+        </div>
+        
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">Overall assessment: This content would perform extremely poorly in AI search engines. With only 19 words, zero statistics, no citations, and no structural organization, it offers almost no extractable...</div>
+        
+        
+        <div class="action-fix">Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.</div>
+        
+      </div>
+    </div>
+    
+    <div class="action-item">
+      <div class="action-num">12</div>
       <div class="action-content">
         <h4>Very little text content on homepage</h4>
         <div class="action-meta">
@@ -1691,30 +1707,6 @@ Sitemap: https://yoursite.com/sitemap.xml</div>
         
         
         <div class="action-fix">Add descriptive text content that explains what you do, who you serve, and answers common questions. Aim for at least 300 words of relevant content.</div>
-        
-      </div>
-    </div>
-    
-    <div class="action-item">
-      <div class="action-num">12</div>
-      <div class="action-content">
-        <h4>AI mentions &#39;Example Domain&#39; in only 1/4 queries</h4>
-        <div class="action-meta">
-          Impact 70/100 · Effort 50/100 · Priority 35
-        </div>
-        
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">Sent 4 questions to an AI model. &#39;Example Domain&#39; was mentioned in 1 responses. Mentioned in: &#34;What is Example Domain?...&#34; → Example Domain. Not mentioned in: &#34;What are the best document management pl...</div>
-        
-        
-        <div class="action-fix">The AI has some knowledge of Example Domain but doesn&#39;t mention it consistently. To improve recall:
-
-1. Ensure your business is described consistently across the web
-2. Get mentioned alongside competitors in industry comparisons and listicles
-3. Build authority through content marketing in the document management space
-4. Get reviews and mentions on G2, Capterra, and industry publications
-5. Create comparison pages on your own site (&#39;Example Domain vs [Competitor]&#39;)
-
-The more the AI encounters Example Domain in training data alongside your competitors, the more it will mention you in relevant queries.</div>
         
       </div>
     </div>
@@ -1793,7 +1785,7 @@ The more the AI encounters Example Domain in training data alongside your compet
           Impact 60/100 · Effort 70/100 · Priority 18
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">When asked &#34;What are the best document management platforms for businesses?&#34;, the AI listed competitors but did not mention &#39;Example Domain&#39;. AI mentioned: Based, Grade Solutions, Microsoft, Hyland, M...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">When asked &#34;What are the best document management platforms for businesses?&#34;, the AI listed competitors but did not mention &#39;Example Domain&#39;. AI mentioned: Based, Grade Solutions, Microsoft, Mid, Mark...</div>
         
         
         <div class="action-fix">Build your presence on high-authority sites that AI engines learn from: Wikipedia, Crunchbase, industry publications, and review sites (G2, Capterra). AI models learn from these sources during training.</div>
@@ -1809,7 +1801,7 @@ The more the AI encounters Example Domain in training data alongside your compet
           Impact 60/100 · Effort 70/100 · Priority 18
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">When asked &#34;What are the top document management companies or tools?&#34;, the AI listed competitors but did not mention &#39;Example Domain&#39;. AI mentioned: Based, Heavy, Duty Solutions, Microsoft, Hyland, Cl...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">When asked &#34;What are the top document management companies or tools?&#34;, the AI listed competitors but did not mention &#39;Example Domain&#39;. AI mentioned: Based, Heavy, Duty, Microsoft, Office, Hyland, Clou...</div>
         
         
         <div class="action-fix">Build your presence on high-authority sites that AI engines learn from: Wikipedia, Crunchbase, industry publications, and review sites (G2, Capterra). AI models learn from these sources during training.</div>
@@ -1858,7 +1850,7 @@ The more the AI encounters Example Domain in training data alongside your compet
 
   <!-- Footer -->
   <div class="report-footer">
-    Generated by GEO Auditor · 2026-08-05T05:21:15.065721+00:00
+    Generated by GEO Auditor · 2026-08-05T05:37:45.076242+00:00
   </div>
 
 </div>

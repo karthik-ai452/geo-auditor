@@ -200,14 +200,7 @@ def generate_brand_recall_queries(
     """
     queries = []
 
-    # 1. Direct brand query — does the LLM know this company?
-    queries.append({
-        "query": f"What is {brand}?",
-        "type": "direct_brand",
-        "description": f"Does the AI know what {brand} is?"
-    })
-
-    # 2. Category queries — does the brand come up unprompted?
+    # 1. Category queries — does the brand come up unprompted?
     queries.append({
         "query": f"What are the best {category} platforms for businesses?",
         "type": "category_unprompted",
@@ -220,14 +213,14 @@ def generate_brand_recall_queries(
         "description": f"When asked about top {category} tools, does the AI mention {brand}?"
     })
 
-    # 3. Comparison queries — does the brand come up in comparisons?
+    # 2. Comparison queries — does the brand come up in comparisons?
     queries.append({
         "query": f"Can you compare the top {category} platforms and their key features?",
         "type": "comparison",
         "description": f"In a {category} comparison, does the AI mention {brand}?"
     })
 
-    # 4. Competitor-anchored queries
+    # 3. Competitor-anchored queries
     if competitors:
         queries.append({
             "query": f"What are the main alternatives to {competitors[0]} for {category}?",

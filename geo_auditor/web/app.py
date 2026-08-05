@@ -119,8 +119,11 @@ async def index(request: Request):
       <li><strong>AI Crawlability</strong> — Can ChatGPT/Perplexity/Claude crawlers reach your site?</li>
       <li><strong>Content Answerability</strong> — Does your content answer questions AI engines extract and cite?</li>
       <li><strong>Structured Data</strong> — Can machines parse your site's schema.org data?</li>
-      <li><strong>AI Brand Recall</strong> — Do ChatGPT, Perplexity, and Claude actually know your business?</li>
-      <li><strong>AI Brand Recall</strong> — Do ChatGPT, Perplexity, and Claude actually know your business?</li>
+      <li><strong>AI Brand Recall</strong> — When AI engines answer questions about your industry, do they mention you?</li>
+    </ul>
+  </div>
+</div>
+<script>
 document.getElementById('auditForm').addEventListener('submit', function() {
   document.getElementById('loading').classList.add('show');
   document.querySelector('button').disabled = true;

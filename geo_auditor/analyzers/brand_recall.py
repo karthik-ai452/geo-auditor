@@ -8,14 +8,17 @@ is your content answerable, is your data parseable. This pillar checks
 the *outcome*: we send real questions to an LLM and measure whether it
 actually mentions the target business.
 
-This tests the two ways AI engines surface businesses:
-  1. Training data knowledge — does the model already know about you?
-  2. Category/competitor queries — when asked about your industry, do you
-     come up unprompted?
+We test visibility via the live search / retrieval pathway — the way AI
+engines actually surface businesses when a potential customer asks a
+question. We do NOT test training data knowledge (asking "What is
+[brand]?") because the probability of appearing in a specific model's
+training data is very low for most businesses, and it is not actionable.
 
-This is the closest proxy to "will ChatGPT/Perplexity/Claude mention me
-when a potential customer asks?" — without requiring access to the actual
-engines (which don't offer citation APIs).
+Instead, we test:
+  1. Category visibility — when asked about your industry ("best payment
+     platforms?"), does your brand come up unprompted?
+  2. Comparison visibility — when asked to compare tools in your space,
+     does your brand appear alongside competitors?
 
 If the LLM is unavailable, this pillar cannot run and scores 0.
 """
@@ -195,38 +198,27 @@ def analyze(crawl: CrawlResult) -> tuple[list[Finding], list[ScoreComponent], di
 
     # --- Compute score ---
     # Score is based on:
-    # 1. Direct brand query (40 pts) — does the AI know what the company IS?
-    # 2. Category unprompted queries (35 pts) — does the brand come up in category questions?
-    # 3. Comparison/competitor queries (25 pts) — does it appear in comparisons?
+    # 1. Category unprompted queries (55 pts) — does the brand come up in category questions?
+    # 2. Comparison/competitor queries (45 pts) — does it appear in comparisons?
 
-    direct_results = [r for r in query_results if r["type"] == "direct_brand"]
     category_results = [r for r in query_results if r["type"] == "category_unprompted"]
     comparison_results = [r for r in query_results if r["type"] in ("comparison", "competitor_anchored")]
 
-    # Direct brand query scoring
-    direct_mentioned = sum(1 for r in direct_results if r.get("mention", {}).get("mentioned"))
-    direct_pts = (direct_mentioned / max(len(direct_results), 1)) * 40
-    components.append(ScoreComponent(
-        label=f"Direct brand query: AI knows '{brand_name}' ({direct_mentioned}/{len(direct_results)})",
-        points=direct_pts, max=40,
-        detail=_detail_for_queries(direct_results, brand_name)
-    ))
-
     # Category unprompted scoring
     cat_mentioned = sum(1 for r in category_results if r.get("mention", {}).get("mentioned"))
-    cat_pts = (cat_mentioned / max(len(category_results), 1)) * 35
+    cat_pts = (cat_mentioned / max(len(category_results), 1)) * 55
     components.append(ScoreComponent(
         label=f"Category queries: mentioned in {cat_mentioned}/{len(category_results)} industry questions",
-        points=cat_pts, max=35,
+        points=cat_pts, max=55,
         detail=_detail_for_queries(category_results, brand_name)
     ))
 
     # Comparison/competitor scoring
     comp_mentioned = sum(1 for r in comparison_results if r.get("mention", {}).get("mentioned"))
-    comp_pts = (comp_mentioned / max(len(comparison_results), 1)) * 25
+    comp_pts = (comp_mentioned / max(len(comparison_results), 1)) * 45
     components.append(ScoreComponent(
         label=f"Comparison queries: mentioned in {comp_mentioned}/{len(comparison_results)} comparisons",
-        points=comp_pts, max=25,
+        points=comp_pts, max=45,
         detail=_detail_for_queries(comparison_results, brand_name)
     ))
 

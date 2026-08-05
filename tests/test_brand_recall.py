@@ -71,11 +71,20 @@ class TestGenerateQueries:
             brand="Stripe", category="payment processing",
             competitors=["PayPal", "Square"]
         )
-        assert len(queries) >= 4
-        # Should have a direct brand query
+        assert len(queries) >= 3
+        # Should have category queries
+        category = [q for q in queries if q["type"] == "category_unprompted"]
+        assert len(category) >= 2
+        assert all("payment processing" in q["query"] for q in category)
+
+    def test_no_direct_brand_query(self):
+        """Direct brand queries ('What is X?') are excluded — testing training
+        data memorization is not actionable and probability is very low."""
+        queries = llm_client.generate_brand_recall_queries(
+            brand="Stripe", category="payment processing", competitors=[]
+        )
         direct = [q for q in queries if q["type"] == "direct_brand"]
-        assert len(direct) == 1
-        assert "Stripe" in direct[0]["query"]
+        assert len(direct) == 0
 
     def test_generates_without_competitors(self):
         queries = llm_client.generate_brand_recall_queries(

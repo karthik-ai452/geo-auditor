@@ -70,20 +70,23 @@ GEO (Generative Engine Optimization) is a new field (~2 years old). Nobody has a
 **What it checks:**
 The previous three pillars check *preconditions* — can bots reach you, is your content answerable, is your data parseable. This pillar checks the *outcome*: we send real questions to an AI model and measure whether it actually mentions the target business.
 
-This tests the two pathways AI engines use to surface businesses:
-1. **Training data knowledge** — does the model already know about you? (We ask: "What is [brand]?")
-2. **Category/competitor visibility** — when asked about your industry, do you come up unprompted? (We ask: "What are the best [category] platforms?", "Can you compare the top [category] tools?")
+**What we test (live retrieval pathway):**
+1. **Category visibility** — when asked about your industry ("What are the best payment processing platforms?"), does your brand come up unprompted?
+2. **Comparison visibility** — when asked to compare tools in your space ("Can you compare the top payment processing platforms?"), does your brand appear alongside competitors?
+
+**What we deliberately don't test:**
+We do NOT test training data knowledge (asking "What is [brand]?" to see if the model has memorized your company). The probability of appearing in a specific model's training data is very low for most businesses — training corpora are vast and arbitrary, and a business has no practical way to influence whether it ends up memorized. More importantly, it's not actionable: a business cannot realistically optimize "get into the next training run." Category and comparison queries, by contrast, test the live retrieval pathway that AI engines actually use when serving answers, and the results are influenceable through content, authority, and presence.
 
 **How it works:**
 1. Infer the brand name and industry category from the homepage (title, JSON-LD, content)
-2. Generate 4-5 relevant queries (direct brand, category, comparison, competitor-anchored)
+2. Generate 3-4 relevant queries (category, comparison, competitor-anchored)
 3. Send each query to an LLM and capture the full response
 4. Use a second LLM call to check whether the brand is mentioned, how, in what context, and where in the response
-5. Score based on mention rate across query types (direct query: 40%, category: 35%, comparison: 25%)
+5. Score based on mention rate across query types (category: 55%, comparison: 45%)
 
-**Why this matters and why it's weighted highest (35%):** The other pillars measure *inputs* to AI visibility — "can they reach you" and "does your content look good." This pillar measures the *output* — "do they actually mention you." A business can be perfectly crawlable, have great structured data, and publish answerable content, but if no AI model knows it exists, it won't appear in any AI answer. Brand recall is the closest proxy to "will ChatGPT/Perplexity/Claude mention me when a potential customer asks?"
+**Why this matters and why it's weighted highest (35%):** The other pillars measure *inputs* to AI visibility — "can they reach you" and "does your content look good." This pillar measures the *output* — "do they actually mention you." A business can be perfectly crawlable, have great structured data, and publish answerable content, but if no AI model surfaces it in relevant queries, it won't appear in any AI answer. Brand recall is the closest proxy to "will ChatGPT/Perplexity/Claude mention me when a potential customer asks?"
 
-**Honest limitation:** This tests one LLM's knowledge. Different AI engines (ChatGPT, Perplexity, Claude) use different models with different training data, so recall may vary across engines. The score is a directional indicator, not a guarantee of visibility on any specific platform.
+**Honest limitation:** This tests one LLM's behavior. Different AI engines (ChatGPT, Perplexity, Claude) use different models with different retrieval pipelines, so recall may vary across engines. The score is a directional indicator, not a guarantee of visibility on any specific platform.
 
 ---
 
@@ -167,9 +170,9 @@ Three real audit reports are included in `reports/official/`:
 
 | Site | Score | Grade | What it shows |
 |------|-------|-------|---------------|
-| **stripe.com** | 81.3/100 | Strong | Strong across all pillars — 100% brand recall (AI knows Stripe well), good structure, crawlable. Weaker content answerability (marketing copy). |
-| **notion.so** | 77.4/100 | Moderate | 100% brand recall and perfect crawlability, but poor structured data and content signals hold it back from Strong. |
-| **example.com** | 24.1/100 | Critical | Fails across all pillars — no robots.txt, no sitemap, no structured data, minimal content, and the AI barely recognizes the brand. |
+| **stripe.com** | 81.1/100 | Strong | Strong across all pillars — 100% brand recall (AI mentions Stripe in category/comparison queries), good structure, crawlable. Weaker content answerability (marketing copy). |
+| **notion.so** | 77.2/100 | Moderate | 100% brand recall and perfect crawlability, but poor structured data and content signals hold it back from Strong. |
+| **example.com** | 10.1/100 | Critical | Fails across all pillars — no robots.txt, no sitemap, no structured data, minimal content, and AI never mentions it in any industry query. |
 
 These were chosen to demonstrate the tool differentiates between sites with different GEO maturity levels.
 
