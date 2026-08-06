@@ -156,12 +156,25 @@ async def audit_get(url: str):
 
 
 async def _do_audit(url: str) -> HTMLResponse:
-    """Run the audit and return the rendered report HTML."""
+    """Run the audit and return the rendered report HTML.
+
+    The audit is dispatched to a thread pool (via run_in_executor) so it
+    never blocks the asyncio event loop.  A hard 120-second timeout ensures
+    a single slow audit can't hold a worker forever.
+    """
+    import concurrent.futures
+
+    loop = asyncio.get_running_loop()
+
+    # Use a fresh thread per audit so blocking I/O doesn't stall the loop.
     try:
-        result = await asyncio.wait_for(run_audit(url), timeout=120)
+        result = await asyncio.wait_for(
+            loop.run_in_executor(None, lambda: asyncio.run(run_audit(url))),
+            timeout=120,
+        )
         llm_data = {}  # already incorporated into findings
-        html = render_report(result, llm_data)
-        return HTMLResponse(content=html)
+        report_html = render_report(result, llm_data)
+        return HTMLResponse(content=report_html)
     except asyncio.TimeoutError:
         timeout_html = """<!DOCTYPE html>
 <html><head><meta charset="UTF-8"><title>Audit Timeout</title>
