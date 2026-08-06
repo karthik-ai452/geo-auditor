@@ -1,0 +1,1038 @@
+{
+  "url": "https://stripe.com",
+  "domain": "stripe.com",
+  "audited_at": "2026-08-05T07:19:28.163355+00:00",
+  "score": {
+    "total": 70.0,
+    "grade": "Moderate",
+    "verdict": "Your site has a foundation but key gaps are holding back AI visibility.",
+    "pillars": [
+      {
+        "pillar": "crawlability",
+        "score": 85.0,
+        "weight": 0.15,
+        "components": [
+          {
+            "label": "GPTBot: allowed",
+            "points": 7.5,
+            "max": 7.5,
+            "detail": "GPTBot is allowed in robots.txt."
+          },
+          {
+            "label": "OAI-SearchBot: allowed",
+            "points": 7.5,
+            "max": 7.5,
+            "detail": "OAI-SearchBot is allowed in robots.txt."
+          },
+          {
+            "label": "PerplexityBot: allowed",
+            "points": 7.5,
+            "max": 7.5,
+            "detail": "PerplexityBot is allowed in robots.txt."
+          },
+          {
+            "label": "Perplexity-User: allowed",
+            "points": 7.5,
+            "max": 7.5,
+            "detail": "Perplexity-User is allowed in robots.txt."
+          },
+          {
+            "label": "ClaudeBot: allowed",
+            "points": 7.5,
+            "max": 7.5,
+            "detail": "ClaudeBot is allowed in robots.txt."
+          },
+          {
+            "label": "anthropic-ai: allowed",
+            "points": 7.5,
+            "max": 7.5,
+            "detail": "anthropic-ai is allowed in robots.txt."
+          },
+          {
+            "label": "CCBot: allowed",
+            "points": 7.5,
+            "max": 7.5,
+            "detail": "CCBot is allowed in robots.txt."
+          },
+          {
+            "label": "Google-Extended: allowed",
+            "points": 7.5,
+            "max": 7.5,
+            "detail": "Google-Extended is allowed in robots.txt."
+          },
+          {
+            "label": "robots.txt exists and is reachable",
+            "points": 10,
+            "max": 10,
+            "detail": "robots.txt returned HTTP 200."
+          },
+          {
+            "label": "sitemap.xml missing or unreachable",
+            "points": 0,
+            "max": 15,
+            "detail": "No sitemap.xml found. AI engines and traditional search engines use sitemaps to discover pages. Without one, deep content may go uncrawled."
+          },
+          {
+            "label": "All crawled pages are indexable",
+            "points": 10,
+            "max": 10,
+            "detail": "1 page(s) checked, none have noindex."
+          },
+          {
+            "label": "Page reachability: 1/1",
+            "points": 5.0,
+            "max": 5,
+            "detail": "1/1 pages reachable, avg load 24ms"
+          }
+        ]
+      },
+      {
+        "pillar": "answerability",
+        "score": 36.0,
+        "weight": 0.2,
+        "components": [
+          {
+            "label": "Direct Answers: 15/100",
+            "points": 4.5,
+            "max": 30.0,
+            "detail": "The content is almost entirely marketing-oriented and lacks definitional, question-answering content. It describes what Stripe does but doesn't answer specific 'what is' or 'how to' questions in a direct, extractable format. The content repeats taglines ('Financial infrastructure to grow your revenue') rather than providing explanatory content that AI search engines could quote as answers. Example: \"Accept payments, offer financial services, and implement custom revenue models\u2014from your first transaction to your billionth.\""
+          },
+          {
+            "label": "Statistical Richness: 75/100",
+            "points": 18.8,
+            "max": 25.0,
+            "detail": "The page contains substantial specific statistics, particularly in the 'backbone of global commerce' section and customer case studies. These concrete numbers ($1.9T volume, 99.999% uptime, 200M+ subscriptions, 135+ currencies) are highly citable by AI search engines and appear designed for credibility. However, many statistics lack dates or context for verification. Example: \"$1.9T in payments volume processed in 2025; 99.999% historical uptime for Stripe services; 200M+ active subscriptions managed on Stripe Billing\""
+          },
+          {
+            "label": "Citation Quality: 10/100",
+            "points": 1.5,
+            "max": 15.0,
+            "detail": "No external citations or source attribution exists. All claims are self-reported by Stripe without links to third-party verification, methodology explanations, or independent research. The customer quotes and case studies are presented without links to full studies or audit reports. This severely limits trustworthiness for AI engines seeking verifiable claims. Example: \"50% of Fortune 100 companies have used Stripe to grow their businesses\u2014no source cited for this claim.\""
+          },
+          {
+            "label": "Structure Clarity: 55/100",
+            "points": 8.2,
+            "max": 15.0,
+            "detail": "The content has clear visual sections with H2-level organization (Stripe for enterprises, Stripe for startups, Stripe for platforms, Reliable infrastructure, What's happening), but the actual heading structure in the extracted text shows only 5 H2s for a very long page. The content mixes multiple topics within sections and uses repetitive, tagline-heavy copy that obscures information hierarchy. Case studies are formatted consistently but lack scannable data tables or structured data. Example: \"Section 'Powering businesses of all sizes' mixes enterprise and startup content without clear subheadings, followed by unlabeled customer story blocks.\""
+          },
+          {
+            "label": "Conversational Match: 20/100",
+            "points": 3.0,
+            "max": 15.0,
+            "detail": "The language is highly branded, slogan-driven, and marketing-focused rather than conversational. Phrases like 'vibe-coding juggernaut,' 'agentic commerce,' and 'borderless money movement' are industry jargon, not how users actually ask questions. The content doesn't mirror natural query patterns (e.g., 'How do I accept payments online?' or 'What is Stripe used for?'). Example: \"Monetize through agentic commerce; Lovable grows into a vibe-coding juggernaut with Stripe.\""
+          }
+        ]
+      },
+      {
+        "pillar": "structure",
+        "score": 90.0,
+        "weight": 0.15,
+        "components": [
+          {
+            "label": "Structured data: 2 block(s), types: Organization, WebSite",
+            "points": 30,
+            "max": 40,
+            "detail": "Valid JSON-LD found. Schema types: Organization, WebSite."
+          },
+          {
+            "label": "title: \"Stripe | Financial Infrastructure to Gro...\"; meta description: present",
+            "points": 25,
+            "max": 25,
+            "detail": "title: \"Stripe | Financial Infrastructure to Gro...\"; meta description: present"
+          },
+          {
+            "label": "H1: yes, H2 count: 5, paragraphs: 62, words: 1685",
+            "points": 15,
+            "max": 15,
+            "detail": "H1: present, H2 tags: 5, paragraphs: 62, word count: 1685"
+          },
+          {
+            "label": "Open Graph: title=yes, desc=yes",
+            "points": 10,
+            "max": 10,
+            "detail": "og:title: present, og:description: present"
+          },
+          {
+            "label": "canonical: \"https://stripe.com/\"",
+            "points": 10,
+            "max": 10,
+            "detail": "canonical: \"https://stripe.com/\""
+          }
+        ]
+      },
+      {
+        "pillar": "brand_recall",
+        "score": 100.0,
+        "weight": 0.25,
+        "components": [
+          {
+            "label": "Category queries: mentioned in 2/2 industry questions",
+            "points": 55.0,
+            "max": 55,
+            "detail": "Q: \"What are the best payment processing platforms for businesse...\" \u2192 \u2713 mentioned (rank #1): \"- **Stripe** \u2013 Developer-friendly, excellent API, supports subscriptions, international payments, an\" | Q: \"What are the top payment processing companies or tools?...\" \u2192 \u2713 mentioned (rank #1): \"- **Stripe** \u2013 Developer-friendly, extensive APIs, popular with startups and tech companies\""
+          },
+          {
+            "label": "Comparison queries: mentioned in 2/2 comparisons",
+            "points": 45.0,
+            "max": 45,
+            "detail": "Q: \"Can you compare the top payment processing platforms and the...\" \u2192 \u2713 mentioned (rank #1): \"**Stripe**\" | Q: \"What are the main alternatives to Stripe for payment process...\" \u2192 \u2713 mentioned (rank #1): \"The main alternatives to Stripe for payment processing include:\""
+          },
+          {
+            "label": "Citation rank: avg #1.0 (Top mention \u2014 excellent)",
+            "points": 0,
+            "max": 0,
+            "detail": "Average citation rank: 1.0 across 4 mentions. Q: \"What are the best payment processing pla...\" \u2192 rank #1; Q: \"What are the top payment processing comp...\" \u2192 rank #1; Q: \"Can you compare the top payment processi...\" \u2192 rank #1"
+          },
+          {
+            "label": "Selection rate: 0.0% content overlap",
+            "points": 0,
+            "max": 0,
+            "detail": "Average content overlap: 0.0%"
+          }
+        ]
+      },
+      {
+        "pillar": "source_presence",
+        "score": 46.3,
+        "weight": 0.25,
+        "components": [
+          {
+            "label": "\u2717 Reddit",
+            "points": 0,
+            "max": 2.857142857142857,
+            "detail": "Reddit API blocked (403)"
+          },
+          {
+            "label": "\u2717 Crunchbase",
+            "points": 0,
+            "max": 2.857142857142857,
+            "detail": "No Crunchbase profile (HTTP 403)"
+          },
+          {
+            "label": "\u2717 G2 (reviews)",
+            "points": 0,
+            "max": 2.857142857142857,
+            "detail": "G2 blocked (403)"
+          },
+          {
+            "label": "\u2717 Wikipedia",
+            "points": 0,
+            "max": 2.857142857142857,
+            "detail": "No Wikipedia page found"
+          },
+          {
+            "label": "\u2713 YouTube",
+            "points": 2.857142857142857,
+            "max": 2.857142857142857,
+            "detail": "YouTube channel: youtube.com/@stripe (searched by: Gemini)"
+          },
+          {
+            "label": "\u2713 GitHub",
+            "points": 2.857142857142857,
+            "max": 2.857142857142857,
+            "detail": "GitHub org: github.com/stripe (searched by: ChatGPT, Perplexity, Claude)"
+          },
+          {
+            "label": "\u2713 LinkedIn",
+            "points": 2.857142857142857,
+            "max": 2.857142857142857,
+            "detail": "LinkedIn: linkedin.com/company/stripe (searched by: ChatGPT, Perplexity, Google AI Overviews)"
+          },
+          {
+            "label": "Coverage vs competitors: 0 gaps, 0 advantages",
+            "points": 10.0,
+            "max": 20.0,
+            "detail": ""
+          },
+          {
+            "label": "AI positioning accuracy: 72/100",
+            "points": 14.399999999999999,
+            "max": 20.0,
+            "detail": "The AI significantly understates Stripe's positioning, framing it as a payment processor for startups rather than comprehensive financial infrastructure for global enterprises and AI-era commerce.\nMismatches: [CRITICAL] category: You say 'Financial infrastructure platform offering payments, financi' vs AI says 'Payment processing platform, primarily compared to Square/Pa' | [MODERATE] audience: You say 'Businesses of all sizes including 50% of Fortune 100 compani' vs AI says 'Small businesses, startups, and tech companies; listed under' | [MODERATE] features: You say 'Emphasizes comprehensive financial tools: agentic commerce, ' vs AI says 'Focuses on API flexibility, subscriptions, and international' | [MINOR] tone: You say 'Ambitious, infrastructure-scale positioning ('global GDP', '' vs AI says 'Practical, utilitarian comparison shopping tone\u2014'developer-f'"
+          },
+          {
+            "label": "Share of voice: 33% (4 of 12 total mentions)",
+            "points": 13.333333333333332,
+            "max": 20.0,
+            "detail": "Target 'Stripe': 4 mentions (33% share of voice) | Competitor 'PayPal': 4 mentions (33%) | Competitor 'Square': 4 mentions (33%) | Competitor 'Stripe': 0 mentions (0%)"
+          },
+          {
+            "label": "Vector search inclusion: 0.0% similarity",
+            "points": 0.0,
+            "max": 20.0,
+            "detail": "Embeddings not available on this gateway \u2014 cannot measure vector search inclusion."
+          }
+        ]
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "robots-allowed-positive",
+      "title": "All checked AI crawlers are allowed in robots.txt",
+      "pillar": "crawlability",
+      "severity": "positive",
+      "page": "/robots.txt",
+      "evidence": "All 8 checked AI crawlers (GPTBot, OAI-SearchBot, PerplexityBot, Perplexity-User, ClaudeBot, anthropic-ai, CCBot, Google-Extended) can access your site.",
+      "should_be": "",
+      "fix": "",
+      "impact": 0,
+      "effort": 0,
+      "priority": 0.0
+    },
+    {
+      "id": "sitemap-missing",
+      "title": "sitemap.xml is missing or unreachable",
+      "pillar": "crawlability",
+      "severity": "warning",
+      "page": "/sitemap.xml",
+      "evidence": "No sitemap.xml was found at /sitemap.xml.",
+      "should_be": "A valid sitemap.xml listing your key pages.",
+      "fix": "Create a sitemap.xml at the site root. If you use a CMS (WordPress, Shopify, Webflow), there's usually a plugin or built-in feature to generate one. Reference it in robots.txt:\n\nSitemap: https://yoursite.com/sitemap.xml",
+      "impact": 50,
+      "effort": 20,
+      "priority": 40.0
+    },
+    {
+      "id": "meta-robots-ok",
+      "title": "No noindex directives found on crawled pages",
+      "pillar": "crawlability",
+      "severity": "positive",
+      "page": "",
+      "evidence": "All 1 crawled pages are indexable.",
+      "should_be": "",
+      "fix": "",
+      "impact": 0,
+      "effort": 0,
+      "priority": 0.0
+    },
+    {
+      "id": "signal-no-definitions",
+      "title": "No direct definitional answers detected",
+      "pillar": "answerability",
+      "severity": "warning",
+      "page": "https://stripe.com/",
+      "evidence": "No definitional statements ('X is a...', 'X means...') found in the first 2000 characters. AI engines extract definitional answers to fill their responses.",
+      "should_be": "Clear, direct definitions at the top of key pages.",
+      "fix": "Add a 1-2 sentence direct answer at the top of your page that defines your main topic in plain language.",
+      "impact": 50,
+      "effort": 15,
+      "priority": 42.5
+    },
+    {
+      "id": "signal-no-citations",
+      "title": "No source citations detected",
+      "pillar": "answerability",
+      "severity": "info",
+      "page": "https://stripe.com/",
+      "evidence": "No citation patterns ('according to', 'source:', 'study by') found. Content with citations is more likely to be cited by AI engines.",
+      "should_be": "Cite sources for claims and data.",
+      "fix": "When you make a claim or cite a statistic, link to or name the source. E.g., 'According to a 2024 Gartner study...'",
+      "impact": 35,
+      "effort": 30,
+      "priority": 24.5
+    },
+    {
+      "id": "signal-no-faq",
+      "title": "No FAQ structured data",
+      "pillar": "answerability",
+      "severity": "warning",
+      "page": "https://stripe.com/",
+      "evidence": "No FAQPage schema.org markup found. FAQ content in structured format is one of the most cited content types by AI engines.",
+      "should_be": "FAQPage schema markup for common questions.",
+      "fix": "Add FAQ schema to key pages. Example:\n\n<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": [{\n    \"@type\": \"Question\",\n    \"name\": \"What does your business do?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Clear, concise answer here.\"\n    }\n  }]\n}\n</script>",
+      "impact": 60,
+      "effort": 25,
+      "priority": 45.0
+    },
+    {
+      "id": "answerability-direct_answers",
+      "title": "Content scores low on Direct Answers (15/100)",
+      "pillar": "answerability",
+      "severity": "critical",
+      "page": "https://stripe.com/",
+      "evidence": "LLM assessment: The content is almost entirely marketing-oriented and lacks definitional, question-answering content. It describes what Stripe does but doesn't answer specific 'what is' or 'how to' questions in a direct, extractable format. The content repeats taglines ('Financial infrastructure to grow your revenue') rather than providing explanatory content that AI search engines could quote as answers. Example from your content: \"Accept payments, offer financial services, and implement custom revenue models\u2014from your first transaction to your billionth.\"",
+      "should_be": "Direct Answers should score 70+ for good AI search visibility.",
+      "fix": "Add clear, direct answer paragraphs at the top of your content. Format: '[Topic] is [definition/explanation].' \u2014 one or two sentences that directly answer the most likely question a person would ask.\n\nExample: 'Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.'\n\nAI's specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., 'What is Stripe and how does it work?', 'How much does Stripe charge per transaction?'), including structured data markup for each Q&A pair.",
+      "impact": 68,
+      "effort": 20,
+      "priority": 54.4
+    },
+    {
+      "id": "answerability-statistical_richness-good",
+      "title": "Strong Statistical Richness (75/100)",
+      "pillar": "answerability",
+      "severity": "positive",
+      "page": "https://stripe.com/",
+      "evidence": "LLM assessment: The page contains substantial specific statistics, particularly in the 'backbone of global commerce' section and customer case studies. These concrete numbers ($1.9T volume, 99.999% uptime, 200M+ subscriptions, 135+ currencies) are highly citable by AI search engines and appear designed for credibility. However, many statistics lack dates or context for verification.",
+      "should_be": "",
+      "fix": "",
+      "impact": 0,
+      "effort": 0,
+      "priority": 0.0
+    },
+    {
+      "id": "answerability-citation_quality",
+      "title": "Content scores low on Citation Quality (10/100)",
+      "pillar": "answerability",
+      "severity": "critical",
+      "page": "https://stripe.com/",
+      "evidence": "LLM assessment: No external citations or source attribution exists. All claims are self-reported by Stripe without links to third-party verification, methodology explanations, or independent research. The customer quotes and case studies are presented without links to full studies or audit reports. This severely limits trustworthiness for AI engines seeking verifiable claims. Example from your content: \"50% of Fortune 100 companies have used Stripe to grow their businesses\u2014no source cited for this claim.\"",
+      "should_be": "Citation Quality should score 70+ for good AI search visibility.",
+      "fix": "Cite your sources. Use phrases like 'according to [study]', 'research from [organization] shows', or link to primary sources. AI engines prefer content that itself cites evidence.\n\nAI's specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., 'What is Stripe and how does it work?', 'How much does Stripe charge per transaction?'), including structured data markup for each Q&A pair.",
+      "impact": 72,
+      "effort": 30,
+      "priority": 50.4
+    },
+    {
+      "id": "answerability-conversational_match",
+      "title": "Content scores low on Conversational Match (20/100)",
+      "pillar": "answerability",
+      "severity": "critical",
+      "page": "https://stripe.com/",
+      "evidence": "LLM assessment: The language is highly branded, slogan-driven, and marketing-focused rather than conversational. Phrases like 'vibe-coding juggernaut,' 'agentic commerce,' and 'borderless money movement' are industry jargon, not how users actually ask questions. The content doesn't mirror natural query patterns (e.g., 'How do I accept payments online?' or 'What is Stripe used for?'). Example from your content: \"Monetize through agentic commerce; Lovable grows into a vibe-coding juggernaut with Stripe.\"",
+      "should_be": "Conversational Match should score 70+ for good AI search visibility.",
+      "fix": "Write in the language your audience actually uses to ask questions. Instead of 'Our platform provides enterprise-grade solutions', write 'Our platform helps large teams manage projects.' Use natural, conversational phrasing.\n\nAI's specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., 'What is Stripe and how does it work?', 'How much does Stripe charge per transaction?'), including structured data markup for each Q&A pair.",
+      "impact": 64,
+      "effort": 35,
+      "priority": 41.6
+    },
+    {
+      "id": "answerability-top-suggestion",
+      "title": "AI's #1 recommendation for your content",
+      "pillar": "answerability",
+      "severity": "info",
+      "page": "https://stripe.com/",
+      "evidence": "Overall assessment: This content would perform poorly in AI search citations despite Stripe's brand authority. The page prioritizes conversion over answerability\u2014rich in impressive statistics but poor in definitional content, external verification, and conversational language matching. AI engines would likely cite Stripe's statistics but prefer competitor content (e.g., Wikipedia, fintech blogs) for actual explanatory answers about payment processing.",
+      "should_be": "Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., 'What is Stripe and how does it work?', 'How much does Stripe charge per transaction?'), including structured data markup for each Q&A pair.",
+      "fix": "Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., 'What is Stripe and how does it work?', 'How much does Stripe charge per transaction?'), including structured data markup for each Q&A pair.",
+      "impact": 60,
+      "effort": 40,
+      "priority": 36.0
+    },
+    {
+      "id": "jsonld-good",
+      "title": "Good structured data coverage on homepage",
+      "pillar": "structure",
+      "severity": "positive",
+      "page": "https://stripe.com/",
+      "evidence": "Found valid JSON-LD with types: Organization, WebSite.",
+      "should_be": "",
+      "fix": "",
+      "impact": 0,
+      "effort": 0,
+      "priority": 0.0
+    },
+    {
+      "id": "brand-good-recall",
+      "title": "AI knows 'Stripe' \u2014 mentioned in 4/4 queries",
+      "pillar": "brand_recall",
+      "severity": "positive",
+      "page": "https://stripe.com/",
+      "evidence": "The AI model mentioned 'Stripe' in 4 of 4 test queries.  \u2022 \"What are the best payment processing platforms for...\" \u2192 #1 mentioned: \"- **Stripe** \u2013 Developer-friendly, excellent API, supports subscriptions, international payments, and many payment methods\"  \u2022 \"What are the top payment processing companies or t...\" \u2192 #1 mentioned: \"- **Stripe** \u2013 Developer-friendly, extensive APIs, popular with startups and tech companies\"  \u2022 \"Can you compare the top payment processing platfor...\" \u2192 #1 mentioned: \"**Stripe**\"",
+      "should_be": "",
+      "fix": "",
+      "impact": 0,
+      "effort": 0,
+      "priority": 0.0
+    },
+    {
+      "id": "critical-positioning-mismatch",
+      "title": "Critical AI positioning mismatch for 'Stripe'",
+      "pillar": "source_presence",
+      "severity": "critical",
+      "page": "https://stripe.com/",
+      "evidence": "The AI describes your business differently from how you position yourself: [CRITICAL] category: You say 'Financial infrastructure platform offering payments, financi' vs AI says 'Payment processing platform, primarily compared to Square/Pa' | [MODERATE] audience: You say 'Businesses of all sizes including 50% of Fortune 100 compani' vs AI says 'Small businesses, startups, and tech companies; listed under' | [MODERATE] features: You say 'Emphasizes comprehensive financial tools: agentic commerce, ' vs AI says 'Focuses on API flexibility, subscriptions, and international' | [MINOR] tone: You say 'Ambitious, infrastructure-scale positioning ('global GDP', '' vs AI says 'Practical, utilitarian comparison shopping tone\u2014'developer-f'",
+      "should_be": "The AI should describe you using your own positioning language.",
+      "fix": "The AI describes your business differently than you intend. Fix this:\n\u2022 [category] You say: 'Financial infrastructure platform offering payments, financial services, billing'. AI says: 'Payment processing platform, primarily compared to Square/PayPal as a 'developer'. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.\n\u2022 [audience] You say: 'Businesses of all sizes including 50% of Fortune 100 companies, enterprises with'. AI says: 'Small businesses, startups, and tech companies; listed under 'For small business'. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.\n\u2022 [features] You say: 'Emphasizes comprehensive financial tools: agentic commerce, card issuing, stable'. AI says: 'Focuses on API flexibility, subscriptions, and international payments\u2014omits card'. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.\n\u2022 [tone] You say: 'Ambitious, infrastructure-scale positioning ('global GDP', 'economic infrastruct'. AI says: 'Practical, utilitarian comparison shopping tone\u2014'developer-friendly' feature in '. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.\n",
+      "impact": 80,
+      "effort": 50,
+      "priority": 40.0
+    }
+  ],
+  "action_plan": [
+    {
+      "id": "answerability-direct_answers",
+      "title": "Content scores low on Direct Answers (15/100)",
+      "severity": "critical",
+      "impact": 68,
+      "effort": 20,
+      "priority": 54.4,
+      "fix": "Add clear, direct answer paragraphs at the top of your content. Format: '[Topic] is [definition/explanation].' \u2014 one or two sentences that directly answer the most likely question a person would ask.\n\nExample: 'Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.'\n\nAI's specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., 'What is Stripe and how does it work?', 'How much does Stripe charge per transaction?'), including structured data markup for each Q&A pair."
+    },
+    {
+      "id": "answerability-citation_quality",
+      "title": "Content scores low on Citation Quality (10/100)",
+      "severity": "critical",
+      "impact": 72,
+      "effort": 30,
+      "priority": 50.4,
+      "fix": "Cite your sources. Use phrases like 'according to [study]', 'research from [organization] shows', or link to primary sources. AI engines prefer content that itself cites evidence.\n\nAI's specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., 'What is Stripe and how does it work?', 'How much does Stripe charge per transaction?'), including structured data markup for each Q&A pair."
+    },
+    {
+      "id": "signal-no-faq",
+      "title": "No FAQ structured data",
+      "severity": "warning",
+      "impact": 60,
+      "effort": 25,
+      "priority": 45.0,
+      "fix": "Add FAQ schema to key pages. Example:\n\n<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": [{\n    \"@type\": \"Question\",\n    \"name\": \"What does your business do?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Clear, concise answer here.\"\n    }\n  }]\n}\n</script>"
+    },
+    {
+      "id": "signal-no-definitions",
+      "title": "No direct definitional answers detected",
+      "severity": "warning",
+      "impact": 50,
+      "effort": 15,
+      "priority": 42.5,
+      "fix": "Add a 1-2 sentence direct answer at the top of your page that defines your main topic in plain language."
+    },
+    {
+      "id": "answerability-conversational_match",
+      "title": "Content scores low on Conversational Match (20/100)",
+      "severity": "critical",
+      "impact": 64,
+      "effort": 35,
+      "priority": 41.6,
+      "fix": "Write in the language your audience actually uses to ask questions. Instead of 'Our platform provides enterprise-grade solutions', write 'Our platform helps large teams manage projects.' Use natural, conversational phrasing.\n\nAI's specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., 'What is Stripe and how does it work?', 'How much does Stripe charge per transaction?'), including structured data markup for each Q&A pair."
+    },
+    {
+      "id": "sitemap-missing",
+      "title": "sitemap.xml is missing or unreachable",
+      "severity": "warning",
+      "impact": 50,
+      "effort": 20,
+      "priority": 40.0,
+      "fix": "Create a sitemap.xml at the site root. If you use a CMS (WordPress, Shopify, Webflow), there's usually a plugin or built-in feature to generate one. Reference it in robots.txt:\n\nSitemap: https://yoursite.com/sitemap.xml"
+    },
+    {
+      "id": "critical-positioning-mismatch",
+      "title": "Critical AI positioning mismatch for 'Stripe'",
+      "severity": "critical",
+      "impact": 80,
+      "effort": 50,
+      "priority": 40.0,
+      "fix": "The AI describes your business differently than you intend. Fix this:\n\u2022 [category] You say: 'Financial infrastructure platform offering payments, financial services, billing'. AI says: 'Payment processing platform, primarily compared to Square/PayPal as a 'developer'. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.\n\u2022 [audience] You say: 'Businesses of all sizes including 50% of Fortune 100 companies, enterprises with'. AI says: 'Small businesses, startups, and tech companies; listed under 'For small business'. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.\n\u2022 [features] You say: 'Emphasizes comprehensive financial tools: agentic commerce, card issuing, stable'. AI says: 'Focuses on API flexibility, subscriptions, and international payments\u2014omits card'. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.\n\u2022 [tone] You say: 'Ambitious, infrastructure-scale positioning ('global GDP', 'economic infrastruct'. AI says: 'Practical, utilitarian comparison shopping tone\u2014'developer-friendly' feature in '. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.\n"
+    },
+    {
+      "id": "answerability-top-suggestion",
+      "title": "AI's #1 recommendation for your content",
+      "severity": "info",
+      "impact": 60,
+      "effort": 40,
+      "priority": 36.0,
+      "fix": "Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., 'What is Stripe and how does it work?', 'How much does Stripe charge per transaction?'), including structured data markup for each Q&A pair."
+    },
+    {
+      "id": "signal-no-citations",
+      "title": "No source citations detected",
+      "severity": "info",
+      "impact": 35,
+      "effort": 30,
+      "priority": 24.5,
+      "fix": "When you make a claim or cite a statistic, link to or name the source. E.g., 'According to a 2024 Gartner study...'"
+    }
+  ],
+  "llm_judge_data": {
+    "direct_answers": {
+      "score": 15,
+      "reasoning": "The content is almost entirely marketing-oriented and lacks definitional, question-answering content. It describes what Stripe does but doesn't answer specific 'what is' or 'how to' questions in a direct, extractable format. The content repeats taglines ('Financial infrastructure to grow your revenue') rather than providing explanatory content that AI search engines could quote as answers.",
+      "example": "Accept payments, offer financial services, and implement custom revenue models\u2014from your first transaction to your billionth."
+    },
+    "statistical_richness": {
+      "score": 75,
+      "reasoning": "The page contains substantial specific statistics, particularly in the 'backbone of global commerce' section and customer case studies. These concrete numbers ($1.9T volume, 99.999% uptime, 200M+ subscriptions, 135+ currencies) are highly citable by AI search engines and appear designed for credibility. However, many statistics lack dates or context for verification.",
+      "example": "$1.9T in payments volume processed in 2025; 99.999% historical uptime for Stripe services; 200M+ active subscriptions managed on Stripe Billing"
+    },
+    "citation_quality": {
+      "score": 10,
+      "reasoning": "No external citations or source attribution exists. All claims are self-reported by Stripe without links to third-party verification, methodology explanations, or independent research. The customer quotes and case studies are presented without links to full studies or audit reports. This severely limits trustworthiness for AI engines seeking verifiable claims.",
+      "example": "50% of Fortune 100 companies have used Stripe to grow their businesses\u2014no source cited for this claim."
+    },
+    "structure_clarity": {
+      "score": 55,
+      "reasoning": "The content has clear visual sections with H2-level organization (Stripe for enterprises, Stripe for startups, Stripe for platforms, Reliable infrastructure, What's happening), but the actual heading structure in the extracted text shows only 5 H2s for a very long page. The content mixes multiple topics within sections and uses repetitive, tagline-heavy copy that obscures information hierarchy. Case studies are formatted consistently but lack scannable data tables or structured data.",
+      "example": "Section 'Powering businesses of all sizes' mixes enterprise and startup content without clear subheadings, followed by unlabeled customer story blocks."
+    },
+    "conversational_match": {
+      "score": 20,
+      "reasoning": "The language is highly branded, slogan-driven, and marketing-focused rather than conversational. Phrases like 'vibe-coding juggernaut,' 'agentic commerce,' and 'borderless money movement' are industry jargon, not how users actually ask questions. The content doesn't mirror natural query patterns (e.g., 'How do I accept payments online?' or 'What is Stripe used for?').",
+      "example": "Monetize through agentic commerce; Lovable grows into a vibe-coding juggernaut with Stripe."
+    },
+    "overall_assessment": "This content would perform poorly in AI search citations despite Stripe's brand authority. The page prioritizes conversion over answerability\u2014rich in impressive statistics but poor in definitional content, external verification, and conversational language matching. AI engines would likely cite Stripe's statistics but prefer competitor content (e.g., Wikipedia, fintech blogs) for actual explanatory answers about payment processing.",
+    "top_suggestion": "Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., 'What is Stripe and how does it work?', 'How much does Stripe charge per transaction?'), including structured data markup for each Q&A pair.",
+    "brand_recall": {
+      "brand_name": "Stripe",
+      "brand_aliases": [
+        "stripe",
+        "stripe.com",
+        "stripe"
+      ],
+      "category": "payment processing",
+      "competitors": [
+        "Stripe",
+        "PayPal",
+        "Square"
+      ],
+      "queries": [
+        {
+          "query": "What are the best payment processing platforms for businesses?",
+          "type": "category_unprompted",
+          "description": "When asked about payment processing, does the AI mention Stripe?"
+        },
+        {
+          "query": "What are the top payment processing companies or tools?",
+          "type": "category_unprompted",
+          "description": "When asked about top payment processing tools, does the AI mention Stripe?"
+        },
+        {
+          "query": "Can you compare the top payment processing platforms and their key features?",
+          "type": "comparison",
+          "description": "In a payment processing comparison, does the AI mention Stripe?"
+        },
+        {
+          "query": "What are the main alternatives to Stripe for payment processing?",
+          "type": "competitor_anchored",
+          "description": "Asking for alternatives to Stripe \u2014 does the AI mention Stripe?"
+        }
+      ],
+      "query_results": [
+        {
+          "query": "What are the best payment processing platforms for businesses?",
+          "type": "category_unprompted",
+          "description": "When asked about payment processing, does the AI mention Stripe?",
+          "response": "Based on my knowledge, here are some of the best payment processing platforms for businesses, depending on your needs:\n\n**For small businesses and startups:**\n- **Stripe** \u2013 Developer-friendly, excellent API, supports subscriptions, international payments, and many payment methods\n- **Square** \u2013 Great all-in-one solution with POS hardware, no monthly fees, easy setup\n- **PayPal** \u2013 Widely trusted, simple integration, strong buyer protection\n\n**For larger or more complex businesses:**\n- **Adyen** \u2013 Used by major brands like Netflix and Spotify; excellent for global omnichannel payments\n- **Braintree** (PayPal-owned) \u2013 Good for mobile apps and marketplace businesses\n\n**For specific use cases:**\n- **Helcim** \u2013 Transparent interchange-plus pricing, good for high-volume businesses wanting lower fees\n- **Stax by Fattmerchant** \u2013 Subscription-based pricing that can save money for established businesses\n- **Authorize.Net** \u2013 Reliable traditional gateway, good for B2B and recurring billing\n\n**For e-commerce specifically:**\n- **Shopify Payments** \u2013 Seamless if you're on Shopify\n- **WooCommerce Payments** \u2013 Native solution for WordPress/WooCommerce stores\n\n**Key factors to compare:**\n- Transaction fees (typically 2.6-2.9% + $0.10-0.30)\n- Monthly fees vs. pay-as-you-go\n- Payout speed\n- International support\n- Chargeback handling\n- API flexibility\n\nWhat type of business are you evaluating for? That would help narrow down the best fit.",
+          "response_length": 1445,
+          "search_enabled": true,
+          "model_used": "drytis/kimi-k2.5",
+          "mention": {
+            "mentioned": true,
+            "how_mentioned": "Listed as the first payment processing platform under 'For small businesses and startups' with detailed description of features",
+            "exact_sentence": "- **Stripe** \u2013 Developer-friendly, excellent API, supports subscriptions, international payments, and many payment methods",
+            "context": "positive",
+            "citation_rank": 1,
+            "position": "first_quarter"
+          },
+          "selection_rate": {
+            "selection_rate": 0.0,
+            "shared_phrase_count": 0,
+            "total_phrase_count": 402,
+            "top_shared_phrases": [],
+            "target_word_count": 727,
+            "response_word_count": 203
+          }
+        },
+        {
+          "query": "What are the top payment processing companies or tools?",
+          "type": "category_unprompted",
+          "description": "When asked about top payment processing tools, does the AI mention Stripe?",
+          "response": "Here are the top payment processing companies and tools, organized by category:\n\n**All-in-One Payment Processors**\n- **Stripe** \u2013 Developer-friendly, extensive APIs, popular with startups and tech companies\n- **Square** \u2013 Strong for in-person retail, restaurants, and small businesses\n- **PayPal** \u2013 Massive consumer recognition, good for e-commerce and freelancers\n- **Adyen** \u2013 Enterprise-focused, used by major brands like Netflix and Uber\n\n**Traditional Merchant Account Providers**\n- **Chase Payment Solutions** \u2013 Competitive rates, fast settlement\n- **Fiserv (formerly First Data / Clover)** \u2013 Wide hardware selection\n- **Elavon** \u2013 Strong in specific industries like healthcare and hospitality\n\n**E-Commerce Focused**\n- **Shopify Payments** \u2013 Built into Shopify, seamless for that ecosystem\n- **Braintree** (PayPal-owned) \u2013 Good for mobile and subscription billing\n\n**B2B / Invoice & Subscription**\n- **Bill.com** \u2013 Accounts payable/receivable automation\n- **Melio** \u2013 Simple B2B payments\n- **Chargebee** or **Recurly** \u2013 Subscription billing management\n\n**Emerging / Specialized**\n- **Wise (formerly TransferWise)** \u2013 International transfers with real exchange rates\n- **Rapyd** or **Checkout.com** \u2013 Global coverage, popular in Europe and emerging markets\n\nThe best choice really depends on your transaction volume, whether you're online or in-person, international needs, and technical requirements. Stripe and Square tend to dominate conversations for modern businesses, while Adyen and Chase win at scale.",
+          "response_length": 1517,
+          "search_enabled": true,
+          "model_used": "drytis/kimi-k2.5",
+          "mention": {
+            "mentioned": true,
+            "how_mentioned": "Listed as first item under 'All-in-One Payment Processors' category, with description of being developer-friendly with extensive APIs; also mentioned again at the end in summary comparison",
+            "exact_sentence": "- **Stripe** \u2013 Developer-friendly, extensive APIs, popular with startups and tech companies",
+            "context": "positive",
+            "citation_rank": 1,
+            "position": "first_quarter"
+          },
+          "selection_rate": {
+            "selection_rate": 0.0,
+            "shared_phrase_count": 0,
+            "total_phrase_count": 423,
+            "top_shared_phrases": [],
+            "target_word_count": 727,
+            "response_word_count": 207
+          }
+        },
+        {
+          "query": "Can you compare the top payment processing platforms and their key features?",
+          "type": "comparison",
+          "description": "In a payment processing comparison, does the AI mention Stripe?",
+          "response": "Here are the leading payment processing platforms and what sets them apart:\n\n**Stripe**\n- Best for: Developers and tech-forward businesses\n- Key strengths: Highly customizable APIs, extensive documentation, supports 135+ currencies, built-in tools for subscriptions, invoicing, and fraud prevention (Radar)\n- Pricing: 2.9% + 30\u00a2 per transaction; custom enterprise pricing available\n\n**Square**\n- Best for: Small businesses, retail, and restaurants\n- Key strengths: Free POS hardware ecosystem, offline payment capability, integrated payroll and inventory management, no monthly fees for basic use\n- Pricing: 2.6% + 10\u00a2 (in-person); 2.9% + 30\u00a2 (online)\n\n**PayPal**\n- Best for: E-commerce and consumer trust\n- Key strengths: Massive user base (400M+ accounts), buyer/seller protection programs, express checkout options, strong international presence\n- Pricing: 2.9% + fixed fee; higher for international transactions\n\n**Adyen**\n- Best for: Large enterprises and omnichannel retail\n- Key strengths: Unified platform across online, in-store, and mobile, direct acquiring in many countries, real-time data analytics\n- Pricing: Interchange++ model (typically lower for high volume)\n\n**Helcim**\n- Best for: Growing businesses wanting transparent pricing\n- Key strengths: Interchange-plus pricing with volume discounts, no monthly fees, free POS software, excellent for B2B with Level 2/3 processing\n\n**Authorize.Net**\n- Best for: Businesses needing a reliable gateway\n- Key strengths: Long track record, flexible integration options, advanced fraud detection, recurring billing tools\n- Pricing: $25/month gateway fee plus transaction fees\n\n**Key differentiators to consider:**\n- **International reach:** Stripe and Adyen lead here\n- **Speed of setup:** Square and PayPal are fastest\n- **Customization:** Stripe offers the most flexibility\n- **In-person vs. online:** Square dominates retail; Stripe excels online\n\nWhat's your primary use case? That would help narrow down the best fit.",
+          "response_length": 1979,
+          "search_enabled": true,
+          "model_used": "drytis/kimi-k2.5",
+          "mention": {
+            "mentioned": true,
+            "how_mentioned": "Stripe appears as the first and primary payment platform listed, with its own dedicated section including detailed features, pricing, and is referenced again in the 'Key differentiators' section as leading in international reach and offering the most customization",
+            "exact_sentence": "**Stripe**",
+            "context": "positive",
+            "citation_rank": 1,
+            "position": "first_quarter"
+          },
+          "selection_rate": {
+            "selection_rate": 0.0,
+            "shared_phrase_count": 0,
+            "total_phrase_count": 591,
+            "top_shared_phrases": [],
+            "target_word_count": 727,
+            "response_word_count": 275
+          }
+        },
+        {
+          "query": "What are the main alternatives to Stripe for payment processing?",
+          "type": "competitor_anchored",
+          "description": "Asking for alternatives to Stripe \u2014 does the AI mention Stripe?",
+          "response": "The main alternatives to Stripe for payment processing include:\n\n**Established players**\n- **PayPal** \u2013 widely recognized, strong buyer protection, easy setup for smaller merchants\n- **Square** \u2013 excellent for in-person and omnichannel businesses, free POS hardware options\n- **Adyen** \u2013 enterprise-focused, unified global platform, used by major brands like Netflix and Uber\n\n**Developer-friendly options**\n- **Braintree** (PayPal-owned) \u2013 similar API approach to Stripe, owned by PayPal\n- **Checkout.com** \u2013 strong international coverage, competitive pricing\n- **Mollie** \u2013 popular in Europe, simple integration\n\n**Specialized/Regional providers**\n- **Authorize.Net** \u2013 long-standing gateway, good for traditional merchant accounts\n- **Worldpay/FIS** \u2013 massive global reach, especially strong in UK/Europe\n- **Razorpay** \u2013 dominant in India\n- **Mercado Pago** \u2013 leading across Latin America\n\n**Lower-cost alternatives**\n- **Stax** (formerly Fattmerchant) \u2013 subscription-based pricing, good for higher volume\n- **Payment Depot** \u2013 wholesale interchange-plus rates\n\nStripe remains popular for its developer experience and documentation, but Square often wins for brick-and-mortar, Adyen for complex international operations, and PayPal for consumer trust and checkout conversion.",
+          "response_length": 1279,
+          "search_enabled": true,
+          "model_used": "drytis/kimi-k2.5",
+          "mention": {
+            "mentioned": true,
+            "how_mentioned": "The brand is mentioned as the reference point for comparison - the response discusses alternatives TO Stripe, and Stripe is named in the opening line and closing summary",
+            "exact_sentence": "The main alternatives to Stripe for payment processing include:",
+            "context": "neutral",
+            "citation_rank": 1,
+            "position": "first_quarter"
+          },
+          "selection_rate": {
+            "selection_rate": 0.0,
+            "shared_phrase_count": 0,
+            "total_phrase_count": 384,
+            "top_shared_phrases": [],
+            "target_word_count": 727,
+            "response_word_count": 166
+          }
+        }
+      ],
+      "mention_count": 4,
+      "total_queries": 4
+    },
+    "source_presence": {
+      "brand_name": "Stripe",
+      "domain": "stripe.com",
+      "competitors": [
+        "Stripe",
+        "PayPal",
+        "Square"
+      ],
+      "category": "payment processing",
+      "platform_coverage": {
+        "platform_results": [
+          {
+            "platform": "reddit",
+            "display_name": "Reddit",
+            "searched_by": "Gemini, Google AI Overviews",
+            "found": false,
+            "evidence": "Reddit API blocked (403)"
+          },
+          {
+            "platform": "crunchbase",
+            "display_name": "Crunchbase",
+            "searched_by": "ChatGPT, Perplexity",
+            "found": false,
+            "evidence": "No Crunchbase profile (HTTP 403)"
+          },
+          {
+            "platform": "g2",
+            "display_name": "G2 (reviews)",
+            "searched_by": "ChatGPT, Perplexity",
+            "found": false,
+            "evidence": "G2 blocked (403)"
+          },
+          {
+            "platform": "wikipedia",
+            "display_name": "Wikipedia",
+            "searched_by": "Gemini, Google AI Overviews",
+            "found": false,
+            "evidence": "No Wikipedia page found"
+          },
+          {
+            "platform": "youtube",
+            "display_name": "YouTube",
+            "searched_by": "Gemini",
+            "found": true,
+            "evidence": "YouTube channel: youtube.com/@stripe"
+          },
+          {
+            "platform": "github",
+            "display_name": "GitHub",
+            "searched_by": "ChatGPT, Perplexity, Claude",
+            "found": true,
+            "evidence": "GitHub org: github.com/stripe"
+          },
+          {
+            "platform": "linkedin",
+            "display_name": "LinkedIn",
+            "searched_by": "ChatGPT, Perplexity, Google AI Overviews",
+            "found": true,
+            "evidence": "LinkedIn: linkedin.com/company/stripe"
+          }
+        ],
+        "found_count": 3
+      },
+      "competitive_gap": {
+        "coverage_map": [],
+        "gap_count": 0,
+        "advantage_count": 0,
+        "competitor_results": {
+          "Stripe": [
+            {
+              "platform": "wikipedia",
+              "display_name": "Wikipedia",
+              "searched_by": "Gemini, Google AI Overviews",
+              "found": false,
+              "evidence": "No Wikipedia page found"
+            },
+            {
+              "platform": "github",
+              "display_name": "GitHub",
+              "searched_by": "ChatGPT, Perplexity, Claude",
+              "found": true,
+              "evidence": "GitHub org: github.com/stripe"
+            },
+            {
+              "platform": "crunchbase",
+              "display_name": "Crunchbase",
+              "searched_by": "ChatGPT, Perplexity",
+              "found": false,
+              "evidence": "No Crunchbase profile (HTTP 403)"
+            },
+            {
+              "platform": "reddit",
+              "display_name": "Reddit",
+              "searched_by": "Gemini, Google AI Overviews",
+              "found": false,
+              "evidence": "Reddit API blocked (403)"
+            },
+            {
+              "platform": "g2",
+              "display_name": "G2 (reviews)",
+              "searched_by": "ChatGPT, Perplexity",
+              "found": false,
+              "evidence": "G2 blocked (403)"
+            },
+            {
+              "platform": "youtube",
+              "display_name": "YouTube",
+              "searched_by": "Gemini",
+              "found": true,
+              "evidence": "YouTube channel: youtube.com/@stripe"
+            },
+            {
+              "platform": "linkedin",
+              "display_name": "LinkedIn",
+              "searched_by": "ChatGPT, Perplexity, Google AI Overviews",
+              "found": true,
+              "evidence": "LinkedIn: linkedin.com/company/stripe"
+            }
+          ],
+          "PayPal": [
+            {
+              "platform": "wikipedia",
+              "display_name": "Wikipedia",
+              "searched_by": "Gemini, Google AI Overviews",
+              "found": false,
+              "evidence": "No Wikipedia page found"
+            },
+            {
+              "platform": "reddit",
+              "display_name": "Reddit",
+              "searched_by": "Gemini, Google AI Overviews",
+              "found": false,
+              "evidence": "Reddit API blocked (403)"
+            },
+            {
+              "platform": "g2",
+              "display_name": "G2 (reviews)",
+              "searched_by": "ChatGPT, Perplexity",
+              "found": false,
+              "evidence": "G2 blocked (403)"
+            },
+            {
+              "platform": "crunchbase",
+              "display_name": "Crunchbase",
+              "searched_by": "ChatGPT, Perplexity",
+              "found": false,
+              "evidence": "No Crunchbase profile (HTTP 403)"
+            },
+            {
+              "platform": "youtube",
+              "display_name": "YouTube",
+              "searched_by": "Gemini",
+              "found": true,
+              "evidence": "YouTube channel: youtube.com/@paypal"
+            },
+            {
+              "platform": "github",
+              "display_name": "GitHub",
+              "searched_by": "ChatGPT, Perplexity, Claude",
+              "found": true,
+              "evidence": "GitHub org: github.com/paypal"
+            },
+            {
+              "platform": "linkedin",
+              "display_name": "LinkedIn",
+              "searched_by": "ChatGPT, Perplexity, Google AI Overviews",
+              "found": true,
+              "evidence": "LinkedIn: linkedin.com/company/paypal"
+            }
+          ]
+        }
+      },
+      "positioning_accuracy": {
+        "accuracy_score": 72,
+        "mismatches": [
+          {
+            "category": "category",
+            "self_description": "Financial infrastructure platform offering payments, financial services, billing, card issuing, stablecoins/crypto, and platform embedding\u2014positioned as 'global GDP running on Stripe' and 'economic infrastructure for AI'",
+            "ai_description": "Payment processing platform, primarily compared to Square/PayPal as a 'developer-friendly' tool for startups and small businesses",
+            "severity": "critical"
+          },
+          {
+            "category": "audience",
+            "self_description": "Businesses of all sizes including 50% of Fortune 100 companies, enterprises with 'agile financial infrastructure', and platforms needing embedded finance",
+            "ai_description": "Small businesses, startups, and tech companies; listed under 'For small businesses and startups' rather than enterprise-focused solutions",
+            "severity": "moderate"
+          },
+          {
+            "category": "features",
+            "self_description": "Emphasizes comprehensive financial tools: agentic commerce, card issuing, stablecoins/crypto, 200M+ subscriptions on Billing, 99.999% uptime, global infrastructure",
+            "ai_description": "Focuses on API flexibility, subscriptions, and international payments\u2014omits card issuing, crypto/stablecoins, embedded platform solutions, and AI infrastructure",
+            "severity": "moderate"
+          },
+          {
+            "category": "tone",
+            "self_description": "Ambitious, infrastructure-scale positioning ('global GDP', 'economic infrastructure for AI', 'from first transaction to billionth')",
+            "ai_description": "Practical, utilitarian comparison shopping tone\u2014'developer-friendly' feature in a competitive matrix",
+            "severity": "minor"
+          }
+        ],
+        "summary": "The AI significantly understates Stripe's positioning, framing it as a payment processor for startups rather than comprehensive financial infrastructure for global enterprises and AI-era commerce."
+      },
+      "share_of_voice": {
+        "target_mentions": 4,
+        "competitor_mentions": {
+          "Stripe": 0,
+          "PayPal": 4,
+          "Square": 4
+        },
+        "target_sov": 0.3333333333333333,
+        "per_query_analysis": [
+          {
+            "query": "What are the best payment processing platforms for businesses?",
+            "analysis": {
+              "brands": [
+                {
+                  "name": "Stripe",
+                  "mentioned": true,
+                  "favorability": "positive",
+                  "citation_rank": 1,
+                  "context": "Listed first for small businesses; described as developer-friendly with excellent API, supports subscriptions, international payments, and many payment methods"
+                },
+                {
+                  "name": "PayPal",
+                  "mentioned": true,
+                  "favorability": "positive",
+                  "citation_rank": 3,
+                  "context": "Listed third for small businesses; described as widely trusted, simple integration, strong buyer protection"
+                },
+                {
+                  "name": "Square",
+                  "mentioned": true,
+                  "favorability": "positive",
+                  "citation_rank": 2,
+                  "context": "Listed second for small businesses; described as great all-in-one solution with POS hardware, no monthly fees, easy setup"
+                }
+              ]
+            }
+          },
+          {
+            "query": "What are the top payment processing companies or tools?",
+            "analysis": {
+              "brands": [
+                {
+                  "name": "Stripe",
+                  "mentioned": true,
+                  "favorability": "positive",
+                  "citation_rank": 1,
+                  "context": "Listed first under All-in-One Payment Processors, described as 'developer-friendly, extensive APIs, popular with startups and tech companies'; also noted as one of two companies that 'tend to dominate conversations for modern businesses'"
+                },
+                {
+                  "name": "PayPal",
+                  "mentioned": true,
+                  "favorability": "positive",
+                  "citation_rank": 3,
+                  "context": "Listed third under All-in-One Payment Processors, described as having 'massive consumer recognition, good for e-commerce and freelancers'; also noted as parent company of Braintree"
+                },
+                {
+                  "name": "Square",
+                  "mentioned": true,
+                  "favorability": "positive",
+                  "citation_rank": 2,
+                  "context": "Listed second under All-in-One Payment Processors, described as 'strong for in-person retail, restaurants, and small businesses'; also noted as one of two companies that 'tend to dominate conversations for modern businesses'"
+                }
+              ]
+            }
+          },
+          {
+            "query": "Can you compare the top payment processing platforms and their key features?",
+            "analysis": {
+              "brands": [
+                {
+                  "name": "Stripe",
+                  "mentioned": true,
+                  "favorability": "positive",
+                  "citation_rank": 1,
+                  "context": "First company mentioned; praised for highly customizable APIs, extensive documentation, 135+ currencies, and built-in tools; noted as leader in international reach and offering most customization; excels online"
+                },
+                {
+                  "name": "PayPal",
+                  "mentioned": true,
+                  "favorability": "positive",
+                  "citation_rank": 3,
+                  "context": "Third company mentioned; praised for massive user base (400M+ accounts), buyer/seller protection, express checkout, and strong international presence; noted as one of fastest for speed of setup"
+                },
+                {
+                  "name": "Square",
+                  "mentioned": true,
+                  "favorability": "positive",
+                  "citation_rank": 2,
+                  "context": "Second company mentioned; praised for free POS hardware, offline payment capability, integrated payroll/inventory, and no monthly fees; noted as one of fastest for speed of setup and dominates retail"
+                }
+              ]
+            }
+          },
+          {
+            "query": "What are the main alternatives to Stripe for payment processing?",
+            "analysis": {
+              "brands": [
+                {
+                  "name": "Stripe",
+                  "mentioned": true,
+                  "favorability": "positive",
+                  "citation_rank": 1,
+                  "context": "Referenced as the baseline payment processor being compared against; praised for developer experience and documentation"
+                },
+                {
+                  "name": "PayPal",
+                  "mentioned": true,
+                  "favorability": "positive",
+                  "citation_rank": 2,
+                  "context": "First alternative listed; praised for wide recognition, strong buyer protection, easy setup, consumer trust and checkout conversion"
+                },
+                {
+                  "name": "Square",
+                  "mentioned": true,
+                  "favorability": "positive",
+                  "citation_rank": 3,
+                  "context": "Second alternative listed; praised for in-person/omnichannel capabilities, free POS hardware, and winning for brick-and-mortar businesses"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "vector_search": {
+        "similarity_score": 0,
+        "will_be_retrieved": "unknown",
+        "query_similarities": [],
+        "detail": "Embeddings not available on this gateway \u2014 cannot measure vector search inclusion.",
+        "method": "embedding"
+      }
+    }
+  }
+}

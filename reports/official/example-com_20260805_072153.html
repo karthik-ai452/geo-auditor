@@ -77,7 +77,7 @@
   /* Pillar bars */
   .pillars {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 12px;
     margin-bottom: 32px;
   }
@@ -301,17 +301,17 @@
   <div class="report-header">
     <h1>GEO Audit Report</h1>
     <div class="subtitle">example.com</div>
-    <div class="meta">Audited 2026-08-05T05:37:45.076242+00:00 · Content scoring: LLM-assisted (drytis/kimi-k2.5)</div>
+    <div class="meta">Audited 2026-08-05T07:21:53.358222+00:00 · Content scoring: LLM-assisted (drytis/kimi-k2.5)</div>
   </div>
 
   <!-- Score Summary -->
   <div class="score-section">
     <div class="score-circle grade-critical">
-      <div class="num">10</div>
+      <div class="num">13</div>
       <div class="label">/ 100</div>
     </div>
     <div class="verdict">
-      <h2>Critical — 10.1 / 100</h2>
+      <h2>Critical — 12.7 / 100</h2>
       <p>Your site is almost certainly invisible in AI search. Start with the critical fixes.</p>
     </div>
   </div>
@@ -322,7 +322,7 @@
     <div class="pillar-card">
       <h3>Crawlability</h3>
       <div class="pillar-score">18</div>
-      <div class="pillar-weight">20% weight</div>
+      <div class="pillar-weight">15% weight</div>
       <div class="pillar-bar">
         <div class="pillar-bar-fill" style="width: 18.0%; background: var(--critical);"></div>
       </div>
@@ -331,7 +331,7 @@
     <div class="pillar-card">
       <h3>Answerability</h3>
       <div class="pillar-score">9</div>
-      <div class="pillar-weight">25% weight</div>
+      <div class="pillar-weight">20% weight</div>
       <div class="pillar-bar">
         <div class="pillar-bar-fill" style="width: 9.0%; background: var(--critical);"></div>
       </div>
@@ -340,7 +340,7 @@
     <div class="pillar-card">
       <h3>Structure</h3>
       <div class="pillar-score">21</div>
-      <div class="pillar-weight">20% weight</div>
+      <div class="pillar-weight">15% weight</div>
       <div class="pillar-bar">
         <div class="pillar-bar-fill" style="width: 21.0%; background: var(--critical);"></div>
       </div>
@@ -349,9 +349,18 @@
     <div class="pillar-card">
       <h3>Brand Recall</h3>
       <div class="pillar-score">0</div>
-      <div class="pillar-weight">35% weight</div>
+      <div class="pillar-weight">25% weight</div>
       <div class="pillar-bar">
         <div class="pillar-bar-fill" style="width: 0.0%; background: var(--critical);"></div>
+      </div>
+    </div>
+    
+    <div class="pillar-card">
+      <h3>Source Presence</h3>
+      <div class="pillar-score">20</div>
+      <div class="pillar-weight">25% weight</div>
+      <div class="pillar-bar">
+        <div class="pillar-bar-fill" style="width: 20.0%; background: var(--critical);"></div>
       </div>
     </div>
     
@@ -363,7 +372,7 @@
     
     <div class="pillar-breakdown">
       <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
-        Crawlability: 18.0/100 (weight: 20%)
+        Crawlability: 18.0/100 (weight: 15%)
       </h3>
       <ul class="component-list">
         
@@ -492,14 +501,14 @@
     
     <div class="pillar-breakdown">
       <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
-        Answerability: 9.0/100 (weight: 25%)
+        Answerability: 9.0/100 (weight: 20%)
       </h3>
       <ul class="component-list">
         
         <li class="component-item">
           <div class="component-label">
             Direct Answers: 15/100
-            <div class="component-detail">The content contains one minimal definitional statement about the domain&#39;s purpose, but fails to answer any substantive questions a user might have. It states what the domain is for but provides no depth, context, or comprehensive explanation that would satisfy an AI search query. Example: &#34;This domain is for use in documentation examples without needing permission.&#34;</div>
+            <div class="component-detail">The content contains one minimal definitional statement about the domain&#39;s purpose, but fails to answer any substantive questions a user might ask. It states what the domain is for but provides no depth, context, or actionable information. The &#39;Learn more&#39; reference is unfulfilled. Example: &#34;This domain is for use in documentation examples without needing permission.&#34;</div>
           </div>
           <div class="component-points">
             4.5<span class="max">/30</span>
@@ -509,7 +518,7 @@
         <li class="component-item">
           <div class="component-label">
             Statistical Richness: 0/100
-            <div class="component-detail">Zero statistics, data points, percentages, or quantifiable information present. The extracted signals confirm 0 statistics found. AI search engines heavily favor content with specific numbers and data for citation. Example: &#34;N/A — no statistics exist in content&#34;</div>
+            <div class="component-detail">Zero statistics, data points, percentages, or quantifiable information present. The extracted signals confirm 0 statistics found. No numbers, dates, or measurable claims appear in the content. Example: &#34;N/A — no statistical content exists in the 19-word text.&#34;</div>
           </div>
           <div class="component-points">
             0.0<span class="max">/25</span>
@@ -519,7 +528,7 @@
         <li class="component-item">
           <div class="component-label">
             Citation Quality: 0/100
-            <div class="component-detail">No sources cited, no external references, no evidence provided for claims. The &#39;Learn more&#39; link is unexpanded and provides no actual citation. The extracted signals confirm citation patterns are false. Example: &#34;Learn more (unlinked, uncited)&#34;</div>
+            <div class="component-detail">No citations, references, or source attribution of any kind. The &#39;Learn more&#39; phrase implies external information exists but provides no actual link, attribution, or evidence. Extracted signals confirm citation patterns: False. Example: &#34;Learn more — dangling reference with no actual citation provided.&#34;</div>
           </div>
           <div class="component-points">
             0.0<span class="max">/15</span>
@@ -529,7 +538,7 @@
         <li class="component-item">
           <div class="component-label">
             Structure Clarity: 10/100
-            <div class="component-detail">Extremely poor structural organization. Zero H2 headings, no sections, no scannable hierarchy. The content is a single sentence fragment with minimal formatting. AI search engines struggle to extract and segment unstructured content. Example: &#34;Example Domain This domain is for use in documentation examples without needing permission. Avoid use in operations. Learn more&#34;</div>
+            <div class="component-detail">Severely understructured with 0 H2 headings and only 19 words total. No clear sections, hierarchy, or scannable organization. The content is essentially a single block of text with title and body barely distinguished. Fails all structural best practices for AI parsing. Example: &#34;Example Domain This domain is for use in documentation examples without needing permission. Avoid use in operations. Learn more — no headings, no paragraphs, no list formatting.&#34;</div>
           </div>
           <div class="component-points">
             1.5<span class="max">/15</span>
@@ -539,7 +548,7 @@
         <li class="component-item">
           <div class="component-label">
             Conversational Match: 20/100
-            <div class="component-detail">The language is simple and direct, which slightly aligns with conversational queries, but it fails to match how users actually ask questions. No question-answer format, no natural language patterns addressing &#39;what is,&#39; &#39;how to,&#39; or &#39;why&#39; queries that dominate AI search. Example: &#34;This domain is for use in documentation examples&#34;</div>
+            <div class="component-detail">Uses simple, direct language that technically matches how someone might ask &#39;What is example.com?&#39; However, the response is incomplete and doesn&#39;t mirror natural follow-up questions. Phrases like &#39;Avoid use in operations&#39; are slightly awkward and don&#39;t flow from typical user queries. Example: &#34;What is example.com for? → &#39;This domain is for use in documentation examples&#39; — partial match, but no conversational expansion.&#34;</div>
           </div>
           <div class="component-points">
             3.0<span class="max">/15</span>
@@ -551,7 +560,7 @@
     
     <div class="pillar-breakdown">
       <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
-        Structure: 21.0/100 (weight: 20%)
+        Structure: 21.0/100 (weight: 15%)
       </h3>
       <ul class="component-list">
         
@@ -610,7 +619,7 @@
     
     <div class="pillar-breakdown">
       <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
-        Brand Recall: 0.0/100 (weight: 35%)
+        Brand Recall: 0.0/100 (weight: 25%)
       </h3>
       <ul class="component-list">
         
@@ -631,6 +640,135 @@
           </div>
           <div class="component-points">
             0.0<span class="max">/45</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            Selection rate: 0.0% content overlap
+            <div class="component-detail">Average content overlap: 0.0%</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/0</span>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="pillar-breakdown">
+      <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+        Source Presence: 20.0/100 (weight: 25%)
+      </h3>
+      <ul class="component-list">
+        
+        <li class="component-item">
+          <div class="component-label">
+            ✗ Reddit
+            <div class="component-detail">Reddit API blocked (403)</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/3</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            ✗ G2 (reviews)
+            <div class="component-detail">G2 blocked (403)</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/3</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            ✗ YouTube
+            <div class="component-detail">No YouTube channel for &#39;Example Domain&#39;</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/3</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            ✗ Crunchbase
+            <div class="component-detail">No Crunchbase profile (HTTP 403)</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/3</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            ✗ GitHub
+            <div class="component-detail">No GitHub org (HTTP 404)</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/3</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            ✗ Wikipedia
+            <div class="component-detail">No Wikipedia page found</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/3</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            ✗ LinkedIn
+            <div class="component-detail">No LinkedIn company page confirmed</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/3</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            No competitors identified for coverage comparison
+            <div class="component-detail">Could not identify competitors. Run brand recall first.</div>
+          </div>
+          <div class="component-points">
+            20.0<span class="max">/20</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            No AI responses to compare positioning
+            <div class="component-detail">Brand was not mentioned in any AI queries — no description to compare.</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/20</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            No brand mentions detected across queries
+            <div class="component-detail">Neither target nor competitors were mentioned.</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/20</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            Vector search inclusion: 0.0% similarity
+            <div class="component-detail">Embeddings not available on this gateway — cannot measure vector search inclusion.</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/20</span>
           </div>
         </li>
         
@@ -664,129 +802,176 @@
         
         
         <div class="field">
-          <div class="field-label">Fix (copy-pasteable)</div>
-          <div class="fix-block">
-            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
-            Ensure /robots.txt is served correctly. If you don&#39;t have one, create a minimal robots.txt that allows AI bots (see the fix below).
-          </div>
-        </div>
-        
-        
-        <div class="impact-effort">
-          <span>📊 Impact: 30/100</span>
-          <span>🔧 Effort: 10/100</span>
-          <span>⚡ Priority: 27</span>
-        </div>
-        
-      </div>
-    </div>
-    
-    <div class="finding-card severity-warning">
-      <div class="finding-header">
-        <span class="severity-badge warning">warning</span>
-        <h3>sitemap.xml is missing or unreachable</h3>
-      </div>
-      <div class="page-link">📍 /sitemap.xml</div>
-      <div class="finding-body">
-        
-        <div class="field">
-          <div class="field-label">What we found</div>
-          <div>No sitemap.xml was found at /sitemap.xml.</div>
-        </div>
-        
-        
-        <div class="field">
-          <div class="field-label">What it should be</div>
-          <div>A valid sitemap.xml listing your key pages.</div>
-        </div>
-        
-        
-        <div class="field">
-          <div class="field-label">Fix (copy-pasteable)</div>
-          <div class="fix-block">
-            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
-            Create a sitemap.xml at the site root. If you use a CMS (WordPress, Shopify, Webflow), there&#39;s usually a plugin or built-in feature to generate one. Reference it in robots.txt:
-
-Sitemap: https://yoursite.com/sitemap.xml
-          </div>
-        </div>
-        
-        
-        <div class="impact-effort">
-          <span>📊 Impact: 50/100</span>
-          <span>🔧 Effort: 20/100</span>
-          <span>⚡ Priority: 40</span>
-        </div>
-        
-      </div>
-    </div>
-    
-    <div class="finding-card severity-positive">
-      <div class="finding-header">
-        <span class="severity-badge positive">positive</span>
-        <h3>No noindex directives found on crawled pages</h3>
-      </div>
-      
-      <div class="finding-body">
-        
-        <div class="field">
-          <div class="field-label">What we found</div>
-          <div>All 1 crawled pages are indexable.</div>
-        </div>
-        
-        
-        
-        
-      </div>
-    </div>
-    
-    <div class="finding-card severity-info">
-      <div class="finding-header">
-        <span class="severity-badge info">info</span>
-        <h3>No source citations detected</h3>
-      </div>
-      <div class="page-link">📍 https://example.com/</div>
-      <div class="finding-body">
-        
-        <div class="field">
-          <div class="field-label">What we found</div>
-          <div>No citation patterns (&#39;according to&#39;, &#39;source:&#39;, &#39;study by&#39;) found. Content with citations is more likely to be cited by AI engines.</div>
-        </div>
-        
-        
-        <div class="field">
-          <div class="field-label">What it should be</div>
-          <div>Cite sources for claims and data.</div>
-        </div>
-        
-        
-        <div class="field">
-          <div class="field-label">Fix (copy-pasteable)</div>
-          <div class="fix-block">
-            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
-            When you make a claim or cite a statistic, link to or name the source. E.g., &#39;According to a 2024 Gartner study...&#39;
-          </div>
-        </div>
-        
-        
-        <div class="impact-effort">
-          <span>📊 Impact: 35/100</span>
-          <span>🔧 Effort: 30/100</span>
-          <span>⚡ Priority: 24</span>
-        </div>
-        
-      </div>
-    </div>
-    
-    <div class="finding-card severity-warning">
-      <div class="finding-header">
-        <span class="severity-badge warning">warning</span>
-        <h3>No FAQ structured data</h3>
-      </div>
-      <div class="page-link">📍 https://example.com/</div>
-      <div class="finding-body">
-        
-        <div class="field">
+          <div c7,3
+7,2
+7,1
+7,0
+6,6
+6,5
+6,4
+6,3
+6,2
+6,1
+6,0
+5,3
+5,2
+5,1
+5,0
+4,3
+4,2
+4,1
+4,0
+3,2
+2,2
+1,2
+0,9
+0,2
+1,45
+3,44
+2,44
+1,44
+3,43
+2,43
+1,43
+3,42
+2,42
+1,42
+3,41
+2,41
+1,41
+3,40
+2,40
+1,40
+3,39
+2,39
+1,39
+3,38
+2,38
+1,38
+3,37
+2,37
+1,37
+3,36
+2,36
+1,36
+3,35
+2,35
+1,35
+3,34
+2,34
+1,34
+3,33
+2,33
+1,33
+3,32
+2,32
+1,32
+3,31
+2,31
+1,31
+3,30
+2,30
+1,30
+3,29
+2,29
+1,29
+3,28
+2,28
+1,28
+3,27
+2,27
+1,27
+3,26
+2,26
+1,26
+3,25
+2,25
+1,25
+3,24
+2,24
+1,24
+3,23
+2,23
+1,23
+3,22
+2,22
+1,22
+3,21
+2,21
+1,21
+3,20
+2,20
+1,20
+3,19
+2,19
+1,19
+3,18
+2,18
+1,18
+3,17
+2,17
+1,17
+3,16
+2,16
+1,16
+3,15
+2,15
+1,15
+3,14
+2,14
+1,14
+3,13
+2,13
+1,13
+3,12
+2,12
+1,12
+3,11
+2,11
+1,11
+3,10
+2,10
+1,10
+3,9
+2,9
+1,9
+3,8
+2,8
+1,8
+3,7
+2,7
+1,7
+3,6
+2,6
+1,6
+3,5
+2,5
+1,5
+3,4
+2,4
+1,4
+3,3
+3,0
+2,3
+2,0
+1,3
+1,0
+0,6
+0,0
+0,47
+0,46
+0,49
+0,48
+0,45
+0,12
+0,10
+0,8
+0,11
+0,5
+0,7
+0,4
+0,3
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <div class="field">
           <div class="field-label">What we found</div>
           <div>No FAQPage schema.org markup found. FAQ content in structured format is one of the most cited content types by AI engines.</div>
         </div>
@@ -841,7 +1026,7 @@ Sitemap: https://yoursite.com/sitemap.xml
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>LLM assessment: The content contains one minimal definitional statement about the domain&#39;s purpose, but fails to answer any substantive questions a user might have. It states what the domain is for but provides no depth, context, or comprehensive explanation that would satisfy an AI search query. Example from your content: &#34;This domain is for use in documentation examples without needing permission.&#34;</div>
+          <div>LLM assessment: The content contains one minimal definitional statement about the domain&#39;s purpose, but fails to answer any substantive questions a user might ask. It states what the domain is for but provides no depth, context, or actionable information. The &#39;Learn more&#39; reference is unfulfilled. Example from your content: &#34;This domain is for use in documentation examples without needing permission.&#34;</div>
         </div>
         
         
@@ -859,7 +1044,7 @@ Sitemap: https://yoursite.com/sitemap.xml
 
 Example: &#39;Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.&#39;
 
-AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.
+AI&#39;s specific suggestion: Expand to 300-500 words with clear H2 sections answering specific questions (What is this domain? When should I use it? What are alternatives?), add 2-3 relevant statistics about documentation example usage, and include authoritative citations to IETF RFCs or official documentation standards.
           </div>
         </div>
         
@@ -883,7 +1068,7 @@ AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>LLM assessment: Zero statistics, data points, percentages, or quantifiable information present. The extracted signals confirm 0 statistics found. AI search engines heavily favor content with specific numbers and data for citation. Example from your content: &#34;N/A — no statistics exist in content&#34;</div>
+          <div>LLM assessment: Zero statistics, data points, percentages, or quantifiable information present. The extracted signals confirm 0 statistics found. No numbers, dates, or measurable claims appear in the content. Example from your content: &#34;N/A — no statistical content exists in the 19-word text.&#34;</div>
         </div>
         
         
@@ -901,7 +1086,7 @@ AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2
 
 Instead of &#39;many businesses use CRM&#39;, write &#39;73% of businesses use CRM software (Source: Salesforce, 2024)&#39;.
 
-AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.
+AI&#39;s specific suggestion: Expand to 300-500 words with clear H2 sections answering specific questions (What is this domain? When should I use it? What are alternatives?), add 2-3 relevant statistics about documentation example usage, and include authoritative citations to IETF RFCs or official documentation standards.
           </div>
         </div>
         
@@ -925,7 +1110,7 @@ AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>LLM assessment: No sources cited, no external references, no evidence provided for claims. The &#39;Learn more&#39; link is unexpanded and provides no actual citation. The extracted signals confirm citation patterns are false. Example from your content: &#34;Learn more (unlinked, uncited)&#34;</div>
+          <div>LLM assessment: No citations, references, or source attribution of any kind. The &#39;Learn more&#39; phrase implies external information exists but provides no actual link, attribution, or evidence. Extracted signals confirm citation patterns: False. Example from your content: &#34;Learn more — dangling reference with no actual citation provided.&#34;</div>
         </div>
         
         
@@ -941,7 +1126,7 @@ AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2
             <button class="copy-btn" onclick="copyFix(this)">Copy</button>
             Cite your sources. Use phrases like &#39;according to [study]&#39;, &#39;research from [organization] shows&#39;, or link to primary sources. AI engines prefer content that itself cites evidence.
 
-AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.
+AI&#39;s specific suggestion: Expand to 300-500 words with clear H2 sections answering specific questions (What is this domain? When should I use it? What are alternatives?), add 2-3 relevant statistics about documentation example usage, and include authoritative citations to IETF RFCs or official documentation standards.
           </div>
         </div>
         
@@ -965,7 +1150,7 @@ AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>LLM assessment: Extremely poor structural organization. Zero H2 headings, no sections, no scannable hierarchy. The content is a single sentence fragment with minimal formatting. AI search engines struggle to extract and segment unstructured content. Example from your content: &#34;Example Domain This domain is for use in documentation examples without needing permission. Avoid use in operations. Learn more&#34;</div>
+          <div>LLM assessment: Severely understructured with 0 H2 headings and only 19 words total. No clear sections, hierarchy, or scannable organization. The content is essentially a single block of text with title and body barely distinguished. Fails all structural best practices for AI parsing. Example from your content: &#34;Example Domain This domain is for use in documentation examples without needing permission. Avoid use in operations. Learn more — no headings, no paragraphs, no list formatting.&#34;</div>
         </div>
         
         
@@ -981,7 +1166,7 @@ AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2
             <button class="copy-btn" onclick="copyFix(this)">Copy</button>
             Structure your content with clear headings (H2, H3), short paragraphs, and logical sections. Use bullet points for lists. Each section should answer one question or cover one topic.
 
-AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.
+AI&#39;s specific suggestion: Expand to 300-500 words with clear H2 sections answering specific questions (What is this domain? When should I use it? What are alternatives?), add 2-3 relevant statistics about documentation example usage, and include authoritative citations to IETF RFCs or official documentation standards.
           </div>
         </div>
         
@@ -1005,7 +1190,7 @@ AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>LLM assessment: The language is simple and direct, which slightly aligns with conversational queries, but it fails to match how users actually ask questions. No question-answer format, no natural language patterns addressing &#39;what is,&#39; &#39;how to,&#39; or &#39;why&#39; queries that dominate AI search. Example from your content: &#34;This domain is for use in documentation examples&#34;</div>
+          <div>LLM assessment: Uses simple, direct language that technically matches how someone might ask &#39;What is example.com?&#39; However, the response is incomplete and doesn&#39;t mirror natural follow-up questions. Phrases like &#39;Avoid use in operations&#39; are slightly awkward and don&#39;t flow from typical user queries. Example from your content: &#34;What is example.com for? → &#39;This domain is for use in documentation examples&#39; — partial match, but no conversational expansion.&#34;</div>
         </div>
         
         
@@ -1021,7 +1206,7 @@ AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2
             <button class="copy-btn" onclick="copyFix(this)">Copy</button>
             Write in the language your audience actually uses to ask questions. Instead of &#39;Our platform provides enterprise-grade solutions&#39;, write &#39;Our platform helps large teams manage projects.&#39; Use natural, conversational phrasing.
 
-AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.
+AI&#39;s specific suggestion: Expand to 300-500 words with clear H2 sections answering specific questions (What is this domain? When should I use it? What are alternatives?), add 2-3 relevant statistics about documentation example usage, and include authoritative citations to IETF RFCs or official documentation standards.
           </div>
         </div>
         
@@ -1045,13 +1230,13 @@ AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>Overall assessment: This content would perform extremely poorly in AI search engines. With only 19 words, zero statistics, no citations, and no structural organization, it offers almost no extractable value for AI-generated answers. It would rarely if ever be selected as a source citation.</div>
+          <div>Overall assessment: This content would perform extremely poorly in AI search engines. With only 19 words, zero statistics, no citations, and no structure, it offers almost nothing for AI systems to extract, cite, or summarize. It might be referenced for the narrow query &#39;What is example.com used for?&#39; but would be immediately outranked by any competitor with substantive content.</div>
         </div>
         
         
         <div class="field">
           <div class="field-label">What it should be</div>
-          <div>Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.</div>
+          <div>Expand to 300-500 words with clear H2 sections answering specific questions (What is this domain? When should I use it? What are alternatives?), add 2-3 relevant statistics about documentation example usage, and include authoritative citations to IETF RFCs or official documentation standards.</div>
         </div>
         
         
@@ -1059,7 +1244,7 @@ AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2
           <div class="field-label">Fix (copy-pasteable)</div>
           <div class="fix-block">
             <button class="copy-btn" onclick="copyFix(this)">Copy</button>
-            Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.
+            Expand to 300-500 words with clear H2 sections answering specific questions (What is this domain? When should I use it? What are alternatives?), add 2-3 relevant statistics about documentation example usage, and include authoritative citations to IETF RFCs or official documentation standards.
           </div>
         </div>
         
@@ -1385,7 +1570,7 @@ AI models are trained on web content — the more high-quality sources that desc
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>When asked &#34;What are the best document management platforms for businesses?&#34;, the AI listed competitors but did not mention &#39;Example Domain&#39;. AI mentioned: Based, Grade Solutions, Microsoft, Mid, Market, Cloud, Native, Box, Dropbox Business, Google Workspace</div>
+          <div>When asked &#34;What are the best document management platforms for businesses?&#34;, the AI listed competitors but did not mention &#39;Example Domain&#39;. AI mentioned: Based, Microsoft, Google Workspace, Drive, Docs, Google, Box, Dropbox Business, Mid, Files</div>
         </div>
         
         
@@ -1423,7 +1608,7 @@ AI models are trained on web content — the more high-quality sources that desc
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>When asked &#34;What are the top document management companies or tools?&#34;, the AI listed competitors but did not mention &#39;Example Domain&#39;. AI mentioned: Based, Heavy, Duty, Microsoft, Office, Hyland, Cloud, Native, Modern, Box</div>
+          <div>When asked &#34;What are the top document management companies or tools?&#34;, the AI listed competitors but did not mention &#39;Example Domain&#39;. AI mentioned: Based, Heavy, Duty Solutions, Microsoft, Hyland, Laserfiche, Cloud, Native, Modern Platforms, Box</div>
         </div>
         
         
@@ -1446,6 +1631,52 @@ AI models are trained on web content — the more high-quality sources that desc
           <span>📊 Impact: 60/100</span>
           <span>🔧 Effort: 70/100</span>
           <span>⚡ Priority: 18</span>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="finding-card severity-critical">
+      <div class="finding-header">
+        <span class="severity-badge critical">critical</span>
+        <h3>&#39;Example Domain&#39; not found on ANY source platform</h3>
+      </div>
+      <div class="page-link">📍 https://example.com/</div>
+      <div class="finding-body">
+        
+        <div class="field">
+          <div class="field-label">What we found</div>
+          <div>Reddit: ✗ MISSING — Reddit API blocked (403) | G2 (reviews): ✗ MISSING — G2 blocked (403) | YouTube: ✗ MISSING — No YouTube channel for &#39;Example Domain&#39; | Crunchbase: ✗ MISSING — No Crunchbase profile (HTTP 403) | GitHub: ✗ MISSING — No GitHub org (HTTP 404) | Wikipedia: ✗ MISSING — No Wikipedia page found | LinkedIn: ✗ MISSING — No LinkedIn company page confirmed</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">What it should be</div>
+          <div>At least 3-4 platforms.</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">Fix (copy-pasteable)</div>
+          <div class="fix-block">
+            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
+            Missing from: Reddit, G2 (reviews), YouTube, Crunchbase, GitHub, Wikipedia, LinkedIn.
+• Encourage community discussion on Reddit in relevant subreddits.
+• Claim your G2 page at g2.com/products/example_domain and get reviews.
+• Create a YouTube channel at youtube.com/@example-domain.
+• Create a Crunchbase profile at crunchbase.com/organization/example-domain.
+• Create a GitHub organization at github.com/example-domain.
+• Create a Wikipedia article for Example Domain if it meets notability criteria.
+• Ensure LinkedIn company page at linkedin.com/company/example-domain is complete.
+
+          </div>
+        </div>
+        
+        
+        <div class="impact-effort">
+          <span>📊 Impact: 90/100</span>
+          <span>🔧 Effort: 40/100</span>
+          <span>⚡ Priority: 54</span>
         </div>
         
       </div>
@@ -1501,12 +1732,12 @@ Tip: if you use WordPress, plugins like Yoast SEO or RankMath can generate this 
           Impact 80/100 · Effort 30/100 · Priority 56
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: No sources cited, no external references, no evidence provided for claims. The &#39;Learn more&#39; link is unexpanded and provides no actual citation. The extracted signals confirm citation p...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: No citations, references, or source attribution of any kind. The &#39;Learn more&#39; phrase implies external information exists but provides no actual link, attribution, or evidence. Extracte...</div>
         
         
         <div class="action-fix">Cite your sources. Use phrases like &#39;according to [study]&#39;, &#39;research from [organization] shows&#39;, or link to primary sources. AI engines prefer content that itself cites evidence.
 
-AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.</div>
+AI&#39;s specific suggestion: Expand to 300-500 words with clear H2 sections answering specific questions (What is this domain? When should I use it? What are alternatives?), add 2-3 relevant statistics about documentation example usage, and include authoritative citations to IETF RFCs or official documentation standards.</div>
         
       </div>
     </div>
@@ -1519,14 +1750,14 @@ AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2
           Impact 68/100 · Effort 20/100 · Priority 54
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The content contains one minimal definitional statement about the domain&#39;s purpose, but fails to answer any substantive questions a user might have. It states what the domain is for bu...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The content contains one minimal definitional statement about the domain&#39;s purpose, but fails to answer any substantive questions a user might ask. It states what the domain is for but...</div>
         
         
         <div class="action-fix">Add clear, direct answer paragraphs at the top of your content. Format: &#39;[Topic] is [definition/explanation].&#39; — one or two sentences that directly answer the most likely question a person would ask.
 
 Example: &#39;Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.&#39;
 
-AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.</div>
+AI&#39;s specific suggestion: Expand to 300-500 words with clear H2 sections answering specific questions (What is this domain? When should I use it? What are alternatives?), add 2-3 relevant statistics about documentation example usage, and include authoritative citations to IETF RFCs or official documentation standards.</div>
         
       </div>
     </div>
@@ -1539,12 +1770,12 @@ AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2
           Impact 72/100 · Effort 25/100 · Priority 54
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: Extremely poor structural organization. Zero H2 headings, no sections, no scannable hierarchy. The content is a single sentence fragment with minimal formatting. AI search engines stru...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: Severely understructured with 0 H2 headings and only 19 words total. No clear sections, hierarchy, or scannable organization. The content is essentially a single block of text with tit...</div>
         
         
         <div class="action-fix">Structure your content with clear headings (H2, H3), short paragraphs, and logical sections. Use bullet points for lists. Each section should answer one question or cover one topic.
 
-AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.</div>
+AI&#39;s specific suggestion: Expand to 300-500 words with clear H2 sections answering specific questions (What is this domain? When should I use it? What are alternatives?), add 2-3 relevant statistics about documentation example usage, and include authoritative citations to IETF RFCs or official documentation standards.</div>
         
       </div>
     </div>
@@ -1552,25 +1783,49 @@ AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2
     <div class="action-item">
       <div class="action-num">5</div>
       <div class="action-content">
-        <h4>Content scores low on Statistical Richness (0/100)</h4>
+        <h4>&#39;Example Domain&#39; not found on ANY source platform</h4>
         <div class="action-meta">
-          Impact 80/100 · Effort 40/100 · Priority 48
+          Impact 90/100 · Effort 40/100 · Priority 54
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: Zero statistics, data points, percentages, or quantifiable information present. The extracted signals confirm 0 statistics found. AI search engines heavily favor content with specific ...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">Reddit: ✗ MISSING — Reddit API blocked (403) | G2 (reviews): ✗ MISSING — G2 blocked (403) | YouTube: ✗ MISSING — No YouTube channel for &#39;Example Domain&#39; | Crunchbase: ✗ MISSING — No Crunchbase profile...</div>
         
         
-        <div class="action-fix">Add specific numbers, percentages, and data points to your content. AI engines disproportionately cite content with statistics.
-
-Instead of &#39;many businesses use CRM&#39;, write &#39;73% of businesses use CRM software (Source: Salesforce, 2024)&#39;.
-
-AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.</div>
+        <div class="action-fix">Missing from: Reddit, G2 (reviews), YouTube, Crunchbase, GitHub, Wikipedia, LinkedIn.
+• Encourage community discussion on Reddit in relevant subreddits.
+• Claim your G2 page at g2.com/products/example_domain and get reviews.
+• Create a YouTube channel at youtube.com/@example-domain.
+• Create a Crunchbase profile at crunchbase.com/organization/example-domain.
+• Create a GitHub organization at github.com/example-domain.
+• Create a Wikipedia article for Example Domain if it meets notability criteria.
+• Ensure LinkedIn company page at linkedin.com/company/example-domain is complete.
+</div>
         
       </div>
     </div>
     
     <div class="action-item">
       <div class="action-num">6</div>
+      <div class="action-content">
+        <h4>Content scores low on Statistical Richness (0/100)</h4>
+        <div class="action-meta">
+          Impact 80/100 · Effort 40/100 · Priority 48
+        </div>
+        
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: Zero statistics, data points, percentages, or quantifiable information present. The extracted signals confirm 0 statistics found. No numbers, dates, or measurable claims appear in the ...</div>
+        
+        
+        <div class="action-fix">Add specific numbers, percentages, and data points to your content. AI engines disproportionately cite content with statistics.
+
+Instead of &#39;many businesses use CRM&#39;, write &#39;73% of businesses use CRM software (Source: Salesforce, 2024)&#39;.
+
+AI&#39;s specific suggestion: Expand to 300-500 words with clear H2 sections answering specific questions (What is this domain? When should I use it? What are alternatives?), add 2-3 relevant statistics about documentation example usage, and include authoritative citations to IETF RFCs or official documentation standards.</div>
+        
+      </div>
+    </div>
+    
+    <div class="action-item">
+      <div class="action-num">7</div>
       <div class="action-content">
         <h4>Missing meta description on homepage</h4>
         <div class="action-meta">
@@ -1588,7 +1843,7 @@ AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2
     </div>
     
     <div class="action-item">
-      <div class="action-num">7</div>
+      <div class="action-num">8</div>
       <div class="action-content">
         <h4>No FAQ structured data</h4>
         <div class="action-meta">
@@ -1619,25 +1874,25 @@ AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2
     </div>
     
     <div class="action-item">
-      <div class="action-num">8</div>
+      <div class="action-num">9</div>
       <div class="action-content">
         <h4>Content scores low on Conversational Match (20/100)</h4>
         <div class="action-meta">
           Impact 64/100 · Effort 35/100 · Priority 42
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The language is simple and direct, which slightly aligns with conversational queries, but it fails to match how users actually ask questions. No question-answer format, no natural lang...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: Uses simple, direct language that technically matches how someone might ask &#39;What is example.com?&#39; However, the response is incomplete and doesn&#39;t mirror natural follow-up questions. P...</div>
         
         
         <div class="action-fix">Write in the language your audience actually uses to ask questions. Instead of &#39;Our platform provides enterprise-grade solutions&#39;, write &#39;Our platform helps large teams manage projects.&#39; Use natural, conversational phrasing.
 
-AI&#39;s specific suggestion: Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.</div>
+AI&#39;s specific suggestion: Expand to 300-500 words with clear H2 sections answering specific questions (What is this domain? When should I use it? What are alternatives?), add 2-3 relevant statistics about documentation example usage, and include authoritative citations to IETF RFCs or official documentation standards.</div>
         
       </div>
     </div>
     
     <div class="action-item">
-      <div class="action-num">9</div>
+      <div class="action-num">10</div>
       <div class="action-content">
         <h4>sitemap.xml is missing or unreachable</h4>
         <div class="action-meta">
@@ -1655,7 +1910,7 @@ Sitemap: https://yoursite.com/sitemap.xml</div>
     </div>
     
     <div class="action-item">
-      <div class="action-num">10</div>
+      <div class="action-num">11</div>
       <div class="action-content">
         <h4>AI does not mention &#39;Example Domain&#39; in any test queries</h4>
         <div class="action-meta">
@@ -1680,23 +1935,23 @@ AI models are trained on web content — the more high-quality sources that desc
     </div>
     
     <div class="action-item">
-      <div class="action-num">11</div>
+      <div class="action-num">12</div>
       <div class="action-content">
         <h4>AI&#39;s #1 recommendation for your content</h4>
         <div class="action-meta">
           Impact 60/100 · Effort 40/100 · Priority 36
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">Overall assessment: This content would perform extremely poorly in AI search engines. With only 19 words, zero statistics, no citations, and no structural organization, it offers almost no extractable...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">Overall assessment: This content would perform extremely poorly in AI search engines. With only 19 words, zero statistics, no citations, and no structure, it offers almost nothing for AI systems to ex...</div>
         
         
-        <div class="action-fix">Expand into a comprehensive resource with clear H2 sections answering specific questions (What is example.com? When should I use it? What are alternatives?), add 3-5 relevant statistics about documentation domain usage, and include 2-3 authoritative citations with links.</div>
+        <div class="action-fix">Expand to 300-500 words with clear H2 sections answering specific questions (What is this domain? When should I use it? What are alternatives?), add 2-3 relevant statistics about documentation example usage, and include authoritative citations to IETF RFCs or official documentation standards.</div>
         
       </div>
     </div>
     
     <div class="action-item">
-      <div class="action-num">12</div>
+      <div class="action-num">13</div>
       <div class="action-content">
         <h4>Very little text content on homepage</h4>
         <div class="action-meta">
@@ -1712,7 +1967,7 @@ AI models are trained on web content — the more high-quality sources that desc
     </div>
     
     <div class="action-item">
-      <div class="action-num">13</div>
+      <div class="action-num">14</div>
       <div class="action-content">
         <h4>robots.txt returned HTTP 404</h4>
         <div class="action-meta">
@@ -1728,7 +1983,7 @@ AI models are trained on web content — the more high-quality sources that desc
     </div>
     
     <div class="action-item">
-      <div class="action-num">14</div>
+      <div class="action-num">15</div>
       <div class="action-content">
         <h4>No source citations detected</h4>
         <div class="action-meta">
@@ -1744,7 +1999,7 @@ AI models are trained on web content — the more high-quality sources that desc
     </div>
     
     <div class="action-item">
-      <div class="action-num">15</div>
+      <div class="action-num">16</div>
       <div class="action-content">
         <h4>Few or no &lt;h2&gt; subheadings</h4>
         <div class="action-meta">
@@ -1760,7 +2015,7 @@ AI models are trained on web content — the more high-quality sources that desc
     </div>
     
     <div class="action-item">
-      <div class="action-num">16</div>
+      <div class="action-num">17</div>
       <div class="action-content">
         <h4>Missing canonical URL tag</h4>
         <div class="action-meta">
@@ -1778,30 +2033,14 @@ AI models are trained on web content — the more high-quality sources that desc
     </div>
     
     <div class="action-item">
-      <div class="action-num">17</div>
+      <div class="action-num">18</div>
       <div class="action-content">
         <h4>Not mentioned when asked: &#34;What are the best document management platforms for business...&#34;</h4>
         <div class="action-meta">
           Impact 60/100 · Effort 70/100 · Priority 18
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">When asked &#34;What are the best document management platforms for businesses?&#34;, the AI listed competitors but did not mention &#39;Example Domain&#39;. AI mentioned: Based, Grade Solutions, Microsoft, Mid, Mark...</div>
-        
-        
-        <div class="action-fix">Build your presence on high-authority sites that AI engines learn from: Wikipedia, Crunchbase, industry publications, and review sites (G2, Capterra). AI models learn from these sources during training.</div>
-        
-      </div>
-    </div>
-    
-    <div class="action-item">
-      <div class="action-num">18</div>
-      <div class="action-content">
-        <h4>Not mentioned when asked: &#34;What are the top document management companies or tools?...&#34;</h4>
-        <div class="action-meta">
-          Impact 60/100 · Effort 70/100 · Priority 18
-        </div>
-        
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">When asked &#34;What are the top document management companies or tools?&#34;, the AI listed competitors but did not mention &#39;Example Domain&#39;. AI mentioned: Based, Heavy, Duty, Microsoft, Office, Hyland, Clou...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">When asked &#34;What are the best document management platforms for businesses?&#34;, the AI listed competitors but did not mention &#39;Example Domain&#39;. AI mentioned: Based, Microsoft, Google Workspace, Drive, D...</div>
         
         
         <div class="action-fix">Build your presence on high-authority sites that AI engines learn from: Wikipedia, Crunchbase, industry publications, and review sites (G2, Capterra). AI models learn from these sources during training.</div>
@@ -1811,6 +2050,22 @@ AI models are trained on web content — the more high-quality sources that desc
     
     <div class="action-item">
       <div class="action-num">19</div>
+      <div class="action-content">
+        <h4>Not mentioned when asked: &#34;What are the top document management companies or tools?...&#34;</h4>
+        <div class="action-meta">
+          Impact 60/100 · Effort 70/100 · Priority 18
+        </div>
+        
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">When asked &#34;What are the top document management companies or tools?&#34;, the AI listed competitors but did not mention &#39;Example Domain&#39;. AI mentioned: Based, Heavy, Duty Solutions, Microsoft, Hyland, La...</div>
+        
+        
+        <div class="action-fix">Build your presence on high-authority sites that AI engines learn from: Wikipedia, Crunchbase, industry publications, and review sites (G2, Capterra). AI models learn from these sources during training.</div>
+        
+      </div>
+    </div>
+    
+    <div class="action-item">
+      <div class="action-num">20</div>
       <div class="action-content">
         <h4>Missing Open Graph tags</h4>
         <div class="action-meta">
@@ -1837,12 +2092,21 @@ AI models are trained on web content — the more high-quality sources that desc
   <div class="methodology">
     <h2>How This Audit Works</h2>
     <p><strong>GEO (Generative Engine Optimization)</strong> is the practice of making your business visible inside AI search answers — ChatGPT, Perplexity, Claude, and Google AI Overviews. Unlike traditional SEO (which optimizes for Google's link-based rankings), GEO optimizes for AI engines that choose and cite sources by different rules.</p>
-    <p>This audit checks four pillars of AI search visibility:</p>
+    <p>This audit checks five pillars of AI search visibility:</p>
     <ul>
-      <li><strong>AI Crawlability (20%)</strong> — Can AI engines even reach your site? Checks robots.txt for blocked AI bots (GPTBot, ClaudeBot, PerplexityBot, etc.), sitemap presence, and indexability. This is the #1 silent killer — many businesses block AI crawlers without knowing it.</li>
-      <li><strong>Content Answerability (25%)</strong> — Does your content answer questions the way AI engines extract and cite? Uses an LLM to evaluate direct answers, statistical richness, citation quality, structure, and conversational match. The GEO research benchmark showed these content strategies lift citation rates 30-40%.</li>
-      <li><strong>Structured Data (20%)</strong> — Can machines parse and understand your content? Checks schema.org JSON-LD validity and coverage, title/meta tags, semantic HTML, and Open Graph.</li>
-      <li><strong>AI Brand Recall (35%)</strong> — Do AI engines actually know and mention your business? We send real questions to an AI model ("What is [brand]?", "What are the best [category] platforms?") and measure whether your business is mentioned. This tests both training data knowledge and category visibility — the closest proxy to "will ChatGPT/Perplexity mention me?"</li>
+      <li><strong>AI Crawlability (15%)</strong> — Can AI engines even reach your site? Checks robots.txt for blocked AI bots (GPTBot, ClaudeBot, PerplexityBot, etc.), sitemap presence, and indexability. This is the #1 silent killer — many businesses block AI crawlers without knowing it.</li>
+      <li><strong>Content Answerability (20%)</strong> — Does your content answer questions the way AI engines extract and cite? Uses an LLM to evaluate direct answers, statistical richness, citation quality, structure, and conversational match. The GEO research benchmark showed these content strategies lift citation rates 30-40%.</li>
+      <li><strong>Structured Data (15%)</strong> — Can machines parse and understand your content? Checks schema.org JSON-LD validity and coverage, title/meta tags, semantic HTML, and Open Graph.</li>
+      <li><strong>AI Brand Recall (25%)</strong> — Do AI engines actually know and mention your business? We send real questions to an AI model ("What are the best [category] platforms?", "Compare [brand] vs competitors") and measure whether your business is mentioned. This tests live search/retrieval visibility — the closest proxy to "will ChatGPT/Perplexity mention me?"</li>
+      <li><strong>AI Visibility & Competitive Intelligence (25%)</strong> — The most important pillar. If the AI can't find you, describe you wrong, or your competitor out-coverage you — every other pillar is wasted effort. Five sub-checks (20 pts each):
+        <ul style="margin-top: 6px;">
+          <li><em>Platform Coverage</em> — Does your brand exist on the 7 platforms AI engines search first (Wikipedia, GitHub, YouTube, Reddit, Crunchbase, G2, LinkedIn)?</li>
+          <li><em>Competitive Coverage Gap</em> — Where do competitors have platform presence you don't? If a competitor is on YouTube and G2 but you're only on G2, they win that surface.</li>
+          <li><em>AI Positioning Accuracy</em> — Does the AI describe you correctly? If you sell "premium soaps" but the AI says "affordable soaps", it recommends you for the wrong queries.</li>
+          <li><em>Share of Voice</em> — Across category and comparison queries, does the AI mention you more or less often than your competitors?</li>
+          <li><em>Vector Search Inclusion</em> — Will AI vector/semantic search actually retrieve your content? Measures embedding similarity between your homepage and typical user queries.</li>
+        </ul>
+      </li>
     </ul>
     <p><strong>About the LLM judge:</strong> The content answerability pillar uses a large language model to assess content the same way an AI search engine would. This is a proxy for real engine behavior — no tool can perfectly predict what ChatGPT or Perplexity will cite. The scores are relative indicators of readiness, not guarantees.</p>
     <p><strong>Limitations:</strong> This audit covers 3-5 pages per site. Backlink analysis and live citation tracking are not included (they require paid APIs). See the README for the full methodology and reasoning.</p>
@@ -1850,7 +2114,7 @@ AI models are trained on web content — the more high-quality sources that desc
 
   <!-- Footer -->
   <div class="report-footer">
-    Generated by GEO Auditor · 2026-08-05T05:37:45.076242+00:00
+    Generated by GEO Auditor · 2026-08-05T07:21:53.358222+00:00
   </div>
 
 </div>

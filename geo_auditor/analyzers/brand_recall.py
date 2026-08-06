@@ -164,6 +164,7 @@ def analyze(crawl: CrawlResult) -> tuple[list[Finding], list[ScoreComponent], di
     query_results = []
     mention_count = 0
     total_queries = len(queries)
+    homepage_content = homepage.text[:5000] if homepage.text else ""
 
     for q in queries:
         result = {
@@ -172,11 +173,15 @@ def analyze(crawl: CrawlResult) -> tuple[list[Finding], list[ScoreComponent], di
             "description": q["description"],
         }
         try:
-            ai_response = llm_client.query_brand_recall(q["query"])
+            # Feature 3: Try search-enabled query first, fall back to standard
+            search_result = llm_client.query_brand_recall_with_search(q["query"])
+            ai_response = search_result["response"]
             result["response"] = ai_response[:2000]  # truncate for storage
             result["response_length"] = len(ai_response)
+            result["search_enabled"] = search_result["search_enabled"]
+            result["model_used"] = search_result["model_used"]
 
-            # Check if brand is mentioned
+            # Check if brand is mentioned (now includes citation_rank + exact_sentence)
             mention = llm_client.check_brand_mention(
                 brand=brand_name,
                 brand_aliases=brand_aliases,
@@ -185,6 +190,13 @@ def analyze(crawl: CrawlResult) -> tuple[list[Finding], list[ScoreComponent], di
             result["mention"] = mention
             if mention.get("mentioned"):
                 mention_count += 1
+
+            # Feature 4: Selection Rate — content overlap with target site
+            if homepage_content:
+                sel = llm_client.compute_selection_rate(ai_response, homepage_content)
+                result["selection_rate"] = sel
+            else:
+                result["selection_rate"] = None
 
         except RuntimeError as e:
             result["error"] = str(e)
@@ -222,6 +234,47 @@ def analyze(crawl: CrawlResult) -> tuple[list[Finding], list[ScoreComponent], di
         detail=_detail_for_queries(comparison_results, brand_name)
     ))
 
+    # Feature 1: Citation rank component — where does the brand rank among mentioned brands?
+    all_mentions = [r for r in query_results if r.get("mention", {}).get("mentioned")]
+    if all_mentions:
+        ranks = [r["mention"].get("citation_rank", 0) for r in all_mentions if r["mention"].get("citation_rank", 0) > 0]
+        if ranks:
+            avg_rank = sum(ranks) / len(ranks)
+            # Score: rank 1 = 100, rank 2 = 80, rank 3 = 60, rank 4 = 40, rank 5+ = 20
+            # This is a bonus indicator, not a deduction
+            rank_detail = f"Average citation rank: {avg_rank:.1f} across {len(ranks)} mentions. " + \
+                          "; ".join([
+                              f'Q: "{r["query"][:40]}..." → rank #{r["mention"].get("citation_rank", "?")}'
+                              for r in all_mentions
+                              if r["mention"].get("citation_rank", 0) > 0
+                          ][:3])
+            components.append(ScoreComponent(
+                label=f"Citation rank: avg #{avg_rank:.1f} ({_rank_label(avg_rank)})",
+                points=0, max=0,  # informational, doesn't affect score
+                detail=rank_detail
+            ))
+
+    # Feature 4: Selection rate component — how much of the AI response overlaps with the target site
+    sel_rates = [r.get("selection_rate", {}).get("selection_rate", 0)
+                 for r in query_results
+                 if r.get("selection_rate") and isinstance(r.get("selection_rate"), dict)]
+    if sel_rates:
+        avg_sel = sum(sel_rates) / len(sel_rates)
+        top_phrases = []
+        for r in query_results:
+            sr = r.get("selection_rate")
+            if sr and isinstance(sr, dict) and sr.get("top_shared_phrases"):
+                top_phrases.extend(sr["top_shared_phrases"][:2])
+        top_phrases = list(dict.fromkeys(top_phrases))[:5]  # dedupe
+        sel_detail = f"Average content overlap: {avg_sel*100:.1f}%"
+        if top_phrases:
+            sel_detail += f". Shared phrases: {', '.join(top_phrases)}"
+        components.append(ScoreComponent(
+            label=f"Selection rate: {avg_sel*100:.1f}% content overlap",
+            points=0, max=0,  # informational
+            detail=sel_detail
+        ))
+
     # --- Generate findings ---
     if mention_count == 0:
         findings.append(Finding(
@@ -256,14 +309,25 @@ def analyze(crawl: CrawlResult) -> tuple[list[Finding], list[ScoreComponent], di
             effort=50,
         ))
     else:
+        # Build evidence with exact sentences for each mention
+        evidence_parts = [f"The AI model mentioned '{brand_name}' in {mention_count} of {total_queries} "
+                          f"test queries."]
+        for r in query_results[:3]:
+            m = r.get("mention", {})
+            if m.get("mentioned"):
+                sentence = m.get("exact_sentence", "")
+                rank = m.get("citation_rank", 0)
+                evidence_parts.append(
+                    f' • "{r["query"][:50]}..." → #{rank} mentioned'
+                    + (f': "{sentence}"' if sentence else "")
+                )
         findings.append(Finding(
             id="brand-good-recall",
             title=f"AI knows '{brand_name}' — mentioned in {mention_count}/{total_queries} queries",
             pillar=Pillar.BRAND_RECALL,
             severity=Severity.POSITIVE,
             page=homepage.url,
-            evidence=f"The AI model mentioned '{brand_name}' in {mention_count} of {total_queries} "
-                     f"test queries. " + _evidence_summary(query_results, brand_name),
+            evidence=" ".join(evidence_parts),
             should_be="",
             fix="",
             impact=0,
@@ -411,10 +475,36 @@ def _detail_for_queries(results: list[dict], brand: str) -> str:
     for r in results:
         mention = r.get("mention", {})
         mentioned = mention.get("mentioned", False)
-        status = "✓ mentioned" if mentioned else "✗ not mentioned"
+        rank = mention.get("citation_rank", 0)
+        sentence = mention.get("exact_sentence", "")
+
+        if mentioned:
+            status = f"✓ mentioned (rank #{rank})" if rank else "✓ mentioned"
+            if sentence:
+                status += f': "{sentence[:100]}"'
+        else:
+            status = "✗ not mentioned"
+
+        # Include selection rate if available
+        sr = r.get("selection_rate")
+        if sr and isinstance(sr, dict) and sr.get("selection_rate", 0) > 0:
+            status += f" [selection rate: {sr['selection_rate']*100:.1f}%]"
+
         details.append(f'Q: "{r["query"][:60]}..." → {status}')
 
     return " | ".join(details)
+
+
+def _rank_label(avg_rank: float) -> str:
+    """Human-readable label for average citation rank."""
+    if avg_rank <= 1.5:
+        return "Top mention — excellent"
+    elif avg_rank <= 3:
+        return "Early mention — good"
+    elif avg_rank <= 5:
+        return "Mid-tier mention — okay"
+    else:
+        return "Late mention — needs improvement"
 
 
 def _evidence_summary(results: list[dict], brand: str) -> str:

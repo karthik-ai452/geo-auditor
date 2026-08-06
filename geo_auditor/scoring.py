@@ -4,10 +4,11 @@ Every score is computed from visible components. No magic numbers —
 the report shows exactly how each point was earned or lost.
 
 Pillar weights (sum to 1.0):
-  Crawlability  = 20%   (if you're blocked, nothing else matters)
-  Answerability = 25%   (does content answer questions?)
-  Structure     = 20%   (can machines parse the content?)
-  Brand Recall  = 35%   (do AI engines actually know and mention you?)
+  Crawlability       = 15%  (if you're blocked, nothing else matters)
+  Answerability      = 20%  (does content answer questions?)
+  Structure          = 15%  (can machines parse the content?)
+  Brand Recall       = 25%  (do AI engines actually mention you?)
+  Source Presence    = 25%  (are you on the platforms AI searches?)
 """
 
 from __future__ import annotations
@@ -22,10 +23,11 @@ from geo_auditor.models import (
 )
 
 PILLAR_WEIGHTS = {
-    Pillar.CRAWLABILITY: 0.20,
-    Pillar.ANSWERABILITY: 0.25,
-    Pillar.STRUCTURE: 0.20,
-    Pillar.BRAND_RECALL: 0.35,
+    Pillar.CRAWLABILITY: 0.15,
+    Pillar.ANSWERABILITY: 0.20,
+    Pillar.STRUCTURE: 0.15,
+    Pillar.BRAND_RECALL: 0.25,
+    Pillar.SOURCE_PRESENCE: 0.25,
 }
 
 # Human-readable pillar names for the report
@@ -34,6 +36,7 @@ PILLAR_LABELS = {
     Pillar.ANSWERABILITY: "Content Answerability",
     Pillar.STRUCTURE: "Structured Data",
     Pillar.BRAND_RECALL: "AI Brand Recall",
+    Pillar.SOURCE_PRESENCE: "Source Platform Presence",
 }
 
 # Short descriptions for the report
@@ -42,6 +45,7 @@ PILLAR_DESCRIPTIONS = {
     Pillar.ANSWERABILITY: "Does your content answer questions AI engines extract and cite?",
     Pillar.STRUCTURE: "Can machines parse and understand your content?",
     Pillar.BRAND_RECALL: "Do AI engines actually know and mention your business?",
+    Pillar.SOURCE_PRESENCE: "Does your business exist on platforms AI engines search?",
 }
 
 

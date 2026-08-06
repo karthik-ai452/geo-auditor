@@ -44,40 +44,43 @@ class TestComputePillarScore:
     def test_weight_assigned(self):
         components = [ScoreComponent("check", 50, 50)]
         result = compute_pillar_score(Pillar.CRAWLABILITY, components)
-        assert result.weight == 0.20
+        assert result.weight == 0.15
 
         result2 = compute_pillar_score(Pillar.ANSWERABILITY, components)
-        assert result2.weight == 0.25
+        assert result2.weight == 0.20
 
         result3 = compute_pillar_score(Pillar.BRAND_RECALL, components)
-        assert result3.weight == 0.35
+        assert result3.weight == 0.25
 
 
 class TestComputeOverallScore:
     def test_weighted_average(self):
         pillars = [
-            PillarScore(Pillar.CRAWLABILITY, 80, 0.20),
-            PillarScore(Pillar.ANSWERABILITY, 60, 0.25),
-            PillarScore(Pillar.STRUCTURE, 90, 0.20),
-            PillarScore(Pillar.BRAND_RECALL, 70, 0.35),
+            PillarScore(Pillar.CRAWLABILITY, 80, 0.15),
+            PillarScore(Pillar.ANSWERABILITY, 60, 0.20),
+            PillarScore(Pillar.STRUCTURE, 90, 0.15),
+            PillarScore(Pillar.BRAND_RECALL, 70, 0.25),
+            PillarScore(Pillar.SOURCE_PRESENCE, 50, 0.25),
         ]
         result = compute_overall_score(pillars)
-        # 80*0.20 + 60*0.25 + 90*0.20 + 70*0.35 = 16 + 15 + 18 + 24.5 = 73.5
-        assert result.total == 73.5
+        # 80*0.15 + 60*0.20 + 90*0.15 + 70*0.25 + 50*0.25 = 12+12+13.5+17.5+12.5 = 67.5
+        assert result.total == 67.5
 
     def test_grade_strong(self):
-        pillars = [PillarScore(Pillar.CRAWLABILITY, 90, 0.20),
-                   PillarScore(Pillar.ANSWERABILITY, 85, 0.25),
-                   PillarScore(Pillar.STRUCTURE, 80, 0.20),
-                   PillarScore(Pillar.BRAND_RECALL, 85, 0.35)]
+        pillars = [PillarScore(Pillar.CRAWLABILITY, 90, 0.15),
+                   PillarScore(Pillar.ANSWERABILITY, 85, 0.20),
+                   PillarScore(Pillar.STRUCTURE, 80, 0.15),
+                   PillarScore(Pillar.BRAND_RECALL, 85, 0.25),
+                   PillarScore(Pillar.SOURCE_PRESENCE, 85, 0.25)]
         result = compute_overall_score(pillars)
         assert result.grade == "Strong"
 
     def test_grade_critical(self):
-        pillars = [PillarScore(Pillar.CRAWLABILITY, 10, 0.20),
-                   PillarScore(Pillar.ANSWERABILITY, 20, 0.25),
-                   PillarScore(Pillar.STRUCTURE, 30, 0.20),
-                   PillarScore(Pillar.BRAND_RECALL, 15, 0.35)]
+        pillars = [PillarScore(Pillar.CRAWLABILITY, 10, 0.15),
+                   PillarScore(Pillar.ANSWERABILITY, 20, 0.20),
+                   PillarScore(Pillar.STRUCTURE, 30, 0.15),
+                   PillarScore(Pillar.BRAND_RECALL, 15, 0.25),
+                   PillarScore(Pillar.SOURCE_PRESENCE, 10, 0.25)]
         result = compute_overall_score(pillars)
         assert result.grade == "Critical"
 

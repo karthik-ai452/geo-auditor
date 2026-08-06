@@ -26,12 +26,13 @@ class Severity(str, Enum):
 
 
 class Pillar(str, Enum):
-    """The four audit pillars. Used as scoring categories."""
+    """The five audit pillars. Used as scoring categories."""
 
-    CRAWLABILITY = "crawlability"  # Pillar 1 (20%)
-    ANSWERABILITY = "answerability"  # Pillar 2 (25%)
-    STRUCTURE = "structure"  # Pillar 3 (20%)
-    BRAND_RECALL = "brand_recall"  # Pillar 4 (35%)
+    CRAWLABILITY = "crawlability"  # Pillar 1 (15%)
+    ANSWERABILITY = "answerability"  # Pillar 2 (20%)
+    STRUCTURE = "structure"  # Pillar 3 (15%)
+    BRAND_RECALL = "brand_recall"  # Pillar 4 (25%)
+    SOURCE_PRESENCE = "source_presence"  # Pillar 5 (25%)
 
 
 # ---------------------------------------------------------------------------

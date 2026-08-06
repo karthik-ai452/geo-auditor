@@ -1,0 +1,849 @@
+{
+  "url": "https://notion.so",
+  "domain": "notion.so",
+  "audited_at": "2026-08-05T07:20:55.749721+00:00",
+  "score": {
+    "total": 71.4,
+    "grade": "Moderate",
+    "verdict": "Your site has a foundation but key gaps are holding back AI visibility.",
+    "pillars": [
+      {
+        "pillar": "crawlability",
+        "score": 100.0,
+        "weight": 0.15,
+        "components": [
+          {
+            "label": "GPTBot: allowed",
+            "points": 7.5,
+            "max": 7.5,
+            "detail": "GPTBot is allowed in robots.txt."
+          },
+          {
+            "label": "OAI-SearchBot: allowed",
+            "points": 7.5,
+            "max": 7.5,
+            "detail": "OAI-SearchBot is allowed in robots.txt."
+          },
+          {
+            "label": "PerplexityBot: allowed",
+            "points": 7.5,
+            "max": 7.5,
+            "detail": "PerplexityBot is allowed in robots.txt."
+          },
+          {
+            "label": "Perplexity-User: allowed",
+            "points": 7.5,
+            "max": 7.5,
+            "detail": "Perplexity-User is allowed in robots.txt."
+          },
+          {
+            "label": "ClaudeBot: allowed",
+            "points": 7.5,
+            "max": 7.5,
+            "detail": "ClaudeBot is allowed in robots.txt."
+          },
+          {
+            "label": "anthropic-ai: allowed",
+            "points": 7.5,
+            "max": 7.5,
+            "detail": "anthropic-ai is allowed in robots.txt."
+          },
+          {
+            "label": "CCBot: allowed",
+            "points": 7.5,
+            "max": 7.5,
+            "detail": "CCBot is allowed in robots.txt."
+          },
+          {
+            "label": "Google-Extended: allowed",
+            "points": 7.5,
+            "max": 7.5,
+            "detail": "Google-Extended is allowed in robots.txt."
+          },
+          {
+            "label": "robots.txt exists and is reachable",
+            "points": 10,
+            "max": 10,
+            "detail": "robots.txt returned HTTP 200."
+          },
+          {
+            "label": "sitemap.xml is a valid index with 169 child sitemaps",
+            "points": 15,
+            "max": 15,
+            "detail": "Sitemap index pointing to 169 child sitemaps, containing 287 URLs total."
+          },
+          {
+            "label": "All crawled pages are indexable",
+            "points": 10,
+            "max": 10,
+            "detail": "1 page(s) checked, none have noindex."
+          },
+          {
+            "label": "Page reachability: 1/1",
+            "points": 5.0,
+            "max": 5,
+            "detail": "1/1 pages reachable, avg load 807ms"
+          }
+        ]
+      },
+      {
+        "pillar": "answerability",
+        "score": 38.6,
+        "weight": 0.2,
+        "components": [
+          {
+            "label": "Direct Answers: 35/100",
+            "points": 10.5,
+            "max": 30.0,
+            "detail": "The content contains some definitional statements about Notion's features, but these are marketing-oriented rather than informational. Phrases like 'Q&A agents Answers questions instantly using knowledge you already have' and 'Enterprise Search One search for everything' provide basic feature descriptions, but lack substantive explanations of how these work, what problems they solve in detail, or comparative context. The content prioritizes persuasive language over educational clarity, making it difficult for AI systems to extract definitive answers to user questions. Example: \"'Q&A agents Answers questions instantly using knowledge you already have' \u2014 states what it does but not how it works, what formats it supports, or limitations\""
+          },
+          {
+            "label": "Statistical Richness: 55/100",
+            "points": 13.8,
+            "max": 25.0,
+            "detail": "The page contains 8 statistics, which is moderately high, but they are repetitive and lack context. The stats 'Over 100M users worldwide,' '62% of Fortune 100,' and 'Over 50% of YC companies' appear multiple times in what seems to be a carousel, artificially inflating the count. The G2 rankings ('#1 knowledge base 3 years running') are valuable third-party validation, but no methodology or date is provided. The '3x' timeline reduction claim lacks supporting evidence or source attribution. Example: \"'Streamlined workflows to reduce timelines by 3x' \u2014 no baseline, methodology, or source cited\""
+          },
+          {
+            "label": "Citation Quality: 10/100",
+            "points": 1.5,
+            "max": 15.0,
+            "detail": "The content contains virtually no source citations. The G2 rankings are mentioned without links to the actual reports or methodology. The customer quotes are unattributed (no names, titles, or companies). The '3x' efficiency claim has no supporting evidence. No external links to research, case studies, or methodology documents are present. This makes the content unsuitable for AI systems that prioritize verifiable claims. Example: \"'Trusted by 98% of the Forbes Cloud 100' \u2014 no link to Forbes list, date, or methodology for this percentage\""
+          },
+          {
+            "label": "Structure Clarity: 45/100",
+            "points": 6.8,
+            "max": 15.0,
+            "detail": "The content has 11 H2 headings indicating attempted organization, but the structure is fragmented and repetitive. The same content blocks appear multiple times (the statistics carousel repeats three times). Feature descriptions are brief and scattered rather than grouped logically. There is no clear hierarchy between product categories (Agents, Search, Notes) and supporting evidence. The page reads as a collection of marketing modules rather than a coherent information architecture. Example: \"The statistics block 'Over 100M users worldwide #1 knowledge base...' appears three times identically, suggesting poor content deduplication\""
+          },
+          {
+            "label": "Conversational Match: 40/100",
+            "points": 6.0,
+            "max": 15.0,
+            "detail": "Some headings use imperative and question-like formats ('Ask your on-demand assistants,' 'Keep work moving 24/7'), but these are marketing slogans rather than natural query matches. The content does not anticipate specific user questions like 'What is Notion used for?' or 'How does Notion AI compare to other tools?' The language is brand-centric ('Notion Agent,' 'Custom Agents') rather than problem-centric. No FAQ section or 'People also ask' style content is present. Example: \"'Ask your on-demand assistants' \u2014 mimics a user action but doesn't match how users actually phrase search queries about AI assistants\""
+          }
+        ]
+      },
+      {
+        "pillar": "structure",
+        "score": 53.0,
+        "weight": 0.15,
+        "components": [
+          {
+            "label": "No structured data (JSON-LD) on homepage",
+            "points": 0,
+            "max": 40,
+            "detail": "No <script type='application/ld+json'> blocks found on the homepage. This is the single biggest missed opportunity for AI visibility \u2014 schema.org data tells AI engines exactly what your page is about."
+          },
+          {
+            "label": "title: \"The AI workspace that works for you. | N...\"; meta description: present",
+            "points": 25,
+            "max": 25,
+            "detail": "title: \"The AI workspace that works for you. | N...\"; meta description: present"
+          },
+          {
+            "label": "H1: yes, H2 count: 11, paragraphs: 27, words: 399",
+            "points": 15,
+            "max": 15,
+            "detail": "H1: present, H2 tags: 11, paragraphs: 27, word count: 399"
+          },
+          {
+            "label": "Open Graph: title=yes, desc=yes",
+            "points": 10,
+            "max": 10,
+            "detail": "og:title: present, og:description: present"
+          },
+          {
+            "label": "canonical: \"https://www.notion.com/\"",
+            "points": 3,
+            "max": 10,
+            "detail": "canonical: \"https://www.notion.com/\""
+          }
+        ]
+      },
+      {
+        "pillar": "brand_recall",
+        "score": 100.0,
+        "weight": 0.25,
+        "components": [
+          {
+            "label": "Category queries: mentioned in 2/2 industry questions",
+            "points": 55.0,
+            "max": 55,
+            "detail": "Q: \"What are the best task management platforms for businesses?...\" \u2192 \u2713 mentioned (rank #8): \"**Notion** \u2013 Combines tasks, docs, and databases; highly flexible but requires more setup\" | Q: \"What are the top task management companies or tools?...\" \u2192 \u2713 mentioned (rank #4): \"- **Notion** \u2013 flexible workspace combining docs, databases, and tasks\""
+          },
+          {
+            "label": "Comparison queries: mentioned in 1/1 comparisons",
+            "points": 45.0,
+            "max": 45,
+            "detail": "Q: \"Can you compare the top task management platforms and their ...\" \u2192 \u2713 mentioned (rank #3): \"**Notion**\""
+          },
+          {
+            "label": "Citation rank: avg #5.0 (Mid-tier mention \u2014 okay)",
+            "points": 0,
+            "max": 0,
+            "detail": "Average citation rank: 5.0 across 3 mentions. Q: \"What are the best task management platfo...\" \u2192 rank #8; Q: \"What are the top task management compani...\" \u2192 rank #4; Q: \"Can you compare the top task management ...\" \u2192 rank #3"
+          },
+          {
+            "label": "Selection rate: 0.0% content overlap",
+            "points": 0,
+            "max": 0,
+            "detail": "Average content overlap: 0.0%"
+          }
+        ]
+      },
+      {
+        "pillar": "source_presence",
+        "score": 63.0,
+        "weight": 0.25,
+        "components": [
+          {
+            "label": "\u2717 Wikipedia",
+            "points": 0,
+            "max": 2.857142857142857,
+            "detail": "No Wikipedia page found"
+          },
+          {
+            "label": "\u2717 Reddit",
+            "points": 0,
+            "max": 2.857142857142857,
+            "detail": "Reddit API blocked (403)"
+          },
+          {
+            "label": "\u2717 Crunchbase",
+            "points": 0,
+            "max": 2.857142857142857,
+            "detail": "No Crunchbase profile (HTTP 403)"
+          },
+          {
+            "label": "\u2717 G2 (reviews)",
+            "points": 0,
+            "max": 2.857142857142857,
+            "detail": "G2 blocked (403)"
+          },
+          {
+            "label": "\u2713 YouTube",
+            "points": 2.857142857142857,
+            "max": 2.857142857142857,
+            "detail": "YouTube channel: youtube.com/@notion (searched by: Gemini)"
+          },
+          {
+            "label": "\u2713 GitHub",
+            "points": 2.857142857142857,
+            "max": 2.857142857142857,
+            "detail": "GitHub org: github.com/notion (searched by: ChatGPT, Perplexity, Claude)"
+          },
+          {
+            "label": "\u2713 LinkedIn",
+            "points": 2.857142857142857,
+            "max": 2.857142857142857,
+            "detail": "LinkedIn: linkedin.com/company/notion (searched by: ChatGPT, Perplexity, Google AI Overviews)"
+          },
+          {
+            "label": "No competitors identified for coverage comparison",
+            "points": 20.0,
+            "max": 20.0,
+            "detail": "Could not identify competitors. Run brand recall first."
+          },
+          {
+            "label": "AI positioning accuracy: 72/100",
+            "points": 14.399999999999999,
+            "max": 20.0,
+            "detail": "The AI description fundamentally mispositions Notion as a manual, setup-heavy productivity tool rather than an AI-native platform with autonomous agents, missing the company's strategic pivot to 'teams and agents thinking together' and understating its enterprise momentum.\nMismatches: [CRITICAL] features: You say 'AI-first platform with Custom Agents, Q&A agents, task routi' vs AI says 'Flexible workspace combining docs, databases, and tasks; 'hi' | [MODERATE] category: You say 'AI-native workspace platform with autonomous agents; 'one hu' vs AI says 'Task management platform / project management tool in a list' | [MODERATE] tone: You say 'Revolutionary, transformative, competitive advantage\u2014emphasi' vs AI says 'Neutral, utilitarian, cautionary ('requires more setup')\u2014fra' | [MODERATE] audience: You say 'Enterprise-focused with Fortune 100, Forbes Cloud 100, YC co' vs AI says 'General business teams, compared alongside Trello and Todois' | [MINOR] price: You say ''Get Notion free' prominent but immediately paired with ente' vs AI says 'Implicitly grouped with free/low-cost alternatives; no enter'"
+          },
+          {
+            "label": "Share of voice: 100% (3 of 3 total mentions)",
+            "points": 20.0,
+            "max": 20.0,
+            "detail": "Target 'Notion': 3 mentions (100% share of voice)"
+          },
+          {
+            "label": "Vector search inclusion: 0.0% similarity",
+            "points": 0.0,
+            "max": 20.0,
+            "detail": "Embeddings not available on this gateway \u2014 cannot measure vector search inclusion."
+          }
+        ]
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "robots-allowed-positive",
+      "title": "All checked AI crawlers are allowed in robots.txt",
+      "pillar": "crawlability",
+      "severity": "positive",
+      "page": "/robots.txt",
+      "evidence": "All 8 checked AI crawlers (GPTBot, OAI-SearchBot, PerplexityBot, Perplexity-User, ClaudeBot, anthropic-ai, CCBot, Google-Extended) can access your site.",
+      "should_be": "",
+      "fix": "",
+      "impact": 0,
+      "effort": 0,
+      "priority": 0.0
+    },
+    {
+      "id": "sitemap-index-valid",
+      "title": "sitemap.xml is a valid index (169 child sitemaps)",
+      "pillar": "crawlability",
+      "severity": "positive",
+      "page": "/sitemap.xml",
+      "evidence": "Sitemap index with 169 child sitemaps, 287 URLs total.",
+      "should_be": "",
+      "fix": "",
+      "impact": 0,
+      "effort": 0,
+      "priority": 0.0
+    },
+    {
+      "id": "meta-robots-ok",
+      "title": "No noindex directives found on crawled pages",
+      "pillar": "crawlability",
+      "severity": "positive",
+      "page": "",
+      "evidence": "All 1 crawled pages are indexable.",
+      "should_be": "",
+      "fix": "",
+      "impact": 0,
+      "effort": 0,
+      "priority": 0.0
+    },
+    {
+      "id": "signal-no-citations",
+      "title": "No source citations detected",
+      "pillar": "answerability",
+      "severity": "info",
+      "page": "https://notion.so/",
+      "evidence": "No citation patterns ('according to', 'source:', 'study by') found. Content with citations is more likely to be cited by AI engines.",
+      "should_be": "Cite sources for claims and data.",
+      "fix": "When you make a claim or cite a statistic, link to or name the source. E.g., 'According to a 2024 Gartner study...'",
+      "impact": 35,
+      "effort": 30,
+      "priority": 24.5
+    },
+    {
+      "id": "signal-no-faq",
+      "title": "No FAQ structured data",
+      "pillar": "answerability",
+      "severity": "warning",
+      "page": "https://notion.so/",
+      "evidence": "No FAQPage schema.org markup found. FAQ content in structured format is one of the most cited content types by AI engines.",
+      "should_be": "FAQPage schema markup for common questions.",
+      "fix": "Add FAQ schema to key pages. Example:\n\n<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": [{\n    \"@type\": \"Question\",\n    \"name\": \"What does your business do?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Clear, concise answer here.\"\n    }\n  }]\n}\n</script>",
+      "impact": 60,
+      "effort": 25,
+      "priority": 45.0
+    },
+    {
+      "id": "answerability-direct_answers",
+      "title": "Content scores low on Direct Answers (35/100)",
+      "pillar": "answerability",
+      "severity": "warning",
+      "page": "https://notion.so/",
+      "evidence": "LLM assessment: The content contains some definitional statements about Notion's features, but these are marketing-oriented rather than informational. Phrases like 'Q&A agents Answers questions instantly using knowledge you already have' and 'Enterprise Search One search for everything' provide basic feature descriptions, but lack substantive explanations of how these work, what problems they solve in detail, or comparative context. The content prioritizes persuasive language over educational clarity, making it difficult for AI systems to extract definitive answers to user questions. Example from your content: \"'Q&A agents Answers questions instantly using knowledge you already have' \u2014 states what it does but not how it works, what formats it supports, or limitations\"",
+      "should_be": "Direct Answers should score 70+ for good AI search visibility.",
+      "fix": "Add clear, direct answer paragraphs at the top of your content. Format: '[Topic] is [definition/explanation].' \u2014 one or two sentences that directly answer the most likely question a person would ask.\n\nExample: 'Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.'\n\nAI's specific suggestion: Add a comprehensive 'What is Notion?' section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.",
+      "impact": 52,
+      "effort": 20,
+      "priority": 41.6
+    },
+    {
+      "id": "answerability-citation_quality",
+      "title": "Content scores low on Citation Quality (10/100)",
+      "pillar": "answerability",
+      "severity": "critical",
+      "page": "https://notion.so/",
+      "evidence": "LLM assessment: The content contains virtually no source citations. The G2 rankings are mentioned without links to the actual reports or methodology. The customer quotes are unattributed (no names, titles, or companies). The '3x' efficiency claim has no supporting evidence. No external links to research, case studies, or methodology documents are present. This makes the content unsuitable for AI systems that prioritize verifiable claims. Example from your content: \"'Trusted by 98% of the Forbes Cloud 100' \u2014 no link to Forbes list, date, or methodology for this percentage\"",
+      "should_be": "Citation Quality should score 70+ for good AI search visibility.",
+      "fix": "Cite your sources. Use phrases like 'according to [study]', 'research from [organization] shows', or link to primary sources. AI engines prefer content that itself cites evidence.\n\nAI's specific suggestion: Add a comprehensive 'What is Notion?' section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.",
+      "impact": 72,
+      "effort": 30,
+      "priority": 50.4
+    },
+    {
+      "id": "answerability-structure_clarity",
+      "title": "Content scores low on Structure Clarity (45/100)",
+      "pillar": "answerability",
+      "severity": "warning",
+      "page": "https://notion.so/",
+      "evidence": "LLM assessment: The content has 11 H2 headings indicating attempted organization, but the structure is fragmented and repetitive. The same content blocks appear multiple times (the statistics carousel repeats three times). Feature descriptions are brief and scattered rather than grouped logically. There is no clear hierarchy between product categories (Agents, Search, Notes) and supporting evidence. The page reads as a collection of marketing modules rather than a coherent information architecture. Example from your content: \"The statistics block 'Over 100M users worldwide #1 knowledge base...' appears three times identically, suggesting poor content deduplication\"",
+      "should_be": "Structure Clarity should score 70+ for good AI search visibility.",
+      "fix": "Structure your content with clear headings (H2, H3), short paragraphs, and logical sections. Use bullet points for lists. Each section should answer one question or cover one topic.\n\nAI's specific suggestion: Add a comprehensive 'What is Notion?' section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.",
+      "impact": 44,
+      "effort": 25,
+      "priority": 33.0
+    },
+    {
+      "id": "answerability-conversational_match",
+      "title": "Content scores low on Conversational Match (40/100)",
+      "pillar": "answerability",
+      "severity": "warning",
+      "page": "https://notion.so/",
+      "evidence": "LLM assessment: Some headings use imperative and question-like formats ('Ask your on-demand assistants,' 'Keep work moving 24/7'), but these are marketing slogans rather than natural query matches. The content does not anticipate specific user questions like 'What is Notion used for?' or 'How does Notion AI compare to other tools?' The language is brand-centric ('Notion Agent,' 'Custom Agents') rather than problem-centric. No FAQ section or 'People also ask' style content is present. Example from your content: \"'Ask your on-demand assistants' \u2014 mimics a user action but doesn't match how users actually phrase search queries about AI assistants\"",
+      "should_be": "Conversational Match should score 70+ for good AI search visibility.",
+      "fix": "Write in the language your audience actually uses to ask questions. Instead of 'Our platform provides enterprise-grade solutions', write 'Our platform helps large teams manage projects.' Use natural, conversational phrasing.\n\nAI's specific suggestion: Add a comprehensive 'What is Notion?' section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.",
+      "impact": 48,
+      "effort": 35,
+      "priority": 31.2
+    },
+    {
+      "id": "answerability-top-suggestion",
+      "title": "AI's #1 recommendation for your content",
+      "pillar": "answerability",
+      "severity": "info",
+      "page": "https://notion.so/",
+      "evidence": "Overall assessment: This homepage performs poorly for AI search answerability due to its marketing-first approach. While it contains some statistics and feature descriptions, the lack of source citations, repetitive structure, and absence of substantive explanatory content make it unlikely to be selected as a citation source. AI systems would struggle to extract reliable, verifiable information from this page.",
+      "should_be": "Add a comprehensive 'What is Notion?' section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.",
+      "fix": "Add a comprehensive 'What is Notion?' section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.",
+      "impact": 60,
+      "effort": 40,
+      "priority": 36.0
+    },
+    {
+      "id": "no-jsonld",
+      "title": "No structured data (schema.org JSON-LD) on homepage",
+      "pillar": "structure",
+      "severity": "critical",
+      "page": "https://notion.so/",
+      "evidence": "No <script type='application/ld+json'> tags were found in the page HTML.",
+      "should_be": "At minimum, Organization and WebSite schema should be present.",
+      "fix": "Add this to your homepage <head> (replace the placeholders):\n\n<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Organization\",\n  \"name\": \"Your Business Name\",\n  \"url\": \"https://yoursite.com\",\n  \"logo\": \"https://yoursite.com/logo.png\",\n  \"description\": \"One sentence describing what your business does.\",\n  \"sameAs\": [\n    \"https://twitter.com/yourhandle\",\n    \"https://www.linkedin.com/company/yourcompany\",\n    \"https://www.crunchbase.com/organization/yourcompany\"\n  ]\n}\n</script>\n\nTip: if you use WordPress, plugins like Yoast SEO or RankMath can generate this automatically. If you use Webflow, it's under Page Settings > Schema Markup.",
+      "impact": 80,
+      "effort": 20,
+      "priority": 64.0
+    },
+    {
+      "id": "canonical-mismatch",
+      "title": "Canonical URL points to a different domain",
+      "pillar": "structure",
+      "severity": "warning",
+      "page": "https://notion.so/",
+      "evidence": "Canonical tag points to \"https://www.notion.com/\" but the page is served from a different domain. This tells search engines the \"real\" version lives elsewhere.",
+      "should_be": "Canonical should point to the page's own URL (self-referencing).",
+      "fix": "Change the canonical to point to this page's own URL:\n\n<link rel=\"canonical\" href=\"https://notion.so/\">",
+      "impact": 50,
+      "effort": 5,
+      "priority": 47.5
+    },
+    {
+      "id": "brand-good-recall",
+      "title": "AI knows 'Notion' \u2014 mentioned in 3/3 queries",
+      "pillar": "brand_recall",
+      "severity": "positive",
+      "page": "https://notion.so/",
+      "evidence": "The AI model mentioned 'Notion' in 3 of 3 test queries.  \u2022 \"What are the best task management platforms for bu...\" \u2192 #8 mentioned: \"**Notion** \u2013 Combines tasks, docs, and databases; highly flexible but requires more setup\"  \u2022 \"What are the top task management companies or tool...\" \u2192 #4 mentioned: \"- **Notion** \u2013 flexible workspace combining docs, databases, and tasks\"  \u2022 \"Can you compare the top task management platforms ...\" \u2192 #3 mentioned: \"**Notion**\"",
+      "should_be": "",
+      "fix": "",
+      "impact": 0,
+      "effort": 0,
+      "priority": 0.0
+    },
+    {
+      "id": "critical-positioning-mismatch",
+      "title": "Critical AI positioning mismatch for 'Notion'",
+      "pillar": "source_presence",
+      "severity": "critical",
+      "page": "https://notion.so/",
+      "evidence": "The AI describes your business differently from how you position yourself: [CRITICAL] features: You say 'AI-first platform with Custom Agents, Q&A agents, task routi' vs AI says 'Flexible workspace combining docs, databases, and tasks; 'hi' | [MODERATE] category: You say 'AI-native workspace platform with autonomous agents; 'one hu' vs AI says 'Task management platform / project management tool in a list' | [MODERATE] tone: You say 'Revolutionary, transformative, competitive advantage\u2014emphasi' vs AI says 'Neutral, utilitarian, cautionary ('requires more setup')\u2014fra' | [MODERATE] audience: You say 'Enterprise-focused with Fortune 100, Forbes Cloud 100, YC co' vs AI says 'General business teams, compared alongside Trello and Todois' | [MINOR] price: You say ''Get Notion free' prominent but immediately paired with ente' vs AI says 'Implicitly grouped with free/low-cost alternatives; no enter'",
+      "should_be": "The AI should describe you using your own positioning language.",
+      "fix": "The AI describes your business differently than you intend. Fix this:\n\u2022 [features] You say: 'AI-first platform with Custom Agents, Q&A agents, task routing agents, reporting'. AI says: 'Flexible workspace combining docs, databases, and tasks; 'highly flexible but re'. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.\n\u2022 [category] You say: 'AI-native workspace platform with autonomous agents; 'one hub for work and AI''. AI says: 'Task management platform / project management tool in a list of competitors'. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.\n\u2022 [tone] You say: 'Revolutionary, transformative, competitive advantage\u2014emphasizes automation, spee'. AI says: 'Neutral, utilitarian, cautionary ('requires more setup')\u2014framed as DIY/technical'. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.\n\u2022 [audience] You say: 'Enterprise-focused with Fortune 100, Forbes Cloud 100, YC companies; 'Request a '. AI says: 'General business teams, compared alongside Trello and Todoist for 'simplicity' s'. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.\n\u2022 [price] You say: ''Get Notion free' prominent but immediately paired with enterprise demo request;'. AI says: 'Implicitly grouped with free/low-cost alternatives; no enterprise framing'. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.\n",
+      "impact": 80,
+      "effort": 50,
+      "priority": 40.0
+    },
+    {
+      "id": "high-share-of-voice",
+      "title": "'Notion' dominates share of voice (100%)",
+      "pillar": "source_presence",
+      "severity": "positive",
+      "page": "",
+      "evidence": "Target 'Notion': 3 mentions (100% share of voice)",
+      "should_be": "",
+      "fix": "",
+      "impact": 0,
+      "effort": 0,
+      "priority": 0.0
+    }
+  ],
+  "action_plan": [
+    {
+      "id": "no-jsonld",
+      "title": "No structured data (schema.org JSON-LD) on homepage",
+      "severity": "critical",
+      "impact": 80,
+      "effort": 20,
+      "priority": 64.0,
+      "fix": "Add this to your homepage <head> (replace the placeholders):\n\n<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Organization\",\n  \"name\": \"Your Business Name\",\n  \"url\": \"https://yoursite.com\",\n  \"logo\": \"https://yoursite.com/logo.png\",\n  \"description\": \"One sentence describing what your business does.\",\n  \"sameAs\": [\n    \"https://twitter.com/yourhandle\",\n    \"https://www.linkedin.com/company/yourcompany\",\n    \"https://www.crunchbase.com/organization/yourcompany\"\n  ]\n}\n</script>\n\nTip: if you use WordPress, plugins like Yoast SEO or RankMath can generate this automatically. If you use Webflow, it's under Page Settings > Schema Markup."
+    },
+    {
+      "id": "answerability-citation_quality",
+      "title": "Content scores low on Citation Quality (10/100)",
+      "severity": "critical",
+      "impact": 72,
+      "effort": 30,
+      "priority": 50.4,
+      "fix": "Cite your sources. Use phrases like 'according to [study]', 'research from [organization] shows', or link to primary sources. AI engines prefer content that itself cites evidence.\n\nAI's specific suggestion: Add a comprehensive 'What is Notion?' section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers."
+    },
+    {
+      "id": "canonical-mismatch",
+      "title": "Canonical URL points to a different domain",
+      "severity": "warning",
+      "impact": 50,
+      "effort": 5,
+      "priority": 47.5,
+      "fix": "Change the canonical to point to this page's own URL:\n\n<link rel=\"canonical\" href=\"https://notion.so/\">"
+    },
+    {
+      "id": "signal-no-faq",
+      "title": "No FAQ structured data",
+      "severity": "warning",
+      "impact": 60,
+      "effort": 25,
+      "priority": 45.0,
+      "fix": "Add FAQ schema to key pages. Example:\n\n<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": [{\n    \"@type\": \"Question\",\n    \"name\": \"What does your business do?\",\n    \"acceptedAnswer\": {\n      \"@type\": \"Answer\",\n      \"text\": \"Clear, concise answer here.\"\n    }\n  }]\n}\n</script>"
+    },
+    {
+      "id": "answerability-direct_answers",
+      "title": "Content scores low on Direct Answers (35/100)",
+      "severity": "warning",
+      "impact": 52,
+      "effort": 20,
+      "priority": 41.6,
+      "fix": "Add clear, direct answer paragraphs at the top of your content. Format: '[Topic] is [definition/explanation].' \u2014 one or two sentences that directly answer the most likely question a person would ask.\n\nExample: 'Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.'\n\nAI's specific suggestion: Add a comprehensive 'What is Notion?' section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers."
+    },
+    {
+      "id": "critical-positioning-mismatch",
+      "title": "Critical AI positioning mismatch for 'Notion'",
+      "severity": "critical",
+      "impact": 80,
+      "effort": 50,
+      "priority": 40.0,
+      "fix": "The AI describes your business differently than you intend. Fix this:\n\u2022 [features] You say: 'AI-first platform with Custom Agents, Q&A agents, task routing agents, reporting'. AI says: 'Flexible workspace combining docs, databases, and tasks; 'highly flexible but re'. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.\n\u2022 [category] You say: 'AI-native workspace platform with autonomous agents; 'one hub for work and AI''. AI says: 'Task management platform / project management tool in a list of competitors'. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.\n\u2022 [tone] You say: 'Revolutionary, transformative, competitive advantage\u2014emphasizes automation, spee'. AI says: 'Neutral, utilitarian, cautionary ('requires more setup')\u2014framed as DIY/technical'. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.\n\u2022 [audience] You say: 'Enterprise-focused with Fortune 100, Forbes Cloud 100, YC companies; 'Request a '. AI says: 'General business teams, compared alongside Trello and Todoist for 'simplicity' s'. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.\n\u2022 [price] You say: ''Get Notion free' prominent but immediately paired with enterprise demo request;'. AI says: 'Implicitly grouped with free/low-cost alternatives; no enterprise framing'. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.\n"
+    },
+    {
+      "id": "answerability-top-suggestion",
+      "title": "AI's #1 recommendation for your content",
+      "severity": "info",
+      "impact": 60,
+      "effort": 40,
+      "priority": 36.0,
+      "fix": "Add a comprehensive 'What is Notion?' section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers."
+    },
+    {
+      "id": "answerability-structure_clarity",
+      "title": "Content scores low on Structure Clarity (45/100)",
+      "severity": "warning",
+      "impact": 44,
+      "effort": 25,
+      "priority": 33.0,
+      "fix": "Structure your content with clear headings (H2, H3), short paragraphs, and logical sections. Use bullet points for lists. Each section should answer one question or cover one topic.\n\nAI's specific suggestion: Add a comprehensive 'What is Notion?' section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers."
+    },
+    {
+      "id": "answerability-conversational_match",
+      "title": "Content scores low on Conversational Match (40/100)",
+      "severity": "warning",
+      "impact": 48,
+      "effort": 35,
+      "priority": 31.2,
+      "fix": "Write in the language your audience actually uses to ask questions. Instead of 'Our platform provides enterprise-grade solutions', write 'Our platform helps large teams manage projects.' Use natural, conversational phrasing.\n\nAI's specific suggestion: Add a comprehensive 'What is Notion?' section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers."
+    },
+    {
+      "id": "signal-no-citations",
+      "title": "No source citations detected",
+      "severity": "info",
+      "impact": 35,
+      "effort": 30,
+      "priority": 24.5,
+      "fix": "When you make a claim or cite a statistic, link to or name the source. E.g., 'According to a 2024 Gartner study...'"
+    }
+  ],
+  "llm_judge_data": {
+    "direct_answers": {
+      "score": 35,
+      "reasoning": "The content contains some definitional statements about Notion's features, but these are marketing-oriented rather than informational. Phrases like 'Q&A agents Answers questions instantly using knowledge you already have' and 'Enterprise Search One search for everything' provide basic feature descriptions, but lack substantive explanations of how these work, what problems they solve in detail, or comparative context. The content prioritizes persuasive language over educational clarity, making it difficult for AI systems to extract definitive answers to user questions.",
+      "example": "'Q&A agents Answers questions instantly using knowledge you already have' \u2014 states what it does but not how it works, what formats it supports, or limitations"
+    },
+    "statistical_richness": {
+      "score": 55,
+      "reasoning": "The page contains 8 statistics, which is moderately high, but they are repetitive and lack context. The stats 'Over 100M users worldwide,' '62% of Fortune 100,' and 'Over 50% of YC companies' appear multiple times in what seems to be a carousel, artificially inflating the count. The G2 rankings ('#1 knowledge base 3 years running') are valuable third-party validation, but no methodology or date is provided. The '3x' timeline reduction claim lacks supporting evidence or source attribution.",
+      "example": "'Streamlined workflows to reduce timelines by 3x' \u2014 no baseline, methodology, or source cited"
+    },
+    "citation_quality": {
+      "score": 10,
+      "reasoning": "The content contains virtually no source citations. The G2 rankings are mentioned without links to the actual reports or methodology. The customer quotes are unattributed (no names, titles, or companies). The '3x' efficiency claim has no supporting evidence. No external links to research, case studies, or methodology documents are present. This makes the content unsuitable for AI systems that prioritize verifiable claims.",
+      "example": "'Trusted by 98% of the Forbes Cloud 100' \u2014 no link to Forbes list, date, or methodology for this percentage"
+    },
+    "structure_clarity": {
+      "score": 45,
+      "reasoning": "The content has 11 H2 headings indicating attempted organization, but the structure is fragmented and repetitive. The same content blocks appear multiple times (the statistics carousel repeats three times). Feature descriptions are brief and scattered rather than grouped logically. There is no clear hierarchy between product categories (Agents, Search, Notes) and supporting evidence. The page reads as a collection of marketing modules rather than a coherent information architecture.",
+      "example": "The statistics block 'Over 100M users worldwide #1 knowledge base...' appears three times identically, suggesting poor content deduplication"
+    },
+    "conversational_match": {
+      "score": 40,
+      "reasoning": "Some headings use imperative and question-like formats ('Ask your on-demand assistants,' 'Keep work moving 24/7'), but these are marketing slogans rather than natural query matches. The content does not anticipate specific user questions like 'What is Notion used for?' or 'How does Notion AI compare to other tools?' The language is brand-centric ('Notion Agent,' 'Custom Agents') rather than problem-centric. No FAQ section or 'People also ask' style content is present.",
+      "example": "'Ask your on-demand assistants' \u2014 mimics a user action but doesn't match how users actually phrase search queries about AI assistants"
+    },
+    "overall_assessment": "This homepage performs poorly for AI search answerability due to its marketing-first approach. While it contains some statistics and feature descriptions, the lack of source citations, repetitive structure, and absence of substantive explanatory content make it unlikely to be selected as a citation source. AI systems would struggle to extract reliable, verifiable information from this page.",
+    "top_suggestion": "Add a comprehensive 'What is Notion?' section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.",
+    "brand_recall": {
+      "brand_name": "Notion",
+      "brand_aliases": [
+        "notion",
+        "notion.so",
+        "notion"
+      ],
+      "category": "task management",
+      "competitors": [],
+      "queries": [
+        {
+          "query": "What are the best task management platforms for businesses?",
+          "type": "category_unprompted",
+          "description": "When asked about task management, does the AI mention Notion?"
+        },
+        {
+          "query": "What are the top task management companies or tools?",
+          "type": "category_unprompted",
+          "description": "When asked about top task management tools, does the AI mention Notion?"
+        },
+        {
+          "query": "Can you compare the top task management platforms and their key features?",
+          "type": "comparison",
+          "description": "In a task management comparison, does the AI mention Notion?"
+        }
+      ],
+      "query_results": [
+        {
+          "query": "What are the best task management platforms for businesses?",
+          "type": "category_unprompted",
+          "description": "When asked about task management, does the AI mention Notion?",
+          "response": "Based on my knowledge, here are some of the best task management platforms for businesses, organized by use case:\n\n**For comprehensive project and task management:**\n- **Asana** \u2013 Excellent for team collaboration, multiple project views (list, board, timeline), and workflow automation\n- **Monday.com** \u2013 Highly visual, customizable, and scales well from small teams to enterprise\n- **ClickUp** \u2013 All-in-one platform with docs, goals, and extensive customization options\n\n**For agile and development teams:**\n- **Jira** \u2013 The standard for software development, with powerful sprint planning and issue tracking\n- **Linear** \u2013 Modern, fast alternative to Jira with a cleaner interface\n\n**For simplicity and ease of use:**\n- **Trello** \u2013 Kanban-style boards, great for smaller teams or straightforward workflows\n- **Todoist Business** \u2013 Clean task management with natural language input\n\n**For integrated workspace solutions:**\n- **Notion** \u2013 Combines tasks, docs, and databases; highly flexible but requires more setup\n- **Microsoft Planner / To Do** \u2013 Best for organizations already in the Microsoft ecosystem\n- **Google Tasks / Workspace** \u2013 Lightweight option for Google-centric teams\n\n**For enterprise-scale needs:**\n- **Smartsheet** \u2013 Spreadsheet-like interface with robust reporting and governance\n- **Wrike** \u2013 Strong for marketing teams and agencies with proofing and resource management\n\nThe best choice depends on your team size, workflow complexity, and whether you need integrated documentation, time tracking, or client collaboration features.",
+          "response_length": 1554,
+          "search_enabled": true,
+          "model_used": "drytis/kimi-k2.5",
+          "mention": {
+            "mentioned": true,
+            "how_mentioned": "Listed as a bullet point under 'For integrated workspace solutions' category, described as combining tasks, docs, and databases",
+            "exact_sentence": "**Notion** \u2013 Combines tasks, docs, and databases; highly flexible but requires more setup",
+            "context": "neutral",
+            "citation_rank": 8,
+            "position": "third_quarter"
+          },
+          "selection_rate": {
+            "selection_rate": 0.0,
+            "shared_phrase_count": 0,
+            "total_phrase_count": 423,
+            "top_shared_phrases": [],
+            "target_word_count": 399,
+            "response_word_count": 221
+          }
+        },
+        {
+          "query": "What are the top task management companies or tools?",
+          "type": "category_unprompted",
+          "description": "When asked about top task management tools, does the AI mention Notion?",
+          "response": "Here are some of the top task management companies and tools, organized by category:\n\n**All-in-one project & task management**\n- **Asana** \u2013 popular for teams, strong visual project views\n- **Monday.com** \u2013 highly customizable workflows, good for cross-functional teams\n- **ClickUp** \u2013 feature-rich, tries to replace multiple tools\n- **Notion** \u2013 flexible workspace combining docs, databases, and tasks\n- **Wrike** \u2013 enterprise-focused with robust reporting\n\n**Simpler, leaner options**\n- **Todoist** \u2013 clean personal and small-team task management\n- **TickTick** \u2013 similar to Todoist with built-in calendar and habits\n- **Microsoft To Do** \u2013 free, integrates well with Microsoft 365\n- **Google Tasks** \u2013 basic, deeply integrated with Gmail/Calendar\n\n**Developer/technical teams**\n- **Jira** (Atlassian) \u2013 industry standard for software teams\n- **Linear** \u2013 newer, faster alternative gaining popularity with startups\n- **GitHub Projects** \u2013 tightly integrated with code repositories\n\n**Visual/kanban-focused**\n- **Trello** (Atlassian) \u2013 simple card-based system, easy to adopt\n- **MeisterTask** \u2013 mind-mapping roots, intuitive kanban\n\n**Emerging/AI-enhanced**\n- **Motion** \u2013 auto-schedules tasks into your calendar using AI\n- **Sunsama** \u2013 daily planning ritual with time-blocking\n- **Reclaim.ai** \u2013 smart scheduling for busy professionals\n\nThe best choice really depends on team size, workflow complexity, and whether you need deep project management or just straightforward task tracking.",
+          "response_length": 1490,
+          "search_enabled": true,
+          "model_used": "drytis/kimi-k2.5",
+          "mention": {
+            "mentioned": true,
+            "how_mentioned": "Listed as a bullet point under 'All-in-one project & task management' category with description of its features",
+            "exact_sentence": "- **Notion** \u2013 flexible workspace combining docs, databases, and tasks",
+            "context": "neutral",
+            "citation_rank": 4,
+            "position": "first_quarter"
+          },
+          "selection_rate": {
+            "selection_rate": 0.0,
+            "shared_phrase_count": 0,
+            "total_phrase_count": 447,
+            "top_shared_phrases": [],
+            "target_word_count": 399,
+            "response_word_count": 205
+          }
+        },
+        {
+          "query": "Can you compare the top task management platforms and their key features?",
+          "type": "comparison",
+          "description": "In a task management comparison, does the AI mention Notion?",
+          "response": "Here's a comparison of the leading task management platforms and what distinguishes each:\n\n**Asana**\n- Best for: Teams wanting visual project organization\n- Standout features: Timeline view (Gantt), workload management, custom fields, extensive integrations (200+), goal tracking\n- Structure: Projects \u2192 Tasks \u2192 Subtasks with multiple view options (list, board, calendar, timeline)\n\n**Monday.com**\n- Best for: Customizable workflows and visual dashboards\n- Standout features: Highly visual color-coded boards, automations, time tracking, built-in docs, extensive template library\n- Structure: Work OS approach with building blocks you configure\n\n**Notion**\n- Best for: All-in-one workspace combining notes, docs, and tasks\n- Standout features: Flexible databases, wiki-style documentation, AI assistant, relational databases, highly customizable\n- Trade-off: More setup required; steeper learning curve\n\n**ClickUp**\n- Best for: Feature-heavy users wanting everything in one place\n- Standout features: Docs, whiteboards, email, chat, goals, time tracking \u2014 extremely comprehensive\n- Trade-off: Can feel overwhelming; performance issues reported with heavy use\n\n**Trello**\n- Best for: Simple Kanban-style task management\n- Standout features: Intuitive card-based interface, power-ups for added functionality, Butler automation\n- Trade-off: Less robust for complex project management\n\n**Todoist**\n- Best for: Personal productivity and simple team collaboration\n- Standout features: Natural language input, karma productivity scoring, quick capture, cross-platform reliability\n- Trade-off: Lighter on project management features\n\n**Microsoft Project / Planner**\n- Best for: Enterprises already in Microsoft ecosystem\n- Standout features: Deep Office 365 integration, resource management, portfolio management\n\n**What to consider when choosing:**\n- Team size and technical comfort\n- Need for documentation/wiki features\n- Budget (most have free tiers; paid typically $8-15/user/month)\n- Integration requir",
+          "response_length": 2088,
+          "search_enabled": true,
+          "model_used": "drytis/kimi-k2.5",
+          "mention": {
+            "mentioned": true,
+            "how_mentioned": "Listed as one of the leading task management platforms with dedicated section describing its features, use case, and trade-offs",
+            "exact_sentence": "**Notion**",
+            "context": "neutral",
+            "citation_rank": 3,
+            "position": "second_quarter"
+          },
+          "selection_rate": {
+            "selection_rate": 0.0,
+            "shared_phrase_count": 0,
+            "total_phrase_count": 639,
+            "top_shared_phrases": [],
+            "target_word_count": 399,
+            "response_word_count": 275
+          }
+        }
+      ],
+      "mention_count": 3,
+      "total_queries": 3
+    },
+    "source_presence": {
+      "brand_name": "Notion",
+      "domain": "notion.so",
+      "competitors": [],
+      "category": "task management",
+      "platform_coverage": {
+        "platform_results": [
+          {
+            "platform": "wikipedia",
+            "display_name": "Wikipedia",
+            "searched_by": "Gemini, Google AI Overviews",
+            "found": false,
+            "evidence": "No Wikipedia page found"
+          },
+          {
+            "platform": "reddit",
+            "display_name": "Reddit",
+            "searched_by": "Gemini, Google AI Overviews",
+            "found": false,
+            "evidence": "Reddit API blocked (403)"
+          },
+          {
+            "platform": "crunchbase",
+            "display_name": "Crunchbase",
+            "searched_by": "ChatGPT, Perplexity",
+            "found": false,
+            "evidence": "No Crunchbase profile (HTTP 403)"
+          },
+          {
+            "platform": "g2",
+            "display_name": "G2 (reviews)",
+            "searched_by": "ChatGPT, Perplexity",
+            "found": false,
+            "evidence": "G2 blocked (403)"
+          },
+          {
+            "platform": "youtube",
+            "display_name": "YouTube",
+            "searched_by": "Gemini",
+            "found": true,
+            "evidence": "YouTube channel: youtube.com/@notion"
+          },
+          {
+            "platform": "github",
+            "display_name": "GitHub",
+            "searched_by": "ChatGPT, Perplexity, Claude",
+            "found": true,
+            "evidence": "GitHub org: github.com/notion"
+          },
+          {
+            "platform": "linkedin",
+            "display_name": "LinkedIn",
+            "searched_by": "ChatGPT, Perplexity, Google AI Overviews",
+            "found": true,
+            "evidence": "LinkedIn: linkedin.com/company/notion"
+          }
+        ],
+        "found_count": 3
+      },
+      "competitive_gap": {
+        "competitor_results": {},
+        "gap_count": 0
+      },
+      "positioning_accuracy": {
+        "accuracy_score": 72,
+        "mismatches": [
+          {
+            "category": "features",
+            "self_description": "AI-first platform with Custom Agents, Q&A agents, task routing agents, reporting agents, Enterprise Search, AI Meeting Notes\u2014positioned as 'where teams and agents Think together'",
+            "ai_description": "Flexible workspace combining docs, databases, and tasks; 'highly flexible but requires more setup'",
+            "severity": "critical"
+          },
+          {
+            "category": "category",
+            "self_description": "AI-native workspace platform with autonomous agents; 'one hub for work and AI'",
+            "ai_description": "Task management platform / project management tool in a list of competitors",
+            "severity": "moderate"
+          },
+          {
+            "category": "tone",
+            "self_description": "Revolutionary, transformative, competitive advantage\u2014emphasizes automation, speed (3x reduction), and AI-native capabilities",
+            "ai_description": "Neutral, utilitarian, cautionary ('requires more setup')\u2014framed as DIY/technical tool",
+            "severity": "moderate"
+          },
+          {
+            "category": "audience",
+            "self_description": "Enterprise-focused with Fortune 100, Forbes Cloud 100, YC companies; 'Request a demo' suggests sales-led motion",
+            "ai_description": "General business teams, compared alongside Trello and Todoist for 'simplicity' seekers",
+            "severity": "moderate"
+          },
+          {
+            "category": "price",
+            "self_description": "'Get Notion free' prominent but immediately paired with enterprise demo request; 62% Fortune 100 usage signals premium positioning",
+            "ai_description": "Implicitly grouped with free/low-cost alternatives; no enterprise framing",
+            "severity": "minor"
+          }
+        ],
+        "summary": "The AI description fundamentally mispositions Notion as a manual, setup-heavy productivity tool rather than an AI-native platform with autonomous agents, missing the company's strategic pivot to 'teams and agents thinking together' and understating its enterprise momentum."
+      },
+      "share_of_voice": {
+        "target_mentions": 3,
+        "competitor_mentions": {},
+        "target_sov": 1.0,
+        "per_query_analysis": [
+          {
+            "query": "What are the best task management platforms for businesses?",
+            "analysis": {
+              "brands": [
+                {
+                  "name": "Notion",
+                  "mentioned": true,
+                  "favorability": "positive",
+                  "citation_rank": 8,
+                  "context": "Listed under 'integrated workspace solutions' as combining tasks, docs, and databases; described as 'highly flexible' with the caveat that it 'requires more setup'"
+                }
+              ]
+            }
+          },
+          {
+            "query": "What are the top task management companies or tools?",
+            "analysis": {
+              "brands": [
+                {
+                  "name": "Notion",
+                  "mentioned": true,
+                  "favorability": "positive",
+                  "citation_rank": 4,
+                  "context": "Listed as an all-in-one project & task management tool, described as 'flexible workspace combining docs, databases, and tasks'"
+                }
+              ]
+            }
+          },
+          {
+            "query": "Can you compare the top task management platforms and their key features?",
+            "analysis": {
+              "brands": [
+                {
+                  "name": "Notion",
+                  "mentioned": true,
+                  "favorability": "positive",
+                  "citation_rank": 3,
+                  "context": "Described as best for all-in-one workspace combining notes, docs, and tasks; praised for flexible databases, wiki-style documentation, AI assistant, and high customizability; only minor negative noted is steeper learning curve requiring more setup"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "vector_search": {
+        "similarity_score": 0,
+        "will_be_retrieved": "unknown",
+        "query_similarities": [],
+        "detail": "Embeddings not available on this gateway \u2014 cannot measure vector search inclusion.",
+        "method": "embedding"
+      }
+    }
+  }
+}

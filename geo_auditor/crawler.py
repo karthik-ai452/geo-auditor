@@ -56,6 +56,43 @@ def normalize_url(raw: str) -> str:
     return f"{parsed.scheme}://{parsed.netloc}{path}"
 
 
+def _is_private_ip(hostname: str) -> bool:
+    """Block internal, private, and link-local IP ranges (SSRF guard)."""
+    import ipaddress
+
+    try:
+        ip = ipaddress.ip_address(hostname)
+    except ValueError:
+        if hostname in ("localhost", "0.0.0.0", "::1", "::"):
+            return True
+        return False
+    return (
+        ip.is_private
+        or ip.is_loopback
+        or ip.is_link_local
+        or ip.is_multicast
+        or ip.is_reserved
+        or ip.is_unspecified
+    )
+
+
+def assert_public_url(url: str) -> None:
+    """Reject non-public URLs to prevent SSRF attacks.
+
+    Blocks: private IPs, localhost, loopback, link-local, cloud metadata (169.254.x.x).
+    Raises ValueError if the URL points to a non-public address.
+    """
+    parsed = urlparse(url)
+    hostname = parsed.hostname or ""
+    if not hostname:
+        raise ValueError(f"Invalid URL: no hostname in '{url}'")
+    if _is_private_ip(hostname):
+        raise ValueError(
+            f"URL rejected for security: '{hostname}' is not a public address. "
+            f"Private/internal IPs and localhost are blocked."
+        )
+
+
 def get_base_url(url: str) -> str:
     """Return the scheme + host (root)."""
     parsed = urlparse(url)
@@ -351,6 +388,7 @@ async def crawl_site(url: str, max_pages: int = MAX_PAGES) -> CrawlResult:
     Returns a CrawlResult with all data the analyzers need.
     """
     url = normalize_url(url)
+    assert_public_url(url)  # SSRF guard — block private/internal addresses
     base_url = get_base_url(url)
     result = CrawlResult(base_url=base_url)
 

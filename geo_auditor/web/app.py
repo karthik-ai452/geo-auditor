@@ -120,6 +120,15 @@ async def index(request: Request):
       <li><strong>Content Answerability</strong> — Does your content answer questions AI engines extract and cite?</li>
       <li><strong>Structured Data</strong> — Can machines parse your site's schema.org data?</li>
       <li><strong>AI Brand Recall</strong> — When AI engines answer questions about your industry, do they mention you?</li>
+      <li><strong>AI Visibility & Competitive Intelligence</strong> — The core pillar. Checks 5 things:
+        <ul style="margin-top: 4px; font-size: 13px; color: #94a3b8;">
+          <li>Are you on the 7 platforms AI engines search first?</li>
+          <li>Do competitors have platform coverage you don't?</li>
+          <li>Does the AI describe you correctly (positioning accuracy)?</li>
+          <li>Does the AI mention you more or less than competitors (share of voice)?</li>
+          <li>Will AI vector/semantic search retrieve your content?</li>
+        </ul>
+      </li>
     </ul>
   </div>
 </div>

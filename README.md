@@ -57,7 +57,7 @@ GEO (Generative Engine Optimization) is a new field (~2 years old). Nobody has a
 
 **Why this matters:** The GEO research benchmark (Aggarwal et al., 2023) showed that specific content-level strategies lift citation rates by 30-40% (adding statistics, citing sources, writing direct answers).
 
-#### Pillar 3: Structured Data & Machine-Readability (20%) — *Can machines parse and understand your content?*
+#### Pillar 3: Structured Data & Machine-Readability (15%) — *Can machines parse and understand your content?*
 
 **What it checks:**
 - `schema.org` JSON-LD validity and type coverage
@@ -65,7 +65,7 @@ GEO (Generative Engine Optimization) is a new field (~2 years old). Nobody has a
 - Semantic HTML structure (H1, H2, paragraphs, word count)
 - Open Graph tags, canonical URLs
 
-#### Pillar 4: AI Brand Recall (35%) — *Do AI engines actually know and mention your business?*
+#### Pillar 4: AI Brand Recall (25%) — *Do AI engines actually know and mention your business?*
 
 **What it checks:**
 The previous three pillars check *preconditions* — can bots reach you, is your content answerable, is your data parseable. This pillar checks the *outcome*: we send real questions to an AI model and measure whether it actually mentions the target business.
@@ -79,14 +79,46 @@ We do NOT test training data knowledge (asking "What is [brand]?" to see if the 
 
 **How it works:**
 1. Infer the brand name and industry category from the homepage (title, JSON-LD, content)
-2. Generate 3-4 relevant queries (category, comparison, competitor-anchored)
-3. Send each query to an LLM and capture the full response
-4. Use a second LLM call to check whether the brand is mentioned, how, in what context, and where in the response
+2. Generate 3 relevant queries (2 category, 1 comparison)
+3. Send each query to an LLM with search enabled (`enable_search: true`)
+4. Use a second LLM call to check whether the brand is mentioned, how, in what context, citation rank, exact sentence, and selection rate
 5. Score based on mention rate across query types (category: 55%, comparison: 45%)
 
-**Why this matters and why it's weighted highest (35%):** The other pillars measure *inputs* to AI visibility — "can they reach you" and "does your content look good." This pillar measures the *output* — "do they actually mention you." A business can be perfectly crawlable, have great structured data, and publish answerable content, but if no AI model surfaces it in relevant queries, it won't appear in any AI answer. Brand recall is the closest proxy to "will ChatGPT/Perplexity/Claude mention me when a potential customer asks?"
-
 **Honest limitation:** This tests one LLM's behavior. Different AI engines (ChatGPT, Perplexity, Claude) use different models with different retrieval pipelines, so recall may vary across engines. The score is a directional indicator, not a guarantee of visibility on any specific platform.
+
+#### Pillar 5: AI Visibility & Competitive Intelligence (25%) — *The core pillar. If the AI can't find you, describe you wrong, or your competitor out-covers you — everything else is wasted effort.*
+
+Five sub-checks, each worth 20 points:
+
+**Sub-check 1: Platform Coverage (20 pts)**
+Does your brand exist on the 7 platforms AI engines search first? AI engines deploy sub-agents that search specific source platforms before broadening to the wider web:
+- **Gemini** searches: YouTube, Wikipedia, Reddit, Instagram
+- **ChatGPT** searches: Forbes, big blogs, review sites like G2 and Capterra
+- **Perplexity** searches: top SEO-ranked sites
+
+| Platform | How we check | Used by |
+|----------|-------------|---------|
+| Wikipedia | MediaWiki API search for brand name | Gemini, Google AI Overviews |
+| GitHub | Organization page existence | ChatGPT, Perplexity, Claude |
+| YouTube | Channel page content verification | Gemini |
+| Reddit | JSON search API for brand mentions | Gemini, Google AI Overviews |
+| Crunchbase | Organization profile page | ChatGPT, Perplexity |
+| G2 | Product review page | ChatGPT, Perplexity |
+| LinkedIn | Company page content verification | ChatGPT, Perplexity, Google AI Overviews |
+
+**Sub-check 2: Competitive Coverage Gap (20 pts)**
+Where do competitors have platform presence that you don't? If a competitor is on YouTube and G2 but you're only on G2, they win that surface — the AI will recommend them, not you. We check top 3 competitors across all 7 platforms and build a coverage map showing gaps vs advantages.
+
+**Sub-check 3: AI Positioning Accuracy (20 pts)**
+Does the AI describe you the way you describe yourself? If you sell "premium soaps" but the AI says "affordable soaps," it will recommend you for the wrong queries. We compare your homepage self-description against how the AI describes you in its responses using an LLM-powered mismatch detector (price, audience, category, features, tone).
+
+**Sub-check 4: Share of Voice (20 pts)**
+Across category and comparison queries, does the AI mention you more or less often than competitors? Share of voice = target mentions / total mentions. 50%+ earns full points.
+
+**Sub-check 5: Vector Search Inclusion (20 pts)**
+Will AI vector/semantic search actually retrieve your content? We compute real embedding similarity (OpenAI embeddings API + cosine similarity) between your homepage content and typical category queries. Low similarity means your content won't surface in vector search even if it's crawlable.
+
+**Honest limitations:** Some platforms (Reddit, Crunchbase, G2) block automated requests. When blocked (403), we report "blocked — cannot verify" rather than false negatives. Vector search depends on the embedding model being available on the LLM gateway.
 
 ---
 
@@ -113,7 +145,13 @@ We do NOT test training data knowledge (asking "What is [brand]?" to see if the 
 - ✅ JSON-LD/schema.org extraction — real HTML parsing
 - ✅ Content signal extraction (statistics, definitions, citations) — real regex analysis
 - ✅ LLM content judge — real LLM calls (if `OPENAI_API_KEY` is set)
-- **Brand Recall (Pillar 4)**: real LLM queries and brand mention detection — real AI calls
+- ✅ Brand Recall — real LLM queries with search enabled and brand mention detection
+- ✅ Source Platform Presence — real HTTP requests to 7 platforms (Wikipedia, GitHub, YouTube, Reddit, Crunchbase, G2, LinkedIn)
+- ✅ Competitive Coverage Gap — real HTTP checks of top 3 competitors across 7 platforms
+- ✅ AI Positioning Accuracy — real LLM analysis comparing self-description vs AI description
+- ✅ Share of Voice — real LLM competitor mention analysis across brand recall query responses
+- ✅ Vector Search Inclusion — real OpenAI embeddings API with cosine similarity computation
+- ✅ SSRF guard — blocks private IPs, localhost, and cloud metadata endpoints
 - ✅ Scoring — real computation, fully transparent
 - ✅ Report generation — real HTML output from real data
 
@@ -148,8 +186,8 @@ Open `http://localhost:8000`, enter a URL, and get an in-browser report.
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `OPENAI_API_KEY` | For Pillar 2 | API key for the LLM judge. Without it, rule-based scoring is used. |
-| `OPENAI_BASE_URL` | For Pillar 2 | Base URL for the OpenAI-compatible gateway. |
+| `OPENAI_API_KEY` | For Pillars 2, 4 & 5 | API key for the LLM judge, brand recall, positioning accuracy, share of voice, and vector search. Without it, rule-based scoring is used and brand recall/vector search score 0. |
+| `OPENAI_BASE_URL` | For Pillars 2, 4 & 5 | Base URL for the OpenAI-compatible gateway. |
 | `APP_HOST` | No (default: 0.0.0.0) | Web app bind host. |
 | `APP_PORT` | No (default: 8000) | Web app bind port. |
 
@@ -160,7 +198,7 @@ pip install pytest
 python -m pytest tests/ -v
 ```
 
-60 tests covering scoring math, robots.txt parsing, sitemap parsing, HTML extraction, analyzer logic, and brand recall.
+88 tests covering scoring math, robots.txt parsing, sitemap parsing, HTML extraction, analyzer logic, brand recall, and all 5 source presence sub-checks (platform coverage, competitive gap, positioning accuracy, share of voice, vector search inclusion).
 
 ---
 
@@ -170,9 +208,9 @@ Three real audit reports are included in `reports/official/`:
 
 | Site | Score | Grade | What it shows |
 |------|-------|-------|---------------|
-| **stripe.com** | 81.1/100 | Strong | Strong across all pillars — 100% brand recall (AI mentions Stripe in category/comparison queries), good structure, crawlable. Weaker content answerability (marketing copy). |
-| **notion.so** | 77.2/100 | Moderate | 100% brand recall and perfect crawlability, but poor structured data and content signals hold it back from Strong. |
-| **example.com** | 10.1/100 | Critical | Fails across all pillars — no robots.txt, no sitemap, no structured data, minimal content, and AI never mentions it in any industry query. |
+| **stripe.com** | 70.0/100 | Moderate | 100% brand recall (AI mentions Stripe in category/comparison queries), good structure, crawlable. Platform coverage 3/7 (GitHub, LinkedIn, YouTube). Share of voice 33% (PayPal and Square also mentioned). Positioning accuracy 72/100. |
+| **notion.so** | 71.4/100 | Moderate | 100% brand recall and perfect crawlability, strong share of voice (100% — dominates). Platform coverage 3/7. Positioning accuracy 72/100. Weaker structured data. |
+| **example.com** | 12.7/100 | Critical | Fails across all pillars — no robots.txt, no sitemap, no structured data, minimal content, 0/3 brand recall, 0/7 platform presence, 0% share of voice. |
 
 These were chosen to demonstrate the tool differentiates between sites with different GEO maturity levels.
 
@@ -180,10 +218,10 @@ These were chosen to demonstrate the tool differentiates between sites with diff
 
 ## How the Score Works
 
-The overall score is a weighted average of four pillars:
+The overall score is a weighted average of five pillars:
 
 ```
-Overall = Crawlability × 0.20 + Answerability × 0.25 + Structure × 0.20 + Brand Recall × 0.35
+Overall = Crawlability × 0.15 + Answerability × 0.20 + Structure × 0.15 + Brand Recall × 0.25 + Source Presence × 0.25
 ```
 
 **Every sub-score shows the exact math.** In the report, expand any pillar to see each component: what it checked, what it found, and how many points it earned out of the maximum. No magic 73/100 — you can trace every point.
@@ -207,7 +245,8 @@ Overall = Crawlability × 0.20 + Answerability × 0.25 + Structure × 0.20 + Bra
 - **jsonschema** — JSON-LD validation
 - **Jinja2** — report template rendering
 - **FastAPI + Uvicorn** — web app
-- **OpenAI-compatible LLM gateway** — content answerability judge
+- **OpenAI-compatible LLM gateway** — content answerability judge, brand recall, positioning accuracy, share of voice, embeddings
+- **ThreadPoolExecutor** — parallel source platform checks
 - **pytest** — unit tests
 
 ---
@@ -222,7 +261,8 @@ URL input
     → Crawlability (robots/sitemap/meta robots)
     → Structure (JSON-LD, semantic HTML, meta tags)
     → Answerability (LLM judge + rule-based signals)
-    → Brand Recall (real LLM brand mention testing)
+    → Brand Recall (real LLM brand mention testing with search enabled)
+    → AI Visibility & Competitive Intelligence (5 sub-checks: platform coverage, competitive gap, positioning accuracy, share of voice, vector search)
   → Scoring engine: findings → pillar scores → overall (math visible)
   → Report renderer: Jinja2 → self-contained HTML
 ```
@@ -255,11 +295,11 @@ URL input
 
 **Why copy-pasteable fixes?** The brief said "don't describe the fix — hand it to them." Every actionable finding includes a ready-to-use fix: the actual robots.txt lines, the actual JSON-LD block, the actual meta tag. A business owner should be able to act without Googling "how to add FAQ schema."
 
-**Why three pillars, not twelve?** The brief said "go deep, not wide. Three checks done properly beat twelve that tick boxes." I chose the three areas that I can defend with research evidence (the GEO benchmark) and real-world impact (bot blocking is the #1 killer).
+**Why five pillars, not twelve?** The brief said "go deep, not wide. Three checks done properly beat twelve that tick boxes." I chose the five areas that I can defend with research evidence (the GEO benchmark), real-world impact (bot blocking is the #1 killer), and the actual AI search mechanism (brand recall tests the outcome, source presence tests where AI looks).
 
 **Why LLM-as-judge instead of pure rules?** The brief said "be able to defend every check." Using an LLM to assess content quality is defensible because it mirrors what AI search engines actually do. Pure regex rules would miss nuance (e.g., "is this answer actually good?" vs. "does it contain a definition pattern?").
 
-**Why weighted 20/25/20/35?** Crawlability is binary-conditional (if you're blocked, nothing else matters, but if you're not, it doesn't differentiate much) — so 20%. Content answerability and structure are important inputs — 25% and 20%. Brand recall is weighted highest (35%) because it's the only pillar that measures the actual *outcome* — whether AI engines know and mention you. The other three measure preconditions; this one measures results.
+**Why weighted 15/20/15/25/25?** Crawlability is binary-conditional (if you're blocked, nothing else matters, but if you're not, it doesn't differentiate much) — so 15%. Content answerability and structure are important inputs — 20% and 15%. Brand recall and AI Visibility & Competitive Intelligence are weighted highest (25% each) because they measure the actual *outcome* — whether AI engines know and mention you, whether you're on the platforms they search, whether they describe you correctly, and whether you have more share of voice than competitors.
 
 ---
 

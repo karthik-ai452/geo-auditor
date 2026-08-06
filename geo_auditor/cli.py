@@ -13,6 +13,13 @@ from pathlib import Path
 
 import typer
 
+# Load environment variables from .env file
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 
 app = typer.Typer(
     name="geo-auditor",

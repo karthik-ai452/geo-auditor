@@ -7,7 +7,7 @@ import datetime
 import logging
 from urllib.parse import urlparse
 
-from geo_auditor.analyzers import answerability, brand_recall, crawlability, structure
+from geo_auditor.analyzers import answerability, brand_recall, crawlability, source_presence, structure
 from geo_auditor.crawler import crawl_site
 from geo_auditor.models import AuditResult, OverallScore, Pillar, PillarScore
 from geo_auditor.report import save_report
@@ -20,7 +20,7 @@ async def run_audit(url: str, output_dir=None) -> AuditResult:
     """Run a full GEO audit on the given URL.
 
     1. Crawls the site (robots.txt, sitemap, key pages)
-    2. Runs all four analyzers
+    2. Runs all five analyzers
     3. Computes scores
     4. Builds the action plan
     5. Returns the AuditResult
@@ -66,7 +66,20 @@ async def run_audit(url: str, output_dir=None) -> AuditResult:
         total_q = brand_data.get("total_queries", 0)
         print(f"   → Brand recall: {brand_data.get('brand_name', '?')} mentioned in {mention_count}/{total_q} AI queries")
 
-    all_findings = crawl_findings + answer_findings + struct_findings + brand_findings
+    # Pillar 5: AI Visibility & Competitive Intelligence
+    print("   → AI visibility & competitive intelligence...")
+    presence_findings, presence_components, presence_data = source_presence.analyze(crawl, brand_data)
+    found_count = sum(1 for r in presence_data.get("platform_coverage", {}).get("platform_results", []) if r.get("found"))
+    total_platforms = len(presence_data.get("platform_coverage", {}).get("platform_results", []))
+    print(f"   → Platform coverage: {found_count}/{total_platforms} platforms")
+    sov = presence_data.get("share_of_voice", {})
+    if sov.get("target_sov") is not None:
+        print(f"   → Share of voice: {sov['target_sov']:.0%}")
+    pos = presence_data.get("positioning_accuracy", {})
+    if pos.get("accuracy_score"):
+        print(f"   → Positioning accuracy: {pos['accuracy_score']:.0f}/100")
+
+    all_findings = crawl_findings + answer_findings + struct_findings + brand_findings + presence_findings
 
     # --- 3. Score ---
     print("\n📊 Computing scores...")
@@ -75,6 +88,7 @@ async def run_audit(url: str, output_dir=None) -> AuditResult:
         compute_pillar_score(Pillar.ANSWERABILITY, answer_components),
         compute_pillar_score(Pillar.STRUCTURE, struct_components),
         compute_pillar_score(Pillar.BRAND_RECALL, brand_components),
+        compute_pillar_score(Pillar.SOURCE_PRESENCE, presence_components),
     ]
     overall = compute_overall_score(pillar_scores)
 
@@ -103,6 +117,8 @@ async def run_audit(url: str, output_dir=None) -> AuditResult:
         combined_llm_data = {**(answer_llm_data if "answer_llm_data" in dir() else {})}
         if brand_data:
             combined_llm_data["brand_recall"] = brand_data
+        if presence_data:
+            combined_llm_data["source_presence"] = presence_data
         html_path, json_path = save_report(result, output_dir, combined_llm_data)
         print(f"\n💾 Report saved:")
         print(f"   HTML: {html_path}")

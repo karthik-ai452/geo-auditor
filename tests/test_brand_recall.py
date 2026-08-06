@@ -143,26 +143,52 @@ class TestBrandRecallAnalyzer:
         crawl = CrawlResult(base_url="https://stripe.com", pages=[page], homepage=page)
 
         # Mock the LLM functions
-        with patch.object(llm_client, "query_brand_recall", return_value="Stripe is a great payment platform. It's very popular."):
-            with patch.object(llm_client, "check_brand_mention", return_value={
-                "mentioned": True,
-                "how_mentioned": "Stripe is mentioned as a payment platform",
-                "context": "positive",
-                "position": "first_quarter",
-            }):
-                findings, components, data = brand_recall.analyze(crawl)
-                assert data["brand_name"] is not None
-                assert data["category"] is not None
-                assert data["mention_count"] > 0
-                assert data["total_queries"] > 0
-                # Should have positive finding for full recall
-                positive = [f for f in findings if f.severity == Severity.POSITIVE]
-                assert len(positive) >= 1
+        mock_search_result = {
+            "response": "Stripe is a great payment platform. It's very popular.",
+            "model_used": "test-model",
+            "search_enabled": False,
+        }
+        mock_mention = {
+            "mentioned": True,
+            "how_mentioned": "Stripe is mentioned as a payment platform",
+            "exact_sentence": "Stripe is a great payment platform.",
+            "context": "positive",
+            "citation_rank": 1,
+            "position": "first_quarter",
+        }
+        mock_selection = {
+            "selection_rate": 0.15,
+            "shared_phrase_count": 3,
+            "total_phrase_count": 20,
+            "top_shared_phrases": ["payment platform"],
+            "target_word_count": 50,
+            "response_word_count": 10,
+        }
+        with patch.object(llm_client, "query_brand_recall_with_search", return_value=mock_search_result):
+            with patch.object(llm_client, "check_brand_mention", return_value=mock_mention):
+                with patch.object(llm_client, "compute_selection_rate", return_value=mock_selection):
+                    findings, components, data = brand_recall.analyze(crawl)
+                    assert data["brand_name"] is not None
+                    assert data["category"] is not None
+                    assert data["mention_count"] > 0
+                    assert data["total_queries"] > 0
+                    # Should have positive finding for full recall
+                    positive = [f for f in findings if f.severity == Severity.POSITIVE]
+                    assert len(positive) >= 1
+                    # Verify citation rank data is captured
+                    for qr in data["query_results"]:
+                        if qr.get("mention", {}).get("mentioned"):
+                            assert qr["mention"].get("citation_rank") == 1
+                            assert qr["mention"].get("exact_sentence") != ""
+                    # Verify selection rate is captured
+                    for qr in data["query_results"]:
+                        if qr.get("selection_rate"):
+                            assert qr["selection_rate"]["selection_rate"] == 0.15
 
 
 class TestPillarWeight:
     def test_brand_recall_weight(self):
-        """Brand recall has the highest weight."""
+        """Brand recall shares the highest weight with source presence."""
         from geo_auditor.scoring import PILLAR_WEIGHTS
-        assert PILLAR_WEIGHTS[Pillar.BRAND_RECALL] == 0.35
+        assert PILLAR_WEIGHTS[Pillar.BRAND_RECALL] == 0.25
         assert PILLAR_WEIGHTS[Pillar.BRAND_RECALL] == max(PILLAR_WEIGHTS.values())

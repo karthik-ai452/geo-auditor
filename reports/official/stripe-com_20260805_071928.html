@@ -77,7 +77,7 @@
   /* Pillar bars */
   .pillars {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 12px;
     margin-bottom: 32px;
   }
@@ -301,18 +301,18 @@
   <div class="report-header">
     <h1>GEO Audit Report</h1>
     <div class="subtitle">stripe.com</div>
-    <div class="meta">Audited 2026-08-05T05:36:49.105696+00:00 · Content scoring: LLM-assisted (drytis/kimi-k2.5)</div>
+    <div class="meta">Audited 2026-08-05T07:19:28.163355+00:00 · Content scoring: LLM-assisted (drytis/kimi-k2.5)</div>
   </div>
 
   <!-- Score Summary -->
   <div class="score-section">
-    <div class="score-circle grade-strong">
-      <div class="num">81</div>
+    <div class="score-circle grade-moderate">
+      <div class="num">70</div>
       <div class="label">/ 100</div>
     </div>
     <div class="verdict">
-      <h2>Strong — 81.1 / 100</h2>
-      <p>Your site is well-optimized for AI search engines. Focus on the remaining details.</p>
+      <h2>Moderate — 70.0 / 100</h2>
+      <p>Your site has a foundation but key gaps are holding back AI visibility.</p>
     </div>
   </div>
 
@@ -322,7 +322,7 @@
     <div class="pillar-card">
       <h3>Crawlability</h3>
       <div class="pillar-score">85</div>
-      <div class="pillar-weight">20% weight</div>
+      <div class="pillar-weight">15% weight</div>
       <div class="pillar-bar">
         <div class="pillar-bar-fill" style="width: 85.0%; background: var(--positive);"></div>
       </div>
@@ -330,17 +330,17 @@
     
     <div class="pillar-card">
       <h3>Answerability</h3>
-      <div class="pillar-score">44</div>
-      <div class="pillar-weight">25% weight</div>
+      <div class="pillar-score">36</div>
+      <div class="pillar-weight">20% weight</div>
       <div class="pillar-bar">
-        <div class="pillar-bar-fill" style="width: 44.4%; background: var(--critical);"></div>
+        <div class="pillar-bar-fill" style="width: 36.0%; background: var(--critical);"></div>
       </div>
     </div>
     
     <div class="pillar-card">
       <h3>Structure</h3>
       <div class="pillar-score">90</div>
-      <div class="pillar-weight">20% weight</div>
+      <div class="pillar-weight">15% weight</div>
       <div class="pillar-bar">
         <div class="pillar-bar-fill" style="width: 90.0%; background: var(--positive);"></div>
       </div>
@@ -349,9 +349,18 @@
     <div class="pillar-card">
       <h3>Brand Recall</h3>
       <div class="pillar-score">100</div>
-      <div class="pillar-weight">35% weight</div>
+      <div class="pillar-weight">25% weight</div>
       <div class="pillar-bar">
         <div class="pillar-bar-fill" style="width: 100.0%; background: var(--positive);"></div>
+      </div>
+    </div>
+    
+    <div class="pillar-card">
+      <h3>Source Presence</h3>
+      <div class="pillar-score">46</div>
+      <div class="pillar-weight">25% weight</div>
+      <div class="pillar-bar">
+        <div class="pillar-bar-fill" style="width: 46.3%; background: var(--critical);"></div>
       </div>
     </div>
     
@@ -363,7 +372,7 @@
     
     <div class="pillar-breakdown">
       <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
-        Crawlability: 85.0/100 (weight: 20%)
+        Crawlability: 85.0/100 (weight: 15%)
       </h3>
       <ul class="component-list">
         
@@ -492,57 +501,57 @@
     
     <div class="pillar-breakdown">
       <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
-        Answerability: 44.4/100 (weight: 25%)
+        Answerability: 36.0/100 (weight: 20%)
       </h3>
       <ul class="component-list">
         
         <li class="component-item">
           <div class="component-label">
-            Direct Answers: 25/100
-            <div class="component-detail">The content is marketing-focused and aspirational rather than definitional. It describes what Stripe offers but rarely answers specific &#39;what is&#39; or &#39;how to&#39; questions directly. The opening repeats taglines without defining core concepts. No clear definitional patterns for key terms like &#39;payment processing,&#39; &#39;subscription billing,&#39; or &#39;financial infrastructure.&#39; Example: &#34;Financial infrastructure to grow your revenue. Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth.&#34;</div>
+            Direct Answers: 15/100
+            <div class="component-detail">The content is almost entirely marketing-oriented and lacks definitional, question-answering content. It describes what Stripe does but doesn&#39;t answer specific &#39;what is&#39; or &#39;how to&#39; questions in a direct, extractable format. The content repeats taglines (&#39;Financial infrastructure to grow your revenue&#39;) rather than providing explanatory content that AI search engines could quote as answers. Example: &#34;Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth.&#34;</div>
           </div>
           <div class="component-points">
-            7.5<span class="max">/30</span>
+            4.5<span class="max">/30</span>
           </div>
         </li>
         
         <li class="component-item">
           <div class="component-label">
-            Statistical Richness: 85/100
-            <div class="component-detail">Exceptionally rich with specific, current statistics throughout. Multiple data points include payment volume, uptime percentages, transaction counts, currency support, and business metrics. The 2025 data suggests freshness. Statistics are granular and attributable to Stripe&#39;s operations. Example: &#34;$1.9T in payments volume processed in 2025; 99.999% historical uptime for Stripe services; 200M+ active subscriptions managed on Stripe Billing; 500M+ API requests per day; 10K+ API requests per second; 150K+ transactions per minute&#34;</div>
+            Statistical Richness: 75/100
+            <div class="component-detail">The page contains substantial specific statistics, particularly in the &#39;backbone of global commerce&#39; section and customer case studies. These concrete numbers ($1.9T volume, 99.999% uptime, 200M+ subscriptions, 135+ currencies) are highly citable by AI search engines and appear designed for credibility. However, many statistics lack dates or context for verification. Example: &#34;$1.9T in payments volume processed in 2025; 99.999% historical uptime for Stripe services; 200M+ active subscriptions managed on Stripe Billing&#34;</div>
           </div>
           <div class="component-points">
-            21.2<span class="max">/25</span>
+            18.8<span class="max">/25</span>
           </div>
         </li>
         
         <li class="component-item">
           <div class="component-label">
-            Citation Quality: 15/100
-            <div class="component-detail">No external citations or source attribution. All statistics are self-reported Stripe metrics without third-party verification. Customer quotes are attributed to named individuals but lack links to case studies or methodology. No academic, regulatory, or independent research citations. Example: &#34;Kurtis Moyer, Lead Product Manager of Payments, Mindbody — attributed quote without link to full case study or methodology&#34;</div>
+            Citation Quality: 10/100
+            <div class="component-detail">No external citations or source attribution exists. All claims are self-reported by Stripe without links to third-party verification, methodology explanations, or independent research. The customer quotes and case studies are presented without links to full studies or audit reports. This severely limits trustworthiness for AI engines seeking verifiable claims. Example: &#34;50% of Fortune 100 companies have used Stripe to grow their businesses—no source cited for this claim.&#34;</div>
           </div>
           <div class="component-points">
-            2.2<span class="max">/15</span>
+            1.5<span class="max">/15</span>
           </div>
         </li>
         
         <li class="component-item">
           <div class="component-label">
-            Structure Clarity: 60/100
-            <div class="component-detail">Clear H2 section breaks for audience segments (enterprises, startups, platforms) and use cases. However, dense repetitive copy (&#39;Financial infrastructure to grow your revenue&#39; appears 3+ times), mixed promotional and informational content, and lack of hierarchical definition structure reduce clarity. No FAQ or definition blocks. Example: &#34;H2 headings: &#39;Stripe for enterprises,&#39; &#39;Stripe for startups,&#39; &#39;Stripe for platforms&#39; — clear audience segmentation, but subsections blend testimonials with feature lists without consistent informational hierarchy&#34;</div>
+            Structure Clarity: 55/100
+            <div class="component-detail">The content has clear visual sections with H2-level organization (Stripe for enterprises, Stripe for startups, Stripe for platforms, Reliable infrastructure, What&#39;s happening), but the actual heading structure in the extracted text shows only 5 H2s for a very long page. The content mixes multiple topics within sections and uses repetitive, tagline-heavy copy that obscures information hierarchy. Case studies are formatted consistently but lack scannable data tables or structured data. Example: &#34;Section &#39;Powering businesses of all sizes&#39; mixes enterprise and startup content without clear subheadings, followed by unlabeled customer story blocks.&#34;</div>
           </div>
           <div class="component-points">
-            9.0<span class="max">/15</span>
+            8.2<span class="max">/15</span>
           </div>
         </li>
         
         <li class="component-item">
           <div class="component-label">
-            Conversational Match: 30/100
-            <div class="component-detail">Language is polished marketing copy rather than conversational query matching. Phrases like &#39;implement custom revenue models&#39; and &#39;agentic commerce&#39; don&#39;t match how users actually ask questions. Missing natural question patterns like &#39;What is Stripe?&#39; or &#39;How much does Stripe cost?&#39; No interrogative headings or FAQ format. Example: &#34;Monetize through agentic commerce; Embed payments in your platform; Enable any billing model — these are feature headlines, not answers to how users phrase search queries&#34;</div>
+            Conversational Match: 20/100
+            <div class="component-detail">The language is highly branded, slogan-driven, and marketing-focused rather than conversational. Phrases like &#39;vibe-coding juggernaut,&#39; &#39;agentic commerce,&#39; and &#39;borderless money movement&#39; are industry jargon, not how users actually ask questions. The content doesn&#39;t mirror natural query patterns (e.g., &#39;How do I accept payments online?&#39; or &#39;What is Stripe used for?&#39;). Example: &#34;Monetize through agentic commerce; Lovable grows into a vibe-coding juggernaut with Stripe.&#34;</div>
           </div>
           <div class="component-points">
-            4.5<span class="max">/15</span>
+            3.0<span class="max">/15</span>
           </div>
         </li>
         
@@ -551,7 +560,7 @@
     
     <div class="pillar-breakdown">
       <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
-        Structure: 90.0/100 (weight: 20%)
+        Structure: 90.0/100 (weight: 15%)
       </h3>
       <ul class="component-list">
         
@@ -577,8 +586,8 @@
         
         <li class="component-item">
           <div class="component-label">
-            H1: yes, H2 count: 6, paragraphs: 64, words: 1735
-            <div class="component-detail">H1: present, H2 tags: 6, paragraphs: 64, word count: 1735</div>
+            H1: yes, H2 count: 5, paragraphs: 62, words: 1685
+            <div class="component-detail">H1: present, H2 tags: 5, paragraphs: 62, word count: 1685</div>
           </div>
           <div class="component-points">
             15.0<span class="max">/15</span>
@@ -610,14 +619,14 @@
     
     <div class="pillar-breakdown">
       <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
-        Brand Recall: 100.0/100 (weight: 35%)
+        Brand Recall: 100.0/100 (weight: 25%)
       </h3>
       <ul class="component-list">
         
         <li class="component-item">
           <div class="component-label">
             Category queries: mentioned in 2/2 industry questions
-            <div class="component-detail">Q: &#34;What are the best payment processing platforms for businesse...&#34; → ✓ mentioned | Q: &#34;What are the top payment processing companies or tools?...&#34; → ✓ mentioned</div>
+            <div class="component-detail">Q: &#34;What are the best payment processing platforms for businesse...&#34; → ✓ mentioned (rank #1): &#34;- **Stripe** – Developer-friendly, excellent API, supports subscriptions, international payments, an&#34; | Q: &#34;What are the top payment processing companies or tools?...&#34; → ✓ mentioned (rank #1): &#34;- **Stripe** – Developer-friendly, extensive APIs, popular with startups and tech companies&#34;</div>
           </div>
           <div class="component-points">
             55.0<span class="max">/55</span>
@@ -627,10 +636,150 @@
         <li class="component-item">
           <div class="component-label">
             Comparison queries: mentioned in 2/2 comparisons
-            <div class="component-detail">Q: &#34;Can you compare the top payment processing platforms and the...&#34; → ✓ mentioned | Q: &#34;What are the main alternatives to Stripe for payment process...&#34; → ✓ mentioned</div>
+            <div class="component-detail">Q: &#34;Can you compare the top payment processing platforms and the...&#34; → ✓ mentioned (rank #1): &#34;**Stripe**&#34; | Q: &#34;What are the main alternatives to Stripe for payment process...&#34; → ✓ mentioned (rank #1): &#34;The main alternatives to Stripe for payment processing include:&#34;</div>
           </div>
           <div class="component-points">
             45.0<span class="max">/45</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            Citation rank: avg #1.0 (Top mention — excellent)
+            <div class="component-detail">Average citation rank: 1.0 across 4 mentions. Q: &#34;What are the best payment processing pla...&#34; → rank #1; Q: &#34;What are the top payment processing comp...&#34; → rank #1; Q: &#34;Can you compare the top payment processi...&#34; → rank #1</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/0</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            Selection rate: 0.0% content overlap
+            <div class="component-detail">Average content overlap: 0.0%</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/0</span>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="pillar-breakdown">
+      <h3 onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+        Source Presence: 46.3/100 (weight: 25%)
+      </h3>
+      <ul class="component-list">
+        
+        <li class="component-item">
+          <div class="component-label">
+            ✗ Reddit
+            <div class="component-detail">Reddit API blocked (403)</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/3</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            ✗ Crunchbase
+            <div class="component-detail">No Crunchbase profile (HTTP 403)</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/3</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            ✗ G2 (reviews)
+            <div class="component-detail">G2 blocked (403)</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/3</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            ✗ Wikipedia
+            <div class="component-detail">No Wikipedia page found</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/3</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            ✓ YouTube
+            <div class="component-detail">YouTube channel: youtube.com/@stripe (searched by: Gemini)</div>
+          </div>
+          <div class="component-points">
+            2.9<span class="max">/3</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            ✓ GitHub
+            <div class="component-detail">GitHub org: github.com/stripe (searched by: ChatGPT, Perplexity, Claude)</div>
+          </div>
+          <div class="component-points">
+            2.9<span class="max">/3</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            ✓ LinkedIn
+            <div class="component-detail">LinkedIn: linkedin.com/company/stripe (searched by: ChatGPT, Perplexity, Google AI Overviews)</div>
+          </div>
+          <div class="component-points">
+            2.9<span class="max">/3</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            Coverage vs competitors: 0 gaps, 0 advantages
+            
+          </div>
+          <div class="component-points">
+            10.0<span class="max">/20</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            AI positioning accuracy: 72/100
+            <div class="component-detail">The AI significantly understates Stripe&#39;s positioning, framing it as a payment processor for startups rather than comprehensive financial infrastructure for global enterprises and AI-era commerce.
+Mismatches: [CRITICAL] category: You say &#39;Financial infrastructure platform offering payments, financi&#39; vs AI says &#39;Payment processing platform, primarily compared to Square/Pa&#39; | [MODERATE] audience: You say &#39;Businesses of all sizes including 50% of Fortune 100 compani&#39; vs AI says &#39;Small businesses, startups, and tech companies; listed under&#39; | [MODERATE] features: You say &#39;Emphasizes comprehensive financial tools: agentic commerce, &#39; vs AI says &#39;Focuses on API flexibility, subscriptions, and international&#39; | [MINOR] tone: You say &#39;Ambitious, infrastructure-scale positioning (&#39;global GDP&#39;, &#39;&#39; vs AI says &#39;Practical, utilitarian comparison shopping tone—&#39;developer-f&#39;</div>
+          </div>
+          <div class="component-points">
+            14.4<span class="max">/20</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            Share of voice: 33% (4 of 12 total mentions)
+            <div class="component-detail">Target &#39;Stripe&#39;: 4 mentions (33% share of voice) | Competitor &#39;PayPal&#39;: 4 mentions (33%) | Competitor &#39;Square&#39;: 4 mentions (33%) | Competitor &#39;Stripe&#39;: 0 mentions (0%)</div>
+          </div>
+          <div class="component-points">
+            13.3<span class="max">/20</span>
+          </div>
+        </li>
+        
+        <li class="component-item">
+          <div class="component-label">
+            Vector search inclusion: 0.0% similarity
+            <div class="component-detail">Embeddings not available on this gateway — cannot measure vector search inclusion.</div>
+          </div>
+          <div class="component-points">
+            0.0<span class="max">/20</span>
           </div>
         </li>
         
@@ -853,14 +1002,14 @@ Sitemap: https://yoursite.com/sitemap.xml
     <div class="finding-card severity-critical">
       <div class="finding-header">
         <span class="severity-badge critical">critical</span>
-        <h3>Content scores low on Direct Answers (25/100)</h3>
+        <h3>Content scores low on Direct Answers (15/100)</h3>
       </div>
       <div class="page-link">📍 https://stripe.com/</div>
       <div class="finding-body">
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>LLM assessment: The content is marketing-focused and aspirational rather than definitional. It describes what Stripe offers but rarely answers specific &#39;what is&#39; or &#39;how to&#39; questions directly. The opening repeats taglines without defining core concepts. No clear definitional patterns for key terms like &#39;payment processing,&#39; &#39;subscription billing,&#39; or &#39;financial infrastructure.&#39; Example from your content: &#34;Financial infrastructure to grow your revenue. Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth.&#34;</div>
+          <div>LLM assessment: The content is almost entirely marketing-oriented and lacks definitional, question-answering content. It describes what Stripe does but doesn&#39;t answer specific &#39;what is&#39; or &#39;how to&#39; questions in a direct, extractable format. The content repeats taglines (&#39;Financial infrastructure to grow your revenue&#39;) rather than providing explanatory content that AI search engines could quote as answers. Example from your content: &#34;Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth.&#34;</div>
         </div>
         
         
@@ -878,15 +1027,15 @@ Sitemap: https://yoursite.com/sitemap.xml
 
 Example: &#39;Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.&#39;
 
-AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; section with 2-3 sentences of plain-language definition, followed by FAQ schema markup addressing common queries like pricing, how it works, and key features — this would dramatically improve selection for informational queries without diluting brand voice.
+AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.
           </div>
         </div>
         
         
         <div class="impact-effort">
-          <span>📊 Impact: 60/100</span>
+          <span>📊 Impact: 68/100</span>
           <span>🔧 Effort: 20/100</span>
-          <span>⚡ Priority: 48</span>
+          <span>⚡ Priority: 54</span>
         </div>
         
       </div>
@@ -895,14 +1044,14 @@ AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; section 
     <div class="finding-card severity-positive">
       <div class="finding-header">
         <span class="severity-badge positive">positive</span>
-        <h3>Strong Statistical Richness (85/100)</h3>
+        <h3>Strong Statistical Richness (75/100)</h3>
       </div>
       <div class="page-link">📍 https://stripe.com/</div>
       <div class="finding-body">
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>LLM assessment: Exceptionally rich with specific, current statistics throughout. Multiple data points include payment volume, uptime percentages, transaction counts, currency support, and business metrics. The 2025 data suggests freshness. Statistics are granular and attributable to Stripe&#39;s operations.</div>
+          <div>LLM assessment: The page contains substantial specific statistics, particularly in the &#39;backbone of global commerce&#39; section and customer case studies. These concrete numbers ($1.9T volume, 99.999% uptime, 200M+ subscriptions, 135+ currencies) are highly citable by AI search engines and appear designed for credibility. However, many statistics lack dates or context for verification.</div>
         </div>
         
         
@@ -914,14 +1063,14 @@ AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; section 
     <div class="finding-card severity-critical">
       <div class="finding-header">
         <span class="severity-badge critical">critical</span>
-        <h3>Content scores low on Citation Quality (15/100)</h3>
+        <h3>Content scores low on Citation Quality (10/100)</h3>
       </div>
       <div class="page-link">📍 https://stripe.com/</div>
       <div class="finding-body">
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>LLM assessment: No external citations or source attribution. All statistics are self-reported Stripe metrics without third-party verification. Customer quotes are attributed to named individuals but lack links to case studies or methodology. No academic, regulatory, or independent research citations. Example from your content: &#34;Kurtis Moyer, Lead Product Manager of Payments, Mindbody — attributed quote without link to full case study or methodology&#34;</div>
+          <div>LLM assessment: No external citations or source attribution exists. All claims are self-reported by Stripe without links to third-party verification, methodology explanations, or independent research. The customer quotes and case studies are presented without links to full studies or audit reports. This severely limits trustworthiness for AI engines seeking verifiable claims. Example from your content: &#34;50% of Fortune 100 companies have used Stripe to grow their businesses—no source cited for this claim.&#34;</div>
         </div>
         
         
@@ -937,31 +1086,31 @@ AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; section 
             <button class="copy-btn" onclick="copyFix(this)">Copy</button>
             Cite your sources. Use phrases like &#39;according to [study]&#39;, &#39;research from [organization] shows&#39;, or link to primary sources. AI engines prefer content that itself cites evidence.
 
-AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; section with 2-3 sentences of plain-language definition, followed by FAQ schema markup addressing common queries like pricing, how it works, and key features — this would dramatically improve selection for informational queries without diluting brand voice.
+AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.
           </div>
         </div>
         
         
         <div class="impact-effort">
-          <span>📊 Impact: 68/100</span>
+          <span>📊 Impact: 72/100</span>
           <span>🔧 Effort: 30/100</span>
-          <span>⚡ Priority: 48</span>
+          <span>⚡ Priority: 50</span>
         </div>
         
       </div>
     </div>
     
-    <div class="finding-card severity-warning">
+    <div class="finding-card severity-critical">
       <div class="finding-header">
-        <span class="severity-badge warning">warning</span>
-        <h3>Content scores low on Conversational Match (30/100)</h3>
+        <span class="severity-badge critical">critical</span>
+        <h3>Content scores low on Conversational Match (20/100)</h3>
       </div>
       <div class="page-link">📍 https://stripe.com/</div>
       <div class="finding-body">
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>LLM assessment: Language is polished marketing copy rather than conversational query matching. Phrases like &#39;implement custom revenue models&#39; and &#39;agentic commerce&#39; don&#39;t match how users actually ask questions. Missing natural question patterns like &#39;What is Stripe?&#39; or &#39;How much does Stripe cost?&#39; No interrogative headings or FAQ format. Example from your content: &#34;Monetize through agentic commerce; Embed payments in your platform; Enable any billing model — these are feature headlines, not answers to how users phrase search queries&#34;</div>
+          <div>LLM assessment: The language is highly branded, slogan-driven, and marketing-focused rather than conversational. Phrases like &#39;vibe-coding juggernaut,&#39; &#39;agentic commerce,&#39; and &#39;borderless money movement&#39; are industry jargon, not how users actually ask questions. The content doesn&#39;t mirror natural query patterns (e.g., &#39;How do I accept payments online?&#39; or &#39;What is Stripe used for?&#39;). Example from your content: &#34;Monetize through agentic commerce; Lovable grows into a vibe-coding juggernaut with Stripe.&#34;</div>
         </div>
         
         
@@ -977,15 +1126,15 @@ AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; section 
             <button class="copy-btn" onclick="copyFix(this)">Copy</button>
             Write in the language your audience actually uses to ask questions. Instead of &#39;Our platform provides enterprise-grade solutions&#39;, write &#39;Our platform helps large teams manage projects.&#39; Use natural, conversational phrasing.
 
-AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; section with 2-3 sentences of plain-language definition, followed by FAQ schema markup addressing common queries like pricing, how it works, and key features — this would dramatically improve selection for informational queries without diluting brand voice.
+AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.
           </div>
         </div>
         
         
         <div class="impact-effort">
-          <span>📊 Impact: 56/100</span>
+          <span>📊 Impact: 64/100</span>
           <span>🔧 Effort: 35/100</span>
-          <span>⚡ Priority: 36</span>
+          <span>⚡ Priority: 42</span>
         </div>
         
       </div>
@@ -1001,13 +1150,13 @@ AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; section 
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>Overall assessment: Stripe&#39;s homepage excels at demonstrating scale and credibility through abundant self-reported statistics, making it highly citable for AI engines answering &#39;How big is Stripe?&#39; or &#39;What is Stripe&#39;s payment volume?&#39; However, its marketing-heavy, definition-light approach limits performance for explanatory queries. The content would rarely be selected for &#39;what is&#39; or &#39;how does it work&#39; answers due to lack of direct definitional structure and conversational query matching.</div>
+          <div>Overall assessment: This content would perform poorly in AI search citations despite Stripe&#39;s brand authority. The page prioritizes conversion over answerability—rich in impressive statistics but poor in definitional content, external verification, and conversational language matching. AI engines would likely cite Stripe&#39;s statistics but prefer competitor content (e.g., Wikipedia, fintech blogs) for actual explanatory answers about payment processing.</div>
         </div>
         
         
         <div class="field">
           <div class="field-label">What it should be</div>
-          <div>Add a dedicated &#39;What is Stripe?&#39; section with 2-3 sentences of plain-language definition, followed by FAQ schema markup addressing common queries like pricing, how it works, and key features — this would dramatically improve selection for informational queries without diluting brand voice.</div>
+          <div>Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.</div>
         </div>
         
         
@@ -1015,7 +1164,7 @@ AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; section 
           <div class="field-label">Fix (copy-pasteable)</div>
           <div class="fix-block">
             <button class="copy-btn" onclick="copyFix(this)">Copy</button>
-            Add a dedicated &#39;What is Stripe?&#39; section with 2-3 sentences of plain-language definition, followed by FAQ schema markup addressing common queries like pricing, how it works, and key features — this would dramatically improve selection for informational queries without diluting brand voice.
+            Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.
           </div>
         </div>
         
@@ -1058,11 +1207,54 @@ AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; section 
         
         <div class="field">
           <div class="field-label">What we found</div>
-          <div>The AI model mentioned &#39;Stripe&#39; in 4 of 4 test queries. Mentioned in: &#34;What are the best payment processing platforms for...&#34; → **Stripe** – Excellent developer tools, supports subscriptions, international pa; &#34;What are the top payment processing companies or t...&#34; → Stripe</div>
+          <div>The AI model mentioned &#39;Stripe&#39; in 4 of 4 test queries.  • &#34;What are the best payment processing platforms for...&#34; → #1 mentioned: &#34;- **Stripe** – Developer-friendly, excellent API, supports subscriptions, international payments, and many payment methods&#34;  • &#34;What are the top payment processing companies or t...&#34; → #1 mentioned: &#34;- **Stripe** – Developer-friendly, extensive APIs, popular with startups and tech companies&#34;  • &#34;Can you compare the top payment processing platfor...&#34; → #1 mentioned: &#34;**Stripe**&#34;</div>
         </div>
         
         
         
+        
+      </div>
+    </div>
+    
+    <div class="finding-card severity-critical">
+      <div class="finding-header">
+        <span class="severity-badge critical">critical</span>
+        <h3>Critical AI positioning mismatch for &#39;Stripe&#39;</h3>
+      </div>
+      <div class="page-link">📍 https://stripe.com/</div>
+      <div class="finding-body">
+        
+        <div class="field">
+          <div class="field-label">What we found</div>
+          <div>The AI describes your business differently from how you position yourself: [CRITICAL] category: You say &#39;Financial infrastructure platform offering payments, financi&#39; vs AI says &#39;Payment processing platform, primarily compared to Square/Pa&#39; | [MODERATE] audience: You say &#39;Businesses of all sizes including 50% of Fortune 100 compani&#39; vs AI says &#39;Small businesses, startups, and tech companies; listed under&#39; | [MODERATE] features: You say &#39;Emphasizes comprehensive financial tools: agentic commerce, &#39; vs AI says &#39;Focuses on API flexibility, subscriptions, and international&#39; | [MINOR] tone: You say &#39;Ambitious, infrastructure-scale positioning (&#39;global GDP&#39;, &#39;&#39; vs AI says &#39;Practical, utilitarian comparison shopping tone—&#39;developer-f&#39;</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">What it should be</div>
+          <div>The AI should describe you using your own positioning language.</div>
+        </div>
+        
+        
+        <div class="field">
+          <div class="field-label">Fix (copy-pasteable)</div>
+          <div class="fix-block">
+            <button class="copy-btn" onclick="copyFix(this)">Copy</button>
+            The AI describes your business differently than you intend. Fix this:
+• [category] You say: &#39;Financial infrastructure platform offering payments, financial services, billing&#39;. AI says: &#39;Payment processing platform, primarily compared to Square/PayPal as a &#39;developer&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [audience] You say: &#39;Businesses of all sizes including 50% of Fortune 100 companies, enterprises with&#39;. AI says: &#39;Small businesses, startups, and tech companies; listed under &#39;For small business&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [features] You say: &#39;Emphasizes comprehensive financial tools: agentic commerce, card issuing, stable&#39;. AI says: &#39;Focuses on API flexibility, subscriptions, and international payments—omits card&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [tone] You say: &#39;Ambitious, infrastructure-scale positioning (&#39;global GDP&#39;, &#39;economic infrastruct&#39;. AI says: &#39;Practical, utilitarian comparison shopping tone—&#39;developer-friendly&#39; feature in &#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+
+          </div>
+        </div>
+        
+        
+        <div class="impact-effort">
+          <span>📊 Impact: 80/100</span>
+          <span>🔧 Effort: 50/100</span>
+          <span>⚡ Priority: 40</span>
+        </div>
         
       </div>
     </div>
@@ -1078,19 +1270,19 @@ AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; section 
     <div class="action-item">
       <div class="action-num">1</div>
       <div class="action-content">
-        <h4>Content scores low on Direct Answers (25/100)</h4>
+        <h4>Content scores low on Direct Answers (15/100)</h4>
         <div class="action-meta">
-          Impact 60/100 · Effort 20/100 · Priority 48
+          Impact 68/100 · Effort 20/100 · Priority 54
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The content is marketing-focused and aspirational rather than definitional. It describes what Stripe offers but rarely answers specific &#39;what is&#39; or &#39;how to&#39; questions directly. The op...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The content is almost entirely marketing-oriented and lacks definitional, question-answering content. It describes what Stripe does but doesn&#39;t answer specific &#39;what is&#39; or &#39;how to&#39; qu...</div>
         
         
         <div class="action-fix">Add clear, direct answer paragraphs at the top of your content. Format: &#39;[Topic] is [definition/explanation].&#39; — one or two sentences that directly answer the most likely question a person would ask.
 
 Example: &#39;Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.&#39;
 
-AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; section with 2-3 sentences of plain-language definition, followed by FAQ schema markup addressing common queries like pricing, how it works, and key features — this would dramatically improve selection for informational queries without diluting brand voice.</div>
+AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.</div>
         
       </div>
     </div>
@@ -1098,17 +1290,17 @@ AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; section 
     <div class="action-item">
       <div class="action-num">2</div>
       <div class="action-content">
-        <h4>Content scores low on Citation Quality (15/100)</h4>
+        <h4>Content scores low on Citation Quality (10/100)</h4>
         <div class="action-meta">
-          Impact 68/100 · Effort 30/100 · Priority 48
+          Impact 72/100 · Effort 30/100 · Priority 50
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: No external citations or source attribution. All statistics are self-reported Stripe metrics without third-party verification. Customer quotes are attributed to named individuals but l...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: No external citations or source attribution exists. All claims are self-reported by Stripe without links to third-party verification, methodology explanations, or independent research....</div>
         
         
         <div class="action-fix">Cite your sources. Use phrases like &#39;according to [study]&#39;, &#39;research from [organization] shows&#39;, or link to primary sources. AI engines prefer content that itself cites evidence.
 
-AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; section with 2-3 sentences of plain-language definition, followed by FAQ schema markup addressing common queries like pricing, how it works, and key features — this would dramatically improve selection for informational queries without diluting brand voice.</div>
+AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.</div>
         
       </div>
     </div>
@@ -1163,6 +1355,24 @@ AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; section 
     <div class="action-item">
       <div class="action-num">5</div>
       <div class="action-content">
+        <h4>Content scores low on Conversational Match (20/100)</h4>
+        <div class="action-meta">
+          Impact 64/100 · Effort 35/100 · Priority 42
+        </div>
+        
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The language is highly branded, slogan-driven, and marketing-focused rather than conversational. Phrases like &#39;vibe-coding juggernaut,&#39; &#39;agentic commerce,&#39; and &#39;borderless money moveme...</div>
+        
+        
+        <div class="action-fix">Write in the language your audience actually uses to ask questions. Instead of &#39;Our platform provides enterprise-grade solutions&#39;, write &#39;Our platform helps large teams manage projects.&#39; Use natural, conversational phrasing.
+
+AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.</div>
+        
+      </div>
+    </div>
+    
+    <div class="action-item">
+      <div class="action-num">6</div>
+      <div class="action-content">
         <h4>sitemap.xml is missing or unreachable</h4>
         <div class="action-meta">
           Impact 50/100 · Effort 20/100 · Priority 40
@@ -1179,41 +1389,44 @@ Sitemap: https://yoursite.com/sitemap.xml</div>
     </div>
     
     <div class="action-item">
-      <div class="action-num">6</div>
-      <div class="action-content">
-        <h4>Content scores low on Conversational Match (30/100)</h4>
-        <div class="action-meta">
-          Impact 56/100 · Effort 35/100 · Priority 36
-        </div>
-        
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: Language is polished marketing copy rather than conversational query matching. Phrases like &#39;implement custom revenue models&#39; and &#39;agentic commerce&#39; don&#39;t match how users actually ask ...</div>
-        
-        
-        <div class="action-fix">Write in the language your audience actually uses to ask questions. Instead of &#39;Our platform provides enterprise-grade solutions&#39;, write &#39;Our platform helps large teams manage projects.&#39; Use natural, conversational phrasing.
-
-AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; section with 2-3 sentences of plain-language definition, followed by FAQ schema markup addressing common queries like pricing, how it works, and key features — this would dramatically improve selection for informational queries without diluting brand voice.</div>
-        
-      </div>
-    </div>
-    
-    <div class="action-item">
       <div class="action-num">7</div>
       <div class="action-content">
-        <h4>AI&#39;s #1 recommendation for your content</h4>
+        <h4>Critical AI positioning mismatch for &#39;Stripe&#39;</h4>
         <div class="action-meta">
-          Impact 60/100 · Effort 40/100 · Priority 36
+          Impact 80/100 · Effort 50/100 · Priority 40
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">Overall assessment: Stripe&#39;s homepage excels at demonstrating scale and credibility through abundant self-reported statistics, making it highly citable for AI engines answering &#39;How big is Stripe?&#39; or...</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">The AI describes your business differently from how you position yourself: [CRITICAL] category: You say &#39;Financial infrastructure platform offering payments, financi&#39; vs AI says &#39;Payment processing pl...</div>
         
         
-        <div class="action-fix">Add a dedicated &#39;What is Stripe?&#39; section with 2-3 sentences of plain-language definition, followed by FAQ schema markup addressing common queries like pricing, how it works, and key features — this would dramatically improve selection for informational queries without diluting brand voice.</div>
+        <div class="action-fix">The AI describes your business differently than you intend. Fix this:
+• [category] You say: &#39;Financial infrastructure platform offering payments, financial services, billing&#39;. AI says: &#39;Payment processing platform, primarily compared to Square/PayPal as a &#39;developer&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [audience] You say: &#39;Businesses of all sizes including 50% of Fortune 100 companies, enterprises with&#39;. AI says: &#39;Small businesses, startups, and tech companies; listed under &#39;For small business&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [features] You say: &#39;Emphasizes comprehensive financial tools: agentic commerce, card issuing, stable&#39;. AI says: &#39;Focuses on API flexibility, subscriptions, and international payments—omits card&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [tone] You say: &#39;Ambitious, infrastructure-scale positioning (&#39;global GDP&#39;, &#39;economic infrastruct&#39;. AI says: &#39;Practical, utilitarian comparison shopping tone—&#39;developer-friendly&#39; feature in &#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+</div>
         
       </div>
     </div>
     
     <div class="action-item">
       <div class="action-num">8</div>
+      <div class="action-content">
+        <h4>AI&#39;s #1 recommendation for your content</h4>
+        <div class="action-meta">
+          Impact 60/100 · Effort 40/100 · Priority 36
+        </div>
+        
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">Overall assessment: This content would perform poorly in AI search citations despite Stripe&#39;s brand authority. The page prioritizes conversion over answerability—rich in impressive statistics but poor...</div>
+        
+        
+        <div class="action-fix">Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.</div>
+        
+      </div>
+    </div>
+    
+    <div class="action-item">
+      <div class="action-num">9</div>
       <div class="action-content">
         <h4>No source citations detected</h4>
         <div class="action-meta">
@@ -1235,12 +1448,21 @@ AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; section 
   <div class="methodology">
     <h2>How This Audit Works</h2>
     <p><strong>GEO (Generative Engine Optimization)</strong> is the practice of making your business visible inside AI search answers — ChatGPT, Perplexity, Claude, and Google AI Overviews. Unlike traditional SEO (which optimizes for Google's link-based rankings), GEO optimizes for AI engines that choose and cite sources by different rules.</p>
-    <p>This audit checks four pillars of AI search visibility:</p>
+    <p>This audit checks five pillars of AI search visibility:</p>
     <ul>
-      <li><strong>AI Crawlability (20%)</strong> — Can AI engines even reach your site? Checks robots.txt for blocked AI bots (GPTBot, ClaudeBot, PerplexityBot, etc.), sitemap presence, and indexability. This is the #1 silent killer — many businesses block AI crawlers without knowing it.</li>
-      <li><strong>Content Answerability (25%)</strong> — Does your content answer questions the way AI engines extract and cite? Uses an LLM to evaluate direct answers, statistical richness, citation quality, structure, and conversational match. The GEO research benchmark showed these content strategies lift citation rates 30-40%.</li>
-      <li><strong>Structured Data (20%)</strong> — Can machines parse and understand your content? Checks schema.org JSON-LD validity and coverage, title/meta tags, semantic HTML, and Open Graph.</li>
-      <li><strong>AI Brand Recall (35%)</strong> — Do AI engines actually know and mention your business? We send real questions to an AI model ("What is [brand]?", "What are the best [category] platforms?") and measure whether your business is mentioned. This tests both training data knowledge and category visibility — the closest proxy to "will ChatGPT/Perplexity mention me?"</li>
+      <li><strong>AI Crawlability (15%)</strong> — Can AI engines even reach your site? Checks robots.txt for blocked AI bots (GPTBot, ClaudeBot, PerplexityBot, etc.), sitemap presence, and indexability. This is the #1 silent killer — many businesses block AI crawlers without knowing it.</li>
+      <li><strong>Content Answerability (20%)</strong> — Does your content answer questions the way AI engines extract and cite? Uses an LLM to evaluate direct answers, statistical richness, citation quality, structure, and conversational match. The GEO research benchmark showed these content strategies lift citation rates 30-40%.</li>
+      <li><strong>Structured Data (15%)</strong> — Can machines parse and understand your content? Checks schema.org JSON-LD validity and coverage, title/meta tags, semantic HTML, and Open Graph.</li>
+      <li><strong>AI Brand Recall (25%)</strong> — Do AI engines actually know and mention your business? We send real questions to an AI model ("What are the best [category] platforms?", "Compare [brand] vs competitors") and measure whether your business is mentioned. This tests live search/retrieval visibility — the closest proxy to "will ChatGPT/Perplexity mention me?"</li>
+      <li><strong>AI Visibility & Competitive Intelligence (25%)</strong> — The most important pillar. If the AI can't find you, describe you wrong, or your competitor out-coverage you — every other pillar is wasted effort. Five sub-checks (20 pts each):
+        <ul style="margin-top: 6px;">
+          <li><em>Platform Coverage</em> — Does your brand exist on the 7 platforms AI engines search first (Wikipedia, GitHub, YouTube, Reddit, Crunchbase, G2, LinkedIn)?</li>
+          <li><em>Competitive Coverage Gap</em> — Where do competitors have platform presence you don't? If a competitor is on YouTube and G2 but you're only on G2, they win that surface.</li>
+          <li><em>AI Positioning Accuracy</em> — Does the AI describe you correctly? If you sell "premium soaps" but the AI says "affordable soaps", it recommends you for the wrong queries.</li>
+          <li><em>Share of Voice</em> — Across category and comparison queries, does the AI mention you more or less often than your competitors?</li>
+          <li><em>Vector Search Inclusion</em> — Will AI vector/semantic search actually retrieve your content? Measures embedding similarity between your homepage and typical user queries.</li>
+        </ul>
+      </li>
     </ul>
     <p><strong>About the LLM judge:</strong> The content answerability pillar uses a large language model to assess content the same way an AI search engine would. This is a proxy for real engine behavior — no tool can perfectly predict what ChatGPT or Perplexity will cite. The scores are relative indicators of readiness, not guarantees.</p>
     <p><strong>Limitations:</strong> This audit covers 3-5 pages per site. Backlink analysis and live citation tracking are not included (they require paid APIs). See the README for the full methodology and reasoning.</p>
@@ -1248,7 +1470,7 @@ AI&#39;s specific suggestion: Add a dedicated &#39;What is Stripe?&#39; section 
 
   <!-- Footer -->
   <div class="report-footer">
-    Generated by GEO Auditor · 2026-08-05T05:36:49.105696+00:00
+    Generated by GEO Auditor · 2026-08-05T07:19:28.163355+00:00
   </div>
 
 </div>
