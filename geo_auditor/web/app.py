@@ -158,10 +158,28 @@ async def audit_get(url: str):
 async def _do_audit(url: str) -> HTMLResponse:
     """Run the audit and return the rendered report HTML."""
     try:
-        result = await run_audit(url)
+        result = await asyncio.wait_for(run_audit(url), timeout=120)
         llm_data = {}  # already incorporated into findings
         html = render_report(result, llm_data)
         return HTMLResponse(content=html)
+    except asyncio.TimeoutError:
+        timeout_html = """<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Audit Timeout</title>
+<style>
+  body { font-family: -apple-system, sans-serif; text-align: center; padding: 60px; background: #f8fafc; }
+  .error { max-width: 500px; margin: 0 auto; background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+  h1 { color: #f59e0b; margin-bottom: 16px; }
+  p { color: #64748b; line-height: 1.6; }
+  a { color: #4f46e5; text-decoration: none; }
+</style></head>
+<body>
+<div class="error">
+  <h1>⏱️ Audit Timed Out</h1>
+  <p>The audit took too long. This can happen with very large sites.</p>
+  <p style="margin-top: 24px;"><a href="/">← Try again</a></p>
+</div>
+</body></html>"""
+        return HTMLResponse(content=timeout_html, status_code=504)
     except Exception as e:
         error_html = f"""<!DOCTYPE html>
 <html><head><meta charset="UTF-8"><title>Audit Error</title>
