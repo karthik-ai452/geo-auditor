@@ -29,16 +29,51 @@
 
   /* Header */
   .report-header {
-    text-align: center;
     margin-bottom: 40px;
-    padding: 40px;
+    padding: 36px 40px;
     background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
     color: white;
     border-radius: 16px;
   }
-  .report-header h1 { font-size: 28px; margin-bottom: 8px; }
-  .report-header .subtitle { font-size: 16px; opacity: 0.9; }
-  .report-header .meta { font-size: 13px; opacity: 0.7; margin-top: 12px; }
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .header-text h1 { font-size: 28px; margin-bottom: 8px; }
+  .header-text .subtitle { font-size: 16px; opacity: 0.9; }
+  .header-text .meta { font-size: 13px; opacity: 0.75; margin-top: 10px; }
+  .copy-report-btn {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    padding: 12px 22px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  .copy-report-btn:hover {
+    background: rgba(255, 255, 255, 0.32);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+  .copy-report-btn:active {
+    transform: translateY(0);
+  }
+  .copy-report-btn.copied {
+    background: #10b981;
+    border-color: #34d399;
+  }
 
   /* Score circle */
   .score-section {
@@ -299,9 +334,18 @@
 
   <!-- Header -->
   <div class="report-header">
-    <h1>GEO Audit Report</h1>
-    <div class="subtitle">notion.so</div>
-    <div class="meta">Audited 2026-08-05T07:20:55.749721+00:00 · Content scoring: LLM-assisted (drytis/kimi-k2.5)</div>
+    <div class="header-content">
+      <div class="header-text">
+        <h1>GEO Audit Report</h1>
+        <div class="subtitle">notion.so</div>
+        <div class="meta">Audited 2026-08-05T07:20:55.749721+00:00 · Content scoring: LLM-assisted (drytis/kimi-k2.5)</div>
+      </div>
+      <div>
+        <button id="copyReportBtn" class="copy-report-btn" onclick="copyFullReport()">
+          <span class="icon">📋</span> Copy Report
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- Score Summary -->
@@ -1334,8 +1378,6 @@ Tip: if you use WordPress, plugins like Yoast SEO or RankMath can generate this 
           Impact 80/100 · Effort 20/100 · Priority 64
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">No &lt;script type=&#39;application/ld+json&#39;&gt; tags were found in the page HTML.</div>
-        
         
         <div class="action-fix">Add this to your homepage &lt;head&gt; (replace the placeholders):
 
@@ -1368,8 +1410,6 @@ Tip: if you use WordPress, plugins like Yoast SEO or RankMath can generate this 
           Impact 72/100 · Effort 30/100 · Priority 50
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The content contains virtually no source citations. The G2 rankings are mentioned without links to the actual reports or methodology. The customer quotes are unattributed (no names, ti...</div>
-        
         
         <div class="action-fix">Cite your sources. Use phrases like &#39;according to [study]&#39;, &#39;research from [organization] shows&#39;, or link to primary sources. AI engines prefer content that itself cites evidence.
 
@@ -1386,8 +1426,6 @@ AI&#39;s specific suggestion: Add a comprehensive &#39;What is Notion?&#39; sect
           Impact 50/100 · Effort 5/100 · Priority 48
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">Canonical tag points to &#34;https://www.notion.com/&#34; but the page is served from a different domain. This tells search engines the &#34;real&#34; version lives elsewhere.</div>
-        
         
         <div class="action-fix">Change the canonical to point to this page&#39;s own URL:
 
@@ -1403,8 +1441,6 @@ AI&#39;s specific suggestion: Add a comprehensive &#39;What is Notion?&#39; sect
         <div class="action-meta">
           Impact 60/100 · Effort 25/100 · Priority 45
         </div>
-        
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">No FAQPage schema.org markup found. FAQ content in structured format is one of the most cited content types by AI engines.</div>
         
         
         <div class="action-fix">Add FAQ schema to key pages. Example:
@@ -1435,8 +1471,6 @@ AI&#39;s specific suggestion: Add a comprehensive &#39;What is Notion?&#39; sect
           Impact 52/100 · Effort 20/100 · Priority 42
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The content contains some definitional statements about Notion&#39;s features, but these are marketing-oriented rather than informational. Phrases like &#39;Q&amp;A agents Answers questions instan...</div>
-        
         
         <div class="action-fix">Add clear, direct answer paragraphs at the top of your content. Format: &#39;[Topic] is [definition/explanation].&#39; — one or two sentences that directly answer the most likely question a person would ask.
 
@@ -1454,8 +1488,6 @@ AI&#39;s specific suggestion: Add a comprehensive &#39;What is Notion?&#39; sect
         <div class="action-meta">
           Impact 80/100 · Effort 50/100 · Priority 40
         </div>
-        
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">The AI describes your business differently from how you position yourself: [CRITICAL] features: You say &#39;AI-first platform with Custom Agents, Q&amp;A agents, task routi&#39; vs AI says &#39;Flexible workspace co...</div>
         
         
         <div class="action-fix">The AI describes your business differently than you intend. Fix this:
@@ -1477,8 +1509,6 @@ AI&#39;s specific suggestion: Add a comprehensive &#39;What is Notion?&#39; sect
           Impact 60/100 · Effort 40/100 · Priority 36
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">Overall assessment: This homepage performs poorly for AI search answerability due to its marketing-first approach. While it contains some statistics and feature descriptions, the lack of source citati...</div>
-        
         
         <div class="action-fix">Add a comprehensive &#39;What is Notion?&#39; section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.</div>
         
@@ -1492,8 +1522,6 @@ AI&#39;s specific suggestion: Add a comprehensive &#39;What is Notion?&#39; sect
         <div class="action-meta">
           Impact 44/100 · Effort 25/100 · Priority 33
         </div>
-        
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The content has 11 H2 headings indicating attempted organization, but the structure is fragmented and repetitive. The same content blocks appear multiple times (the statistics carousel...</div>
         
         
         <div class="action-fix">Structure your content with clear headings (H2, H3), short paragraphs, and logical sections. Use bullet points for lists. Each section should answer one question or cover one topic.
@@ -1511,8 +1539,6 @@ AI&#39;s specific suggestion: Add a comprehensive &#39;What is Notion?&#39; sect
           Impact 48/100 · Effort 35/100 · Priority 31
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: Some headings use imperative and question-like formats (&#39;Ask your on-demand assistants,&#39; &#39;Keep work moving 24/7&#39;), but these are marketing slogans rather than natural query matches. Th...</div>
-        
         
         <div class="action-fix">Write in the language your audience actually uses to ask questions. Instead of &#39;Our platform provides enterprise-grade solutions&#39;, write &#39;Our platform helps large teams manage projects.&#39; Use natural, conversational phrasing.
 
@@ -1528,8 +1554,6 @@ AI&#39;s specific suggestion: Add a comprehensive &#39;What is Notion?&#39; sect
         <div class="action-meta">
           Impact 35/100 · Effort 30/100 · Priority 24
         </div>
-        
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">No citation patterns (&#39;according to&#39;, &#39;source:&#39;, &#39;study by&#39;) found. Content with citations is more likely to be cited by AI engines.</div>
         
         
         <div class="action-fix">When you make a claim or cite a statistic, link to or name the source. E.g., &#39;According to a 2024 Gartner study...&#39;</div>
@@ -1571,12 +1595,263 @@ AI&#39;s specific suggestion: Add a comprehensive &#39;What is Notion?&#39; sect
 
 </div>
 
+<script type="text/plain" id="reportMarkdown">
+# GEO Audit Report — notion.so
+Audited: 2026-08-05T07:20:55.749721+00:00 (Content scoring: LLM-assisted (drytis/kimi-k2.5))
+
+## Score: 71/100 — Moderate
+Verdict: Your site has a foundation but key gaps are holding back AI visibility.
+
+### Pillar Breakdown:
+
+* Crawlability: 100.0/100 (weight 15%)
+
+* Answerability: 38.6/100 (weight 20%)
+
+* Structure: 53.0/100 (weight 15%)
+
+* Brand Recall: 100.0/100 (weight 25%)
+
+* Source Presence: 63.0/100 (weight 25%)
+
+
+### Key Findings:
+
+* [POSITIVE] All checked AI crawlers are allowed in robots.txt (Page: /robots.txt)
+  - Finding: All 8 checked AI crawlers (GPTBot, OAI-SearchBot, PerplexityBot, Perplexity-User, ClaudeBot, anthropic-ai, CCBot, Google-Extended) can access your site.
+
+
+
+* [POSITIVE] sitemap.xml is a valid index (169 child sitemaps) (Page: /sitemap.xml)
+  - Finding: Sitemap index with 169 child sitemaps, 287 URLs total.
+
+
+
+* [POSITIVE] No noindex directives found on crawled pages
+  - Finding: All 1 crawled pages are indexable.
+
+
+
+* [INFO] No source citations detected (Page: https://notion.so/)
+  - Finding: No citation patterns (&#39;according to&#39;, &#39;source:&#39;, &#39;study by&#39;) found. Content with citations is more likely to be cited by AI engines.
+  - Recommendation: Cite sources for claims and data.
+  - Fix: When you make a claim or cite a statistic, link to or name the source. E.g., &#39;According to a 2024 Gartner study...&#39;
+
+* [WARNING] No FAQ structured data (Page: https://notion.so/)
+  - Finding: No FAQPage schema.org markup found. FAQ content in structured format is one of the most cited content types by AI engines.
+  - Recommendation: FAQPage schema markup for common questions.
+  - Fix: Add FAQ schema to key pages. Example:
+
+&lt;script type=&#34;application/ld+json&#34;&gt;
+{
+  &#34;@context&#34;: &#34;https://schema.org&#34;,
+  &#34;@type&#34;: &#34;FAQPage&#34;,
+  &#34;mainEntity&#34;: [{
+    &#34;@type&#34;: &#34;Question&#34;,
+    &#34;name&#34;: &#34;What does your business do?&#34;,
+    &#34;acceptedAnswer&#34;: {
+      &#34;@type&#34;: &#34;Answer&#34;,
+      &#34;text&#34;: &#34;Clear, concise answer here.&#34;
+    }
+  }]
+}
+&lt;/script&gt;
+
+* [WARNING] Content scores low on Direct Answers (35/100) (Page: https://notion.so/)
+  - Finding: LLM assessment: The content contains some definitional statements about Notion&#39;s features, but these are marketing-oriented rather than informational. Phrases like &#39;Q&amp;A agents Answers questions instantly using knowledge you already have&#39; and &#39;Enterprise Search One search for everything&#39; provide basic feature descriptions, but lack substantive explanations of how these work, what problems they solve in detail, or comparative context. The content prioritizes persuasive language over educational clarity, making it difficult for AI systems to extract definitive answers to user questions. Example from your content: &#34;&#39;Q&amp;A agents Answers questions instantly using knowledge you already have&#39; — states what it does but not how it works, what formats it supports, or limitations&#34;
+  - Recommendation: Direct Answers should score 70+ for good AI search visibility.
+  - Fix: Add clear, direct answer paragraphs at the top of your content. Format: &#39;[Topic] is [definition/explanation].&#39; — one or two sentences that directly answer the most likely question a person would ask.
+
+Example: &#39;Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.&#39;
+
+AI&#39;s specific suggestion: Add a comprehensive &#39;What is Notion?&#39; section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.
+
+* [CRITICAL] Content scores low on Citation Quality (10/100) (Page: https://notion.so/)
+  - Finding: LLM assessment: The content contains virtually no source citations. The G2 rankings are mentioned without links to the actual reports or methodology. The customer quotes are unattributed (no names, titles, or companies). The &#39;3x&#39; efficiency claim has no supporting evidence. No external links to research, case studies, or methodology documents are present. This makes the content unsuitable for AI systems that prioritize verifiable claims. Example from your content: &#34;&#39;Trusted by 98% of the Forbes Cloud 100&#39; — no link to Forbes list, date, or methodology for this percentage&#34;
+  - Recommendation: Citation Quality should score 70+ for good AI search visibility.
+  - Fix: Cite your sources. Use phrases like &#39;according to [study]&#39;, &#39;research from [organization] shows&#39;, or link to primary sources. AI engines prefer content that itself cites evidence.
+
+AI&#39;s specific suggestion: Add a comprehensive &#39;What is Notion?&#39; section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.
+
+* [WARNING] Content scores low on Structure Clarity (45/100) (Page: https://notion.so/)
+  - Finding: LLM assessment: The content has 11 H2 headings indicating attempted organization, but the structure is fragmented and repetitive. The same content blocks appear multiple times (the statistics carousel repeats three times). Feature descriptions are brief and scattered rather than grouped logically. There is no clear hierarchy between product categories (Agents, Search, Notes) and supporting evidence. The page reads as a collection of marketing modules rather than a coherent information architecture. Example from your content: &#34;The statistics block &#39;Over 100M users worldwide #1 knowledge base...&#39; appears three times identically, suggesting poor content deduplication&#34;
+  - Recommendation: Structure Clarity should score 70+ for good AI search visibility.
+  - Fix: Structure your content with clear headings (H2, H3), short paragraphs, and logical sections. Use bullet points for lists. Each section should answer one question or cover one topic.
+
+AI&#39;s specific suggestion: Add a comprehensive &#39;What is Notion?&#39; section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.
+
+* [WARNING] Content scores low on Conversational Match (40/100) (Page: https://notion.so/)
+  - Finding: LLM assessment: Some headings use imperative and question-like formats (&#39;Ask your on-demand assistants,&#39; &#39;Keep work moving 24/7&#39;), but these are marketing slogans rather than natural query matches. The content does not anticipate specific user questions like &#39;What is Notion used for?&#39; or &#39;How does Notion AI compare to other tools?&#39; The language is brand-centric (&#39;Notion Agent,&#39; &#39;Custom Agents&#39;) rather than problem-centric. No FAQ section or &#39;People also ask&#39; style content is present. Example from your content: &#34;&#39;Ask your on-demand assistants&#39; — mimics a user action but doesn&#39;t match how users actually phrase search queries about AI assistants&#34;
+  - Recommendation: Conversational Match should score 70+ for good AI search visibility.
+  - Fix: Write in the language your audience actually uses to ask questions. Instead of &#39;Our platform provides enterprise-grade solutions&#39;, write &#39;Our platform helps large teams manage projects.&#39; Use natural, conversational phrasing.
+
+AI&#39;s specific suggestion: Add a comprehensive &#39;What is Notion?&#39; section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.
+
+* [INFO] AI&#39;s #1 recommendation for your content (Page: https://notion.so/)
+  - Finding: Overall assessment: This homepage performs poorly for AI search answerability due to its marketing-first approach. While it contains some statistics and feature descriptions, the lack of source citations, repetitive structure, and absence of substantive explanatory content make it unlikely to be selected as a citation source. AI systems would struggle to extract reliable, verifiable information from this page.
+  - Recommendation: Add a comprehensive &#39;What is Notion?&#39; section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.
+  - Fix: Add a comprehensive &#39;What is Notion?&#39; section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.
+
+* [CRITICAL] No structured data (schema.org JSON-LD) on homepage (Page: https://notion.so/)
+  - Finding: No &lt;script type=&#39;application/ld+json&#39;&gt; tags were found in the page HTML.
+  - Recommendation: At minimum, Organization and WebSite schema should be present.
+  - Fix: Add this to your homepage &lt;head&gt; (replace the placeholders):
+
+&lt;script type=&#34;application/ld+json&#34;&gt;
+{
+  &#34;@context&#34;: &#34;https://schema.org&#34;,
+  &#34;@type&#34;: &#34;Organization&#34;,
+  &#34;name&#34;: &#34;Your Business Name&#34;,
+  &#34;url&#34;: &#34;https://yoursite.com&#34;,
+  &#34;logo&#34;: &#34;https://yoursite.com/logo.png&#34;,
+  &#34;description&#34;: &#34;One sentence describing what your business does.&#34;,
+  &#34;sameAs&#34;: [
+    &#34;https://twitter.com/yourhandle&#34;,
+    &#34;https://www.linkedin.com/company/yourcompany&#34;,
+    &#34;https://www.crunchbase.com/organization/yourcompany&#34;
+  ]
+}
+&lt;/script&gt;
+
+Tip: if you use WordPress, plugins like Yoast SEO or RankMath can generate this automatically. If you use Webflow, it&#39;s under Page Settings &gt; Schema Markup.
+
+* [WARNING] Canonical URL points to a different domain (Page: https://notion.so/)
+  - Finding: Canonical tag points to &#34;https://www.notion.com/&#34; but the page is served from a different domain. This tells search engines the &#34;real&#34; version lives elsewhere.
+  - Recommendation: Canonical should point to the page&#39;s own URL (self-referencing).
+  - Fix: Change the canonical to point to this page&#39;s own URL:
+
+&lt;link rel=&#34;canonical&#34; href=&#34;https://notion.so/&#34;&gt;
+
+* [POSITIVE] AI knows &#39;Notion&#39; — mentioned in 3/3 queries (Page: https://notion.so/)
+  - Finding: The AI model mentioned &#39;Notion&#39; in 3 of 3 test queries.  • &#34;What are the best task management platforms for bu...&#34; → #8 mentioned: &#34;**Notion** – Combines tasks, docs, and databases; highly flexible but requires more setup&#34;  • &#34;What are the top task management companies or tool...&#34; → #4 mentioned: &#34;- **Notion** – flexible workspace combining docs, databases, and tasks&#34;  • &#34;Can you compare the top task management platforms ...&#34; → #3 mentioned: &#34;**Notion**&#34;
+
+
+
+* [CRITICAL] Critical AI positioning mismatch for &#39;Notion&#39; (Page: https://notion.so/)
+  - Finding: The AI describes your business differently from how you position yourself: [CRITICAL] features: You say &#39;AI-first platform with Custom Agents, Q&amp;A agents, task routi&#39; vs AI says &#39;Flexible workspace combining docs, databases, and tasks; &#39;hi&#39; | [MODERATE] category: You say &#39;AI-native workspace platform with autonomous agents; &#39;one hu&#39; vs AI says &#39;Task management platform / project management tool in a list&#39; | [MODERATE] tone: You say &#39;Revolutionary, transformative, competitive advantage—emphasi&#39; vs AI says &#39;Neutral, utilitarian, cautionary (&#39;requires more setup&#39;)—fra&#39; | [MODERATE] audience: You say &#39;Enterprise-focused with Fortune 100, Forbes Cloud 100, YC co&#39; vs AI says &#39;General business teams, compared alongside Trello and Todois&#39; | [MINOR] price: You say &#39;&#39;Get Notion free&#39; prominent but immediately paired with ente&#39; vs AI says &#39;Implicitly grouped with free/low-cost alternatives; no enter&#39;
+  - Recommendation: The AI should describe you using your own positioning language.
+  - Fix: The AI describes your business differently than you intend. Fix this:
+• [features] You say: &#39;AI-first platform with Custom Agents, Q&amp;A agents, task routing agents, reporting&#39;. AI says: &#39;Flexible workspace combining docs, databases, and tasks; &#39;highly flexible but re&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [category] You say: &#39;AI-native workspace platform with autonomous agents; &#39;one hub for work and AI&#39;&#39;. AI says: &#39;Task management platform / project management tool in a list of competitors&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [tone] You say: &#39;Revolutionary, transformative, competitive advantage—emphasizes automation, spee&#39;. AI says: &#39;Neutral, utilitarian, cautionary (&#39;requires more setup&#39;)—framed as DIY/technical&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [audience] You say: &#39;Enterprise-focused with Fortune 100, Forbes Cloud 100, YC companies; &#39;Request a &#39;. AI says: &#39;General business teams, compared alongside Trello and Todoist for &#39;simplicity&#39; s&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [price] You say: &#39;&#39;Get Notion free&#39; prominent but immediately paired with enterprise demo request;&#39;. AI says: &#39;Implicitly grouped with free/low-cost alternatives; no enterprise framing&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+
+
+* [POSITIVE] &#39;Notion&#39; dominates share of voice (100%)
+  - Finding: Target &#39;Notion&#39;: 3 mentions (100% share of voice)
+
+
+
+
+
+### Action Plan:
+
+1. No structured data (schema.org JSON-LD) on homepage (Impact 80/100, Effort 20/100)
+   Fix: Add this to your homepage &lt;head&gt; (replace the placeholders):
+
+&lt;script type=&#34;application/ld+json&#34;&gt;
+{
+  &#34;@context&#34;: &#34;https://schema.org&#34;,
+  &#34;@type&#34;: &#34;Organization&#34;,
+  &#34;name&#34;: &#34;Your Business Name&#34;,
+  &#34;url&#34;: &#34;https://yoursite.com&#34;,
+  &#34;logo&#34;: &#34;https://yoursite.com/logo.png&#34;,
+  &#34;description&#34;: &#34;One sentence describing what your business does.&#34;,
+  &#34;sameAs&#34;: [
+    &#34;https://twitter.com/yourhandle&#34;,
+    &#34;https://www.linkedin.com/company/yourcompany&#34;,
+    &#34;https://www.crunchbase.com/organization/yourcompany&#34;
+  ]
+}
+&lt;/script&gt;
+
+Tip: if you use WordPress, plugins like Yoast SEO or RankMath can generate this automatically. If you use Webflow, it&#39;s under Page Settings &gt; Schema Markup.
+
+2. Content scores low on Citation Quality (10/100) (Impact 72/100, Effort 30/100)
+   Fix: Cite your sources. Use phrases like &#39;according to [study]&#39;, &#39;research from [organization] shows&#39;, or link to primary sources. AI engines prefer content that itself cites evidence.
+
+AI&#39;s specific suggestion: Add a comprehensive &#39;What is Notion?&#39; section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.
+
+3. Canonical URL points to a different domain (Impact 50/100, Effort 5/100)
+   Fix: Change the canonical to point to this page&#39;s own URL:
+
+&lt;link rel=&#34;canonical&#34; href=&#34;https://notion.so/&#34;&gt;
+
+4. No FAQ structured data (Impact 60/100, Effort 25/100)
+   Fix: Add FAQ schema to key pages. Example:
+
+&lt;script type=&#34;application/ld+json&#34;&gt;
+{
+  &#34;@context&#34;: &#34;https://schema.org&#34;,
+  &#34;@type&#34;: &#34;FAQPage&#34;,
+  &#34;mainEntity&#34;: [{
+    &#34;@type&#34;: &#34;Question&#34;,
+    &#34;name&#34;: &#34;What does your business do?&#34;,
+    &#34;acceptedAnswer&#34;: {
+      &#34;@type&#34;: &#34;Answer&#34;,
+      &#34;text&#34;: &#34;Clear, concise answer here.&#34;
+    }
+  }]
+}
+&lt;/script&gt;
+
+5. Content scores low on Direct Answers (35/100) (Impact 52/100, Effort 20/100)
+   Fix: Add clear, direct answer paragraphs at the top of your content. Format: &#39;[Topic] is [definition/explanation].&#39; — one or two sentences that directly answer the most likely question a person would ask.
+
+Example: &#39;Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.&#39;
+
+AI&#39;s specific suggestion: Add a comprehensive &#39;What is Notion?&#39; section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.
+
+6. Critical AI positioning mismatch for &#39;Notion&#39; (Impact 80/100, Effort 50/100)
+   Fix: The AI describes your business differently than you intend. Fix this:
+• [features] You say: &#39;AI-first platform with Custom Agents, Q&amp;A agents, task routing agents, reporting&#39;. AI says: &#39;Flexible workspace combining docs, databases, and tasks; &#39;highly flexible but re&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [category] You say: &#39;AI-native workspace platform with autonomous agents; &#39;one hub for work and AI&#39;&#39;. AI says: &#39;Task management platform / project management tool in a list of competitors&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [tone] You say: &#39;Revolutionary, transformative, competitive advantage—emphasizes automation, spee&#39;. AI says: &#39;Neutral, utilitarian, cautionary (&#39;requires more setup&#39;)—framed as DIY/technical&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [audience] You say: &#39;Enterprise-focused with Fortune 100, Forbes Cloud 100, YC companies; &#39;Request a &#39;. AI says: &#39;General business teams, compared alongside Trello and Todoist for &#39;simplicity&#39; s&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [price] You say: &#39;&#39;Get Notion free&#39; prominent but immediately paired with enterprise demo request;&#39;. AI says: &#39;Implicitly grouped with free/low-cost alternatives; no enterprise framing&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+
+
+7. AI&#39;s #1 recommendation for your content (Impact 60/100, Effort 40/100)
+   Fix: Add a comprehensive &#39;What is Notion?&#39; section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.
+
+8. Content scores low on Structure Clarity (45/100) (Impact 44/100, Effort 25/100)
+   Fix: Structure your content with clear headings (H2, H3), short paragraphs, and logical sections. Use bullet points for lists. Each section should answer one question or cover one topic.
+
+AI&#39;s specific suggestion: Add a comprehensive &#39;What is Notion?&#39; section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.
+
+9. Content scores low on Conversational Match (40/100) (Impact 48/100, Effort 35/100)
+   Fix: Write in the language your audience actually uses to ask questions. Instead of &#39;Our platform provides enterprise-grade solutions&#39;, write &#39;Our platform helps large teams manage projects.&#39; Use natural, conversational phrasing.
+
+AI&#39;s specific suggestion: Add a comprehensive &#39;What is Notion?&#39; section with 2-3 sentence plain-language definitions of each product, include attributed customer case studies with specific metrics and dates, and create an FAQ schema addressing common comparison and use-case questions with direct, non-promotional answers.
+
+10. No source citations detected (Impact 35/100, Effort 30/100)
+   Fix: When you make a claim or cite a statistic, link to or name the source. E.g., &#39;According to a 2024 Gartner study...&#39;
+
+
+</script>
+
 <script>
 function copyFix(btn) {
   var text = btn.parentElement.textContent.replace('Copy', '').trim();
   navigator.clipboard.writeText(text).then(function() {
     btn.textContent = 'Copied!';
     setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+  });
+}
+
+function copyFullReport() {
+  var rawText = document.getElementById('reportMarkdown').textContent.trim();
+  var btn = document.getElementById('copyReportBtn');
+  navigator.clipboard.writeText(rawText).then(function() {
+    btn.innerHTML = '<span class="icon">✨</span> Copied to Clipboard!';
+    btn.classList.add('copied');
+    setTimeout(function() {
+      btn.innerHTML = '<span class="icon">📋</span> Copy Report';
+      btn.classList.remove('copied');
+    }, 2500);
+  }).catch(function(err) {
+    console.error('Failed to copy: ', err);
   });
 }
 </script>
