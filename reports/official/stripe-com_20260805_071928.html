@@ -29,16 +29,51 @@
 
   /* Header */
   .report-header {
-    text-align: center;
     margin-bottom: 40px;
-    padding: 40px;
+    padding: 36px 40px;
     background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
     color: white;
     border-radius: 16px;
   }
-  .report-header h1 { font-size: 28px; margin-bottom: 8px; }
-  .report-header .subtitle { font-size: 16px; opacity: 0.9; }
-  .report-header .meta { font-size: 13px; opacity: 0.7; margin-top: 12px; }
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .header-text h1 { font-size: 28px; margin-bottom: 8px; }
+  .header-text .subtitle { font-size: 16px; opacity: 0.9; }
+  .header-text .meta { font-size: 13px; opacity: 0.75; margin-top: 10px; }
+  .copy-report-btn {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    padding: 12px 22px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  .copy-report-btn:hover {
+    background: rgba(255, 255, 255, 0.32);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+  .copy-report-btn:active {
+    transform: translateY(0);
+  }
+  .copy-report-btn.copied {
+    background: #10b981;
+    border-color: #34d399;
+  }
 
   /* Score circle */
   .score-section {
@@ -299,9 +334,18 @@
 
   <!-- Header -->
   <div class="report-header">
-    <h1>GEO Audit Report</h1>
-    <div class="subtitle">stripe.com</div>
-    <div class="meta">Audited 2026-08-05T07:19:28.163355+00:00 · Content scoring: LLM-assisted (drytis/kimi-k2.5)</div>
+    <div class="header-content">
+      <div class="header-text">
+        <h1>GEO Audit Report</h1>
+        <div class="subtitle">stripe.com</div>
+        <div class="meta">Audited 2026-08-05T07:19:28.163355+00:00 · Content scoring: LLM-assisted (drytis/kimi-k2.5)</div>
+      </div>
+      <div>
+        <button id="copyReportBtn" class="copy-report-btn" onclick="copyFullReport()">
+          <span class="icon">📋</span> Copy Report
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- Score Summary -->
@@ -1275,8 +1319,6 @@ AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 heading
           Impact 68/100 · Effort 20/100 · Priority 54
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The content is almost entirely marketing-oriented and lacks definitional, question-answering content. It describes what Stripe does but doesn&#39;t answer specific &#39;what is&#39; or &#39;how to&#39; qu...</div>
-        
         
         <div class="action-fix">Add clear, direct answer paragraphs at the top of your content. Format: &#39;[Topic] is [definition/explanation].&#39; — one or two sentences that directly answer the most likely question a person would ask.
 
@@ -1295,8 +1337,6 @@ AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 heading
           Impact 72/100 · Effort 30/100 · Priority 50
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: No external citations or source attribution exists. All claims are self-reported by Stripe without links to third-party verification, methodology explanations, or independent research....</div>
-        
         
         <div class="action-fix">Cite your sources. Use phrases like &#39;according to [study]&#39;, &#39;research from [organization] shows&#39;, or link to primary sources. AI engines prefer content that itself cites evidence.
 
@@ -1312,8 +1352,6 @@ AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 heading
         <div class="action-meta">
           Impact 60/100 · Effort 25/100 · Priority 45
         </div>
-        
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">No FAQPage schema.org markup found. FAQ content in structured format is one of the most cited content types by AI engines.</div>
         
         
         <div class="action-fix">Add FAQ schema to key pages. Example:
@@ -1344,8 +1382,6 @@ AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 heading
           Impact 50/100 · Effort 15/100 · Priority 42
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">No definitional statements (&#39;X is a...&#39;, &#39;X means...&#39;) found in the first 2000 characters. AI engines extract definitional answers to fill their responses.</div>
-        
         
         <div class="action-fix">Add a 1-2 sentence direct answer at the top of your page that defines your main topic in plain language.</div>
         
@@ -1359,8 +1395,6 @@ AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 heading
         <div class="action-meta">
           Impact 64/100 · Effort 35/100 · Priority 42
         </div>
-        
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">LLM assessment: The language is highly branded, slogan-driven, and marketing-focused rather than conversational. Phrases like &#39;vibe-coding juggernaut,&#39; &#39;agentic commerce,&#39; and &#39;borderless money moveme...</div>
         
         
         <div class="action-fix">Write in the language your audience actually uses to ask questions. Instead of &#39;Our platform provides enterprise-grade solutions&#39;, write &#39;Our platform helps large teams manage projects.&#39; Use natural, conversational phrasing.
@@ -1378,8 +1412,6 @@ AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 heading
           Impact 50/100 · Effort 20/100 · Priority 40
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">No sitemap.xml was found at /sitemap.xml.</div>
-        
         
         <div class="action-fix">Create a sitemap.xml at the site root. If you use a CMS (WordPress, Shopify, Webflow), there&#39;s usually a plugin or built-in feature to generate one. Reference it in robots.txt:
 
@@ -1395,8 +1427,6 @@ Sitemap: https://yoursite.com/sitemap.xml</div>
         <div class="action-meta">
           Impact 80/100 · Effort 50/100 · Priority 40
         </div>
-        
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">The AI describes your business differently from how you position yourself: [CRITICAL] category: You say &#39;Financial infrastructure platform offering payments, financi&#39; vs AI says &#39;Payment processing pl...</div>
         
         
         <div class="action-fix">The AI describes your business differently than you intend. Fix this:
@@ -1417,8 +1447,6 @@ Sitemap: https://yoursite.com/sitemap.xml</div>
           Impact 60/100 · Effort 40/100 · Priority 36
         </div>
         
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">Overall assessment: This content would perform poorly in AI search citations despite Stripe&#39;s brand authority. The page prioritizes conversion over answerability—rich in impressive statistics but poor...</div>
-        
         
         <div class="action-fix">Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.</div>
         
@@ -1432,8 +1460,6 @@ Sitemap: https://yoursite.com/sitemap.xml</div>
         <div class="action-meta">
           Impact 35/100 · Effort 30/100 · Priority 24
         </div>
-        
-        <div style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">No citation patterns (&#39;according to&#39;, &#39;source:&#39;, &#39;study by&#39;) found. Content with citations is more likely to be cited by AI engines.</div>
         
         
         <div class="action-fix">When you make a claim or cite a statistic, link to or name the source. E.g., &#39;According to a 2024 Gartner study...&#39;</div>
@@ -1475,12 +1501,213 @@ Sitemap: https://yoursite.com/sitemap.xml</div>
 
 </div>
 
+<script type="text/plain" id="reportMarkdown">
+# GEO Audit Report — stripe.com
+Audited: 2026-08-05T07:19:28.163355+00:00 (Content scoring: LLM-assisted (drytis/kimi-k2.5))
+
+## Score: 70/100 — Moderate
+Verdict: Your site has a foundation but key gaps are holding back AI visibility.
+
+### Pillar Breakdown:
+
+* Crawlability: 85.0/100 (weight 15%)
+
+* Answerability: 36.0/100 (weight 20%)
+
+* Structure: 90.0/100 (weight 15%)
+
+* Brand Recall: 100.0/100 (weight 25%)
+
+* Source Presence: 46.3/100 (weight 25%)
+
+
+### Key Findings:
+
+* [POSITIVE] All checked AI crawlers are allowed in robots.txt (Page: /robots.txt)
+  - Finding: All 8 checked AI crawlers (GPTBot, OAI-SearchBot, PerplexityBot, Perplexity-User, ClaudeBot, anthropic-ai, CCBot, Google-Extended) can access your site.
+
+
+
+* [WARNING] sitemap.xml is missing or unreachable (Page: /sitemap.xml)
+  - Finding: No sitemap.xml was found at /sitemap.xml.
+  - Recommendation: A valid sitemap.xml listing your key pages.
+  - Fix: Create a sitemap.xml at the site root. If you use a CMS (WordPress, Shopify, Webflow), there&#39;s usually a plugin or built-in feature to generate one. Reference it in robots.txt:
+
+Sitemap: https://yoursite.com/sitemap.xml
+
+* [POSITIVE] No noindex directives found on crawled pages
+  - Finding: All 1 crawled pages are indexable.
+
+
+
+* [WARNING] No direct definitional answers detected (Page: https://stripe.com/)
+  - Finding: No definitional statements (&#39;X is a...&#39;, &#39;X means...&#39;) found in the first 2000 characters. AI engines extract definitional answers to fill their responses.
+  - Recommendation: Clear, direct definitions at the top of key pages.
+  - Fix: Add a 1-2 sentence direct answer at the top of your page that defines your main topic in plain language.
+
+* [INFO] No source citations detected (Page: https://stripe.com/)
+  - Finding: No citation patterns (&#39;according to&#39;, &#39;source:&#39;, &#39;study by&#39;) found. Content with citations is more likely to be cited by AI engines.
+  - Recommendation: Cite sources for claims and data.
+  - Fix: When you make a claim or cite a statistic, link to or name the source. E.g., &#39;According to a 2024 Gartner study...&#39;
+
+* [WARNING] No FAQ structured data (Page: https://stripe.com/)
+  - Finding: No FAQPage schema.org markup found. FAQ content in structured format is one of the most cited content types by AI engines.
+  - Recommendation: FAQPage schema markup for common questions.
+  - Fix: Add FAQ schema to key pages. Example:
+
+&lt;script type=&#34;application/ld+json&#34;&gt;
+{
+  &#34;@context&#34;: &#34;https://schema.org&#34;,
+  &#34;@type&#34;: &#34;FAQPage&#34;,
+  &#34;mainEntity&#34;: [{
+    &#34;@type&#34;: &#34;Question&#34;,
+    &#34;name&#34;: &#34;What does your business do?&#34;,
+    &#34;acceptedAnswer&#34;: {
+      &#34;@type&#34;: &#34;Answer&#34;,
+      &#34;text&#34;: &#34;Clear, concise answer here.&#34;
+    }
+  }]
+}
+&lt;/script&gt;
+
+* [CRITICAL] Content scores low on Direct Answers (15/100) (Page: https://stripe.com/)
+  - Finding: LLM assessment: The content is almost entirely marketing-oriented and lacks definitional, question-answering content. It describes what Stripe does but doesn&#39;t answer specific &#39;what is&#39; or &#39;how to&#39; questions in a direct, extractable format. The content repeats taglines (&#39;Financial infrastructure to grow your revenue&#39;) rather than providing explanatory content that AI search engines could quote as answers. Example from your content: &#34;Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth.&#34;
+  - Recommendation: Direct Answers should score 70+ for good AI search visibility.
+  - Fix: Add clear, direct answer paragraphs at the top of your content. Format: &#39;[Topic] is [definition/explanation].&#39; — one or two sentences that directly answer the most likely question a person would ask.
+
+Example: &#39;Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.&#39;
+
+AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.
+
+* [POSITIVE] Strong Statistical Richness (75/100) (Page: https://stripe.com/)
+  - Finding: LLM assessment: The page contains substantial specific statistics, particularly in the &#39;backbone of global commerce&#39; section and customer case studies. These concrete numbers ($1.9T volume, 99.999% uptime, 200M+ subscriptions, 135+ currencies) are highly citable by AI search engines and appear designed for credibility. However, many statistics lack dates or context for verification.
+
+
+
+* [CRITICAL] Content scores low on Citation Quality (10/100) (Page: https://stripe.com/)
+  - Finding: LLM assessment: No external citations or source attribution exists. All claims are self-reported by Stripe without links to third-party verification, methodology explanations, or independent research. The customer quotes and case studies are presented without links to full studies or audit reports. This severely limits trustworthiness for AI engines seeking verifiable claims. Example from your content: &#34;50% of Fortune 100 companies have used Stripe to grow their businesses—no source cited for this claim.&#34;
+  - Recommendation: Citation Quality should score 70+ for good AI search visibility.
+  - Fix: Cite your sources. Use phrases like &#39;according to [study]&#39;, &#39;research from [organization] shows&#39;, or link to primary sources. AI engines prefer content that itself cites evidence.
+
+AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.
+
+* [CRITICAL] Content scores low on Conversational Match (20/100) (Page: https://stripe.com/)
+  - Finding: LLM assessment: The language is highly branded, slogan-driven, and marketing-focused rather than conversational. Phrases like &#39;vibe-coding juggernaut,&#39; &#39;agentic commerce,&#39; and &#39;borderless money movement&#39; are industry jargon, not how users actually ask questions. The content doesn&#39;t mirror natural query patterns (e.g., &#39;How do I accept payments online?&#39; or &#39;What is Stripe used for?&#39;). Example from your content: &#34;Monetize through agentic commerce; Lovable grows into a vibe-coding juggernaut with Stripe.&#34;
+  - Recommendation: Conversational Match should score 70+ for good AI search visibility.
+  - Fix: Write in the language your audience actually uses to ask questions. Instead of &#39;Our platform provides enterprise-grade solutions&#39;, write &#39;Our platform helps large teams manage projects.&#39; Use natural, conversational phrasing.
+
+AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.
+
+* [INFO] AI&#39;s #1 recommendation for your content (Page: https://stripe.com/)
+  - Finding: Overall assessment: This content would perform poorly in AI search citations despite Stripe&#39;s brand authority. The page prioritizes conversion over answerability—rich in impressive statistics but poor in definitional content, external verification, and conversational language matching. AI engines would likely cite Stripe&#39;s statistics but prefer competitor content (e.g., Wikipedia, fintech blogs) for actual explanatory answers about payment processing.
+  - Recommendation: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.
+  - Fix: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.
+
+* [POSITIVE] Good structured data coverage on homepage (Page: https://stripe.com/)
+  - Finding: Found valid JSON-LD with types: Organization, WebSite.
+
+
+
+* [POSITIVE] AI knows &#39;Stripe&#39; — mentioned in 4/4 queries (Page: https://stripe.com/)
+  - Finding: The AI model mentioned &#39;Stripe&#39; in 4 of 4 test queries.  • &#34;What are the best payment processing platforms for...&#34; → #1 mentioned: &#34;- **Stripe** – Developer-friendly, excellent API, supports subscriptions, international payments, and many payment methods&#34;  • &#34;What are the top payment processing companies or t...&#34; → #1 mentioned: &#34;- **Stripe** – Developer-friendly, extensive APIs, popular with startups and tech companies&#34;  • &#34;Can you compare the top payment processing platfor...&#34; → #1 mentioned: &#34;**Stripe**&#34;
+
+
+
+* [CRITICAL] Critical AI positioning mismatch for &#39;Stripe&#39; (Page: https://stripe.com/)
+  - Finding: The AI describes your business differently from how you position yourself: [CRITICAL] category: You say &#39;Financial infrastructure platform offering payments, financi&#39; vs AI says &#39;Payment processing platform, primarily compared to Square/Pa&#39; | [MODERATE] audience: You say &#39;Businesses of all sizes including 50% of Fortune 100 compani&#39; vs AI says &#39;Small businesses, startups, and tech companies; listed under&#39; | [MODERATE] features: You say &#39;Emphasizes comprehensive financial tools: agentic commerce, &#39; vs AI says &#39;Focuses on API flexibility, subscriptions, and international&#39; | [MINOR] tone: You say &#39;Ambitious, infrastructure-scale positioning (&#39;global GDP&#39;, &#39;&#39; vs AI says &#39;Practical, utilitarian comparison shopping tone—&#39;developer-f&#39;
+  - Recommendation: The AI should describe you using your own positioning language.
+  - Fix: The AI describes your business differently than you intend. Fix this:
+• [category] You say: &#39;Financial infrastructure platform offering payments, financial services, billing&#39;. AI says: &#39;Payment processing platform, primarily compared to Square/PayPal as a &#39;developer&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [audience] You say: &#39;Businesses of all sizes including 50% of Fortune 100 companies, enterprises with&#39;. AI says: &#39;Small businesses, startups, and tech companies; listed under &#39;For small business&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [features] You say: &#39;Emphasizes comprehensive financial tools: agentic commerce, card issuing, stable&#39;. AI says: &#39;Focuses on API flexibility, subscriptions, and international payments—omits card&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [tone] You say: &#39;Ambitious, infrastructure-scale positioning (&#39;global GDP&#39;, &#39;economic infrastruct&#39;. AI says: &#39;Practical, utilitarian comparison shopping tone—&#39;developer-friendly&#39; feature in &#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+
+
+
+
+### Action Plan:
+
+1. Content scores low on Direct Answers (15/100) (Impact 68/100, Effort 20/100)
+   Fix: Add clear, direct answer paragraphs at the top of your content. Format: &#39;[Topic] is [definition/explanation].&#39; — one or two sentences that directly answer the most likely question a person would ask.
+
+Example: &#39;Customer relationship management (CRM) software is a tool that helps businesses track interactions with customers and prospects.&#39;
+
+AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.
+
+2. Content scores low on Citation Quality (10/100) (Impact 72/100, Effort 30/100)
+   Fix: Cite your sources. Use phrases like &#39;according to [study]&#39;, &#39;research from [organization] shows&#39;, or link to primary sources. AI engines prefer content that itself cites evidence.
+
+AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.
+
+3. No FAQ structured data (Impact 60/100, Effort 25/100)
+   Fix: Add FAQ schema to key pages. Example:
+
+&lt;script type=&#34;application/ld+json&#34;&gt;
+{
+  &#34;@context&#34;: &#34;https://schema.org&#34;,
+  &#34;@type&#34;: &#34;FAQPage&#34;,
+  &#34;mainEntity&#34;: [{
+    &#34;@type&#34;: &#34;Question&#34;,
+    &#34;name&#34;: &#34;What does your business do?&#34;,
+    &#34;acceptedAnswer&#34;: {
+      &#34;@type&#34;: &#34;Answer&#34;,
+      &#34;text&#34;: &#34;Clear, concise answer here.&#34;
+    }
+  }]
+}
+&lt;/script&gt;
+
+4. No direct definitional answers detected (Impact 50/100, Effort 15/100)
+   Fix: Add a 1-2 sentence direct answer at the top of your page that defines your main topic in plain language.
+
+5. Content scores low on Conversational Match (20/100) (Impact 64/100, Effort 35/100)
+   Fix: Write in the language your audience actually uses to ask questions. Instead of &#39;Our platform provides enterprise-grade solutions&#39;, write &#39;Our platform helps large teams manage projects.&#39; Use natural, conversational phrasing.
+
+AI&#39;s specific suggestion: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.
+
+6. sitemap.xml is missing or unreachable (Impact 50/100, Effort 20/100)
+   Fix: Create a sitemap.xml at the site root. If you use a CMS (WordPress, Shopify, Webflow), there&#39;s usually a plugin or built-in feature to generate one. Reference it in robots.txt:
+
+Sitemap: https://yoursite.com/sitemap.xml
+
+7. Critical AI positioning mismatch for &#39;Stripe&#39; (Impact 80/100, Effort 50/100)
+   Fix: The AI describes your business differently than you intend. Fix this:
+• [category] You say: &#39;Financial infrastructure platform offering payments, financial services, billing&#39;. AI says: &#39;Payment processing platform, primarily compared to Square/PayPal as a &#39;developer&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [audience] You say: &#39;Businesses of all sizes including 50% of Fortune 100 companies, enterprises with&#39;. AI says: &#39;Small businesses, startups, and tech companies; listed under &#39;For small business&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [features] You say: &#39;Emphasizes comprehensive financial tools: agentic commerce, card issuing, stable&#39;. AI says: &#39;Focuses on API flexibility, subscriptions, and international payments—omits card&#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+• [tone] You say: &#39;Ambitious, infrastructure-scale positioning (&#39;global GDP&#39;, &#39;economic infrastruct&#39;. AI says: &#39;Practical, utilitarian comparison shopping tone—&#39;developer-friendly&#39; feature in &#39;. Action: Use your intended positioning language consistently across your site, meta tags, and external profiles so AI engines learn the correct description.
+
+
+8. AI&#39;s #1 recommendation for your content (Impact 60/100, Effort 40/100)
+   Fix: Add a comprehensive FAQ section with H2/H3 headings that directly answer common questions in natural language (e.g., &#39;What is Stripe and how does it work?&#39;, &#39;How much does Stripe charge per transaction?&#39;), including structured data markup for each Q&amp;A pair.
+
+9. No source citations detected (Impact 35/100, Effort 30/100)
+   Fix: When you make a claim or cite a statistic, link to or name the source. E.g., &#39;According to a 2024 Gartner study...&#39;
+
+
+</script>
+
 <script>
 function copyFix(btn) {
   var text = btn.parentElement.textContent.replace('Copy', '').trim();
   navigator.clipboard.writeText(text).then(function() {
     btn.textContent = 'Copied!';
     setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+  });
+}
+
+function copyFullReport() {
+  var rawText = document.getElementById('reportMarkdown').textContent.trim();
+  var btn = document.getElementById('copyReportBtn');
+  navigator.clipboard.writeText(rawText).then(function() {
+    btn.innerHTML = '<span class="icon">✨</span> Copied to Clipboard!';
+    btn.classList.add('copied');
+    setTimeout(function() {
+      btn.innerHTML = '<span class="icon">📋</span> Copy Report';
+      btn.classList.remove('copied');
+    }, 2500);
+  }).catch(function(err) {
+    console.error('Failed to copy: ', err);
   });
 }
 </script>

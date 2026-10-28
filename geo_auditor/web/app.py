@@ -119,7 +119,7 @@ async def index():
     example_links = ""
     for domain in sorted(static_reports.keys()):
         example_links += (
-            f'<a href="/report/{domain}">{domain}</a>'
+            f'<a href="/report/{domain}" class="genz-pill border-glow">🔥 {domain}</a>'
         )
 
     page = f"""<!DOCTYPE html>
@@ -127,109 +127,373 @@ async def index():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GEO Auditor — AI Search Visibility Checker</title>
+<title>GEO Auditor — Are You Main Character in AI Search? ⚡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+  :root {{
+    --bg-dark: #090d16;
+    --neon-green: #10b981;
+    --neon-cyan: #06b6d4;
+    --neon-pink: #ec4899;
+    --neon-purple: #8b5cf6;
+    --card-bg: rgba(18, 24, 38, 0.7);
+    --card-border: rgba(255, 255, 255, 0.12);
+  }}
+
   body {{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-    min-height: 100vh; display: flex; align-items: center; justify-content: center;
-    padding: 20px;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-dark);
+    color: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    position: relative;
+    overflow-x: hidden;
   }}
+
+  /* Animated background mesh glow */
+  body::before {{
+    content: '';
+    position: fixed;
+    top: -10%; left: -10%;
+    width: 60vw; height: 60vw;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.22) 0%, rgba(0,0,0,0) 70%);
+    z-index: -1;
+    filter: blur(80px);
+    animation: floatGlow 12s infinite alternate ease-in-out;
+  }}
+  body::after {{
+    content: '';
+    position: fixed;
+    bottom: -10%; right: -10%;
+    width: 60vw; height: 60vw;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.22) 0%, rgba(0,0,0,0) 70%);
+    z-index: -1;
+    filter: blur(80px);
+    animation: floatGlow 15s infinite alternate-reverse ease-in-out;
+  }}
+
+  @keyframes floatGlow {{
+    0% {{ transform: translate(0, 0) scale(1); }}
+    100% {{ transform: translate(40px, 40px) scale(1.1); }}
+  }}
+
+  .badge-top {{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    color: #c084fc;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+  }}
+
   .card {{
-    background: white; border-radius: 24px; padding: 48px;
-    max-width: 640px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    border-radius: 28px;
+    padding: 52px 48px;
+    max-width: 720px;
+    width: 100%;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
   }}
-  .logo {{ font-size: 32px; margin-bottom: 8px; }}
-  h1 {{ font-size: 28px; color: #1e293b; margin-bottom: 8px; }}
-  .subtitle {{ color: #64748b; font-size: 16px; margin-bottom: 32px; line-height: 1.5; }}
+
+  .logo-bar {{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }}
+  .logo-icon {{
+    font-size: 36px;
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }}
+
+  h1 {{
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+  }}
+
+  .subtitle {{
+    color: #94a3b8;
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 36px;
+  }}
+  .highlight-text {{
+    color: #38bdf8;
+    font-weight: 600;
+  }}
+
   form {{ display: flex; flex-direction: column; gap: 16px; }}
-  .input-group {{ display: flex; gap: 12px; }}
+
+  .input-container {{
+    display: flex;
+    gap: 12px;
+    background: rgba(10, 15, 26, 0.8);
+    padding: 8px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+  }}
+  .input-container:focus-within {{
+    border-color: #a855f7;
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
+  }}
+
   input[type="text"] {{
-    flex: 1; padding: 16px 20px; font-size: 16px; border: 2px solid #e2e8f0;
-    border-radius: 12px; outline: none; transition: border-color 0.2s;
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 14px 18px;
+    font-size: 17px;
+    color: #f8fafc;
+    font-family: inherit;
+    outline: none;
   }}
-  input[type="text"]:focus {{ border-color: #4f46e5; }}
-  button {{
-    padding: 16px 32px; font-size: 16px; font-weight: 600; color: white;
-    background: #4f46e5; border: none; border-radius: 12px; cursor: pointer;
-    transition: background 0.2s; white-space: nowrap;
+  input[type="text"]::placeholder {{
+    color: #475569;
   }}
-  button:hover {{ background: #4338ca; }}
-  button:disabled {{ background: #94a3b8; cursor: not-allowed; }}
-  .loading {{ display: none; text-align: center; padding: 20px; color: #64748b; }}
+
+  button[type="submit"] {{
+    padding: 16px 36px;
+    font-size: 16px;
+    font-weight: 800;
+    color: #090d16;
+    background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #a855f7 100%);
+    background-size: 200% 200%;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
+  }}
+  button[type="submit"]:hover {{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(168, 85, 247, 0.5);
+    background-position: right center;
+  }}
+  button[type="submit"]:disabled {{
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }}
+
+  .loading {{
+    display: none;
+    text-align: center;
+    padding: 24px;
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
+  }}
   .loading.show {{ display: block; }}
   .spinner {{
-    border: 3px solid #e2e8f0; border-top: 3px solid #4f46e5; border-radius: 50%;
-    width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 12px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top: 3px solid #06b6d4;
+    border-right: 3px solid #a855f7;
+    border-radius: 50%;
+    width: 44px; height: 44px;
+    animation: spin 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    margin: 0 auto 14px;
   }}
   @keyframes spin {{ to {{ transform: rotate(360deg); }} }}
-  .examples {{ margin-top: 24px; padding-top: 24px; border-top: 1px solid #e2e8f0; }}
-  .examples h3 {{ font-size: 14px; color: #64748b; margin-bottom: 8px; }}
-  .example-links {{ display: flex; flex-wrap: wrap; gap: 8px; }}
-  .example-links a {{
-    padding: 6px 14px; background: #f1f5f9; border-radius: 8px;
-    font-size: 13px; color: #4f46e5; text-decoration: none; transition: background 0.2s;
+
+  #status-text {{
+    font-size: 15px;
+    font-weight: 600;
+    color: #38bdf8;
+    min-height: 24px;
   }}
-  .example-links a:hover {{ background: #e2e8f0; }}
-  .what-is {{ margin-top: 32px; padding: 20px; background: #f8fafc; border-radius: 12px; font-size: 14px; color: #64748b; }}
-  .what-is h3 {{ color: #1e293b; margin-bottom: 8px; font-size: 15px; }}
-  .what-is ul {{ margin-left: 18px; }}
-  .what-is li {{ margin-top: 4px; }}
-  #status-text {{ font-size: 14px; min-height: 20px; }}
+
+  .section-divider {{
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }}
+
+  .section-title {{
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #64748b;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }}
+
+  .genz-pills {{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }}
+
+  .genz-pill {{
+    padding: 8px 16px;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }}
+  .genz-pill:hover {{
+    background: rgba(51, 65, 85, 0.9);
+    border-color: #a855f7;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(168, 85, 247, 0.25);
+  }}
+
+  .grid-checks {{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+  }}
+
+  .check-card {{
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 16px;
+    transition: all 0.2s ease;
+  }}
+  .check-card:hover {{
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(30, 41, 59, 0.5);
+  }}
+  .check-card h4 {{
+    font-size: 15px;
+    color: #f1f5f9;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }}
+  .check-card p {{
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.5;
+  }}
+
+  .footer-tag {{
+    text-align: center;
+    margin-top: 28px;
+    font-size: 13px;
+    color: #475569;
+    font-weight: 600;
+  }}
 </style>
 </head>
 <body>
+
+<div class="badge-top">
+  ⚡ Next-Gen AI Visibility Audit • No Cap
+</div>
+
 <div class="card">
-  <div class="logo">🔍</div>
-  <h1>GEO Auditor</h1>
-  <p class="subtitle">See how visible your business is in AI search.<br>
-  ChatGPT, Perplexity, Claude, Google AI Overviews — are they citing you?</p>
+  <div class="logo-bar">
+    <span class="logo-icon">🚀</span>
+    <span style="font-weight: 800; font-size: 18px; letter-spacing: -0.5px; color: #94a3b8;">GEO AUDITOR</span>
+  </div>
+
+  <h1>Are You Main Character in AI Search or Ghosted? 👻</h1>
+  <p class="subtitle">
+    ChatGPT, Perplexity, Claude & Gemini are answering user questions right now.
+    We check if your site gets <span class="highlight-text">cited</span> or completely slept on. 💯
+  </p>
 
   <form id="auditForm" onsubmit="startAudit(event)">
-    <div class="input-group">
-      <input type="text" id="urlInput" placeholder="example.com" required autofocus>
-      <button type="submit" id="auditBtn">Audit →</button>
+    <div class="input-container">
+      <input type="text" id="urlInput" placeholder="Enter site domain (e.g. stripe.com)" required autofocus>
+      <button type="submit" id="auditBtn">Audit Site ✨</button>
     </div>
   </form>
 
   <div class="loading" id="loading">
     <div class="spinner"></div>
-    <p id="status-text">Starting audit...</p>
+    <p id="status-text">Cooking up your audit...</p>
   </div>
 
-  <div class="examples">
-    <h3>Sample audit reports (pre-generated, instant):</h3>
-    <div class="example-links">
-      {example_links or '<span style="font-size:13px;color:#94a3b8">No pre-generated reports available</span>'}
+  <div class="section-divider">
+    <div class="section-title">⚡ Instant Pre-Generated Audits</div>
+    <div class="genz-pills">
+      {example_links or '<span style="font-size:13px;color:#64748b">No pre-generated reports available</span>'}
     </div>
-    <h3 style="margin-top:12px">Try a live audit:</h3>
-    <div class="example-links">
-      <a href="#" onclick="document.getElementById('urlInput').value='stripe.com';return false;">stripe.com</a>
-      <a href="#" onclick="document.getElementById('urlInput').value='notion.so';return false;">notion.so</a>
-      <a href="#" onclick="document.getElementById('urlInput').value='linear.app';return false;">linear.app</a>
+
+    <div class="section-title" style="margin-top: 20px;">🔥 Live Demo Quick Hits</div>
+    <div class="genz-pills">
+      <a href="#" class="genz-pill" onclick="document.getElementById('urlInput').value='stripe.com';return false;">💳 stripe.com</a>
+      <a href="#" class="genz-pill" onclick="document.getElementById('urlInput').value='notion.so';return false;">📝 notion.so</a>
+      <a href="#" class="genz-pill" onclick="document.getElementById('urlInput').value='linear.app';return false;">⚡ linear.app</a>
     </div>
   </div>
 
-  <div class="what-is">
-    <h3>What does this check?</h3>
-    <ul>
-      <li><strong>AI Crawlability</strong> — Can ChatGPT/Perplexity/Claude crawlers reach your site?</li>
-      <li><strong>Content Answerability</strong> — Does your content answer questions AI engines extract and cite?</li>
-      <li><strong>Structured Data</strong> — Can machines parse your site's schema.org data?</li>
-      <li><strong>AI Brand Recall</strong> — When AI engines answer questions about your industry, do they mention you?</li>
-      <li><strong>AI Visibility & Competitive Intelligence</strong> — The core pillar. Checks 5 things:
-        <ul style="margin-top: 4px; font-size: 13px; color: #94a3b8;">
-          <li>Are you on the 7 platforms AI engines search first?</li>
-          <li>Do competitors have platform coverage you don't?</li>
-          <li>Does the AI describe you correctly (positioning accuracy)?</li>
-          <li>Does the AI mention you more or less than competitors (share of voice)?</li>
-          <li>Will AI vector/semantic search retrieve your content?</li>
-        </ul>
-      </li>
-    </ul>
+  <div class="section-divider">
+    <div class="section-title">🔮 What We Check Under The Hood</div>
+    <div class="grid-checks">
+      <div class="check-card">
+        <h4>🤖 AI Crawlability</h4>
+        <p>Checks if GPTBot, ClaudeBot & Perplexity agents are blocked in your robots.txt or sitemaps.</p>
+      </div>
+      <div class="check-card">
+        <h4>🧠 Content Answerability</h4>
+        <p>LLM evaluation on direct answer clarity, stats, facts, citations and schema structure.</p>
+      </div>
+      <div class="check-card">
+        <h4>🏷️ Structured Data</h4>
+        <p>Verifies JSON-LD machine readability, OpenGraph tags, and semantic hierarchy.</p>
+      </div>
+      <div class="check-card">
+        <h4>🎯 Live AI Brand Recall</h4>
+        <p>Queries AI models in real time to see if your brand is recommended for industry questions.</p>
+      </div>
+      <div class="check-card" style="grid-column: 1 / -1;">
+        <h4>👁️ AI Visibility & Competitive Intelligence</h4>
+        <p>Checks 7 key search platforms (Reddit, Wikipedia, G2, YouTube...), positioning accuracy, share of voice vs competitors, and vector search embedding inclusion.</p>
+      </div>
+    </div>
   </div>
 </div>
+
+<div class="footer-tag">
+  Built for the AI Search Era • GEO Auditor v0.2.0 ✨
+</div>
+
 <script>
 async function startAudit(event) {{
   event.preventDefault();
@@ -290,7 +554,7 @@ async function pollStatus(jobId) {{
         clearInterval(interval);
         document.getElementById('status-text').innerHTML =
           '❌ Audit failed: ' + (data.error || 'Unknown error') +
-          ' <br><a href="/" style="color:#4f46e5">← Try again</a>';
+          ' <br><a href="/" style="color:#06b6d4; margin-top: 8px; display: inline-block;">← Try again</a>';
         document.getElementById('auditBtn').disabled = false;
       }} else {{
         // Update status text with rotating steps for UX
